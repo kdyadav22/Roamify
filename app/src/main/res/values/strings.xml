@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Demo</string>
+    <string name="hotels">HOTELS</string>
+    <string name="water_activity">WATER ACTIVITIES</string>
+    <string name="air_activity">AIR ACTIVITIES</string>
+    <string name="land_activity">LAND ACTIVITIES</string>
+    <string name="contact_us">CONTACT</string>
+    <string name="about_us">ABOUT US</string>
+    <string name="faq">FAQ</string>
+    <string name="destination">DESTINATIONS</string>
 </resources>
