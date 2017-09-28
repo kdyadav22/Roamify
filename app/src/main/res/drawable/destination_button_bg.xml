@@ -10,7 +10,7 @@
     <item android:state_pressed="false">
         <shape android:shape="rectangle">
             <corners android:radius="0dp"/>
-            <solid android:color="@color/color_air_activity"/>
+            <solid android:color="@color/color_destination"/>
             <stroke android:color="@color/md_black_1000" android:width="2dp"/>
         </shape>
     </item>

@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    
+    <color name="color_hotel">#D05D74</color>
+    <color name="color_water_activity">#B34A82</color>
+    <color name="color_air_activity">#D3886E</color>
+    <color name="color_land_activity">#BFAF44</color>
+    <color name="color_destination">#1BAAA8</color>
+    <color name="color_contact_us">#3EAF81</color>
+    <color name="color_about_us">#4F94B5</color>
+    <color name="color_faq">#5CAFB7</color>
 </resources>

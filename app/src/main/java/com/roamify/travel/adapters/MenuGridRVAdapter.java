@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * Created by kapilyadav on 27-Sep-17.
  */
 
-public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> implements View.OnClickListener {
+public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> {
     private MenuItemModel menuItemModel = new MenuItemModel();
     private Activity activity;
 
@@ -32,7 +32,7 @@ public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> imp
     }
 
     @Override
-    public void onBindViewHolder(MenuViewHandler holder, int position) {
+    public void onBindViewHolder(MenuViewHandler holder, final int position) {
         MenuItemModel data = menuItemModel.getMenuItemModels().get(position);
         menuItemModel.setHolder(holder);
         menuItemModel.setPosition(position);
@@ -43,7 +43,12 @@ public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> imp
             } catch (Exception e) {
                 e.getMessage();
             }
-            holder.ll_rowLayout.setOnClickListener(this);
+            holder.ll_rowLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MenuPage.menuItemClickListener.menuClicked(position);
+                }
+            });
         }
     }
 
@@ -52,10 +57,4 @@ public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> imp
         return menuItemModel.getMenuItemModels().size();
     }
 
-    @Override
-    public void onClick(View view) {
-        if (view == menuItemModel.getHolder().ll_rowLayout) {
-            MenuPage.getInstance().getMenuItemClickListener().menuClicked(menuItemModel.getPosition());
-        }
-    }
 }

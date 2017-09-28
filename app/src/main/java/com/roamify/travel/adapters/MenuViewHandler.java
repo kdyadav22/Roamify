@@ -18,8 +18,8 @@ public class MenuViewHandler extends RecyclerView.ViewHolder {
     TextView tv_Title;
     public MenuViewHandler(View itemView) {
         super(itemView);
-        ll_rowLayout = itemView.findViewById(R.id.ll_rowLayout);
-        iv_Icon = itemView.findViewById(R.id.imageView);
-        tv_Title = itemView.findViewById(R.id.textView);
+        ll_rowLayout = (LinearLayout) itemView.findViewById(R.id.ll_rowLayout);
+        iv_Icon = (ImageView) itemView.findViewById(R.id.imageView);
+        tv_Title = (TextView) itemView.findViewById(R.id.textView);
     }
 }
