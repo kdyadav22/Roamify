@@ -1,5 +1,6 @@
 package com.roamify.travel.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -22,6 +23,9 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
     TextView headerTextView;
     RawDataModel rawDataModel = new RawDataModel();
 
+    public static Context getContext() {
+        return mInstance.getApplicationContext();
+    }
     public static synchronized ActivitiesList getInstance() {
         return mInstance;
     }
@@ -54,11 +58,11 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             @Override
             public void run() {
                 try {
-            /*Bundle bundle = getIntent().getExtras();
-            ObjectA obj = bundle.getParcelable("obj");
+                    /*Bundle bundle = getIntent().getExtras();
+                    ObjectA obj = bundle.getParcelable("obj");
 
-            Log.i("---------- Id   ",":: "+obj.getIntValue());
-            Log.i("---------- Name ",":: "+obj.getStrValue());*/
+                    Log.i("---------- Id   ",":: "+obj.getIntValue());
+                    Log.i("---------- Name ",":: "+obj.getStrValue());*/
 
                     switch (getIntent().hasExtra("title") ? getIntent().getStringExtra("title") : "") {
                         case "WATER ACTIVITIES": {
@@ -78,7 +82,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
                             break;
                         }
                     }
-                    //ArrayList<ActivityModel> rawDataModel = (ArrayList<ActivityModel>) getIntent().getSerializableExtra("obj");
                     mRecyclerView.setAdapter(new ActivitiesRVAdapter(rawDataModel.getActivityModelarrayList(), ActivitiesList.getInstance()));
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -89,6 +92,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
 
     @Override
     public void activityClicked(int pos) {
-        Toast.makeText(getApplicationContext(), "" + RawData.setWaterActivity().get(pos).getActivityName() + " is selected.", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "" + rawDataModel.getActivityModelarrayList().get(pos).getActivityName() + " is selected.", Toast.LENGTH_LONG).show();
     }
 }
