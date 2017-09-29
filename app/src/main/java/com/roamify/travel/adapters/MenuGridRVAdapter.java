@@ -19,10 +19,12 @@ import java.util.ArrayList;
 public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> {
     private MenuItemModel menuItemModel = new MenuItemModel();
     private Activity activity;
+    int menuHeight;
 
-    public MenuGridRVAdapter(ArrayList<MenuItemModel> menuItemModels, Activity activity) {
+    public MenuGridRVAdapter(ArrayList<MenuItemModel> menuItemModels, Activity activity, int menuHeight) {
         this.activity = activity;
         menuItemModel.setMenuItemModels(menuItemModels);
+        this.menuHeight = menuHeight;
     }
 
     @Override
@@ -39,6 +41,8 @@ public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> {
         if (data != null) {
             try {
                 holder.tv_Title.setText(data.getTitle());
+                if (menuHeight > 0)
+                    holder.ll_rowLayout.getLayoutParams().height = menuHeight;
                 holder.ll_rowLayout.setBackgroundResource(data.getDrawable());
             } catch (Exception e) {
                 e.getMessage();

@@ -1,12 +1,8 @@
 package com.roamify.travel.rawdata;
 
-import com.roamify.travel.R;
 import com.roamify.travel.models.ActivityModel;
-import com.roamify.travel.models.DestinationModel;
 import com.roamify.travel.models.HotelsModel;
-import com.roamify.travel.models.MenuItemModel;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -131,7 +127,7 @@ public class RawData {
 
         ActivityModel title5 = new ActivityModel();
         title5.setActivityName("Sailing");
-        title5.setActivityId("5");
+        title5.setActivityId("w5");
         arrayList.add(title5);
 
         ActivityModel title6 = new ActivityModel();

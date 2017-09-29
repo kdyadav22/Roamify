@@ -17,12 +17,13 @@ import java.util.ArrayList;
  */
 
 public class ActivitiesRVAdapter extends RecyclerView.Adapter<ActivityViewHandler> {
-    private ActivityModel activityModel = new ActivityModel();
+    //private ActivityModel activityModel = new ActivityModel();
     private Activity activity;
-
+    ArrayList<ActivityModel> activityModels;
     public ActivitiesRVAdapter(ArrayList<ActivityModel> activityModels, Activity activity) {
         this.activity = activity;
-        activityModel.setActivityModels(activityModels);
+        //activityModel.setActivityModels(activityModels);
+        this.activityModels = activityModels;
     }
 
     @Override
@@ -33,8 +34,7 @@ public class ActivitiesRVAdapter extends RecyclerView.Adapter<ActivityViewHandle
 
     @Override
     public void onBindViewHolder(ActivityViewHandler holder, int position) {
-        final ActivityModel data = activityModel.getActivityModels().get(position);
-        activityModel.setPosition(position);
+        final ActivityModel data = activityModels.get(position);
         if (data != null) {
             try {
                 holder.tv_Title.setText(data.getActivityName());
@@ -52,7 +52,7 @@ public class ActivitiesRVAdapter extends RecyclerView.Adapter<ActivityViewHandle
 
     @Override
     public int getItemCount() {
-        return activityModel.getActivityModels().size();
+        return activityModels.size();
     }
 
 }

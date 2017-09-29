@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by Kapil on 28/09/17.
  */
 
-public class ActivityModel {
+public class ActivityModel{
     public String getActivityName() {
         return activityName;
     }
