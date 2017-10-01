@@ -33,7 +33,7 @@ public class ActivitiesRVAdapter extends RecyclerView.Adapter<ActivityViewHandle
     }
 
     @Override
-    public void onBindViewHolder(ActivityViewHandler holder, int position) {
+    public void onBindViewHolder(ActivityViewHandler holder, final int position) {
         final ActivityModel data = activityModels.get(position);
         if (data != null) {
             try {
@@ -44,7 +44,7 @@ public class ActivitiesRVAdapter extends RecyclerView.Adapter<ActivityViewHandle
             holder.ll_activity_rowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ActivitiesList.activityItemClickListener.activityClicked(data.getPosition());
+                    ActivitiesList.activityItemClickListener.activityClicked(position);
                 }
             });
         }
