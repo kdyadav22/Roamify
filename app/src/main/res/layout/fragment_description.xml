@@ -1,0 +1,18 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.roamify.travel.fragment.DescriptionFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text="If you are adventurous and wish to get the thrill of adrenaline-rush, then Chadar trek is what you should be trying for. This will give you a chance to walk on the frozen Zanskar River. This activity is a huge favourite among Indians and travellers from abroad. Meant to be tried by seasoned professionals, Chadar river trek is about endurance, focus and fitness.
+
+The beauty of this region attracts a lot of visitors, but its harsh and deserted environment is quite demanding. On a Zanskar Valley trek, you would meet the locals and understand their way of living in one of the most uninhabitable regions in the world. The journey will start from Leh and move towards Chilling, followed by a hike to Tilad Do, the starting point of Chadar trek. From Tilad Do, the group will proceed towards Gyalpo and then to Div Cave and the village of Naerak. The trail route from Div Cave to Naerak is considered the most picturesque one and will give you a great opportunity to click some wonderful p... " />
+
+</FrameLayout>

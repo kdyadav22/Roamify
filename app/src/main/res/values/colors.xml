@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    
     <color name="color_hotel">#D05D74</color>
     <color name="color_water_activity">#B34A82</color>
     <color name="color_air_activity">#D3886E</color>
@@ -12,4 +8,47 @@
     <color name="color_contact_us">#3EAF81</color>
     <color name="color_about_us">#4F94B5</color>
     <color name="color_faq">#5CAFB7</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black">#FF000000</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#FFFFFF00</color>
+    <color name="orange">#FFFF8C00</color>
+    <color name="moccasin">#FFFFE4B5</color>
+    <color name="silver">#FFC0C0C0</color>
+    <color name="lightchacolate">#FF473421</color>
+    <color name="chacolate">#FF291e13</color>
+    <color name="lightperu">#FFCCAA8A</color>
+    <color name="peru">#FF745435</color>
+    <color name="sandlebrown">#FF8B4513</color>
+    <color name="lightGray">#FFd3d3d3</color>
+    <color name="siv_back">#FF241b12</color>
+    <color name="rank">#FFebb428</color>
+    <color name="grayred">#FF51051E</color>
+    <color name="deepskyblue">#FF00BFFF</color>
+    <color name="lightblue">#3CBED3E0</color>
+    <color name="skyblue">#C84C89C8</color>
+    <color name="palegray">#FFEDEDED</color>
+    <color name="brown">#FF4C566C</color>
+    <color name="lightbrown">#FFBCBFC6</color>
+    <color name="transparentgrey">#FFE4E4E3</color>
+    <color name="translucentblack">#77000000</color>
+    <color name="translucentwhite">#99ffffff</color>
+    <color name="translucentwhitelight">#55ffffff</color>
+    <color name="holo_green_dark">#ff669900</color>
+    <color name="greybackground">#005C5863</color>
+    <color name="drak_grey">#FF575757</color>
+    <color name="disabled">#30303030</color>
+    <color name="nocolor">#00FFFFFF</color>
+    <color name="darkGray">#808080</color>
+    <color name="yellow1">#FFFFC600</color>
+    <color name="yellow2">#FFE09500</color>
+    <color name="red">#FFFF0000</color>
+    <color name="transparent">#00000000</color>
+    <color name="navigationBgColor">#ff6c5d54</color>
+    <color name="TajMagenta">#ffc20336</color>
+    <color name="grid_state_pressed">#1Affffff</color>
+    <color name="grid_state_focused">#80000000</color>
 </resources>

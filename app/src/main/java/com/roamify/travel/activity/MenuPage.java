@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Display;
 import android.widget.LinearLayout;
@@ -35,8 +36,8 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
         setContentView(R.layout.activity_menu_page);
         menuItemClickListener = this;
         RecyclerView mMenuListRecyclerView = (RecyclerView) findViewById(R.id.rv_menu);
-        GridLayoutManager mLayoutManager2 = new GridLayoutManager(getApplicationContext(), 2);
-        mMenuListRecyclerView.setLayoutManager(mLayoutManager2);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        mMenuListRecyclerView.setLayoutManager(mLayoutManager);
         mMenuListRecyclerView.setHasFixedSize(true);
         mMenuListRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -59,7 +60,6 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
 
     @Override
     public void menuClicked(int position) {
-        //Toast.makeText(getApplicationContext(), "Selected Menu at pos " + position + " is " + setMenuData().get(position).getTitle(), Toast.LENGTH_LONG).show();
         Intent intent = null;
         switch (setMenuData().get(position).getTitle()) {
             case "HOTELS": {
@@ -67,11 +67,10 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
             }
             case "WATER ACTIVITIES": {
                 try {
-                    //ArrayList<ActivityModel> rawDataModel = RawData.setWaterActivity();
-                    intent = new Intent(getApplicationContext(), ActivitiesList.class);
-                    //intent.putExtra("obj", rawDataModel);
+                    intent = new Intent(getApplicationContext(), ActivityDetails.class);
                     intent.putExtra("title", "WATER ACTIVITIES");
                     startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -79,11 +78,10 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
             }
             case "AIR ACTIVITIES": {
                 try {
-                    //ArrayList<ActivityModel> rawDataModel = RawData.setAirActivity();
-                    intent = new Intent(getApplicationContext(), ActivitiesList.class);
-                    //intent.putExtra("obj", rawDataModel);
+                    intent = new Intent(getApplicationContext(), ActivityDetails.class);
                     intent.putExtra("title", "AIR ACTIVITIES");
                     startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -91,11 +89,10 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
             }
             case "LAND ACTIVITIES": {
                 try {
-                    //ArrayList<ActivityModel> rawDataModel = RawData.setLandActivity();
-                    intent = new Intent(getApplicationContext(), ActivitiesList.class);
-                    //intent.putExtra("obj", rawDataModel);
+                    intent = new Intent(getApplicationContext(), ActivityDetails.class);
                     intent.putExtra("title", "LAND ACTIVITIES");
                     startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -112,9 +109,7 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
             }
             case "DESTINATIONS": {
                 try {
-                    //ArrayList<ActivityModel> rawDataModel = RawData.setDestination();
                     intent = new Intent(getApplicationContext(), ActivitiesList.class);
-                    //intent.putExtra("obj", rawDataModel);
                     intent.putExtra("title", "DESTINATIONS");
                     startActivity(intent);
                 } catch (Exception ex) {
@@ -123,7 +118,6 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
                 break;
             }
         }
-
     }
 
     private ArrayList<MenuItemModel> setMenuData() {

@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="FullscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
@@ -19,13 +20,31 @@
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
         <item name="android:padding">6dp</item>
         <item name="android:lineSpacingExtra">1dp</item>
         <item name="android:lineSpacingMultiplier">1</item>
-        <item name="android:textColor">@color/md_grey_800</item>
+        <item name="android:textColor">@color/md_white_1000</item>
         <item name="android:textColorHint">@color/md_grey_500</item>
         <item name="android:background">@drawable/edit_bg</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="edittext_comment">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:lineSpacingExtra">1dp</item>
+        <item name="android:lineSpacingMultiplier">1</item>
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textColorHint">@color/md_grey_500</item>
+        <item name="android:background">@drawable/edit_bg</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="custom_alert_dialog_text">
@@ -44,5 +63,47 @@
     <style name="timepicker">
         <item name="android:textColor">@color/md_grey_800</item>
         <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="FullscreenTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="FullscreenTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/darkGray</item>
+    </style>
+
+    <style name="ToolbarButtonNavigation" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="color">@color/darkGray</item>
+    </style>
+
+    <style name="NavBarTitle">
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="NavBarSubTitle">
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="PhotoGridLayout">
+        <item name="android:drawSelectorOnTop">true</item>
+        <item name="android:listSelector">@drawable/photogrid_list_selector</item>
+    </style>
+
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/md_white_1000</item>
+        <item name="android:icon">@color/md_white_1000</item>
     </style>
 </resources>

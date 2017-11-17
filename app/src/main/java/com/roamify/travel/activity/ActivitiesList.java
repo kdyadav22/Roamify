@@ -1,6 +1,7 @@
 package com.roamify.travel.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -26,6 +27,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
     public static Context getContext() {
         return mInstance.getApplicationContext();
     }
+
     public static synchronized ActivitiesList getInstance() {
         return mInstance;
     }
@@ -92,6 +94,8 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
 
     @Override
     public void activityClicked(int pos) {
-        Toast.makeText(getApplicationContext(), "" + rawDataModel.getActivityModelarrayList().get(pos).getActivityName() + " is selected.", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), ActivityDetails.class);
+        intent.putExtra("isComingFromList",true);
+        startActivity(intent);
     }
 }
