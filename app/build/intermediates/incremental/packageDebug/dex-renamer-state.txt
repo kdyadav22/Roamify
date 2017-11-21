@@ -1,0 +1,7 @@
+#Mon Nov 13 17:34:37 IST 2017
+base.0=/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2d81a51aa82825ddff657297c723db5029df60f2
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_d732d58ea80cb341d81db9bb63aab0a7f975fe8f/classes.dex
+base.1=/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_d732d58ea80cb341d81db9bb63aab0a7f975fe8f
+file.0=/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2d81a51aa82825ddff657297c723db5029df60f2/classes.dex

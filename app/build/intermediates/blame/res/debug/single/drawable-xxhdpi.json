@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_home.png",
+        "source": "/Users/Kapil/Documents/MyWorks/Romify/app/src/main/res/drawable-xxhdpi/ic_action_home.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_hotel_white_24dp.png",
+        "source": "/Users/Kapil/Documents/MyWorks/Romify/app/src/main/res/drawable-xxhdpi/ic_hotel_white_24dp.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_next.png",
+        "source": "/Users/Kapil/Documents/MyWorks/Romify/app/src/main/res/drawable-xxhdpi/ic_next.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_import_contacts_white_24dp.png",
+        "source": "/Users/Kapil/Documents/MyWorks/Romify/app/src/main/res/drawable-xxhdpi/ic_import_contacts_white_24dp.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_my_location_white_24dp.png",
+        "source": "/Users/Kapil/Documents/MyWorks/Romify/app/src/main/res/drawable-xxhdpi/ic_my_location_white_24dp.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_action_home_white.png",
+        "source": "/Users/Kapil/Documents/MyWorks/Romify/app/src/main/res/drawable-xxhdpi/ic_action_home_white.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Romify/app/build/intermediates/res/merged/debug/drawable-xxhdpi/abc_ic_ab_back_material.png",
+        "source": "/Users/Kapil/Documents/MyWorks/Romify/app/build/generated/res/pngs/debug/drawable-xxhdpi/abc_ic_ab_back_material.png"
+    }
+]

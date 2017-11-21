@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/corner_bg_with_whitebg_for_dialog"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_marginTop="10dp"
+            style="@style/edittext"
+            android:inputType="text|textCapSentences"
+            android:hint="Name*" />
+
+        <EditText
+            style="@style/edittext"
+            android:inputType="textEmailAddress"
+            android:hint="Email*" />
+
+        <EditText
+            style="@style/edittext"
+            android:inputType="phone"
+            android:hint="Phone*" />
+
+        <EditText
+            style="@style/edittext"
+            android:inputType="numberDecimal"
+            android:hint="No. of person*" />
+
+        <EditText
+            style="@style/edittext_comment"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:hint="Comment" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/md_grey_300" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cancelButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".50"
+                android:background="@drawable/left_section_bg"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/cancel"
+                android:textColor="@color/md_white_1000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:id="@+id/submitButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".50"
+                android:background="@drawable/right_section_bg"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/submit"
+                android:textColor="@color/md_white_1000"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:background="@color/transparent" >
+
+    <TextView
+        android:id="@+id/navigation_cell_title"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@color/transparent"
+        android:maxLines="1"
+        android:layout_weight=".80"
+        android:minLines="1"
+        android:text="Jeep Safari"
+        android:textColor="@color/md_grey_700"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_marginLeft="10dp"
+        android:visibility="visible" >
+    </TextView>
+
+
+    <ImageView
+        android:id="@+id/navigation_cell_thumbnail"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_next"
+        android:scaleType="fitCenter"
+        android:visibility="visible" >
+    </ImageView>
+
+</LinearLayout>

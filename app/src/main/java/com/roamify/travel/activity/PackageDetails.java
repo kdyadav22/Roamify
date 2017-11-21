@@ -1,9 +1,7 @@
 package com.roamify.travel.activity;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -28,7 +26,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.roamify.travel.R;
 import com.roamify.travel.fragment.DescriptionFragment;
@@ -38,7 +35,6 @@ import com.roamify.travel.fragment.TestimonialsFragment;
 import com.roamify.travel.models.PackageDetailsModel;
 import com.roamify.travel.models.PackageTabModel;
 import com.roamify.travel.rawdata.RawData;
-import com.roamify.travel.utils.Validations;
 
 import org.json.JSONArray;
 import org.json.JSONException;
