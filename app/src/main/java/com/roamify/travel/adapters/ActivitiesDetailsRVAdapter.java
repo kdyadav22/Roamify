@@ -3,6 +3,7 @@ package com.roamify.travel.adapters;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,12 @@ public class ActivitiesDetailsRVAdapter extends RecyclerView.Adapter<ActivityDet
     @Override
     public void onBindViewHolder(ActivityDetailsViewHandler holder, final int position) {
         final PackageModel data = activityModels.get(holder.getAdapterPosition());
+        DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
+        final int width = displayMetrics.widthPixels / 2;
+        ViewGroup.LayoutParams layoutParams = holder.ll_activity_rowLayout.getLayoutParams();
+        layoutParams.width = width;
+        layoutParams.height = width;
+        holder.ll_activity_rowLayout.setLayoutParams(layoutParams);
         if (data != null) {
             try {
                 holder.tv_pkgname.setText(data.getPackageName());

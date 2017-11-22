@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw720dp-v13/values-sw720dp-v13.xml",
+            "outputFile": "D:\\RunningApps\\Romify\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-25.3.1.aar/58242356c1a840e8fceb90b8fee75acb/res/values-sw720dp-v13/values-sw720dp-v13.xml",
+                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-26.1.0.aar\\1a59359916f9595fe49a58846fcbd221\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

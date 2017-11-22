@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-land/values-land.xml",
+            "outputFile": "D:\\RunningApps\\Romify\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f7585ecf4175317478985b12713cff74/res/values-land/values-land.xml",
+                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\58521dd71a36b97b339945bc43fbe675\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/a11e3bd7f46399180fc217032a6e04fd/res/values-land/values-land.xml",
+                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\00e6556361a2e85e44fbb1f431e0dad0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-cast-framework-11.0.4.aar/0e053116caee9eb433a12ee6d9a812e7/res/values-land/values.xml",
+                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-framework-11.6.0.aar\\106199200a0d2029f3f16e2abbb274b4\\res\\values-land\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9",
                         "startColumns": "0,0,0,0,0,0",
@@ -50,7 +50,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-25.3.1.aar/58242356c1a840e8fceb90b8fee75acb/res/values-land/values-land.xml",
+                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-26.1.0.aar\\1a59359916f9595fe49a58846fcbd221\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

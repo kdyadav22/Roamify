@@ -5,7 +5,20 @@ package com.roamify.travel.models;
  */
 
 public class PackageModel {
-    String packageId, packageName, packageDuration, packagePrice, packageImageName;
+    private String packageId;
+    private String packageName;
+    private String packageDuration;
+    private String packagePrice;
+    private String packageImageName;
+    private String packageReview;
+
+    public String getPackageReview() {
+        return packageReview;
+    }
+
+    public void setPackageReview(String packageReview) {
+        this.packageReview = packageReview;
+    }
 
     public String getPackageId() {
         return packageId;

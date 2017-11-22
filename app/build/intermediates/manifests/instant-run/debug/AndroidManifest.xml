@@ -5,12 +5,10 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="19"
-        android:targetSdkVersion="25" />
+        android:minSdkVersion="15"
+        android:targetSdkVersion="26" />
 
-    <meta-data
-        android:name="android.support.VERSION"
-        android:value="25.3.1" /> <!-- Include required permissions for Google Maps API to run. -->
+    <!-- Include required permissions for Google Maps API to run. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -74,10 +72,30 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.roamify.travel.activity.ZoneActivity" />
 
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
+
         <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver" />
 
         <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService" />
         <service android:name="com.google.android.gms.cast.framework.ReconnectionService" />
+
+        <receiver
+            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity
             android:name="com.google.android.gms.appinvite.PreviewActivity"
@@ -110,6 +128,7 @@ Service handling Google Sign-In user revocation. For apps that do not integrate 
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
             android:theme="@android:style/Theme.Translucent" />
         <!--
  FirebaseMessagingService performs security checks at runtime,
@@ -177,13 +196,6 @@ Service handling Google Sign-In user revocation. For apps that do not integrate 
             </intent-filter>
         </receiver>
         <!--
- Internal (not exported) receiver used by the app to start its own exported services
-             without risk of being spoofed.
-        -->
-        <receiver
-            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
-            android:exported="false" />
-        <!--
  FirebaseInstanceIdService performs security checks at runtime,
              no need for explicit permissions despite exported="true"
         -->
@@ -200,6 +212,11 @@ Service handling Google Sign-In user revocation. For apps that do not integrate 
             android:authorities="com.roamify.travel.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
+
+        <meta-data
+            android:name="android.arch.lifecycle.VERSION"
+            android:value="27.0.0-SNAPSHOT" />
+
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"
             android:authorities="com.roamify.travel.com.android.tools.ir.server.InstantRunContentProvider"

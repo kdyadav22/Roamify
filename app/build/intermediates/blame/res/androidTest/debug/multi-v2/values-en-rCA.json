@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "D:\\RunningApps\\Romify\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-en-rCA\\values-en-rCA.xml",
             "map": [
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-wallet-11.0.4.aar/cecb8cfff9f2672475974511e533b82f/res/values-en-rCA/values.xml",
+                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-wallet-11.6.0.aar\\1f2025448eee098e575aef69c573178e\\res\\values-en-rCA\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
