@@ -3,23 +3,16 @@ package com.roamify.travel.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.Sampler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.InflateException;
 import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -29,7 +22,6 @@ import android.widget.TextView;
 
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivitiesDetailsRVAdapter;
-import com.roamify.travel.adapters.ActivitiesRVAdapter;
 import com.roamify.travel.models.RawDataModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.views.NavigationCellView;
@@ -121,7 +113,7 @@ public class ActivityDetails extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.right_bar_button) {
-            Intent intent = new Intent(getApplicationContext(),MenuPage.class);
+            Intent intent = new Intent(getApplicationContext(),HomePage.class);
             startActivity(intent);
             finish();
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
