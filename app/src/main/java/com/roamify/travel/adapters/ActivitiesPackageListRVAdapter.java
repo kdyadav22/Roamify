@@ -7,11 +7,10 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.roamify.travel.R;
 import com.roamify.travel.activity.ActivitiesList;
-import com.roamify.travel.activity.PackageDetails;
+import com.roamify.travel.activity.ActivityPackageDetails;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.models.PackageModel;
 
@@ -61,7 +60,7 @@ public class ActivitiesDetailsRVAdapter extends RecyclerView.Adapter<ActivityDet
                         ActivitiesList.activityItemClickListener.activityClicked(position);
 
                     //For testing
-                    Intent intent = new Intent(activity, PackageDetails.class);
+                    Intent intent = new Intent(activity, ActivityPackageDetails.class);
                     activity.startActivity(intent);
                     activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
