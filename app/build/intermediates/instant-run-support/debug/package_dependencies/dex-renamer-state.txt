@@ -1,7 +1,4 @@
-#Wed Nov 22 14:32:50 IST 2017
-base.0=D\:\\RunningApps\\Romify\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
-renamed.1=classes2.dex
+#Sat Nov 25 13:08:52 IST 2017
+base.0=/Users/Kapil/Documents/Roamify/app/build/intermediates/transforms/dexMerger/debug/11
 renamed.0=classes.dex
-file.1=D\:\\RunningApps\\Romify\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10\\classes2.dex
-base.1=D\:\\RunningApps\\Romify\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
-file.0=D\:\\RunningApps\\Romify\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10\\classes.dex
+file.0=/Users/Kapil/Documents/Roamify/app/build/intermediates/transforms/dexMerger/debug/11/classes.dex

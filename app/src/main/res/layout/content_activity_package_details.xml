@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activity.PackageDetails"
+    tools:context=".activity.ActivityPackageDetails"
     tools:showIn="@layout/activity_package_details">
 
     <ScrollView
@@ -20,9 +20,9 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/rl_imageLayout"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.40">
+                android:layout_height="200dp">
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/tree_detail_pager"
@@ -52,15 +52,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.60"
+                android:layout_height="match_parent"
                 android:background="@color/brown"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.15"
+                    android:layout_height="40dp"
                     android:background="@color/translucentblack"
                     android:orientation="horizontal">
 
@@ -142,7 +140,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.85"
                     android:orientation="vertical">
 
@@ -179,7 +177,23 @@
 
                 </LinearLayout>
             </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/white"
+                android:gravity="center|left"
+                android:text="Top popular Activities"
+                android:textColor="@color/md_green_700"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
+            <fragment
+                android:id="@+id/list_frag"
+                class="com.roamify.travel.fragment.TopActivitiesFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />
         </LinearLayout>
 
     </ScrollView>

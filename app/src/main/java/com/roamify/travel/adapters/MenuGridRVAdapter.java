@@ -7,8 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.roamify.travel.R;
-import com.roamify.travel.activity.MenuPage;
+import com.roamify.travel.activity.HomePage;
 import com.roamify.travel.models.MenuItemModel;
+import com.roamify.travel.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -41,8 +42,8 @@ public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> {
         if (data != null) {
             try {
                 holder.tv_Title.setText(data.getTitle());
-                if (menuHeight > 0)
-                    holder.ll_rowLayout.getLayoutParams().height = menuHeight;
+                /*if (menuHeight > 0)
+                    holder.ll_rowLayout.getLayoutParams().height = menuHeight;*/
                 holder.ll_rowLayout.setBackgroundResource(data.getDrawable());
             } catch (Exception e) {
                 e.getMessage();
@@ -50,7 +51,8 @@ public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> {
             holder.ll_rowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    MenuPage.menuItemClickListener.menuClicked(position);
+                    if (Constants.activityItemClickListener != null)
+                        Constants.activityItemClickListener.onClicked(position);
                 }
             });
         }

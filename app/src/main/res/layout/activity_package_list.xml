@@ -17,6 +17,7 @@
         android:layout_width="250dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:visibility="gone"
         android:layout_marginTop="?attr/actionBarSize"
         android:background="@color/md_white_1000"
         android:fitsSystemWindows="true">

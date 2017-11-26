@@ -42,7 +42,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PackageDetails extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class ActivityPackageDetails extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
 
     protected Toolbar toolbar;
     protected ViewPager treeDetailPager;
@@ -152,7 +152,7 @@ public class PackageDetails extends AppCompatActivity implements View.OnClickLis
         treeDetailPager = (ViewPager) findViewById(R.id.tree_detail_pager);
         tvPackagename = (TextView) findViewById(R.id.tv_packagename);
         tvPackagesubmit = (TextView) findViewById(R.id.tv_packagesubmit);
-        tvPackagesubmit.setOnClickListener(PackageDetails.this);
+        tvPackagesubmit.setOnClickListener(ActivityPackageDetails.this);
         tablayout = (TabLayout) findViewById(R.id.tablayout);
         tabview = (LinearLayout) findViewById(R.id.tabview);
         detailsViewContainer = (LinearLayout) findViewById(R.id.details_view_container);
@@ -168,18 +168,24 @@ public class PackageDetails extends AppCompatActivity implements View.OnClickLis
             npe.getMessage();
         }
 
-        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
-        upArrow.setColorFilter(getResources().getColor(R.color.darkGray), PorterDuff.Mode.SRC_ATOP);
-        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+        try {
+            final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
+            upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
+            getSupportActionBar().setHomeAsUpIndicator(upArrow);
+        }
+        catch (RuntimeException re)
+        {
+            re.printStackTrace();
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //onBackPressed();
                 finish();
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
-                //onBackPressed();
-                /*Intent intent = new Intent(getApplicationContext(), ActivityDetails.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.left_in, R.anim.right_out);*/
             }
         });
     }
@@ -291,7 +297,7 @@ public class PackageDetails extends AppCompatActivity implements View.OnClickLis
 
     public void showQueryDialog() {
         try {
-            final Dialog mdialog = new Dialog(PackageDetails.this);
+            final Dialog mdialog = new Dialog(ActivityPackageDetails.this);
             mdialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
             mdialog.setContentView(R.layout.query_submition_dialog);
             mdialog.setCancelable(false);

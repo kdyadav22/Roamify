@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.roamify.travel.R;
 import com.roamify.travel.models.ActivityModel;
+import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.utils.Constants;
 
 import java.util.ArrayList;
@@ -19,9 +20,9 @@ import java.util.ArrayList;
 public class SearchRVAdapter extends RecyclerView.Adapter<SearchViewHandler> {
     //private ActivityModel activityModel = new ActivityModel();
     private Activity activity;
-    ArrayList<ActivityModel> activityModels;
+    private ArrayList<HomePageSearchModel> activityModels;
 
-    public SearchRVAdapter(ArrayList<ActivityModel> activityModels, Activity activity) {
+    public SearchRVAdapter(ArrayList<HomePageSearchModel> activityModels, Activity activity) {
         this.activity = activity;
         //activityModel.setActivityModels(activityModels);
         this.activityModels = activityModels;
@@ -35,10 +36,10 @@ public class SearchRVAdapter extends RecyclerView.Adapter<SearchViewHandler> {
 
     @Override
     public void onBindViewHolder(SearchViewHandler holder, final int position) {
-        final ActivityModel data = activityModels.get(position);
+        final HomePageSearchModel data = activityModels.get(position);
         if (data != null) {
             try {
-                holder.tv_Title.setText(data.getActivityName());
+                holder.tv_Title.setText(data.getName());
             } catch (Exception e) {
                 e.getMessage();
             }

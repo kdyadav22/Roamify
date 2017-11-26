@@ -5,43 +5,48 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Display;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.MenuGridRVAdapter;
-import com.roamify.travel.listeners.MenuItemClickListener;
+import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.MenuItemModel;
+import com.roamify.travel.utils.Constants;
+import com.roamify.travel.utils.Validations;
 
 import java.util.ArrayList;
 
-public class MenuPage extends AppCompatActivity implements MenuItemClickListener {
+public class HomePage extends AppCompatActivity implements ActivityItemClickListener, View.OnClickListener {
 
-    public static MenuItemClickListener menuItemClickListener;
-    static MenuPage mInstance;
-    LinearLayout top_image_portion, rv_list_portion;
+    static HomePage mInstance;
+    protected TextView autoCompleteTextView;
+    FrameLayout top_image_portion;
+    LinearLayout rv_list_portion;
 
-    public static synchronized MenuPage getInstance() {
+    public static synchronized HomePage getInstance() {
         return mInstance;
     }
 
     int listViewHeight;
     int totalHeight;
-
+    RecyclerView mMenuListRecyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_page);
-        menuItemClickListener = this;
-        RecyclerView mMenuListRecyclerView = (RecyclerView) findViewById(R.id.rv_menu);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        super.setContentView(R.layout.activity_home_page);
+
+        mMenuListRecyclerView = (RecyclerView) findViewById(R.id.rv_menu);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         mMenuListRecyclerView.setLayoutManager(mLayoutManager);
         mMenuListRecyclerView.setHasFixedSize(true);
         mMenuListRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        top_image_portion = (LinearLayout) findViewById(R.id.ll_top_image_portion);
+        top_image_portion = (FrameLayout) findViewById(R.id.ll_top_image_portion);
         rv_list_portion = (LinearLayout) findViewById(R.id.ll_activity_rowLayout);
 
         try {
@@ -51,15 +56,23 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
             ex.printStackTrace();
         }
 
+
+        initView();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Constants.activityItemClickListener = HomePage.this;
         try {
-            mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), MenuPage.getInstance(), listViewHeight / 4));
+            mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), HomePage.getInstance(), listViewHeight / 4));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     @Override
-    public void menuClicked(int position) {
+    public void onClicked(int position) {
         Intent intent = null;
         switch (setMenuData().get(position).getTitle()) {
             case "HOTELS": {
@@ -67,7 +80,7 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
             }
             case "WATER ACTIVITIES": {
                 try {
-                    intent = new Intent(getApplicationContext(), ActivityDetails.class);
+                    intent = new Intent(getApplicationContext(), DestinationList.class);
                     intent.putExtra("title", "WATER ACTIVITIES");
                     startActivity(intent);
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
@@ -78,7 +91,7 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
             }
             case "AIR ACTIVITIES": {
                 try {
-                    intent = new Intent(getApplicationContext(), ActivityDetails.class);
+                    intent = new Intent(getApplicationContext(), DestinationList.class);
                     intent.putExtra("title", "AIR ACTIVITIES");
                     startActivity(intent);
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
@@ -89,7 +102,7 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
             }
             case "LAND ACTIVITIES": {
                 try {
-                    intent = new Intent(getApplicationContext(), ActivityDetails.class);
+                    intent = new Intent(getApplicationContext(), DestinationList.class);
                     intent.putExtra("title", "LAND ACTIVITIES");
                     startActivity(intent);
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
@@ -109,9 +122,11 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
             }
             case "DESTINATIONS": {
                 try {
-                    intent = new Intent(getApplicationContext(), ActivitiesList.class);
+                    intent = new Intent(getApplicationContext(), DestinationList.class);
                     intent.putExtra("title", "DESTINATIONS");
+                    intent.putExtra("isComingForDestinationWiseSearch", true);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -124,10 +139,10 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
         ArrayList<MenuItemModel> menuItemModels = new ArrayList<>();
 
         //Item1
-        MenuItemModel title1 = new MenuItemModel();
+       /* MenuItemModel title1 = new MenuItemModel();
         title1.setTitle(getResources().getString(R.string.hotels));
         title1.setDrawable(R.drawable.hotels_button_bg);
-        menuItemModels.add(title1);
+        menuItemModels.add(title1);*/
 
         //Item2
         MenuItemModel title2 = new MenuItemModel();
@@ -153,7 +168,7 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
         title5.setDrawable(R.drawable.destination_button_bg);
         menuItemModels.add(title5);
 
-        //Item6
+       /* //Item6
         MenuItemModel title6 = new MenuItemModel();
         title6.setTitle(getResources().getString(R.string.contact_us));
         title6.setDrawable(R.drawable.contact_us_button_bg);
@@ -169,8 +184,24 @@ public class MenuPage extends AppCompatActivity implements MenuItemClickListener
         MenuItemModel title8 = new MenuItemModel();
         title8.setTitle(getResources().getString(R.string.faq));
         title8.setDrawable(R.drawable.faq_button_bg);
-        menuItemModels.add(title8);
+        menuItemModels.add(title8);*/
 
         return menuItemModels;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.autoCompleteTextView) {
+            Validations.hideSoftInput(HomePage.this);
+            Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+            intent.putExtra("title", "Where to?");
+            startActivity(intent);
+            overridePendingTransition(R.anim.right_in, R.anim.left_out);
+        }
+    }
+
+    private void initView() {
+        autoCompleteTextView = (TextView) findViewById(R.id.autoCompleteTextView);
+        autoCompleteTextView.setOnClickListener(HomePage.this);
     }
 }

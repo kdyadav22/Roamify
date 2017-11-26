@@ -106,4 +106,26 @@
         <item name="android:textColorSecondary">@color/md_white_1000</item>
         <item name="android:icon">@color/md_white_1000</item>
     </style>
+
+    <style name="edittext_search">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:lines">1</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:lineSpacingExtra">1dp</item>
+        <item name="android:lineSpacingMultiplier">1</item>
+        <item name="android:textColor">@color/md_grey_800</item>
+        <item name="android:textColorHint">@color/md_grey_500</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="edittext_white_forsearch">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:lines">1</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">@drawable/edit_bg_white</item>
+    </style>
 </resources>

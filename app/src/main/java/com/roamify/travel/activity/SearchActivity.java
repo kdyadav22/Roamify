@@ -17,12 +17,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.roamify.travel.R;
-import com.roamify.travel.adapters.DestinationRVAdapter;
 import com.roamify.travel.adapters.SearchRVAdapter;
 import com.roamify.travel.listeners.ActivityItemClickListener;
-import com.roamify.travel.models.ActivityModel;
+import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.Constants;
+import com.roamify.travel.utils.Validations;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_search);
         initView();
-        Constants.activityItemClickListener = this;
+
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -75,7 +75,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         } catch (InflateException ie) {
             ie.getMessage();
         }
-        toolbar.setTitle("");
+
+        toolbar.setTitle(getIntent().getStringExtra("title"));
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
@@ -85,12 +86,19 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             npe.getMessage();
         }
 
-        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
-        upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
-        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+        try {
+            final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
+            upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
+            getSupportActionBar().setHomeAsUpIndicator(upArrow);
+        } catch (RuntimeException re) {
+            re.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Validations.hideSoftInput(SearchActivity.this);
                 finish();
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
@@ -99,14 +107,21 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         imgClear.setOnClickListener(SearchActivity.this);
     }
 
-    private ArrayList<ActivityModel> filter(String folderID) {
-        final ArrayList<ActivityModel> filteredModelList = new ArrayList<>();
-        for (int i = 0; i < RawData.setDestination().size(); i++) {
-            ActivityModel model = new ActivityModel();
-            final String fId = RawData.setDestination().get(i).getActivityName().toLowerCase();
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Constants.activityItemClickListener = SearchActivity.this;
+    }
+
+    private ArrayList<HomePageSearchModel> filter(String folderID) {
+        final ArrayList<HomePageSearchModel> filteredModelList = new ArrayList<>();
+        for (int i = 0; i < RawData.setHomePageSearchItem().size(); i++) {
+            HomePageSearchModel model = new HomePageSearchModel();
+            final String fId = RawData.setHomePageSearchItem().get(i).getName().toLowerCase();
             if (fId.contains(folderID.toLowerCase())) {
-                model.setActivityId(RawData.setDestination().get(i).getActivityId());
-                model.setActivityName((RawData.setDestination().get(i).getActivityName()));
+                model.setId(RawData.setHomePageSearchItem().get(i).getId());
+                model.setName((RawData.setHomePageSearchItem().get(i).getName()));
+                model.setType((RawData.setHomePageSearchItem().get(i).getType()));
                 filteredModelList.add(model);
             }
         }
@@ -122,17 +137,23 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClicked(int pos) {
+        Validations.hideSoftInput(SearchActivity.this);
         try {
-
             //If item is location type then will go on "All Activites Page"
-
             //If item is activity type then will go on "Destination List Page"
+            if (RawData.setHomePageSearchItem().get(pos).getType().equals("A")) {
+                Intent intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", RawData.setHomePageSearchItem().get(pos).getName());
+                intent.putExtra("isComingFromSearchPage", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } else {
+                Intent intent = new Intent(getApplicationContext(), AllActivities.class);
+                intent.putExtra("title", RawData.setHomePageSearchItem().get(pos).getName());
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            }
 
-            //Below redirection just for testing purpose
-            Intent intent = new Intent(getApplicationContext(), AllActivities.class);
-            intent.putExtra("title", RawData.setDestination().get(pos).getActivityName());
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

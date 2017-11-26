@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\RunningApps\\Romify\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v25\\values-v25.xml",
+            "outputFile": "/Users/Kapil/Documents/Roamify/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v25/values-v25.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\58521dd71a36b97b339945bc43fbe675\\res\\values-v25\\values-v25.xml",
+                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/90fe91375d3dfbc8a77d00b424799221/res/values-v25/values-v25.xml",
                     "from": {
                         "startLines": "2,3,4,6",
                         "startColumns": "4,4,4,4",

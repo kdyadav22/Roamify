@@ -2,6 +2,7 @@ package com.roamify.travel.adapters;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  * Created by kapilyadav on 27-Sep-17.
  */
 
-public class DestinationWiseActivityRVAdapter extends RecyclerView.Adapter<MenuViewHandler> {
+public class DestinationWiseActivityRVAdapter extends RecyclerView.Adapter<DestinationWiseViewHandler> {
     private ArrayList<StateWiseActivityModel> menuItemModel;
     private Activity activity;
     int menuHeight;
@@ -30,14 +31,22 @@ public class DestinationWiseActivityRVAdapter extends RecyclerView.Adapter<MenuV
     }
 
     @Override
-    public MenuViewHandler onCreateViewHolder(ViewGroup parent, int viewType) {
+    public DestinationWiseViewHandler onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cell_destinationwise_activity_item, parent, false);
-        return new MenuViewHandler(itemView);
+        return new DestinationWiseViewHandler(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MenuViewHandler holder, final int position) {
+    public void onBindViewHolder(DestinationWiseViewHandler holder, final int position) {
         StateWiseActivityModel data = menuItemModel.get(position);
+
+        DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
+        final int width = displayMetrics.widthPixels / 3;
+        ViewGroup.LayoutParams layoutParams = holder.ll_rowLayout.getLayoutParams();
+        layoutParams.width = width;
+        //layoutParams.height = width+200;
+        holder.ll_rowLayout.setLayoutParams(layoutParams);
+
         if (data != null) {
             try {
                 holder.tv_Title.setText(data.getActivityName());

@@ -1,39 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.roamify.travel.activity.MenuPage">
+    android:background="@color/white"
+    android:fillViewport="true"
+    tools:context="com.roamify.travel.activity.HomePage">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/ll_top_image_portion"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".30">
+            android:layout_height="250dp"
+            android:background="@drawable/top_header">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                android:src="@drawable/top_header" />
-        </LinearLayout>
+                android:src="@color/translucentwhite"
+                android:contentDescription="TODO" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/autoCompleteTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Where to?"
+                    android:textColor="@color/md_grey_800"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center"
+                    android:background="@color/md_grey_800"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/ll_rv_portion"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".70">
+            android:layout_height="wrap_content">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_menu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/white"
+            android:gravity="center|left"
+            android:text="Top popular Activities"
+            android:textColor="@color/md_green_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <fragment
+            android:id="@+id/list_frag"
+            class="com.roamify.travel.fragment.TopActivitiesFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/white"
+            android:gravity="center|left"
+            android:text="Upcoming Activities"
+            android:textColor="@color/md_green_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <fragment
+            android:id="@+id/list_upcoming"
+            class="com.roamify.travel.fragment.UpcomingActivitiesFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp" />
     </LinearLayout>
-</RelativeLayout>
+</ScrollView>

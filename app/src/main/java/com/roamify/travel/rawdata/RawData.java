@@ -2,6 +2,7 @@ package com.roamify.travel.rawdata;
 
 import com.roamify.travel.R;
 import com.roamify.travel.models.ActivityModel;
+import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.models.HotelsModel;
 import com.roamify.travel.models.MenuModel;
 import com.roamify.travel.models.PackageDetailsModel;
@@ -361,99 +362,6 @@ public class RawData {
         return arrayList;
     }
 
-    public static ArrayList<ZoneModel> setZone() {
-        ArrayList<ZoneModel> arrayList = new ArrayList<>();
-
-        ZoneModel title1 = new ZoneModel();
-        title1.setZoneName("East");
-        title1.setZoneId("Z1");
-        arrayList.add(title1);
-
-        ZoneModel title3 = new ZoneModel();
-        title3.setZoneName("West");
-        title3.setZoneId("Z2");
-        arrayList.add(title3);
-
-        ZoneModel title4 = new ZoneModel();
-        title4.setZoneName("North");
-        title4.setZoneId("Z3");
-        arrayList.add(title4);
-
-        ZoneModel title5 = new ZoneModel();
-        title5.setZoneName("South");
-        title5.setZoneId("Z4");
-        arrayList.add(title5);
-
-        ZoneModel title6 = new ZoneModel();
-        title6.setZoneName("North-East");
-        title6.setZoneId("Z5");
-        arrayList.add(title6);
-
-        ZoneModel title7 = new ZoneModel();
-        title7.setZoneName("South-West");
-        title7.setZoneId("Z6");
-        arrayList.add(title7);
-
-        return arrayList;
-    }
-
-    public static ArrayList<StateModel> setState() {
-        ArrayList<StateModel> arrayList = new ArrayList<>();
-
-        //Item1
-        StateModel title1 = new StateModel();
-        title1.setStateName("Delhi");
-        title1.setStateId("STA1");
-        title1.setZoneId("Z1");
-        arrayList.add(title1);
-
-        //Item2
-        StateModel title2 = new StateModel();
-        title2.setStateName("Garhwal");
-        title2.setStateId("STA2");
-        title2.setZoneId("Z1");
-        arrayList.add(title2);
-
-        //Item3
-        StateModel title3 = new StateModel();
-        title3.setStateName("Himachal Pradesh");
-        title3.setStateId("STA3");
-        title3.setZoneId("Z1");
-        arrayList.add(title3);
-
-        StateModel title4 = new StateModel();
-        title4.setStateName("Kashmir");
-        title4.setStateId("STA4");
-        title4.setZoneId("Z2");
-        arrayList.add(title4);
-
-        StateModel title5 = new StateModel();
-        title5.setStateName("Kumaon");
-        title5.setStateId("STA5");
-        title5.setZoneId("Z2");
-        arrayList.add(title5);
-
-        StateModel title6 = new StateModel();
-        title6.setStateName("Ladakh");
-        title6.setStateId("STA6");
-        title6.setZoneId("Z2");
-        arrayList.add(title6);
-
-        StateModel title7 = new StateModel();
-        title7.setStateName("Manali");
-        title7.setStateId("STA7");
-        title7.setZoneId("Z3");
-        arrayList.add(title7);
-
-        StateModel title8 = new StateModel();
-        title8.setStateName("Rishikesh");
-        title8.setStateId("STA8");
-        title8.setZoneId("Z3");
-        arrayList.add(title8);
-
-        return arrayList;
-    }
-
     public static ArrayList<StateWiseActivityModel> setStateWiseActivity() {
         ArrayList<StateWiseActivityModel> arrayList = new ArrayList<>();
 
@@ -597,6 +505,111 @@ public class RawData {
         }
         arrayList.add(title1);
 
+
+        return arrayList;
+    }
+
+    /*To use on Home Page to search Destination and Activity*/
+    public static ArrayList<HomePageSearchModel> setHomePageSearchItem() {
+        ArrayList<HomePageSearchModel> arrayList = new ArrayList<>();
+
+        //Item1
+        HomePageSearchModel title1 = new HomePageSearchModel();
+        title1.setId("1");
+        title1.setName("Manali");
+        title1.setType("D");
+        arrayList.add(title1);
+
+        //Item1
+        HomePageSearchModel title2 = new HomePageSearchModel();
+        title2.setId("2");
+        title2.setName("Shimla");
+        title2.setType("D");
+        arrayList.add(title2);
+
+        //Item1
+        HomePageSearchModel title3 = new HomePageSearchModel();
+        title3.setId("3");
+        title3.setName("Paragliding");
+        title3.setType("A");
+        arrayList.add(title3);
+
+        //Item1
+        HomePageSearchModel title4 = new HomePageSearchModel();
+        title4.setId("4");
+        title4.setName("Mountaineering");
+        title4.setType("A");
+        arrayList.add(title4);
+
+        //Item1
+        HomePageSearchModel title5 = new HomePageSearchModel();
+        title5.setId("5");
+        title5.setName("Cycling");
+        title5.setType("A");
+        arrayList.add(title5);
+
+        //Item1
+        HomePageSearchModel title6 = new HomePageSearchModel();
+        title6.setId("6");
+        title6.setName("Kullu");
+        title6.setType("D");
+        arrayList.add(title6);
+
+        //Item1
+        HomePageSearchModel title7 = new HomePageSearchModel();
+        title7.setId("7");
+        title7.setName("Skkim");
+        title7.setType("D");
+        arrayList.add(title7);
+
+        //Item1
+        HomePageSearchModel title8 = new HomePageSearchModel();
+        title8.setId("8");
+        title8.setName("Caving");
+        title8.setType("A");
+        arrayList.add(title8);
+
+        //Item1
+        HomePageSearchModel title9 = new HomePageSearchModel();
+        title9.setId("9");
+        title9.setName("Camel Safari");
+        title9.setType("A");
+        arrayList.add(title9);
+
+        //Item1
+        HomePageSearchModel title10 = new HomePageSearchModel();
+        title10.setId("Z3");
+        title10.setName("Zeep Safari");
+        title10.setType("A");
+        arrayList.add(title10);
+
+        //Item1
+        HomePageSearchModel title11 = new HomePageSearchModel();
+        title11.setId("Z3");
+        title11.setName("Scuba Diving");
+        title11.setType("A");
+        arrayList.add(title11);
+
+        //Item1
+        HomePageSearchModel title12 = new HomePageSearchModel();
+        title12.setId("Z1");
+        title12.setName("Andman");
+        title12.setType("D");
+        arrayList.add(title12);
+
+        //Item1
+        HomePageSearchModel title13 = new HomePageSearchModel();
+        title13.setId("Z1");
+        title13.setName("Andhra");
+        title13.setType("D");
+        arrayList.add(title13);
+
+        //Item1
+        HomePageSearchModel title14 = new HomePageSearchModel();
+        title14.setId("Z2");
+        title14.setName("Pune");
+        title14.setType("D");
+        arrayList.add(title14);
 
         return arrayList;
     }
