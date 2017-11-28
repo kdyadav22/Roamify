@@ -44,7 +44,7 @@ public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> {
                 holder.tv_Title.setText(data.getTitle());
                 /*if (menuHeight > 0)
                     holder.ll_rowLayout.getLayoutParams().height = menuHeight;*/
-                holder.ll_rowLayout.setBackgroundResource(data.getDrawable());
+               // holder.ll_rowLayout.setBackgroundResource(data.getDrawable());
             } catch (Exception e) {
                 e.getMessage();
             }

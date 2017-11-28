@@ -129,6 +129,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/white"
+                    android:gravity="center|left"
+                    android:text="Upcoming Activities"
+                    android:textColor="@color/md_green_700"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <fragment
+                    android:id="@+id/list_upcoming"
+                    class="com.roamify.travel.fragment.UpcomingActivitiesFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
             </LinearLayout>
 
         </LinearLayout>

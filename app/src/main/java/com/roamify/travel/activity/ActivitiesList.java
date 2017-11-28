@@ -145,7 +145,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         for (int i = 0; i < RawData.setStateWiseActivity().size(); i++) {
             StateWiseActivityModel model = new StateWiseActivityModel();
             final String fId = RawData.setStateWiseActivity().get(i).getActivityName().toLowerCase();
-            if (fId.contains(folderID.toLowerCase())) {
+            if (fId.startsWith(folderID.toLowerCase())) {
                 model.setActivityId(RawData.setStateWiseActivity().get(i).getActivityId());
                 model.setActivityName((RawData.setStateWiseActivity().get(i).getActivityName()));
                 filteredModelList.add(model);

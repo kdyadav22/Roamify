@@ -38,6 +38,10 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
+            android:name="com.roamify.travel.activity.HomePageOriginal"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
             android:name="com.roamify.travel.activity.Hotels"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />

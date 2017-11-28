@@ -25,7 +25,7 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
 
     static HomePage mInstance;
     protected TextView autoCompleteTextView;
-    FrameLayout top_image_portion;
+    //FrameLayout top_image_portion;
     LinearLayout rv_list_portion;
 
     public static synchronized HomePage getInstance() {
@@ -46,7 +46,7 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
         mMenuListRecyclerView.setHasFixedSize(true);
         mMenuListRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        top_image_portion = (FrameLayout) findViewById(R.id.ll_top_image_portion);
+        //top_image_portion = (FrameLayout) findViewById(R.id.ll_top_image_portion);
         rv_list_portion = (LinearLayout) findViewById(R.id.ll_activity_rowLayout);
 
         try {
@@ -153,19 +153,19 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
         //Item3
         MenuItemModel title3 = new MenuItemModel();
         title3.setTitle(getResources().getString(R.string.air_activity));
-        title3.setDrawable(R.drawable.air_activity_button_bg);
+        title3.setDrawable(R.drawable.water_activity_button_bg);
         menuItemModels.add(title3);
 
         //Item4
         MenuItemModel title4 = new MenuItemModel();
         title4.setTitle(getResources().getString(R.string.land_activity));
-        title4.setDrawable(R.drawable.land_activity_button_bg);
+        title4.setDrawable(R.drawable.water_activity_button_bg);
         menuItemModels.add(title4);
 
         //Item5
         MenuItemModel title5 = new MenuItemModel();
         title5.setTitle(getResources().getString(R.string.destination));
-        title5.setDrawable(R.drawable.destination_button_bg);
+        title5.setDrawable(R.drawable.water_activity_button_bg);
         menuItemModels.add(title5);
 
        /* //Item6

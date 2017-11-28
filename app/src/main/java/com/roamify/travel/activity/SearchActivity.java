@@ -118,7 +118,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         for (int i = 0; i < RawData.setHomePageSearchItem().size(); i++) {
             HomePageSearchModel model = new HomePageSearchModel();
             final String fId = RawData.setHomePageSearchItem().get(i).getName().toLowerCase();
-            if (fId.contains(folderID.toLowerCase())) {
+            if (fId.startsWith(folderID.toLowerCase())) {
                 model.setId(RawData.setHomePageSearchItem().get(i).getId());
                 model.setName((RawData.setHomePageSearchItem().get(i).getName()));
                 model.setType((RawData.setHomePageSearchItem().get(i).getType()));
