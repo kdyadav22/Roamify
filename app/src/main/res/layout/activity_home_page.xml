@@ -38,25 +38,67 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/autoCompleteTextView"
-                    android:layout_width="125dp"
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:background="@drawable/bg_white"
                     android:text="Where to?"
                     android:gravity="center"
+                    android:visibility="visible"
+                    android:paddingLeft="10dp"
                     android:drawableRight="@drawable/ic_action_downarrow"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_autoSearch"
+                    style="@style/edittext_white_forsearch"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+
+                    <com.roamify.travel.adapters.CustomAutoCompleteView
+                        android:id="@+id/autoCompleteTextView"
+                        style="@style/edittext_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        android:background="@android:color/transparent"
+                        android:gravity="left|center"
+                        android:hint="Search"
+                        android:inputType="text"
+                        android:imeOptions="actionDone"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true" />
+
+                    <ImageView
+                        android:id="@+id/imgClear"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/ic_action_cancel"
+                        android:visibility="gone" />
+                </RelativeLayout>
 
             </LinearLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:layout_collapseMode="pin" />
+                app:layout_collapseMode="pin" >
+
+            </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 

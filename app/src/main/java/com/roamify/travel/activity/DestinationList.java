@@ -39,11 +39,11 @@ import java.util.HashMap;
 public class DestinationList extends AppCompatActivity implements View.OnClickListener, ActivityItemClickListener {
 
     protected Toolbar toolbar;
-    //protected EditText etSearchDestination;
+    protected EditText etSearchDestination;
     protected ImageView imgClear;
     protected RelativeLayout rlSearch;
     protected RecyclerView rvRecyclerView;
-    CustomAutoCompleteView etSearchDestination;
+    //CustomAutoCompleteView etSearchDestination;
     ArrayAdapter<ActivityModel> myAdapter;
 
     @Override
@@ -62,10 +62,11 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() > 0) {
                     myAdapter.notifyDataSetChanged();
-                    etSearchDestination.setAdapter(new AutocompleteCustomArrayAdapter(DestinationList.this, R.layout.destination_list_item, filter(s.toString())));
-                } /*else {
+                    rvRecyclerView.setAdapter(new DestinationRVAdapter(filter(s.toString()), DestinationList.this));
+                    //rvRecyclerView.setAdapter(new AutocompleteCustomArrayAdapter(DestinationList.this, R.layout.destination_list_item, filter(s.toString())));
+                } else {
                     rvRecyclerView.setAdapter(new DestinationRVAdapter(RawData.setDestination(), DestinationList.this));
-                }*/
+                }
             }
 
             @Override
@@ -78,7 +79,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        etSearchDestination.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*etSearchDestination.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View arg1, int pos, long id) {
                 RelativeLayout rl = (RelativeLayout) arg1;
@@ -112,10 +113,11 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
                 }
 
             }
-        });
+        });*/
 
-        myAdapter = new AutocompleteCustomArrayAdapter(DestinationList.this, R.layout.destination_list_item, RawData.setDestination());
-        etSearchDestination.setAdapter(myAdapter);
+        //myAdapter = new AutocompleteCustomArrayAdapter(DestinationList.this, R.layout.destination_list_item, RawData.setDestination());
+        //etSearchDestination.setAdapter(myAdapter);
+        rvRecyclerView.setAdapter(new DestinationRVAdapter(RawData.setDestination(), DestinationList.this));
     }
 
     @Override
@@ -138,7 +140,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
 
     private void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        etSearchDestination = (CustomAutoCompleteView) findViewById(R.id.et_searchNews);
+        etSearchDestination = (EditText) findViewById(R.id.et_searchNews);
         imgClear = (ImageView) findViewById(R.id.imgClear);
         imgClear.setOnClickListener(DestinationList.this);
         rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);

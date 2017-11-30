@@ -611,6 +611,35 @@ public class RawData {
         title14.setType("D");
         arrayList.add(title14);
 
+        //Item1
+        HomePageSearchModel title15 = new HomePageSearchModel();
+        title15.setId("Z2");
+        title15.setName("Manipur");
+        title15.setType("D");
+        arrayList.add(title15);
+
+        //Item1
+        HomePageSearchModel title16 = new HomePageSearchModel();
+        title16.setId("Z2");
+        title16.setName("Mumbai");
+        title16.setType("D");
+        arrayList.add(title16);
+
+
+        //Item1
+        HomePageSearchModel title17 = new HomePageSearchModel();
+        title17.setId("Z2");
+        title17.setName("Pune");
+        title17.setType("D");
+        arrayList.add(title17);
+
+        //Item1
+        HomePageSearchModel title18 = new HomePageSearchModel();
+        title18.setId("Z2");
+        title18.setName("Pune");
+        title18.setType("D");
+        arrayList.add(title18);
+
         return arrayList;
     }
 }

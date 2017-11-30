@@ -6,48 +6,53 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Display;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.roamify.travel.R;
+import com.roamify.travel.adapters.AutocompleteCustomArrayAdapter;
+import com.roamify.travel.adapters.CustomAutoCompleteView;
 import com.roamify.travel.adapters.MenuGridRVAdapter;
 import com.roamify.travel.listeners.ActivityItemClickListener;
+import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.models.MenuItemModel;
+import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
 
 import java.util.ArrayList;
 
 public class HomePage extends AppCompatActivity implements ActivityItemClickListener, View.OnClickListener {
-
     static HomePage mInstance;
-    protected TextView autoCompleteTextView;
+    protected CustomAutoCompleteView autoCompleteTextView;
     //FrameLayout top_image_portion;
     LinearLayout rv_list_portion;
+    RecyclerView mMenuListRecyclerView;
+    TextView whereToSearch;
+    RelativeLayout rl_autoSearch;
+
 
     public static synchronized HomePage getInstance() {
         return mInstance;
     }
-
     int listViewHeight;
     int totalHeight;
-    RecyclerView mMenuListRecyclerView;
+    // adapter for auto-complete
+    ArrayAdapter<HomePageSearchModel> myAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_home_page);
-
-        mMenuListRecyclerView = (RecyclerView) findViewById(R.id.rv_menu);
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
-        mMenuListRecyclerView.setLayoutManager(mLayoutManager);
-        mMenuListRecyclerView.setHasFixedSize(true);
-        mMenuListRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        //top_image_portion = (FrameLayout) findViewById(R.id.ll_top_image_portion);
-        rv_list_portion = (LinearLayout) findViewById(R.id.ll_activity_rowLayout);
+        initView();
 
         try {
             Display mDisplay = getWindowManager().getDefaultDisplay();
@@ -56,8 +61,8 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
             ex.printStackTrace();
         }
 
-
-        initView();
+        myAdapter = new AutocompleteCustomArrayAdapter(this, R.layout.autocomplete_text_layout, RawData.setHomePageSearchItem());
+        autoCompleteTextView.setAdapter(myAdapter);
     }
 
     @Override
@@ -191,17 +196,103 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.autoCompleteTextView) {
-            Validations.hideSoftInput(HomePage.this);
-            Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-            intent.putExtra("title", "Where to?");
-            startActivity(intent);
-            overridePendingTransition(R.anim.right_in, R.anim.left_out);
+        if (view.getId() == R.id.textView) {
+            Validations.showSoftInput(HomePage.this, autoCompleteTextView);
+            autoCompleteTextView.setText("");
+            whereToSearch.setVisibility(View.GONE);
+            rl_autoSearch.setVisibility(View.VISIBLE);
+
         }
     }
 
     private void initView() {
-        autoCompleteTextView = (TextView) findViewById(R.id.autoCompleteTextView);
-        autoCompleteTextView.setOnClickListener(HomePage.this);
+        autoCompleteTextView = (CustomAutoCompleteView) findViewById(R.id.autoCompleteTextView);
+        mMenuListRecyclerView = (RecyclerView) findViewById(R.id.rv_menu);
+        //top_image_portion = (FrameLayout) findViewById(R.id.ll_top_image_portion);
+        rv_list_portion = (LinearLayout) findViewById(R.id.ll_activity_rowLayout);
+        whereToSearch = (TextView)findViewById(R.id.textView);
+        rl_autoSearch = (RelativeLayout) findViewById(R.id.rl_autoSearch);
+
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        mMenuListRecyclerView.setLayoutManager(mLayoutManager);
+        mMenuListRecyclerView.setHasFixedSize(true);
+        mMenuListRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        whereToSearch.setOnClickListener(this);
+
+        autoCompleteTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() > 0) {
+                    myAdapter.notifyDataSetChanged();
+                    myAdapter = new AutocompleteCustomArrayAdapter(HomePage.this, R.layout.autocomplete_text_layout, filter(charSequence.toString()));
+                    autoCompleteTextView.setAdapter(myAdapter);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View arg1, int pos, long id) {
+                LinearLayout rl = (LinearLayout) arg1;
+                LinearLayout rl1 = (LinearLayout) rl.getChildAt(0);
+                LinearLayout rl2 = (LinearLayout) rl1.getChildAt(1);
+                TextView tv_main = (TextView) rl2.getChildAt(0);
+                TextView tv_pos = (TextView) rl2.getChildAt(1);
+
+                whereToSearch.setVisibility(View.VISIBLE);
+                rl_autoSearch.setVisibility(View.GONE);
+                whereToSearch.setText(tv_main.getText().toString());
+                sendToNext(Integer.parseInt(tv_pos.getText().toString()));
+            }
+        });
+    }
+
+    private ArrayList<HomePageSearchModel> filter(String folderID) {
+        final ArrayList<HomePageSearchModel> filteredModelList = new ArrayList<>();
+        for (int i = 0; i < RawData.setHomePageSearchItem().size(); i++) {
+            HomePageSearchModel model = new HomePageSearchModel();
+            final String fId = RawData.setHomePageSearchItem().get(i).getName().toLowerCase();
+            if (fId.startsWith(folderID.toLowerCase())) {
+                model.setId(RawData.setHomePageSearchItem().get(i).getId());
+                model.setName((RawData.setHomePageSearchItem().get(i).getName()));
+                model.setType((RawData.setHomePageSearchItem().get(i).getType()));
+                filteredModelList.add(model);
+            }
+        }
+        return filteredModelList;
+    }
+
+    private void sendToNext(int pos){
+        Validations.hideSoftInput(HomePage.this);
+        try {
+            //If item is location type then will go on "All Activites Page"
+            //If item is activity type then will go on "Destination List Page"
+            if (RawData.setHomePageSearchItem().get(pos).getType().equals("A")) {
+                Intent intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", RawData.setHomePageSearchItem().get(pos).getName());
+                intent.putExtra("isComingFromSearchPage", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } else {
+                Intent intent = new Intent(getApplicationContext(), AllActivities.class);
+                intent.putExtra("title", RawData.setHomePageSearchItem().get(pos).getName());
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }

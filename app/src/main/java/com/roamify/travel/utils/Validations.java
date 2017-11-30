@@ -328,7 +328,7 @@ public class Validations {
      * @param context
      * @param view
      */
-    public static void showSoftInput(final Context context, final View view) {
+    public static void showSoftInput(final Activity context, final View view) {
         new Runnable() {
             @Override
             public void run() {

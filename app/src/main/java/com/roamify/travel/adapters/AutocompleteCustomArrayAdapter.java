@@ -15,18 +15,16 @@ import android.widget.TextView;
 import com.roamify.travel.R;
 import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.DestinationModel;
+import com.roamify.travel.models.HomePageSearchModel;
 
 import java.util.ArrayList;
 
-public class AutocompleteCustomArrayAdapter extends ArrayAdapter<ActivityModel> {
-
+public class AutocompleteCustomArrayAdapter extends ArrayAdapter<HomePageSearchModel> {
     final String TAG = "AutocompleteCustomArrayAdapter.java";
-
     Activity mContext;
     int layoutResourceId;
-    ArrayList<ActivityModel> dataArrayList = null;
-
-    public AutocompleteCustomArrayAdapter(Activity mContext, int layoutResourceId, ArrayList<ActivityModel> data) {
+    ArrayList<HomePageSearchModel> dataArrayList = null;
+    public AutocompleteCustomArrayAdapter(Activity mContext, int layoutResourceId, ArrayList<HomePageSearchModel> data) {
         super(mContext, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.mContext = mContext;
@@ -49,10 +47,12 @@ public class AutocompleteCustomArrayAdapter extends ArrayAdapter<ActivityModel> 
             }
 
             // object item based on the position
-            ActivityModel objectItem = dataArrayList.get(position);
+            HomePageSearchModel objectItem = dataArrayList.get(position);
             // get the TextView and then set the text (item name) and tag (item ID) values
-            TextView textViewItem = (TextView) convertView.findViewById(R.id.tv_activityName);
-            textViewItem.setText(objectItem.getActivityName());
+            TextView textViewItem = (TextView) convertView.findViewById(R.id.tv_main_text);
+            TextView textViewItemPosition = (TextView) convertView.findViewById(R.id.tv_secondary_text);
+            textViewItemPosition.setText(""+position);
+            textViewItem.setText(objectItem.getName());
             // in case you want to add some style, you can do something like:
             //textViewItem.setBackgroundColor(Color.CYAN);
         } catch (NullPointerException e) {
