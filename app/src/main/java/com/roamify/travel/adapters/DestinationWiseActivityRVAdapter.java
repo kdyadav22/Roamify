@@ -41,10 +41,10 @@ public class DestinationWiseActivityRVAdapter extends RecyclerView.Adapter<Desti
         StateWiseActivityModel data = menuItemModel.get(position);
 
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
-        final int width = displayMetrics.widthPixels / 3;
+        final int width = displayMetrics.widthPixels / 4;
         ViewGroup.LayoutParams layoutParams = holder.ll_rowLayout.getLayoutParams();
         layoutParams.width = width;
-        //layoutParams.height = width+200;
+        layoutParams.height = width;
         holder.ll_rowLayout.setLayoutParams(layoutParams);
 
         if (data != null) {

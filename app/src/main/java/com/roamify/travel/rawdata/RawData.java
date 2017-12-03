@@ -2,6 +2,7 @@ package com.roamify.travel.rawdata;
 
 import com.roamify.travel.R;
 import com.roamify.travel.models.ActivityModel;
+import com.roamify.travel.models.DestinationModel;
 import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.models.HotelsModel;
 import com.roamify.travel.models.MenuModel;
@@ -239,50 +240,92 @@ public class RawData {
         return arrayList;
     }
 
-    public static ArrayList<ActivityModel> setDestination() {
-        ArrayList<ActivityModel> arrayList = new ArrayList<>();
+    public static ArrayList<DestinationModel> setDestination() {
+        ArrayList<DestinationModel> arrayList = new ArrayList<>();
 
         //Item1
-        ActivityModel title1 = new ActivityModel();
-        title1.setActivityName("Delhi");
-        title1.setActivityId("D1");
+        DestinationModel title1 = new DestinationModel();
+        title1.setDestinationName("Delhi");
+        title1.setDestinationId("D1");
         arrayList.add(title1);
 
         //Item2
-        ActivityModel title2 = new ActivityModel();
-        title2.setActivityName("Garhwal");
-        title2.setActivityId("D2");
+        DestinationModel title2 = new DestinationModel();
+        title2.setDestinationName("Keral");
+        title2.setDestinationId("D2");
         arrayList.add(title2);
 
         //Item3
-        ActivityModel title3 = new ActivityModel();
-        title3.setActivityName("Himachal Pradesh");
-        title3.setActivityId("D3");
+        DestinationModel title3 = new DestinationModel();
+        title3.setDestinationName("Himachal Pradesh");
+        title3.setDestinationId("D3");
         arrayList.add(title3);
 
-        ActivityModel title4 = new ActivityModel();
-        title4.setActivityName("Kashmir");
-        title4.setActivityId("D4");
+        DestinationModel title4 = new DestinationModel();
+        title4.setDestinationName("Kashmir");
+        title4.setDestinationId("D4");
         arrayList.add(title4);
 
-        ActivityModel title5 = new ActivityModel();
-        title5.setActivityName("Kumaon");
-        title5.setActivityId("D5");
+        DestinationModel title5 = new DestinationModel();
+        title5.setDestinationName("Kumaon");
+        title5.setDestinationId("D5");
         arrayList.add(title5);
 
-        ActivityModel title6 = new ActivityModel();
-        title6.setActivityName("Ladakh");
-        title6.setActivityId("D6");
+        DestinationModel title6 = new DestinationModel();
+        title6.setDestinationName("Joshimath");
+        title6.setDestinationId("D6");
         arrayList.add(title6);
 
-        ActivityModel title7 = new ActivityModel();
-        title7.setActivityName("Manali");
-        title7.setActivityId("D7");
+        DestinationModel title7 = new DestinationModel();
+        title7.setDestinationName("Manali");
+        title7.setDestinationId("D7");
         arrayList.add(title7);
 
-        ActivityModel title8 = new ActivityModel();
-        title8.setActivityName("Rishikesh");
-        title8.setActivityId("D8");
+        DestinationModel title8 = new DestinationModel();
+        title8.setDestinationName("Mandi");
+        title8.setDestinationId("D8");
+        arrayList.add(title8);
+
+        DestinationModel title9 = new DestinationModel();
+        title9.setDestinationName("Chamba");
+        title9.setDestinationId("D8");
+        arrayList.add(title9);
+
+        return arrayList;
+    }
+
+    public static ArrayList<DestinationModel> setPopularDestination() {
+        ArrayList<DestinationModel> arrayList = new ArrayList<>();
+
+        //Item2
+        DestinationModel title2 = new DestinationModel();
+        title2.setDestinationName("Kullu");
+        title2.setDestinationId("D2");
+        arrayList.add(title2);
+
+        DestinationModel title4 = new DestinationModel();
+        title4.setDestinationName("Shimla");
+        title4.setDestinationId("D4");
+        arrayList.add(title4);
+
+        DestinationModel title5 = new DestinationModel();
+        title5.setDestinationName("Nanital");
+        title5.setDestinationId("D5");
+        arrayList.add(title5);
+
+        DestinationModel title6 = new DestinationModel();
+        title6.setDestinationName("Ladakh");
+        title6.setDestinationId("D6");
+        arrayList.add(title6);
+
+        DestinationModel title7 = new DestinationModel();
+        title7.setDestinationName("Auli");
+        title7.setDestinationId("D7");
+        arrayList.add(title7);
+
+        DestinationModel title8 = new DestinationModel();
+        title8.setDestinationName("Rishikesh");
+        title8.setDestinationId("D8");
         arrayList.add(title8);
 
         return arrayList;
@@ -340,22 +383,22 @@ public class RawData {
         ArrayList<PackageTabModel> arrayList = new ArrayList<>();
 
         PackageTabModel title1 = new PackageTabModel();
-        title1.setTabName("Description");
+        title1.setTabName("Details");
         title1.setTabId("Tab1");
         arrayList.add(title1);
 
-        PackageTabModel title3 = new PackageTabModel();
+        /*PackageTabModel title3 = new PackageTabModel();
         title3.setTabName("Package Details");
         title3.setTabId("Tab3");
-        arrayList.add(title3);
+        arrayList.add(title3);*/
 
         PackageTabModel title4 = new PackageTabModel();
-        title4.setTabName("Map");
+        title4.setTabName("Location");
         title4.setTabId("Tab4");
         arrayList.add(title4);
 
         PackageTabModel title5 = new PackageTabModel();
-        title5.setTabName("Testimonials");
+        title5.setTabName("Reviews");
         title5.setTabId("Tab5");
         arrayList.add(title5);
 

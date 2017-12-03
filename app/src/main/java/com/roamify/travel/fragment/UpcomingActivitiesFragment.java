@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivitiesPackageListRVAdapter;
+import com.roamify.travel.adapters.TopPackageListRVAdapter;
 import com.roamify.travel.models.RawDataModel;
 import com.roamify.travel.rawdata.RawData;
 
@@ -41,7 +42,7 @@ public class UpcomingActivitiesFragment extends Fragment {
 
             rvTopActivities.setHasFixedSize(true);
             rvTopActivities.setItemAnimator(new DefaultItemAnimator());
-            rvTopActivities.setAdapter(new ActivitiesPackageListRVAdapter(RawData.setPackage(), getActivity(),""));
+            rvTopActivities.setAdapter(new TopPackageListRVAdapter(RawData.setPackage(), getActivity(),""));
 
         } catch (InflateException ie) {
             ie.getMessage();

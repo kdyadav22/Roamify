@@ -17,7 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.roamify.travel.R;
-import com.roamify.travel.adapters.DestinationWiseActivityRVAdapter;
+import com.roamify.travel.adapters.ActivityWiseActivityRVAdapter;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.RawDataModel;
 import com.roamify.travel.models.StateWiseActivityModel;
@@ -41,7 +41,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
 
         initView();
         try {
-            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 3);
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 4);
             rvRecyclerView.setLayoutManager(mLayoutManager);
             rvRecyclerView.setHasFixedSize(true);
             rvRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -58,10 +58,9 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() > 0) {
-                    rvRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(filter(s.toString()), ActivitiesList.this, 0));
-
+                    rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(filter(s.toString()), ActivitiesList.this, 0));
                 } else {
-                    rvRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(RawData.setStateWiseActivity(), ActivitiesList.this, 0));
+                    rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(RawData.setStateWiseActivity(), ActivitiesList.this, 0));
                 }
             }
 
@@ -81,7 +80,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         super.onStart();
         Constants.activityItemClickListener = ActivitiesList.this;
         try {
-            rvRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(RawData.setStateWiseActivity(), ActivitiesList.this, 0));
+            rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(RawData.setStateWiseActivity(), ActivitiesList.this, 0));
         } catch (Exception ex) {
             ex.printStackTrace();
         }

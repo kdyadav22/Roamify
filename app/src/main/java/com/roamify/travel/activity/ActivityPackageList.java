@@ -5,44 +5,50 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.InflateException;
-import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.ViewGroup;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.InflateException;
+import android.view.View;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivitiesPackageListRVAdapter;
-import com.roamify.travel.models.RawDataModel;
+import com.roamify.travel.models.ActivityModel;
+import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.rawdata.RawData;
-import com.roamify.travel.views.NavigationCellView;
+
+import java.util.ArrayList;
 
 public class ActivityPackageList extends AppCompatActivity implements View.OnClickListener {
     ListView listView = null;
-    ListCellAdapter listCellAdapter = null;
+    //ListCellAdapter listCellAdapter = null;
     Activity currentActivity = null;
-    RawDataModel rawDataModel = new RawDataModel();
     RecyclerView recyclerView;
-
+    protected EditText etSearchDestination;
+    protected ImageView imgClear;
+    ArrayAdapter<ActivityModel> myAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_package_list);
         findViewById(R.id.right_bar_button).setOnClickListener(this);
+        etSearchDestination = (EditText) findViewById(R.id.et_searchNews);
+        imgClear = (ImageView) findViewById(R.id.imgClear);
+        imgClear.setOnClickListener(ActivityPackageList.this);
         recyclerView = (RecyclerView) findViewById(R.id.rv_recyclerView);
         try {
-            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
             recyclerView.setLayoutManager(mLayoutManager);
             recyclerView.setHasFixedSize(true);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -82,7 +88,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
 
         listView = (ListView) findViewById(R.id.navList);
 
-        listCellAdapter = new ListCellAdapter();
+        //listCellAdapter = new ListCellAdapter();
         listView.setOnItemClickListener(didSelectedListCell);
         //setAdapter();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -90,6 +96,31 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();*/
+        etSearchDestination.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() > 0) {
+//                    myAdapter.notifyDataSetChanged();
+                    recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(filter(s.toString()), ActivityPackageList.this, ""));
+                } else {
+                    recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(RawData.setPackage(), ActivityPackageList.this, ""));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() > 0) {
+                    imgClear.setVisibility(View.VISIBLE);
+                } else {
+                    imgClear.setVisibility(View.GONE);
+                }
+            }
+        });
 
     }
 
@@ -129,7 +160,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         }
     }
 
-    private class ListCellAdapter extends BaseAdapter {
+    /*private class ListCellAdapter extends BaseAdapter {
 
         public int getCount() {
 
@@ -185,5 +216,23 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         int imageID = R.drawable.ic_next;
         holder.titleView.setText(rawDataModel.getActivityModelarrayList().get(position).getActivityName());
         holder.thumbnailView.setImageResource(imageID);
+    }*/
+
+    private ArrayList<PackageModel> filter(String folderID) {
+        final ArrayList<PackageModel> filteredModelList = new ArrayList<>();
+        for (int i = 0; i < RawData.setPackage().size(); i++) {
+            PackageModel model = new PackageModel();
+            final String fId = RawData.setPackage().get(i).getPackageName().toLowerCase();
+            if (fId.startsWith(folderID.toLowerCase())) {
+                model.setPackageId(RawData.setPackage().get(i).getPackageId());
+                model.setPackageName(RawData.setPackage().get(i).getPackageName());
+                model.setPackageImageName(RawData.setPackage().get(i).getPackageImageName());
+                model.setPackageDuration(RawData.setPackage().get(i).getPackageDuration());
+                model.setPackagePrice(RawData.setPackage().get(i).getPackagePrice());
+                model.setPackageReview(RawData.setPackage().get(i).getPackageReview());
+                filteredModelList.add(model);
+            }
+        }
+        return filteredModelList;
     }
 }

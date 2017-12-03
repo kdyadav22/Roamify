@@ -30,8 +30,7 @@ import android.widget.TextView;
 import com.roamify.travel.R;
 import com.roamify.travel.fragment.DescriptionFragment;
 import com.roamify.travel.fragment.LocationFragment;
-import com.roamify.travel.fragment.PackageDetailsFragment;
-import com.roamify.travel.fragment.TestimonialsFragment;
+import com.roamify.travel.fragment.ReviewsFragment;
 import com.roamify.travel.models.PackageDetailsModel;
 import com.roamify.travel.models.PackageTabModel;
 import com.roamify.travel.rawdata.RawData;
@@ -81,23 +80,23 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 try {
                     switch (tName)
                     {
-                        case "Description":
+                        case "Details":
                             fragment = new DescriptionFragment();
                             transaction = fragmentManager.beginTransaction();
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
                             break;
-                        case "Package Details":
+                        /*case "Package Details":
                             fragment = new PackageDetailsFragment();
                             transaction = fragmentManager.beginTransaction();
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
-                            break;
-                        case "Map":
+                            break;*/
+                        case "Location":
                             fragment = new LocationFragment();
                             transaction = fragmentManager.beginTransaction();
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
                             break;
-                        case "Testimonials":
-                            fragment = new TestimonialsFragment();
+                        case "Reviews":
+                            fragment = new ReviewsFragment();
                             transaction = fragmentManager.beginTransaction();
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
                             break;

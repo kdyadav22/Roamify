@@ -2,13 +2,14 @@ package com.roamify.travel.adapters;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.roamify.travel.R;
 import com.roamify.travel.activity.ActivitiesList;
-import com.roamify.travel.models.ActivityModel;
+import com.roamify.travel.models.DestinationModel;
 import com.roamify.travel.utils.Constants;
 
 import java.util.ArrayList;
@@ -18,12 +19,10 @@ import java.util.ArrayList;
  */
 
 public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHandler> {
-    //private ActivityModel activityModel = new ActivityModel();
     private Activity activity;
-    private ArrayList<ActivityModel> activityModels;
-    public DestinationRVAdapter(ArrayList<ActivityModel> activityModels, Activity activity) {
+    private ArrayList<DestinationModel> activityModels;
+    public DestinationRVAdapter(ArrayList<DestinationModel> activityModels, Activity activity) {
         this.activity = activity;
-        //activityModel.setActivityModels(activityModels);
         this.activityModels = activityModels;
     }
 
@@ -35,14 +34,29 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
 
     @Override
     public void onBindViewHolder(DestinationViewHandler holder, final int position) {
-        final ActivityModel data = activityModels.get(position);
+        final DestinationModel data = activityModels.get(position);
+        DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
+        final int width = displayMetrics.widthPixels/3;
+
+        android.view.ViewGroup.LayoutParams layoutParamsImageview = holder.iv_destinationImage.getLayoutParams();
+        layoutParamsImageview.width = width;
+        layoutParamsImageview.height = width;
+        holder.iv_destinationImage.setLayoutParams(layoutParamsImageview);
+
+        ViewGroup.LayoutParams layoutParams = holder.ll_destination_rowLayout.getLayoutParams();
+        layoutParams.width = width;
+        layoutParams.height = width+50;
+        holder.ll_destination_rowLayout.setLayoutParams(layoutParams);
+
+
+
         if (data != null) {
             try {
-                holder.tv_Title.setText(data.getActivityName());
+                holder.tv_destinationName.setText(data.getDestinationName());
             } catch (Exception e) {
                 e.getMessage();
             }
-            holder.ll_activity_rowLayout.setOnClickListener(new View.OnClickListener() {
+            holder.ll_destination_rowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Constants.activityItemClickListener.onClicked(position);

@@ -1,26 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:id="@+id/ll_activity_rowLayout"
+        android:id="@+id/ll_destination_rowLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:padding="5dp"
         android:background="@drawable/list_button_pressed_bg"
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_activityName"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
+        <ImageView
+            android:id="@+id/iv_destinationImage"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center|left"
+            android:background="@drawable/playcardp403_2" />
+
+        <TextView
+            android:id="@+id/tv_destinationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="TextView"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="@color/md_grey_600"
-            android:textSize="16dp" />
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_destinationId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="#a4a4ac"
+            android:textSize="14sp"
+            android:visibility="gone" />
     </LinearLayout>
 
     <LinearLayout

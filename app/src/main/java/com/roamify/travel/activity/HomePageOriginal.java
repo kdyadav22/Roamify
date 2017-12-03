@@ -183,7 +183,7 @@ public class HomePageOriginal extends AppCompatActivity implements ActivityItemC
         //Item8
         MenuItemModel title8 = new MenuItemModel();
         title8.setTitle(getResources().getString(R.string.faq));
-        title8.setDrawable(R.drawable.faq_button_bg);
+        title8.setDrawable(R.drawable.submit_button_bg);
         menuItemModels.add(title8);*/
 
         return menuItemModels;

@@ -4,29 +4,39 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/ll_rowLayout"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:tint="@color/md_green_700"
-            app:srcCompat="@drawable/ic_hotel_white_24dp" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+   <!-- <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        app:cardElevation="5dp"
+        android:layout_marginLeft="2dp"
+        android:layout_height="wrap_content">-->
+        <LinearLayout
+            android:id="@+id/ll_rowLayout"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:text="Textview"
-            android:textColor="@color/md_green_700"
-            android:textSize="16dp" />
-    </LinearLayout>
+            android:background="@drawable/grid_bg_white"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:tint="@color/md_green_700"
+                app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Textview"
+                android:textColor="@color/md_green_700"
+                android:textSize="12dp" />
+        </LinearLayout>
+    <!--</android.support.v7.widget.CardView>-->
+
 
 </LinearLayout>

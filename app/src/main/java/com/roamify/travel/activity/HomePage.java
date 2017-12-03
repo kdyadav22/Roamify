@@ -12,13 +12,12 @@ import android.view.Display;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.roamify.travel.R;
-import com.roamify.travel.adapters.AutocompleteCustomArrayAdapter;
+import com.roamify.travel.adapters.AutocompleteHomePageArrayAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
 import com.roamify.travel.adapters.MenuGridRVAdapter;
 import com.roamify.travel.listeners.ActivityItemClickListener;
@@ -61,7 +60,7 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
             ex.printStackTrace();
         }
 
-        myAdapter = new AutocompleteCustomArrayAdapter(this, R.layout.autocomplete_text_layout, RawData.setHomePageSearchItem());
+        myAdapter = new AutocompleteHomePageArrayAdapter(this, R.layout.autocomplete_text_layout, RawData.setHomePageSearchItem());
         autoCompleteTextView.setAdapter(myAdapter);
     }
 
@@ -188,7 +187,7 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
         //Item8
         MenuItemModel title8 = new MenuItemModel();
         title8.setTitle(getResources().getString(R.string.faq));
-        title8.setDrawable(R.drawable.faq_button_bg);
+        title8.setDrawable(R.drawable.submit_button_bg);
         menuItemModels.add(title8);*/
 
         return menuItemModels;
@@ -230,7 +229,7 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() > 0) {
                     myAdapter.notifyDataSetChanged();
-                    myAdapter = new AutocompleteCustomArrayAdapter(HomePage.this, R.layout.autocomplete_text_layout, filter(charSequence.toString()));
+                    myAdapter = new AutocompleteHomePageArrayAdapter(HomePage.this, R.layout.autocomplete_text_layout, filter(charSequence.toString()));
                     autoCompleteTextView.setAdapter(myAdapter);
                 }
             }

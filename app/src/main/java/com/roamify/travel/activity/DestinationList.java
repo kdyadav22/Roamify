@@ -4,47 +4,40 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
-import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.InflateException;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.roamify.travel.R;
-import com.roamify.travel.adapters.AutocompleteCustomArrayAdapter;
-import com.roamify.travel.adapters.CustomAutoCompleteView;
 import com.roamify.travel.adapters.DestinationRVAdapter;
 import com.roamify.travel.listeners.ActivityItemClickListener;
-import com.roamify.travel.models.ActivityModel;
+import com.roamify.travel.models.DestinationModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class DestinationList extends AppCompatActivity implements View.OnClickListener, ActivityItemClickListener {
 
     protected Toolbar toolbar;
+    //protected AutoCompleteTextView etSearchDestination;
     protected EditText etSearchDestination;
     protected ImageView imgClear;
     protected RelativeLayout rlSearch;
     protected RecyclerView rvRecyclerView;
     //CustomAutoCompleteView etSearchDestination;
-    ArrayAdapter<ActivityModel> myAdapter;
+    ArrayAdapter<DestinationModel> myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +54,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() > 0) {
-                    myAdapter.notifyDataSetChanged();
                     rvRecyclerView.setAdapter(new DestinationRVAdapter(filter(s.toString()), DestinationList.this));
-                    //rvRecyclerView.setAdapter(new AutocompleteCustomArrayAdapter(DestinationList.this, R.layout.destination_list_item, filter(s.toString())));
                 } else {
                     rvRecyclerView.setAdapter(new DestinationRVAdapter(RawData.setDestination(), DestinationList.this));
                 }
@@ -115,8 +106,8 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
             }
         });*/
 
-        //myAdapter = new AutocompleteCustomArrayAdapter(DestinationList.this, R.layout.destination_list_item, RawData.setDestination());
-        //etSearchDestination.setAdapter(myAdapter);
+        /*myAdapter = new AutocompleteDestinationAdapter(DestinationList.this, R.layout.destination_list_item, RawData.setDestination());
+        etSearchDestination.setAdapter(myAdapter);*/
         rvRecyclerView.setAdapter(new DestinationRVAdapter(RawData.setDestination(), DestinationList.this));
     }
 
@@ -146,7 +137,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);
         rvRecyclerView = (RecyclerView) findViewById(R.id.rv_recyclerView);
         try {
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 3);
             rvRecyclerView.setLayoutManager(mLayoutManager);
             rvRecyclerView.setHasFixedSize(true);
             rvRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -190,19 +181,19 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
             if (getIntent().getBooleanExtra("isComingFromSearchPage", false)) {
                 //User come here on select activity from search page, then he should go for package list on select any location
                 intent = new Intent(getApplicationContext(), ActivityPackageList.class);
-                intent.putExtra("title", RawData.setDestination().get(pos).getActivityName());
+                intent.putExtra("title", RawData.setDestination().get(pos).getDestinationName());
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } else if (getIntent().getBooleanExtra("isComingForDestinationWiseSearch", false)) {
                 //User come here on tap destination tab from home page, then he should go for all activities list on select any location
                 intent = new Intent(getApplicationContext(), AllActivities.class);
-                intent.putExtra("title", RawData.setDestination().get(pos).getActivityName());
+                intent.putExtra("title", RawData.setDestination().get(pos).getDestinationName());
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } else {
                 //User come here on tap activity tab from Home page, then he should go for that type activities list on select any location
                 intent = new Intent(getApplicationContext(), ActivitiesList.class);
-                intent.putExtra("title", RawData.setDestination().get(pos).getActivityName());
+                intent.putExtra("title", RawData.setDestination().get(pos).getDestinationName());
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
@@ -211,18 +202,23 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    private ArrayList<ActivityModel> filter(String folderID) {
-        final ArrayList<ActivityModel> filteredModelList = new ArrayList<>();
+    private ArrayList<DestinationModel> filter(String folderID) {
+        final ArrayList<DestinationModel> filteredModelList = new ArrayList<>();
         for (int i = 0; i < RawData.setDestination().size(); i++) {
-            ActivityModel model = new ActivityModel();
-            final String fId = RawData.setDestination().get(i).getActivityName().toLowerCase();
+            DestinationModel model = new DestinationModel();
+            final String fId = RawData.setDestination().get(i).getDestinationName().toLowerCase();
             if (fId.startsWith(folderID.toLowerCase())) {
-                model.setActivityId(RawData.setDestination().get(i).getActivityId());
-                model.setActivityName((RawData.setDestination().get(i).getActivityName()));
+                model.setDestinationId(RawData.setDestination().get(i).getDestinationId());
+                model.setDestinationName((RawData.setDestination().get(i).getDestinationName()));
                 filteredModelList.add(model);
             }
         }
         return filteredModelList;
+    }
+
+    private void goToNext()
+    {
+
     }
 
 }

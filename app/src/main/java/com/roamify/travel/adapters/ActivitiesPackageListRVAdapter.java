@@ -34,7 +34,7 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
 
     @Override
     public ActivityPackageListViewHandler onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cell_activity_package_list, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cell_activity_package_list_changed_layout, parent, false);
         return new ActivityPackageListViewHandler(itemView);
     }
 
@@ -42,9 +42,9 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
     public void onBindViewHolder(ActivityPackageListViewHandler holder, final int position) {
         final PackageModel data = activityModels.get(holder.getAdapterPosition());
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
-        final int width = displayMetrics.widthPixels / 2;
+        final int width = displayMetrics.widthPixels;
         ViewGroup.LayoutParams layoutParams = holder.ll_activity_rowLayout.getLayoutParams();
-        layoutParams.width = width-10;
+        layoutParams.width = width;
         //layoutParams.height = width+200;
         holder.ll_activity_rowLayout.setLayoutParams(layoutParams);
         if (data != null) {
