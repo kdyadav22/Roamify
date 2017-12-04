@@ -5,7 +5,6 @@ package com.roamify.travel.adapters;
  */
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,18 +12,16 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.roamify.travel.R;
-import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.DestinationModel;
-import com.roamify.travel.models.HomePageSearchModel;
 
 import java.util.ArrayList;
 
-public class AutocompleteCustomArrayAdapter extends ArrayAdapter<HomePageSearchModel> {
-    final String TAG = "AutocompleteCustomArrayAdapter.java";
+public class AutocompleteDestinationAdapter extends ArrayAdapter<DestinationModel> {
+    final String TAG = "AutocompleteDestinationAdapter.java";
     Activity mContext;
     int layoutResourceId;
-    ArrayList<HomePageSearchModel> dataArrayList = null;
-    public AutocompleteCustomArrayAdapter(Activity mContext, int layoutResourceId, ArrayList<HomePageSearchModel> data) {
+    ArrayList<DestinationModel> dataArrayList = null;
+    public AutocompleteDestinationAdapter(Activity mContext, int layoutResourceId, ArrayList<DestinationModel> data) {
         super(mContext, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.mContext = mContext;
@@ -47,12 +44,12 @@ public class AutocompleteCustomArrayAdapter extends ArrayAdapter<HomePageSearchM
             }
 
             // object item based on the position
-            HomePageSearchModel objectItem = dataArrayList.get(position);
+            DestinationModel objectItem = dataArrayList.get(position);
             // get the TextView and then set the text (item name) and tag (item ID) values
-            TextView textViewItem = (TextView) convertView.findViewById(R.id.tv_main_text);
+            TextView textViewItem = (TextView) convertView.findViewById(R.id.tv_activityName);
             TextView textViewItemPosition = (TextView) convertView.findViewById(R.id.tv_secondary_text);
             textViewItemPosition.setText(""+position);
-            textViewItem.setText(objectItem.getName());
+            textViewItem.setText(objectItem.getDestinationName());
             // in case you want to add some style, you can do something like:
             //textViewItem.setBackgroundColor(Color.CYAN);
         } catch (NullPointerException e) {

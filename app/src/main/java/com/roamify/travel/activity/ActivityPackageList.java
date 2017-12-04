@@ -86,12 +86,12 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             }
         });
 
-        listView = (ListView) findViewById(R.id.navList);
+        //listView = (ListView) findViewById(R.id.navList);
 
         //listCellAdapter = new ListCellAdapter();
-        listView.setOnItemClickListener(didSelectedListCell);
+        //listView.setOnItemClickListener(didSelectedListCell);
         //setAdapter();
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         /*ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -133,22 +133,23 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-        }
+        }*/
+        super.onBackPressed();
     }
 
-    private AdapterView.OnItemClickListener didSelectedListCell = new AdapterView.OnItemClickListener() {
+    /*private AdapterView.OnItemClickListener didSelectedListCell = new AdapterView.OnItemClickListener() {
 
         public void onItemClick(AdapterView<?> arg0, View arg1, int index,
                                 long arg3) {
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
         }
-    };
+    };*/
 
     @Override
     public void onClick(View view) {
