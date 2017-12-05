@@ -107,6 +107,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.roamify.travel.activity.HomePageWithMenu"
+            android:label="@string/title_activity_home_page_with_menu"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <meta-data
             android:name="android.support.VERSION"

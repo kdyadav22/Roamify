@@ -94,7 +94,9 @@
         <activity
             android:name=".activity.HomePageWithMenu"
             android:label="@string/title_activity_home_page_with_menu"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
     </application>
 
 </manifest>
