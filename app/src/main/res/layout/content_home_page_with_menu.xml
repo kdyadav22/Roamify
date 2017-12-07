@@ -8,4 +8,13 @@
     tools:context="com.roamify.travel.activity.HomePageWithMenu"
     tools:showIn="@layout/app_bar_home_page_with_menu">
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <include layout="@layout/content_home_page" />
+
+    </android.support.v4.widget.NestedScrollView>
 </android.support.constraint.ConstraintLayout>

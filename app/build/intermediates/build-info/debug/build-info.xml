@@ -7,22 +7,22 @@
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.0.0"
-    timestamp="1512492701130"
+    timestamp="1512578675145"
     token="6167121252904990197"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="261" />
+        duration="814" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="49" />
+        duration="75" />
     <task
         name="verifier"
-        duration="1" />
+        duration="13" />
 
     <artifact
         location="/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
@@ -30,19 +30,19 @@
 
     <build
         build-mode="FULL"
-        timestamp="1512492409463"
+        timestamp="1512574999610"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            location="/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
             location="/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
             location="/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
@@ -71,8 +71,16 @@
     </build>
     <build
         build-mode="COLD"
+        timestamp="1512578142285"
+        verifier="CLASS_ADDED" >
+        <artifact
+            location="/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/outputs/apk/debug/app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1512492701130"
+        timestamp="1512578675145"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/split-apk/debug/slices/slice_7.apk"

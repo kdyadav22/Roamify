@@ -1,8 +1,14 @@
 package com.roamify.travel.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,31 +18,75 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.roamify.travel.R;
+import com.roamify.travel.adapters.AutocompleteHomePageArrayAdapter;
+import com.roamify.travel.adapters.CustomAutoCompleteView;
+import com.roamify.travel.adapters.MenuGridRVAdapter;
+import com.roamify.travel.listeners.ActivityItemClickListener;
+import com.roamify.travel.models.HomePageSearchModel;
+import com.roamify.travel.models.MenuItemModel;
+import com.roamify.travel.rawdata.RawData;
+import com.roamify.travel.utils.Constants;
+import com.roamify.travel.utils.Validations;
+
+import java.util.ArrayList;
 
 public class HomePageWithMenu extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ActivityItemClickListener, View.OnClickListener {
 
     TextView header_name, header_email;
+    static HomePageWithMenu mInstance;
+    protected CustomAutoCompleteView autoCompleteTextView;
+    //FrameLayout top_image_portion;
+    LinearLayout rv_list_portion;
+    RecyclerView mMenuListRecyclerView;
+    TextView whereToSearch;
+    RelativeLayout rl_autoSearch;
+
+
+    public static synchronized HomePageWithMenu getInstance() {
+        return mInstance;
+    }
+    int listViewHeight;
+    int totalHeight;
+    // adapter for auto-complete
+    ArrayAdapter<HomePageSearchModel> myAdapter;
+    Toolbar toolbar;
+    DrawerLayout drawer;
+    NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_with_menu);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        initView();
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
+        toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException npe) {
+            npe.getMessage();
+        }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        /*header_name = (TextView) drawer.findViewById(R.id.tvNameText);
-        header_name.setText("Amit");*/
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        myAdapter = new AutocompleteHomePageArrayAdapter(this, R.layout.autocomplete_text_layout, RawData.setHomePageSearchItem());
+        autoCompleteTextView.setAdapter(myAdapter);
     }
 
     @Override
@@ -49,7 +99,7 @@ public class HomePageWithMenu extends AppCompatActivity
         }
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home_page_with_menu, menu);
@@ -69,7 +119,7 @@ public class HomePageWithMenu extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -94,5 +144,236 @@ public class HomePageWithMenu extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Constants.activityItemClickListener = HomePageWithMenu.this;
+        try {
+            mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), HomePage.getInstance(), listViewHeight / 4));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onClicked(int position) {
+        Intent intent = null;
+        switch (setMenuData().get(position).getTitle()) {
+            case "HOTELS": {
+                break;
+            }
+            case "WATER ACTIVITIES": {
+                try {
+                    intent = new Intent(getApplicationContext(), DestinationList.class);
+                    intent.putExtra("title", "WATER ACTIVITIES");
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            }
+            case "AIR ACTIVITIES": {
+                try {
+                    intent = new Intent(getApplicationContext(), DestinationList.class);
+                    intent.putExtra("title", "AIR ACTIVITIES");
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            }
+            case "LAND ACTIVITIES": {
+                try {
+                    intent = new Intent(getApplicationContext(), DestinationList.class);
+                    intent.putExtra("title", "LAND ACTIVITIES");
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            }
+            case "CONTACT": {
+                break;
+            }
+            case "ABOUT US": {
+                break;
+            }
+            case "FAQ": {
+                break;
+            }
+            case "DESTINATIONS": {
+                try {
+                    intent = new Intent(getApplicationContext(), DestinationList.class);
+                    intent.putExtra("title", "DESTINATIONS");
+                    intent.putExtra("isComingForDestinationWiseSearch", true);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                break;
+            }
+        }
+    }
+
+    private ArrayList<MenuItemModel> setMenuData() {
+        ArrayList<MenuItemModel> menuItemModels = new ArrayList<>();
+
+        //Item1
+       /* MenuItemModel title1 = new MenuItemModel();
+        title1.setTitle(getResources().getString(R.string.hotels));
+        title1.setDrawable(R.drawable.hotels_button_bg);
+        menuItemModels.add(title1);*/
+
+        //Item2
+        MenuItemModel title2 = new MenuItemModel();
+        title2.setTitle(getResources().getString(R.string.water_activity));
+        title2.setDrawable(R.drawable.water_activity_button_bg);
+        menuItemModels.add(title2);
+
+        //Item3
+        MenuItemModel title3 = new MenuItemModel();
+        title3.setTitle(getResources().getString(R.string.air_activity));
+        title3.setDrawable(R.drawable.water_activity_button_bg);
+        menuItemModels.add(title3);
+
+        //Item4
+        MenuItemModel title4 = new MenuItemModel();
+        title4.setTitle(getResources().getString(R.string.land_activity));
+        title4.setDrawable(R.drawable.water_activity_button_bg);
+        menuItemModels.add(title4);
+
+        //Item5
+        MenuItemModel title5 = new MenuItemModel();
+        title5.setTitle(getResources().getString(R.string.destination));
+        title5.setDrawable(R.drawable.water_activity_button_bg);
+        menuItemModels.add(title5);
+
+       /* //Item6
+        MenuItemModel title6 = new MenuItemModel();
+        title6.setTitle(getResources().getString(R.string.contact_us));
+        title6.setDrawable(R.drawable.contact_us_button_bg);
+        menuItemModels.add(title6);
+
+        //Item7
+        MenuItemModel title7 = new MenuItemModel();
+        title7.setTitle(getResources().getString(R.string.about_us));
+        title7.setDrawable(R.drawable.about_us_button_bg);
+        menuItemModels.add(title7);
+
+        //Item8
+        MenuItemModel title8 = new MenuItemModel();
+        title8.setTitle(getResources().getString(R.string.faq));
+        title8.setDrawable(R.drawable.submit_button_bg);
+        menuItemModels.add(title8);*/
+
+        return menuItemModels;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.textView) {
+            Validations.showSoftInput(HomePageWithMenu.this, autoCompleteTextView);
+            autoCompleteTextView.setText("");
+            whereToSearch.setVisibility(View.GONE);
+            rl_autoSearch.setVisibility(View.VISIBLE);
+
+        }
+    }
+
+    private void initView() {
+        autoCompleteTextView = (CustomAutoCompleteView) findViewById(R.id.autoCompleteTextView);
+        mMenuListRecyclerView = (RecyclerView) findViewById(R.id.rv_menu);
+        //top_image_portion = (FrameLayout) findViewById(R.id.ll_top_image_portion);
+        rv_list_portion = (LinearLayout) findViewById(R.id.ll_activity_rowLayout);
+        whereToSearch = (TextView)findViewById(R.id.textView);
+        rl_autoSearch = (RelativeLayout) findViewById(R.id.rl_autoSearch);
+
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        mMenuListRecyclerView.setLayoutManager(mLayoutManager);
+        mMenuListRecyclerView.setHasFixedSize(true);
+        mMenuListRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        whereToSearch.setOnClickListener(this);
+
+        autoCompleteTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() > 0) {
+                    myAdapter.notifyDataSetChanged();
+                    myAdapter = new AutocompleteHomePageArrayAdapter(HomePageWithMenu.this, R.layout.autocomplete_text_layout, filter(charSequence.toString()));
+                    autoCompleteTextView.setAdapter(myAdapter);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View arg1, int pos, long id) {
+                LinearLayout rl = (LinearLayout) arg1;
+                LinearLayout rl1 = (LinearLayout) rl.getChildAt(0);
+                LinearLayout rl2 = (LinearLayout) rl1.getChildAt(1);
+                TextView tv_main = (TextView) rl2.getChildAt(0);
+                TextView tv_pos = (TextView) rl2.getChildAt(1);
+
+                whereToSearch.setVisibility(View.VISIBLE);
+                rl_autoSearch.setVisibility(View.GONE);
+                whereToSearch.setText(tv_main.getText().toString());
+                sendToNext(Integer.parseInt(tv_pos.getText().toString()));
+            }
+        });
+    }
+
+    private ArrayList<HomePageSearchModel> filter(String folderID) {
+        final ArrayList<HomePageSearchModel> filteredModelList = new ArrayList<>();
+        for (int i = 0; i < RawData.setHomePageSearchItem().size(); i++) {
+            HomePageSearchModel model = new HomePageSearchModel();
+            final String fId = RawData.setHomePageSearchItem().get(i).getName().toLowerCase();
+            if (fId.startsWith(folderID.toLowerCase())) {
+                model.setId(RawData.setHomePageSearchItem().get(i).getId());
+                model.setName((RawData.setHomePageSearchItem().get(i).getName()));
+                model.setType((RawData.setHomePageSearchItem().get(i).getType()));
+                filteredModelList.add(model);
+            }
+        }
+        return filteredModelList;
+    }
+
+    private void sendToNext(int pos){
+        Validations.hideSoftInput(HomePageWithMenu.this);
+        try {
+            //If item is location type then will go on "All Activites Page"
+            //If item is activity type then will go on "Destination List Page"
+            if (RawData.setHomePageSearchItem().get(pos).getType().equals("A")) {
+                Intent intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", RawData.setHomePageSearchItem().get(pos).getName());
+                intent.putExtra("isComingFromSearchPage", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } else {
+                Intent intent = new Intent(getApplicationContext(), AllActivities.class);
+                intent.putExtra("title", RawData.setHomePageSearchItem().get(pos).getName());
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
