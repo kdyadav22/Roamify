@@ -7,6 +7,7 @@
         <item
             android:id="@+id/nav_mytrips"
             android:icon="@drawable/nav_trips"
+            android:visible="false"
             android:title="My Trips" />
         <item
             android:id="@+id/nav_aboutus"
@@ -24,7 +25,7 @@
 
     </group>
 
-    <item android:title="Profile">
+    <item android:title="Profile" android:visible="false">
         <menu>
             <item
                 android:id="@+id/nav_signIn"

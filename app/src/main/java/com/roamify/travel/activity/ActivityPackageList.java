@@ -14,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,22 +23,33 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivitiesPackageListRVAdapter;
 import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.rawdata.RawData;
+import com.roamify.travel.utils.AppController;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ActivityPackageList extends AppCompatActivity implements View.OnClickListener {
-    ListView listView = null;
-    //ListCellAdapter listCellAdapter = null;
     Activity currentActivity = null;
     RecyclerView recyclerView;
     protected EditText etSearchDestination;
     protected ImageView imgClear;
-    ArrayAdapter<ActivityModel> myAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,15 +154,6 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         super.onBackPressed();
     }
 
-    /*private AdapterView.OnItemClickListener didSelectedListCell = new AdapterView.OnItemClickListener() {
-
-        public void onItemClick(AdapterView<?> arg0, View arg1, int index,
-                                long arg3) {
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-        }
-    };*/
-
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.right_bar_button) {
@@ -160,64 +163,6 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
     }
-
-    /*private class ListCellAdapter extends BaseAdapter {
-
-        public int getCount() {
-
-            return rawDataModel.getActivityModelarrayList().size();
-        }
-
-        public Object getItem(int position) {
-            return null;
-        }
-
-        public long getItemId(int arg0) {
-            return 0;
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = inflateView();
-            }
-            populateView(convertView, position);
-            return convertView;
-        }
-
-        private View inflateView() {
-
-            NavigationCellView cellView = new NavigationCellView(currentActivity);
-
-            ViewHolder vh = new ViewHolder();
-            vh.thumbnailView = cellView.thumbnailView;
-            vh.titleView = cellView.titleView;
-
-            cellView.view.setTag(vh);
-
-            return cellView.view;
-        }
-    }
-
-    private static class ViewHolder {
-        ImageView thumbnailView;
-        TextView titleView;
-    }
-
-    public void setAdapter() {
-
-        if (listView.getAdapter() == null && listCellAdapter != null) {
-            listView.setAdapter(listCellAdapter);
-        }
-        assert listCellAdapter != null;
-        listCellAdapter.notifyDataSetChanged();
-    }
-
-    public void populateView(View view, int position) {
-        ViewHolder holder = (ViewHolder) view.getTag();
-        int imageID = R.drawable.ic_next;
-        holder.titleView.setText(rawDataModel.getActivityModelarrayList().get(position).getActivityName());
-        holder.thumbnailView.setImageResource(imageID);
-    }*/
 
     private ArrayList<PackageModel> filter(String folderID) {
         final ArrayList<PackageModel> filteredModelList = new ArrayList<>();
@@ -235,5 +180,52 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             }
         }
         return filteredModelList;
+    }
+
+    public void getRequestCall(String url, String tag) {
+        // cancel request from pending queue
+        AppController.getInstance().cancelPendingRequests(tag);
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("TAG", response.toString());
+                        try {
+                            runOnMainThread(response);
+                        } catch (JSONException ex) {
+                            ex.getMessage();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("TAG", "Error: " + error.getMessage());
+            }
+        })
+
+        {
+            /**
+             * Passing some request headers
+             * */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+
+        //Adding policy for socket time out
+        RetryPolicy policy = new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        jsonObjReq.setRetryPolicy(policy);
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
+    }
+
+    private void runOnMainThread(JSONObject response) throws JSONException {
+
     }
 }

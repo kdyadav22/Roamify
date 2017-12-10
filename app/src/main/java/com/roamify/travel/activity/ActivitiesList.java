@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,20 +12,38 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivityWiseActivityRVAdapter;
+import com.roamify.travel.fragment.TopDestinationFragment;
+import com.roamify.travel.fragment.UpcomingActivitiesFragment;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.RawDataModel;
 import com.roamify.travel.models.StateWiseActivityModel;
 import com.roamify.travel.rawdata.RawData;
+import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ActivitiesList extends AppCompatActivity implements ActivityItemClickListener, View.OnClickListener {
     protected Toolbar toolbar;
@@ -32,7 +51,9 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
     protected ImageView imgSearch;
     protected ImageView imgClear;
     protected RecyclerView rvRecyclerView;
-    RawDataModel rawDataModel = new RawDataModel();
+    protected ImageView rightBarButton;
+    protected AppBarLayout appbar;
+    protected RelativeLayout rlSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +118,11 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
     public void onClick(View view) {
         if (view.getId() == R.id.imgClear) {
             etSearchLocation.setText("");
+        } else if (view.getId() == R.id.right_bar_button) {
+            Intent intent = new Intent(getApplicationContext(), HomePage.class);
+            startActivity(intent);
+            finish();
+            overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
     }
 
@@ -122,12 +148,9 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
             upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
             getSupportActionBar().setHomeAsUpIndicator(upArrow);
-        }
-        catch (RuntimeException re)
-        {
+        } catch (RuntimeException re) {
             re.printStackTrace();
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -137,6 +160,10 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
         });
+        rightBarButton = (ImageView) findViewById(R.id.right_bar_button);
+        rightBarButton.setOnClickListener(ActivitiesList.this);
+        appbar = (AppBarLayout) findViewById(R.id.appbar);
+        rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);
     }
 
     private ArrayList<StateWiseActivityModel> filter(String folderID) {
@@ -151,5 +178,52 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             }
         }
         return filteredModelList;
+    }
+
+    public void getRequestCall(String url, String tag) {
+        // cancel request from pending queue
+        AppController.getInstance().cancelPendingRequests(tag);
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("TAG", response.toString());
+                        try {
+                            runOnMainThread(response);
+                        } catch (JSONException ex) {
+                            ex.getMessage();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("TAG", "Error: " + error.getMessage());
+            }
+        })
+
+        {
+            /**
+             * Passing some request headers
+             * */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+
+        //Adding policy for socket time out
+        RetryPolicy policy = new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        jsonObjReq.setRetryPolicy(policy);
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
+    }
+
+    private void runOnMainThread(JSONObject response) throws JSONException {
+
     }
 }

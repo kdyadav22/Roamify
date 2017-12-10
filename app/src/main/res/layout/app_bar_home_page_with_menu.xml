@@ -3,10 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/rootLayout"
     android:layout_height="match_parent"
     tools:context="com.roamify.travel.activity.HomePageWithMenu">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
@@ -34,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/top_header"
+                android:src="@drawable/default_nav_bar"
                 app:layout_collapseMode="parallax" />
 
             <LinearLayout
@@ -54,7 +56,7 @@
                     android:paddingLeft="10dp"
                     android:text="Where to?"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:visibility="visible" />
 
                 <RelativeLayout
@@ -104,14 +106,38 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
+                <LinearLayout
+                    android:id="@+id/collapsed_toolbar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="70dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/toolbar_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_white"
+                        android:drawableRight="@drawable/ic_action_downarrow"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:text="Where to?"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <!--<include layout="@layout/content_home_page_with_menu" />-->
-    <android.support.v4.widget.NestedScrollView
+    <!--<android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
@@ -119,6 +145,8 @@
 
         <include layout="@layout/content_home_page" />
 
-    </android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.NestedScrollView>-->
+
+    <include layout="@layout/content_home_page" />
 
 </android.support.design.widget.CoordinatorLayout>

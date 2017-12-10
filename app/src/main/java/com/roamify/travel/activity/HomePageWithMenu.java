@@ -2,57 +2,77 @@ package com.roamify.travel.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.AutocompleteHomePageArrayAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
-import com.roamify.travel.adapters.MenuGridRVAdapter;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.models.MenuItemModel;
 import com.roamify.travel.rawdata.RawData;
+import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HomePageWithMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ActivityItemClickListener, View.OnClickListener {
 
+    protected LinearLayout btWaterActivity;
+    protected LinearLayout btAirActivity;
+    protected LinearLayout btLandActivity;
+    protected LinearLayout btDestination;
     TextView header_name, header_email;
     static HomePageWithMenu mInstance;
     protected CustomAutoCompleteView autoCompleteTextView;
-    //FrameLayout top_image_portion;
+    LinearLayout collapsed_toolbar_layout;
     LinearLayout rv_list_portion;
-    RecyclerView mMenuListRecyclerView;
+    //RecyclerView mMenuListRecyclerView;
+    TextView toolbar_textView;
     TextView whereToSearch;
     RelativeLayout rl_autoSearch;
-
+    CollapsingToolbarLayout collapsingToolbarLayout;
+    CoordinatorLayout rootLayout;
+    AppBarLayout appBarLayout;
 
     public static synchronized HomePageWithMenu getInstance() {
         return mInstance;
     }
+
     int listViewHeight;
     int totalHeight;
     // adapter for auto-complete
@@ -60,12 +80,13 @@ public class HomePageWithMenu extends AppCompatActivity
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_with_menu);
         initView();
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         //toolbar.setTitle(getIntent().getStringExtra("title"));
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
@@ -76,17 +97,38 @@ public class HomePageWithMenu extends AppCompatActivity
             npe.getMessage();
         }
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        collapsingToolbarLayout.setTitle(" ");
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
 
-        myAdapter = new AutocompleteHomePageArrayAdapter(this, R.layout.autocomplete_text_layout, RawData.setHomePageSearchItem());
-        autoCompleteTextView.setAdapter(myAdapter);
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    Validations.hideSoftInput(HomePageWithMenu.this);
+                    collapsingToolbarLayout.setTitle(" ");
+                    collapsed_toolbar_layout.setVisibility(View.VISIBLE);
+                    toolbar_textView.setText(AppController.getInstance().getSearchText());
+                    //To hide auto complete text box
+                    /*whereToSearch.setVisibility(View.VISIBLE);
+                    rl_autoSearch.setVisibility(View.GONE);*/
+                    isShow = true;
+                } else if (isShow) {
+                    collapsed_toolbar_layout.setVisibility(View.GONE);
+                    toolbar_textView.setText(AppController.getInstance().getSearchText());
+                    collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
+                    isShow = false;
+                }
+            }
+        });
     }
 
     @Override
@@ -126,18 +168,45 @@ public class HomePageWithMenu extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        Intent intent;
         if (id == R.id.nav_mytrips) {
-            // Handle the camera action
+            try {
+                /*intent = new Intent(getApplicationContext(), MyTripsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);*/
+                Toast.makeText(mInstance, "Work in progress", Toast.LENGTH_SHORT).show();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
         } else if (id == R.id.nav_aboutus) {
-
+            try {
+                intent = new Intent(getApplicationContext(), AboutUsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         } else if (id == R.id.nav_contactus) {
-
+            try {
+                intent = new Intent(getApplicationContext(), ContactUsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_signIn) {
-
-        }else if (id == R.id.nav_logout) {
+            try {
+                intent = new Intent(getApplicationContext(), LoginActivity.class);
+                intent.putExtra("comingFromHomePage", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else if (id == R.id.nav_logout) {
 
         }
 
@@ -149,9 +218,12 @@ public class HomePageWithMenu extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
+        navigationView.setNavigationItemSelectedListener(this);
         Constants.activityItemClickListener = HomePageWithMenu.this;
         try {
-            mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), HomePage.getInstance(), listViewHeight / 4));
+            myAdapter = new AutocompleteHomePageArrayAdapter(this, R.layout.autocomplete_text_layout, RawData.setHomePageSearchItem());
+            autoCompleteTextView.setAdapter(myAdapter);
+            //mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), HomePage.getInstance(), listViewHeight / 4));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -277,30 +349,81 @@ public class HomePageWithMenu extends AppCompatActivity
 
     @Override
     public void onClick(View view) {
+        Intent intent;
         if (view.getId() == R.id.textView) {
             Validations.showSoftInput(HomePageWithMenu.this, autoCompleteTextView);
             autoCompleteTextView.setText("");
             whereToSearch.setVisibility(View.GONE);
             rl_autoSearch.setVisibility(View.VISIBLE);
-
+        } else if (view.getId() == R.id.toolbar_textView) {
+            Validations.showSoftInput(HomePageWithMenu.this, autoCompleteTextView);
+            autoCompleteTextView.setText("");
+            whereToSearch.setVisibility(View.GONE);
+            rl_autoSearch.setVisibility(View.VISIBLE);
+            appBarLayout.setExpanded(true, true);
+            Validations.showSoftInput(HomePageWithMenu.this, autoCompleteTextView);
+        } else if (view.getId() == R.id.bt_waterActivity) {
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "WATER ACTIVITIES");
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else if (view.getId() == R.id.bt_airActivity) {
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "AIR ACTIVITIES");
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else if (view.getId() == R.id.bt_landActivity) {
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "LAND ACTIVITIES");
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else if (view.getId() == R.id.bt_destination) {
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "DESTINATIONS");
+                intent.putExtra("isComingForDestinationWiseSearch", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
     private void initView() {
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
         autoCompleteTextView = (CustomAutoCompleteView) findViewById(R.id.autoCompleteTextView);
-        mMenuListRecyclerView = (RecyclerView) findViewById(R.id.rv_menu);
-        //top_image_portion = (FrameLayout) findViewById(R.id.ll_top_image_portion);
-        rv_list_portion = (LinearLayout) findViewById(R.id.ll_activity_rowLayout);
-        whereToSearch = (TextView)findViewById(R.id.textView);
+        //mMenuListRecyclerView = (RecyclerView) findViewById(R.id.rv_menu);
+        rv_list_portion = (LinearLayout) findViewById(R.id.ll_activity_rowLayout);//
+        collapsed_toolbar_layout = (LinearLayout) findViewById(R.id.collapsed_toolbar_layout);
+        whereToSearch = (TextView) findViewById(R.id.textView);
         rl_autoSearch = (RelativeLayout) findViewById(R.id.rl_autoSearch);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar_textView = (TextView) findViewById(R.id.toolbar_textView);
+        rootLayout = (CoordinatorLayout) findViewById(R.id.rootLayout);
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        /*RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         mMenuListRecyclerView.setLayoutManager(mLayoutManager);
         mMenuListRecyclerView.setHasFixedSize(true);
-        mMenuListRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mMenuListRecyclerView.setItemAnimator(new DefaultItemAnimator());*/
 
         whereToSearch.setOnClickListener(this);
-
+        toolbar_textView.setOnClickListener(this);
         autoCompleteTextView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -334,9 +457,19 @@ public class HomePageWithMenu extends AppCompatActivity
                 whereToSearch.setVisibility(View.VISIBLE);
                 rl_autoSearch.setVisibility(View.GONE);
                 whereToSearch.setText(tv_main.getText().toString());
+                toolbar_textView.setText(tv_main.getText().toString());
+                AppController.getInstance().setSearchText(tv_main.getText().toString());
                 sendToNext(Integer.parseInt(tv_pos.getText().toString()));
             }
         });
+        btWaterActivity = (LinearLayout) findViewById(R.id.bt_waterActivity);
+        btWaterActivity.setOnClickListener(HomePageWithMenu.this);
+        btAirActivity = (LinearLayout) findViewById(R.id.bt_airActivity);
+        btAirActivity.setOnClickListener(HomePageWithMenu.this);
+        btLandActivity = (LinearLayout) findViewById(R.id.bt_landActivity);
+        btLandActivity.setOnClickListener(HomePageWithMenu.this);
+        btDestination = (LinearLayout) findViewById(R.id.bt_destination);
+        btDestination.setOnClickListener(HomePageWithMenu.this);
     }
 
     private ArrayList<HomePageSearchModel> filter(String folderID) {
@@ -354,7 +487,7 @@ public class HomePageWithMenu extends AppCompatActivity
         return filteredModelList;
     }
 
-    private void sendToNext(int pos){
+    private void sendToNext(int pos) {
         Validations.hideSoftInput(HomePageWithMenu.this);
         try {
             //If item is location type then will go on "All Activites Page"
@@ -375,5 +508,52 @@ public class HomePageWithMenu extends AppCompatActivity
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void getRequestCall(String url, String tag) {
+        // cancel request from pending queue
+        AppController.getInstance().cancelPendingRequests(tag);
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("TAG", response.toString());
+                        try {
+                            runOnMainThread(response);
+                        } catch (JSONException ex) {
+                            ex.getMessage();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("TAG", "Error: " + error.getMessage());
+            }
+        })
+
+        {
+            /**
+             * Passing some request headers
+             * */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+
+        //Adding policy for socket time out
+        RetryPolicy policy = new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        jsonObjReq.setRetryPolicy(policy);
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
+    }
+
+    private void runOnMainThread(JSONObject response) throws JSONException {
+
     }
 }

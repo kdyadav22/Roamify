@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -18,15 +19,29 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.DestinationRVAdapter;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.DestinationModel;
 import com.roamify.travel.rawdata.RawData;
+import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DestinationList extends AppCompatActivity implements View.OnClickListener, ActivityItemClickListener {
 
@@ -216,9 +231,54 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         return filteredModelList;
     }
 
-    private void goToNext()
-    {
+    private void goToNext() {
 
     }
 
+    public void getRequestCall(String url, String tag) {
+        // cancel request from pending queue
+        AppController.getInstance().cancelPendingRequests(tag);
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("TAG", response.toString());
+                        try {
+                            runOnMainThread(response);
+                        } catch (JSONException ex) {
+                            ex.getMessage();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("TAG", "Error: " + error.getMessage());
+            }
+        })
+
+        {
+            /**
+             * Passing some request headers
+             * */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+
+        //Adding policy for socket time out
+        RetryPolicy policy = new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        jsonObjReq.setRetryPolicy(policy);
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
+    }
+
+    private void runOnMainThread(JSONObject response) throws JSONException {
+
+    }
 }

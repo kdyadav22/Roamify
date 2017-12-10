@@ -17,6 +17,7 @@
         android:required="true" />
 
     <application
+        android:name="com.roamify.travel.utils.AppController"
         android:allowBackup="true"
         android:debuggable="true"
         android:icon="@drawable/ic_launcher"
@@ -109,6 +110,11 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name="com.roamify.travel.activity.HomePageWithMenu"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.roamify.travel.activity.MyTripsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
