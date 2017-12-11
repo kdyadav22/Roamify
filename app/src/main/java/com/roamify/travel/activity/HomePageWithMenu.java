@@ -32,6 +32,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.AutocompleteHomePageArrayAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
@@ -43,6 +45,7 @@ import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -52,7 +55,7 @@ import java.util.Map;
 
 public class HomePageWithMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ActivityItemClickListener, View.OnClickListener {
-
+    String requestTag = "get_all_result";
     protected LinearLayout btWaterActivity;
     protected LinearLayout btAirActivity;
     protected LinearLayout btLandActivity;
@@ -61,6 +64,7 @@ public class HomePageWithMenu extends AppCompatActivity
     protected ImageView ivAirActivity;
     protected ImageView ivLandActivity;
     protected ImageView ivDestinations;
+    protected ImageView collapsedImage;
     protected LinearLayout llIconMenu;
     TextView header_name, header_email;
     static HomePageWithMenu mInstance;
@@ -86,6 +90,7 @@ public class HomePageWithMenu extends AppCompatActivity
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
+    ArrayList<HomePageSearchModel> pageSearchModelArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +98,6 @@ public class HomePageWithMenu extends AppCompatActivity
         setContentView(R.layout.activity_home_page_with_menu);
         initView();
 
-        //toolbar.setTitle(getIntent().getStringExtra("title"));
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
@@ -109,6 +113,22 @@ public class HomePageWithMenu extends AppCompatActivity
         toggle.syncState();
 
         collapsingToolbarLayout.setTitle(" ");
+        if (AppController.getInstance().getSearchImage() != null) {
+            try {
+                Glide.with(this)
+                        .load(Constants.BaseImageUrl + AppController.getInstance().getSearchImage())
+                        .fitCenter()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .crossFade(1000)
+                        //.override(600, 400)
+                        .error(R.drawable.default_nav_bar)
+                        .placeholder(R.drawable.default_nav_bar)
+                        .into(collapsedImage);
+            } catch (Exception e) {
+                e.fillInStackTrace();
+            }
+        }
+
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isShow = false;
             int scrollRange = -1;
@@ -137,6 +157,15 @@ public class HomePageWithMenu extends AppCompatActivity
                 }
             }
         });
+
+        try {
+            getRequestCall(Constants.GetAllResultApi, requestTag);
+            myAdapter = new AutocompleteHomePageArrayAdapter(this, R.layout.autocomplete_text_layout, pageSearchModelArrayList);
+            autoCompleteTextView.setAdapter(myAdapter);
+            //mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), HomePage.getInstance(), listViewHeight / 4));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
@@ -228,13 +257,6 @@ public class HomePageWithMenu extends AppCompatActivity
         super.onStart();
         navigationView.setNavigationItemSelectedListener(this);
         Constants.activityItemClickListener = HomePageWithMenu.this;
-        try {
-            myAdapter = new AutocompleteHomePageArrayAdapter(this, R.layout.autocomplete_text_layout, RawData.setHomePageSearchItem());
-            autoCompleteTextView.setAdapter(myAdapter);
-            //mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), HomePage.getInstance(), listViewHeight / 4));
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
     }
 
     @Override
@@ -419,6 +441,7 @@ public class HomePageWithMenu extends AppCompatActivity
     }
 
     private void initView() {
+        collapsedImage = (ImageView) findViewById(R.id.image);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
         autoCompleteTextView = (CustomAutoCompleteView) findViewById(R.id.autoCompleteTextView);
@@ -474,8 +497,12 @@ public class HomePageWithMenu extends AppCompatActivity
                 rl_autoSearch.setVisibility(View.GONE);
                 whereToSearch.setText(tv_main.getText().toString());
                 toolbar_textView.setText(tv_main.getText().toString());
+
                 AppController.getInstance().setSearchText(tv_main.getText().toString());
-                sendToNext(Integer.parseInt(tv_pos.getText().toString()));
+                if (Validations.isNotNullNotEmptyNotWhiteSpace(tv_pos.getText().toString())) {
+                    AppController.getInstance().setSearchImage(pageSearchModelArrayList.get(Integer.parseInt(tv_pos.getText().toString())).getMainImage());
+                    sendToNext(Integer.parseInt(tv_pos.getText().toString()));
+                }
             }
         });
         btWaterActivity = (LinearLayout) findViewById(R.id.bt_waterActivity);
@@ -499,13 +526,15 @@ public class HomePageWithMenu extends AppCompatActivity
 
     private ArrayList<HomePageSearchModel> filter(String folderID) {
         final ArrayList<HomePageSearchModel> filteredModelList = new ArrayList<>();
-        for (int i = 0; i < RawData.setHomePageSearchItem().size(); i++) {
+        for (int i = 0; i < pageSearchModelArrayList.size(); i++) {
             HomePageSearchModel model = new HomePageSearchModel();
-            final String fId = RawData.setHomePageSearchItem().get(i).getName().toLowerCase();
+            final String fId = pageSearchModelArrayList.get(i).getName().toLowerCase();
             if (fId.startsWith(folderID.toLowerCase())) {
-                model.setId(RawData.setHomePageSearchItem().get(i).getId());
-                model.setName((RawData.setHomePageSearchItem().get(i).getName()));
-                model.setType((RawData.setHomePageSearchItem().get(i).getType()));
+                model.setId(pageSearchModelArrayList.get(i).getId());
+                model.setName(pageSearchModelArrayList.get(i).getName());
+                model.setType(pageSearchModelArrayList.get(i).getType());
+                model.setMainImage(pageSearchModelArrayList.get(i).getMainImage());
+                model.setPosition(pageSearchModelArrayList.get(i).getPosition());
                 filteredModelList.add(model);
             }
         }
@@ -517,19 +546,28 @@ public class HomePageWithMenu extends AppCompatActivity
         try {
             //If item is location type then will go on "All Activites Page"
             //If item is activity type then will go on "Destination List Page"
-            if (RawData.setHomePageSearchItem().get(pos).getType().equals("A")) {
+            if (pageSearchModelArrayList.get(pos).getType().equals("Activity")) {
                 Intent intent = new Intent(getApplicationContext(), DestinationList.class);
-                intent.putExtra("title", RawData.setHomePageSearchItem().get(pos).getName());
+                intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
+                intent.putExtra("id", pageSearchModelArrayList.get(pos).getId());
                 intent.putExtra("isComingFromSearchPage", true);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            } else {
+            } else if (pageSearchModelArrayList.get(pos).getType().equals("Location")) {
                 Intent intent = new Intent(getApplicationContext(), AllActivities.class);
-                intent.putExtra("title", RawData.setHomePageSearchItem().get(pos).getName());
+                intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
+                intent.putExtra("id", pageSearchModelArrayList.get(pos).getId());
+                intent.putExtra("isComingFromSearchPage", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } else if (pageSearchModelArrayList.get(pos).getType().equals("Package")) {
+                Intent intent = new Intent(getApplicationContext(), ActivityPackageList.class);
+                intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
+                intent.putExtra("id", pageSearchModelArrayList.get(pos).getId());
+                intent.putExtra("isComingFromSearchPage", true);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -579,6 +617,23 @@ public class HomePageWithMenu extends AppCompatActivity
     }
 
     private void runOnMainThread(JSONObject response) throws JSONException {
+        JSONArray jsonArray = response.getJSONArray("details");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            HomePageSearchModel homePageSearchModel = new HomePageSearchModel();
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String id = jsonObject.getString("id");
+            String name = jsonObject.getString("name");
+            String type = jsonObject.getString("type");
 
+            homePageSearchModel.setId(id);
+            homePageSearchModel.setName(name);
+            homePageSearchModel.setType(type);
+            if (jsonObject.has("mainImage")) {
+                String mainImage = jsonObject.getString("mainImage");
+                homePageSearchModel.setMainImage(mainImage);
+            }
+            homePageSearchModel.setPosition(i);
+            pageSearchModelArrayList.add(homePageSearchModel);
+        }
     }
 }

@@ -46,10 +46,12 @@ public class AutocompleteHomePageArrayAdapter extends ArrayAdapter<HomePageSearc
             // object item based on the position
             HomePageSearchModel objectItem = dataArrayList.get(position);
             // get the TextView and then set the text (item name) and tag (item ID) values
-            TextView textViewItem = (TextView) convertView.findViewById(R.id.tv_main_text);
-            TextView textViewItemPosition = (TextView) convertView.findViewById(R.id.tv_secondary_text);
-            textViewItemPosition.setText(""+position);
+            TextView textViewItem = (TextView) convertView.findViewById(R.id.tv_ac_main_text);
             textViewItem.setText(objectItem.getName());
+
+            TextView textViewItemPosition = (TextView) convertView.findViewById(R.id.tv_ac_secondary_text);
+            textViewItemPosition.setText(objectItem.getPosition());
+
             // in case you want to add some style, you can do something like:
             //textViewItem.setBackgroundColor(Color.CYAN);
         } catch (NullPointerException e) {

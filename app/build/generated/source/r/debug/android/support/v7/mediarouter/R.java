@@ -922,10 +922,10 @@ public final class R {
         public static final int titleDividerNoCustom = 0x7f08011f;
         public static final int title_template = 0x7f080120;
         public static final int topPanel = 0x7f080124;
-        public static final int uniform = 0x7f08013f;
-        public static final int up = 0x7f080140;
-        public static final int volume_item_container = 0x7f080146;
-        public static final int wrap_content = 0x7f08014b;
+        public static final int uniform = 0x7f080141;
+        public static final int up = 0x7f080142;
+        public static final int volume_item_container = 0x7f080148;
+        public static final int wrap_content = 0x7f08014d;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f090000;

@@ -19,6 +19,7 @@
             android:layout_marginLeft="15dp"
             android:tint="@color/md_grey_500"
             android:layout_gravity="center"
+            android:visibility="gone"
             android:src="@drawable/ic_hotel_white_24dp" />
 
         <LinearLayout
@@ -30,7 +31,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_main_text"
+                android:id="@+id/tv_ac_main_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
@@ -39,7 +40,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/tv_secondary_text"
+                android:id="@+id/tv_ac_secondary_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
