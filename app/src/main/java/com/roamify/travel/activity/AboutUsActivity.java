@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import com.roamify.travel.R;
 
 public class AboutUsActivity extends AppCompatActivity implements View.OnClickListener {
-
     protected ImageView rightBarButton;
     protected Toolbar toolbar;
     protected AppBarLayout appbar;

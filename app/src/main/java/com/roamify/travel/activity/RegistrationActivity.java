@@ -53,7 +53,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             rightBarButton.setVisibility(View.GONE);
         }
     }
-
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.bt_signIn) {
@@ -65,7 +64,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
     }
-
     private void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         appbar = (AppBarLayout) findViewById(R.id.appbar);
@@ -106,7 +104,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             }
         });
     }
-
     public void getRequestCall(String url, String tag) {
         // cancel request from pending queue
         AppController.getInstance().cancelPendingRequests(tag);
@@ -149,7 +146,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
     }
-
     private void runOnMainThread(JSONObject response) throws JSONException {
 
     }

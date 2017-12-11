@@ -2,8 +2,8 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.roamify.travel.activity.HomePageWithMenu">
 
@@ -23,8 +23,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:fitsSystemWindows="true"
+            android:layout_height="match_parent"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
@@ -33,8 +32,7 @@
             <ImageView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fitsSystemWindows="true"
+                android:layout_height="250dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/default_nav_bar"
                 app:layout_collapseMode="parallax" />
@@ -110,10 +108,10 @@
                     android:id="@+id/collapsed_toolbar_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="70dp"
                     android:layout_gravity="center"
-                    android:visibility="gone"
-                    android:orientation="vertical">
+                    android:layout_marginRight="70dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/toolbar_textView"
@@ -135,7 +133,152 @@
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/md_white_1000"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/md_grey_200" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/md_white_1000"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/bt_waterActivity"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight=".50"
+                    android:background="@drawable/water_activity_button_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:tint="@color/md_green_600"
+                        app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WATER ACTIVITIES"
+                        android:textColor="@color/md_green_600"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/md_grey_200" />
+
+                <LinearLayout
+                    android:id="@+id/bt_airActivity"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight=".50"
+                    android:background="@drawable/water_activity_button_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:tint="@color/md_green_600"
+                        app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AIR ACTIVITIES"
+                        android:textColor="@color/md_green_600"
+                        android:textSize="15dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/md_grey_200" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/bt_landActivity"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight=".50"
+                    android:background="@drawable/water_activity_button_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:tint="@color/md_green_600"
+                        app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LAND ACTIVITIES"
+                        android:textColor="@color/md_green_600"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/md_grey_200" />
+
+                <LinearLayout
+                    android:id="@+id/bt_destination"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight=".50"
+                    android:background="@drawable/water_activity_button_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:tint="@color/md_green_600"
+                        app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DESTINATION"
+                        android:textColor="@color/md_green_600"
+                        android:textSize="15dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/md_grey_200" />
+
+        </LinearLayout>
+
     </android.support.design.widget.AppBarLayout>
+
 
     <!--<android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -148,5 +291,49 @@
     </android.support.v4.widget.NestedScrollView>-->
 
     <include layout="@layout/content_home_page" />
+
+    <LinearLayout
+        android:id="@+id/ll_iconMenu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        android:background="@color/translucentblack"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_waterActivity"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:tint="@color/md_white_1000"
+            app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+        <ImageView
+            android:id="@+id/iv_airActivity"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:tint="@color/md_white_1000"
+            app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+        <ImageView
+            android:id="@+id/iv_landActivity"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:tint="@color/md_white_1000"
+            app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+        <ImageView
+            android:id="@+id/iv_destinations"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:tint="@color/md_white_1000"
+            app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

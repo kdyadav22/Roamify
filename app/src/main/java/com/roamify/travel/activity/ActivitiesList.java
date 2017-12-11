@@ -95,7 +95,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             }
         });
     }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -106,14 +105,12 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             ex.printStackTrace();
         }
     }
-
     @Override
     public void onClicked(int pos) {
         Intent intent = new Intent(getApplicationContext(), ActivityPackageList.class);
         intent.putExtra("title", RawData.setStateWiseActivity().get(pos).getActivityName());
         startActivity(intent);
     }
-
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.imgClear) {
@@ -125,7 +122,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
     }
-
     private void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         etSearchLocation = (EditText) findViewById(R.id.et_searchNews);
@@ -165,7 +161,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         appbar = (AppBarLayout) findViewById(R.id.appbar);
         rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);
     }
-
     private ArrayList<StateWiseActivityModel> filter(String folderID) {
         final ArrayList<StateWiseActivityModel> filteredModelList = new ArrayList<>();
         for (int i = 0; i < RawData.setStateWiseActivity().size(); i++) {
@@ -179,7 +174,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         }
         return filteredModelList;
     }
-
     public void getRequestCall(String url, String tag) {
         // cancel request from pending queue
         AppController.getInstance().cancelPendingRequests(tag);
@@ -222,7 +216,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
     }
-
     private void runOnMainThread(JSONObject response) throws JSONException {
 
     }

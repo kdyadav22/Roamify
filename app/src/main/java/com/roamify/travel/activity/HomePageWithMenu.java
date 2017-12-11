@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -56,6 +57,11 @@ public class HomePageWithMenu extends AppCompatActivity
     protected LinearLayout btAirActivity;
     protected LinearLayout btLandActivity;
     protected LinearLayout btDestination;
+    protected ImageView ivWaterActivity;
+    protected ImageView ivAirActivity;
+    protected ImageView ivLandActivity;
+    protected ImageView ivDestinations;
+    protected LinearLayout llIconMenu;
     TextView header_name, header_email;
     static HomePageWithMenu mInstance;
     protected CustomAutoCompleteView autoCompleteTextView;
@@ -117,6 +123,7 @@ public class HomePageWithMenu extends AppCompatActivity
                     collapsingToolbarLayout.setTitle(" ");
                     collapsed_toolbar_layout.setVisibility(View.VISIBLE);
                     toolbar_textView.setText(AppController.getInstance().getSearchText());
+                    llIconMenu.setVisibility(View.VISIBLE);
                     //To hide auto complete text box
                     /*whereToSearch.setVisibility(View.VISIBLE);
                     rl_autoSearch.setVisibility(View.GONE);*/
@@ -124,6 +131,7 @@ public class HomePageWithMenu extends AppCompatActivity
                 } else if (isShow) {
                     collapsed_toolbar_layout.setVisibility(View.GONE);
                     toolbar_textView.setText(AppController.getInstance().getSearchText());
+                    llIconMenu.setVisibility(View.GONE);
                     collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
                     isShow = false;
                 }
@@ -399,6 +407,14 @@ public class HomePageWithMenu extends AppCompatActivity
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+        } else if (view.getId() == R.id.iv_waterActivity) {
+
+        } else if (view.getId() == R.id.iv_airActivity) {
+
+        } else if (view.getId() == R.id.iv_landActivity) {
+
+        } else if (view.getId() == R.id.iv_destinations) {
+
         }
     }
 
@@ -470,6 +486,15 @@ public class HomePageWithMenu extends AppCompatActivity
         btLandActivity.setOnClickListener(HomePageWithMenu.this);
         btDestination = (LinearLayout) findViewById(R.id.bt_destination);
         btDestination.setOnClickListener(HomePageWithMenu.this);
+        ivWaterActivity = (ImageView) findViewById(R.id.iv_waterActivity);
+        ivWaterActivity.setOnClickListener(HomePageWithMenu.this);
+        ivAirActivity = (ImageView) findViewById(R.id.iv_airActivity);
+        ivAirActivity.setOnClickListener(HomePageWithMenu.this);
+        ivLandActivity = (ImageView) findViewById(R.id.iv_landActivity);
+        ivLandActivity.setOnClickListener(HomePageWithMenu.this);
+        ivDestinations = (ImageView) findViewById(R.id.iv_destinations);
+        ivDestinations.setOnClickListener(HomePageWithMenu.this);
+        llIconMenu = (LinearLayout) findViewById(R.id.ll_iconMenu);
     }
 
     private ArrayList<HomePageSearchModel> filter(String folderID) {

@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.roamify.travel.activity.HomePage">
 
     <LinearLayout
@@ -25,43 +25,100 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />-->
 
-            <include layout="@layout/main_menu_layout"/>
+            <!--<include layout="@layout/main_menu_layout" />-->
         </LinearLayout>
 
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="5dp"
-            android:background="@color/white"
-            android:gravity="center|left"
-            android:text="Top popular Activities"
-            android:textColor="@color/md_green_700"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent">
 
-        <fragment
-            android:id="@+id/list_frag"
-            class="com.roamify.travel.fragment.TopActivitiesFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="5dp"
-            android:background="@color/white"
-            android:gravity="center|left"
-            android:text="Upcoming Activities"
-            android:textColor="@color/md_green_700"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_topPopularActivities"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/white"
+                android:gravity="center|left"
+                android:text="Top popular Activities"
+                android:textColor="@color/md_green_700"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-        <fragment
-            android:id="@+id/list_upcoming"
-            class="com.roamify.travel.fragment.UpcomingActivitiesFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" />
+            <fragment
+                android:id="@+id/list_frag"
+                class="com.roamify.travel.fragment.TopActivitiesFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_topPopularActivities"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:id="@+id/tv_upcomingActivities"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/list_frag"
+                android:layout_marginLeft="5dp"
+                android:background="@color/white"
+                android:gravity="center|left"
+                android:text="Upcoming Activities"
+                android:textColor="@color/md_green_700"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <fragment
+                android:id="@+id/list_upcoming"
+                class="com.roamify.travel.fragment.UpcomingActivitiesFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_upcomingActivities"
+                android:layout_marginBottom="10dp" />
+
+            <!--<LinearLayout
+                android:id="@+id/ll_iconMenu"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:background="@color/md_white_1000"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_waterActivity"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:tint="@color/md_green_600"
+                    app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+                <ImageView
+                    android:id="@+id/iv_airActivity"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:tint="@color/md_green_600"
+                    app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+                <ImageView
+                    android:id="@+id/iv_landActivity"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:tint="@color/md_green_600"
+                    app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+                <ImageView
+                    android:id="@+id/iv_destinations"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:tint="@color/md_green_600"
+                    app:srcCompat="@drawable/ic_hotel_white_24dp" />
+
+            </LinearLayout>-->
+
+        </RelativeLayout>
+
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

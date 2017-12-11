@@ -8,6 +8,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/md_grey_200" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@color/md_white_1000"
         android:orientation="horizontal">
@@ -66,12 +71,10 @@
         </LinearLayout>
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/md_grey_200" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -136,4 +139,5 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/md_grey_200" />
+
 </LinearLayout>
