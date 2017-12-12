@@ -28,7 +28,7 @@
                 android:id="@+id/iv_activityImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@drawable/playcardp403_2" />
+                android:background="@drawable/no_image_found" />
 
             <LinearLayout
                 android:layout_width="match_parent"

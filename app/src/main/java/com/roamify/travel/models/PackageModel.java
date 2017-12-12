@@ -12,6 +12,15 @@ public class PackageModel {
     private String packageImageName;
     private String packageReview;
 
+    public String getPackageSource() {
+        return packageSource;
+    }
+
+    public void setPackageSource(String packageSource) {
+        this.packageSource = packageSource;
+    }
+
+    private String packageSource;
     public String getPackageReview() {
         return packageReview;
     }

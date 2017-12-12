@@ -24,4 +24,14 @@ public class DestinationModel {
     }
 
     String destinationId;
+
+    public String getDestinationImage() {
+        return destinationImage;
+    }
+
+    public void setDestinationImage(String destinationImage) {
+        this.destinationImage = destinationImage;
+    }
+
+    String destinationImage;
 }

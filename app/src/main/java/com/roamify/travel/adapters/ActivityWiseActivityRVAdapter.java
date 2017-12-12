@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.roamify.travel.R;
+import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.StateWiseActivityModel;
 import com.roamify.travel.utils.Constants;
 
@@ -18,11 +19,11 @@ import java.util.ArrayList;
  */
 
 public class ActivityWiseActivityRVAdapter extends RecyclerView.Adapter<DestinationWiseViewHandler> {
-    private ArrayList<StateWiseActivityModel> menuItemModel;
+    private ArrayList<ActivityModel> menuItemModel;
     private Activity activity;
     int menuHeight;
 
-    public ActivityWiseActivityRVAdapter(ArrayList<StateWiseActivityModel> menuItemModels, Activity activity, int menuHeight) {
+    public ActivityWiseActivityRVAdapter(ArrayList<ActivityModel> menuItemModels, Activity activity, int menuHeight) {
         this.activity = activity;
         this.menuItemModel = menuItemModels;
         this.menuHeight = menuHeight;
@@ -36,7 +37,7 @@ public class ActivityWiseActivityRVAdapter extends RecyclerView.Adapter<Destinat
 
     @Override
     public void onBindViewHolder(DestinationWiseViewHandler holder, final int position) {
-        StateWiseActivityModel data = menuItemModel.get(position);
+        ActivityModel data = menuItemModel.get(position);
 
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         final int width = displayMetrics.widthPixels / 4;

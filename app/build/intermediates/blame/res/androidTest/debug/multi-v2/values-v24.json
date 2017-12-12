@@ -1,42 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Dummy\\Roamify\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\6dbed2de3245ae050d53ae8360764d62\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,121,182,248",
-                        "endColumns": "65,60,65,66",
-                        "endOffsets": "116,177,243,310"
-                    },
-                    "to": {
-                        "startLines": "8,9,10,11",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "619,685,746,812",
-                        "endColumns": "65,60,65,66",
-                        "endOffsets": "680,741,807,874"
-                    }
-                },
-                {
-                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\90fe91375d3dfbc8a77d00b424799221\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,212,347,416,480,549",
-                        "endColumns": "156,134,68,63,68,69",
-                        "endOffsets": "207,342,411,475,544,614"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Dummy\\Roamify\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v24\\values-v24.xml",
-            "map": [
-                {
-                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0078a3e84af956fe4ab3774dc4359b60\\res\\values-v24\\values-v24.xml",
+                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0078a3e84af956fe4ab3774dc4359b60\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -46,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\1696e64f4bcae1b95c1ab8a8dfb62089\\res\\values-v24\\values-v24.xml",
+                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\1696e64f4bcae1b95c1ab8a8dfb62089\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -65,10 +33,10 @@
             ]
         },
         {
-            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/6dbed2de3245ae050d53ae8360764d62/res/values-v24/values-v24.xml",
+                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\6dbed2de3245ae050d53ae8360764d62\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -85,13 +53,77 @@
                     }
                 },
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/90fe91375d3dfbc8a77d00b424799221/res/values-v24/values-v24.xml",
+                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\90fe91375d3dfbc8a77d00b424799221\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
                         "startOffsets": "55,212,347,416,480,549",
                         "endColumns": "156,134,68,63,68,69",
                         "endOffsets": "207,342,411,475,544,614"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v24\\values-v24.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0078a3e84af956fe4ab3774dc4359b60\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,212,347,416,480,549",
+                        "endColumns": "156,134,68,63,68,69",
+                        "endOffsets": "207,342,411,475,544,614"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\1696e64f4bcae1b95c1ab8a8dfb62089\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,121,182,248",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "116,177,243,310"
+                    },
+                    "to": {
+                        "startLines": "8,9,10,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "619,685,746,812",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "680,741,807,874"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v24\\values-v24.xml",
+            "map": [
+                {
+                    "source": "D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\90fe91375d3dfbc8a77d00b424799221\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,212,347,416,480,549",
+                        "endColumns": "156,134,68,63,68,69",
+                        "endOffsets": "207,342,411,475,544,614"
+                    }
+                },
+                {
+                    "source": "D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\6dbed2de3245ae050d53ae8360764d62\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,121,182,248",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "116,177,243,310"
+                    },
+                    "to": {
+                        "startLines": "8,9,10,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "619,685,746,812",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "680,741,807,874"
                     }
                 }
             ]

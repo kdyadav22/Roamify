@@ -7,9 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
 import com.roamify.travel.activity.ActivitiesList;
 import com.roamify.travel.models.DestinationModel;
+import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 
 import java.util.ArrayList;
@@ -48,6 +51,20 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
         layoutParams.height = width+50;
         holder.ll_destination_rowLayout.setLayoutParams(layoutParams);
 
+
+        try {
+            Glide.with(activity)
+                    .load(Constants.BaseImageUrl + data.getDestinationImage())
+                    .fitCenter()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .crossFade(1000)
+                    .override(width, width)
+                    .error(R.drawable.no_image_found)
+                    .placeholder(R.drawable.no_image_found)
+                    .into(holder.iv_destinationImage);
+        } catch (Exception e) {
+            e.fillInStackTrace();
+        }
 
 
         if (data != null) {

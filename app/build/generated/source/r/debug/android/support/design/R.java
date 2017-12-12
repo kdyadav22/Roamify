@@ -730,20 +730,20 @@ public final class R {
         public static final int design_password_eye = 0x7f07007b;
         public static final int design_snackbar_background = 0x7f07007c;
         public static final int navigation_empty_icon = 0x7f070169;
-        public static final int notification_action_background = 0x7f07016b;
-        public static final int notification_bg = 0x7f07016c;
-        public static final int notification_bg_low = 0x7f07016d;
-        public static final int notification_bg_low_normal = 0x7f07016e;
-        public static final int notification_bg_low_pressed = 0x7f07016f;
-        public static final int notification_bg_normal = 0x7f070170;
-        public static final int notification_bg_normal_pressed = 0x7f070171;
-        public static final int notification_icon_background = 0x7f070172;
-        public static final int notification_template_icon_bg = 0x7f070173;
-        public static final int notification_template_icon_low_bg = 0x7f070174;
-        public static final int notification_tile_bg = 0x7f070175;
-        public static final int notify_panel_notification_icon_bg = 0x7f070176;
-        public static final int tooltip_frame_dark = 0x7f070186;
-        public static final int tooltip_frame_light = 0x7f070187;
+        public static final int notification_action_background = 0x7f07016c;
+        public static final int notification_bg = 0x7f07016d;
+        public static final int notification_bg_low = 0x7f07016e;
+        public static final int notification_bg_low_normal = 0x7f07016f;
+        public static final int notification_bg_low_pressed = 0x7f070170;
+        public static final int notification_bg_normal = 0x7f070171;
+        public static final int notification_bg_normal_pressed = 0x7f070172;
+        public static final int notification_icon_background = 0x7f070173;
+        public static final int notification_template_icon_bg = 0x7f070174;
+        public static final int notification_template_icon_low_bg = 0x7f070175;
+        public static final int notification_tile_bg = 0x7f070176;
+        public static final int notify_panel_notification_icon_bg = 0x7f070177;
+        public static final int tooltip_frame_dark = 0x7f070187;
+        public static final int tooltip_frame_light = 0x7f070188;
     }
     public static final class id {
         public static final int action0 = 0x7f080006;

@@ -32,12 +32,15 @@ import com.roamify.travel.adapters.ActivityWiseActivityRVAdapter;
 import com.roamify.travel.fragment.TopDestinationFragment;
 import com.roamify.travel.fragment.UpcomingActivitiesFragment;
 import com.roamify.travel.listeners.ActivityItemClickListener;
+import com.roamify.travel.models.ActivityModel;
+import com.roamify.travel.models.DestinationModel;
 import com.roamify.travel.models.RawDataModel;
 import com.roamify.travel.models.StateWiseActivityModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -54,13 +57,15 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
     protected ImageView rightBarButton;
     protected AppBarLayout appbar;
     protected RelativeLayout rlSearch;
+    ArrayList<ActivityModel> arrayList = new ArrayList<>();
+    String request_tag = "get_activity_by_location";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_activities_list);
-
         initView();
+
         try {
             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 4);
             rvRecyclerView.setLayoutManager(mLayoutManager);
@@ -81,7 +86,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
                 if (s.length() > 0) {
                     rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(filter(s.toString()), ActivitiesList.this, 0));
                 } else {
-                    rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(RawData.setStateWiseActivity(), ActivitiesList.this, 0));
+                    rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(arrayList, ActivitiesList.this, 0));
                 }
             }
 
@@ -95,22 +100,30 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             }
         });
     }
+
     @Override
     protected void onStart() {
         super.onStart();
         Constants.activityItemClickListener = ActivitiesList.this;
         try {
-            rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(RawData.setStateWiseActivity(), ActivitiesList.this, 0));
+            String URL = Constants.BaseUrl + "getActivityByLocation.php?locationId=" + getIntent().getStringExtra("loc_id");
+            getRequestCall(URL, request_tag);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+
     @Override
     public void onClicked(int pos) {
         Intent intent = new Intent(getApplicationContext(), ActivityPackageList.class);
-        intent.putExtra("title", RawData.setStateWiseActivity().get(pos).getActivityName());
+        intent.putExtra("title", arrayList.get(pos).getActivityName());
+        intent.putExtra("loc_name", getIntent().getStringExtra("loc_name"));
+        intent.putExtra("act_name", arrayList.get(pos).getActivityName());
+        intent.putExtra("loc_id", getIntent().getStringExtra("loc_id"));
+        intent.putExtra("act_id", arrayList.get(pos).getActivityId());
         startActivity(intent);
     }
+
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.imgClear) {
@@ -122,6 +135,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
     }
+
     private void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         etSearchLocation = (EditText) findViewById(R.id.et_searchNews);
@@ -161,19 +175,23 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         appbar = (AppBarLayout) findViewById(R.id.appbar);
         rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);
     }
-    private ArrayList<StateWiseActivityModel> filter(String folderID) {
-        final ArrayList<StateWiseActivityModel> filteredModelList = new ArrayList<>();
-        for (int i = 0; i < RawData.setStateWiseActivity().size(); i++) {
-            StateWiseActivityModel model = new StateWiseActivityModel();
-            final String fId = RawData.setStateWiseActivity().get(i).getActivityName().toLowerCase();
+
+    private ArrayList<ActivityModel> filter(String folderID) {
+        final ArrayList<ActivityModel> filteredModelList = new ArrayList<>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            ActivityModel model = new ActivityModel();
+            final String fId = arrayList.get(i).getActivityName().toLowerCase();
             if (fId.startsWith(folderID.toLowerCase())) {
-                model.setActivityId(RawData.setStateWiseActivity().get(i).getActivityId());
-                model.setActivityName((RawData.setStateWiseActivity().get(i).getActivityName()));
+                model.setActivityId(arrayList.get(i).getActivityId());
+                model.setActivityName((arrayList.get(i).getActivityName()));
+                model.setPosition((arrayList.get(i).getPosition()));
+                model.setActivityIcon((arrayList.get(i).getActivityIcon()));
                 filteredModelList.add(model);
             }
         }
         return filteredModelList;
     }
+
     public void getRequestCall(String url, String tag) {
         // cancel request from pending queue
         AppController.getInstance().cancelPendingRequests(tag);
@@ -216,7 +234,24 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
     }
-    private void runOnMainThread(JSONObject response) throws JSONException {
 
+    private void runOnMainThread(JSONObject response) throws JSONException {
+        JSONArray jsonArray = response.getJSONArray("details");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            ActivityModel model = new ActivityModel();
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String id = jsonObject.getString("id");
+            String name = jsonObject.getString("name");
+            String thumbImage = jsonObject.getString("thumbImage");
+
+            model.setActivityId(id);
+            model.setActivityName(name);
+            model.setActivityIcon(thumbImage);
+            model.setPosition(i);
+            arrayList.add(model);
+        }
+
+        if (arrayList.size() > 0)
+            rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(arrayList, ActivitiesList.this, 0));
     }
 }

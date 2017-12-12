@@ -160,8 +160,6 @@ public class HomePageWithMenu extends AppCompatActivity
 
         try {
             getRequestCall(Constants.GetAllResultApi, requestTag);
-            myAdapter = new AutocompleteHomePageArrayAdapter(this, R.layout.autocomplete_text_layout, pageSearchModelArrayList);
-            autoCompleteTextView.setAdapter(myAdapter);
             //mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), HomePage.getInstance(), listViewHeight / 4));
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -396,6 +394,7 @@ public class HomePageWithMenu extends AppCompatActivity
             try {
                 intent = new Intent(getApplicationContext(), DestinationList.class);
                 intent.putExtra("title", "WATER ACTIVITIES");
+                intent.putExtra("type", "Water");
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } catch (Exception ex) {
@@ -405,6 +404,7 @@ public class HomePageWithMenu extends AppCompatActivity
             try {
                 intent = new Intent(getApplicationContext(), DestinationList.class);
                 intent.putExtra("title", "AIR ACTIVITIES");
+                intent.putExtra("type", "Air");
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } catch (Exception ex) {
@@ -414,6 +414,7 @@ public class HomePageWithMenu extends AppCompatActivity
             try {
                 intent = new Intent(getApplicationContext(), DestinationList.class);
                 intent.putExtra("title", "LAND ACTIVITIES");
+                intent.putExtra("type", "Land");
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } catch (Exception ex) {
@@ -561,7 +562,7 @@ public class HomePageWithMenu extends AppCompatActivity
             } else if (pageSearchModelArrayList.get(pos).getType().equals("Location")) {
                 Intent intent = new Intent(getApplicationContext(), AllActivities.class);
                 intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
-                intent.putExtra("id", pageSearchModelArrayList.get(pos).getId());
+                intent.putExtra("loc_id", pageSearchModelArrayList.get(pos).getId());
                 intent.putExtra("isComingFromSearchPage", true);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
@@ -569,14 +570,17 @@ public class HomePageWithMenu extends AppCompatActivity
                 Intent intent = new Intent(getApplicationContext(), ActivityPackageList.class);
                 intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
                 intent.putExtra("id", pageSearchModelArrayList.get(pos).getId());
+                //intent.putExtra("loc_id", pageSearchModelArrayList.get(pos).getId());
+                //intent.putExtra("act_id", pageSearchModelArrayList.get(pos).getId());
                 intent.putExtra("isComingFromSearchPage", true);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } else if (pageSearchModelArrayList.get(pos).getType().equals("State")) {
-                Intent intent = new Intent(getApplicationContext(), AllActivities.class);
+                Intent intent = new Intent(getApplicationContext(), DestinationList.class);
                 intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
-                intent.putExtra("id", pageSearchModelArrayList.get(pos).getId());
+                intent.putExtra("state_id", pageSearchModelArrayList.get(pos).getId());
                 intent.putExtra("isComingFromSearchPage", true);
+                intent.putExtra("isComingFromSearchPageWithState", true);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
@@ -647,5 +651,11 @@ public class HomePageWithMenu extends AppCompatActivity
             homePageSearchModel.setPosition(i);
             pageSearchModelArrayList.add(homePageSearchModel);
         }
+
+        try {
+            myAdapter = new AutocompleteHomePageArrayAdapter(this, R.layout.autocomplete_text_layout, pageSearchModelArrayList);
+            autoCompleteTextView.setAdapter(myAdapter);
+        }catch (Exception Ex)
+        {Ex.printStackTrace();}
     }
 }

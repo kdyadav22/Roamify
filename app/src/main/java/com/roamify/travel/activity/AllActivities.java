@@ -33,12 +33,14 @@ import com.roamify.travel.adapters.AutocompleteAllActivityAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
 import com.roamify.travel.adapters.DestinationWiseActivityRVAdapter;
 import com.roamify.travel.listeners.ActivityItemClickListener;
+import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.StateWiseActivityModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -55,6 +57,10 @@ public class AllActivities extends AppCompatActivity implements ActivityItemClic
     protected RecyclerView rvLandRecyclerView;
     protected RecyclerView rvWaterRecyclerView;
     protected RecyclerView rvAirRecyclerView;
+    String request_tag = "get_all_activity";
+    ArrayList<ActivityModel> arrayList1 = new ArrayList<>();
+    ArrayList<ActivityModel> arrayList2 = new ArrayList<>();
+    ArrayList<ActivityModel> arrayList3 = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +127,13 @@ public class AllActivities extends AppCompatActivity implements ActivityItemClic
     protected void onStart() {
         super.onStart();
         Constants.activityItemClickListener = AllActivities.this;
+
+        String URL = Constants.BaseUrl + "getAllActivityByLocation.php?locationId=" + getIntent().getStringExtra("loc_id");
+        try {
+            getRequestCall(URL, request_tag);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         try {
             rvLandRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(RawData.setStateWiseActivity(), AllActivities.this, 0));
         } catch (Exception ex) {
@@ -260,7 +273,23 @@ public class AllActivities extends AppCompatActivity implements ActivityItemClic
     }
 
     private void runOnMainThread(JSONObject response) throws JSONException {
+        int objLen = response.length();
+        Log.d("ObjLen", "ObjLen" + objLen);
+
+        JSONArray jsonArray = response.getJSONArray("Water");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            ActivityModel model = new ActivityModel();
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String id = jsonObject.getString("id");
+            String name = jsonObject.getString("name");
+            String thumbImage = jsonObject.getString("thumbImage");
+
+            model.setActivityId(id);
+            model.setActivityName(name);
+            model.setActivityIcon(thumbImage);
+            model.setPosition(i);
+            arrayList1.add(model);
+        }
 
     }
-
 }

@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,11 +15,8 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -37,7 +32,9 @@ import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.Constants;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -50,6 +47,9 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
     RecyclerView recyclerView;
     protected EditText etSearchDestination;
     protected ImageView imgClear;
+    ArrayList<PackageModel> arrayList = new ArrayList<>();
+    String request_tag = "get_package_list";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,7 +120,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
 //                    myAdapter.notifyDataSetChanged();
                     recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(filter(s.toString()), ActivityPackageList.this, ""));
                 } else {
-                    recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(RawData.setPackage(), ActivityPackageList.this, ""));
+                    recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(arrayList, ActivityPackageList.this, ""));
                 }
             }
 
@@ -140,7 +140,22 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
     protected void onStart() {
         super.onStart();
         currentActivity = ActivityPackageList.this;
-        recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(RawData.setPackage(), ActivityPackageList.this, ""));
+
+        if (getIntent().getBooleanExtra("isComingFromSearchPage", false)) {
+            String URL = Constants.BaseUrl + "getEquivalentPackage.php?packageId=" + getIntent().getStringExtra("id");
+            try {
+                getRequestCall(URL, request_tag);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            String URL = Constants.BaseUrl + "getPackageListByActivity.php?activityId=" + getIntent().getStringExtra("act_id") + "&locationId=" + getIntent().getStringExtra("loc_id");
+            try {
+                getRequestCall(URL, request_tag);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -166,16 +181,17 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
 
     private ArrayList<PackageModel> filter(String folderID) {
         final ArrayList<PackageModel> filteredModelList = new ArrayList<>();
-        for (int i = 0; i < RawData.setPackage().size(); i++) {
+        for (int i = 0; i < arrayList.size(); i++) {
             PackageModel model = new PackageModel();
-            final String fId = RawData.setPackage().get(i).getPackageName().toLowerCase();
+            final String fId = arrayList.get(i).getPackageName().toLowerCase();
             if (fId.startsWith(folderID.toLowerCase())) {
-                model.setPackageId(RawData.setPackage().get(i).getPackageId());
-                model.setPackageName(RawData.setPackage().get(i).getPackageName());
-                model.setPackageImageName(RawData.setPackage().get(i).getPackageImageName());
-                model.setPackageDuration(RawData.setPackage().get(i).getPackageDuration());
-                model.setPackagePrice(RawData.setPackage().get(i).getPackagePrice());
-                model.setPackageReview(RawData.setPackage().get(i).getPackageReview());
+                model.setPackageId(arrayList.get(i).getPackageId());
+                model.setPackageName(arrayList.get(i).getPackageName());
+                model.setPackageImageName(arrayList.get(i).getPackageImageName());
+                model.setPackageDuration(arrayList.get(i).getPackageDuration());
+                model.setPackagePrice(arrayList.get(i).getPackagePrice());
+                model.setPackageReview(arrayList.get(i).getPackageReview());
+                model.setPackageSource(arrayList.get(i).getPackageSource());
                 filteredModelList.add(model);
             }
         }
@@ -226,6 +242,29 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
     }
 
     private void runOnMainThread(JSONObject response) throws JSONException {
+        JSONArray jsonArray = response.getJSONArray("details");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            PackageModel model = new PackageModel();
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String id = jsonObject.getString("id");
+            String name = jsonObject.getString("name");
+            String review = jsonObject.getString("review");
+            String duration = jsonObject.getString("duration");
+            String price = jsonObject.getString("price");
+            String source = jsonObject.getString("source");
+            String thumbImage = jsonObject.getString("thumbImage");
+            //String locationId = jsonObject.getString("locationId");
+            model.setPackageId(id);
+            model.setPackageName(name);
+            model.setPackageReview(review);
+            model.setPackageDuration(duration);
+            model.setPackagePrice(price);
+            model.setPackageSource(source);
+            model.setPackageImageName(thumbImage);
+            arrayList.add(model);
+        }
 
+        if (arrayList.size() > 0)
+            recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(arrayList, ActivityPackageList.this, ""));
     }
 }

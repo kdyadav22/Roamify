@@ -16,12 +16,12 @@ import com.roamify.travel.R;
 
 public class ActivityPackageListViewHandler extends RecyclerView.ViewHolder{
     LinearLayout ll_activity_rowLayout, ll_durationNPriceSection;
-    TextView tv_pkgname, tv_pkgduration, pkgprice;
+    TextView tv_pkgname, tv_pkgduration, pkgprice, tv_packageSources;
     CardView cardView;
     ImageView packageImageView;
-    private TextView tvPackagesubtitle;
-    private RatingBar rbDefaultRatingIndicator;
-    private TextView tvProdReviews;
+     TextView tvPackagesubtitle;
+     RatingBar rbDefaultRatingIndicator;
+     TextView tvProdReviews;
     ActivityPackageListViewHandler(View itemView) {
         super(itemView);
         ll_durationNPriceSection = (LinearLayout) itemView.findViewById(R.id.ll_durationNPriceSection);
@@ -34,6 +34,7 @@ public class ActivityPackageListViewHandler extends RecyclerView.ViewHolder{
         tvPackagesubtitle = (TextView) itemView.findViewById(R.id.tv_packagesubtitle);
         rbDefaultRatingIndicator = (RatingBar) itemView.findViewById(R.id.rbDefaultRatingIndicator);
         tvProdReviews = (TextView) itemView.findViewById(R.id.tv_prodReviews);
+        tv_packageSources = (TextView) itemView.findViewById(R.id.tv_packageSources);
     }
 
 }

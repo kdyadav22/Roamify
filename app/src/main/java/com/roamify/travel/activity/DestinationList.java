@@ -31,11 +31,13 @@ import com.roamify.travel.R;
 import com.roamify.travel.adapters.DestinationRVAdapter;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.DestinationModel;
+import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -53,6 +55,8 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
     protected RecyclerView rvRecyclerView;
     //CustomAutoCompleteView etSearchDestination;
     ArrayAdapter<DestinationModel> myAdapter;
+    String request_tag = "get_destination_by_activity";
+    ArrayList<DestinationModel> arrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +127,43 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
 
         /*myAdapter = new AutocompleteDestinationAdapter(DestinationList.this, R.layout.destination_list_item, RawData.setDestination());
         etSearchDestination.setAdapter(myAdapter);*/
-        rvRecyclerView.setAdapter(new DestinationRVAdapter(RawData.setDestination(), DestinationList.this));
+
+        if (getIntent().getBooleanExtra("isComingFromSearchPage", false)) {
+            //Display location to specified location
+            if (getIntent().getBooleanExtra("isComingFromSearchPageWithState", false)) {
+                String URL = Constants.BaseUrl + "getLocationByState.php?stateId=" + getIntent().getStringExtra("state_id");
+                try {
+                    getRequestCall(URL, request_tag);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+                String URL = Constants.BaseUrl + "getLocationByActivity.php?activityId=" + getIntent().getStringExtra("id");
+                try {
+                    getRequestCall(URL, request_tag);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+        } else if (getIntent().getBooleanExtra("isComingForDestinationWiseSearch", false)) {
+            //Display location to specified location
+            String URL = Constants.BaseUrl + "getAllLocation.php";
+            try {
+                getRequestCall(URL, request_tag);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            //Display location to specific activity,, This will give us only aq spcific type of activity like water/air/land
+            String URL = Constants.BaseUrl + "getLocationBySpecificActivity.php?activityType=" + getIntent().getStringExtra("type");
+            try {
+                getRequestCall(URL, request_tag);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
     }
 
     @Override
@@ -131,7 +171,8 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         super.onStart();
         try {
             Constants.activityItemClickListener = DestinationList.this;
-            rvRecyclerView.setAdapter(new DestinationRVAdapter(RawData.setDestination(), this));
+            if (arrayList.size() > 0)
+                rvRecyclerView.setAdapter(new DestinationRVAdapter(arrayList, this));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -195,20 +236,39 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         try {
             if (getIntent().getBooleanExtra("isComingFromSearchPage", false)) {
                 //User come here on select activity from search page, then he should go for package list on select any location
-                intent = new Intent(getApplicationContext(), ActivityPackageList.class);
-                intent.putExtra("title", RawData.setDestination().get(pos).getDestinationName());
-                startActivity(intent);
-                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                if (getIntent().getBooleanExtra("isComingFromSearchPageWithState", false)) {
+                    try {
+                        intent = new Intent(getApplicationContext(), AllActivities.class);
+                        intent.putExtra("loc_name", arrayList.get(pos).getDestinationName());
+                        intent.putExtra("act_name", getIntent().getStringExtra("title"));
+                        intent.putExtra("loc_id", arrayList.get(pos).getDestinationId());
+                        intent.putExtra("act_id", getIntent().getStringExtra("id"));
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    intent = new Intent(getApplicationContext(), ActivityPackageList.class);
+                    intent.putExtra("loc_name", arrayList.get(pos).getDestinationName());
+                    intent.putExtra("act_name", getIntent().getStringExtra("title"));
+                    intent.putExtra("loc_id", arrayList.get(pos).getDestinationId());
+                    intent.putExtra("act_id", getIntent().getStringExtra("id"));
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                }
             } else if (getIntent().getBooleanExtra("isComingForDestinationWiseSearch", false)) {
                 //User come here on tap destination tab from home page, then he should go for all activities list on select any location
                 intent = new Intent(getApplicationContext(), AllActivities.class);
-                intent.putExtra("title", RawData.setDestination().get(pos).getDestinationName());
+                intent.putExtra("loc_name", arrayList.get(pos).getDestinationName());
+                intent.putExtra("loc_id", arrayList.get(pos).getDestinationId());
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } else {
                 //User come here on tap activity tab from Home page, then he should go for that type activities list on select any location
                 intent = new Intent(getApplicationContext(), ActivitiesList.class);
-                intent.putExtra("title", RawData.setDestination().get(pos).getDestinationName());
+                intent.putExtra("loc_name", arrayList.get(pos).getDestinationName());
+                intent.putExtra("loc_id", arrayList.get(pos).getDestinationId());
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
@@ -279,6 +339,22 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
     }
 
     private void runOnMainThread(JSONObject response) throws JSONException {
+        JSONArray jsonArray = response.getJSONArray("details");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            DestinationModel model = new DestinationModel();
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String id = jsonObject.getString("id");
+            String name = jsonObject.getString("name");
+            String thumbImage = jsonObject.getString("thumbImage");
+
+            model.setDestinationId(id);
+            model.setDestinationName(name);
+            model.setDestinationImage(thumbImage);
+
+            arrayList.add(model);
+        }
+        if (arrayList.size() > 0)
+            rvRecyclerView.setAdapter(new DestinationRVAdapter(arrayList, DestinationList.this));
 
     }
 }

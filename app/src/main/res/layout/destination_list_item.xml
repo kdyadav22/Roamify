@@ -17,7 +17,7 @@
             android:id="@+id/iv_destinationImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/playcardp403_2" />
+            android:background="@drawable/no_image_found" />
 
         <TextView
             android:id="@+id/tv_destinationName"

@@ -45,4 +45,14 @@ public class ActivityModel{
     }
 
     int position;
+
+    public String getActivityIcon() {
+        return activityIcon;
+    }
+
+    public void setActivityIcon(String activityIcon) {
+        this.activityIcon = activityIcon;
+    }
+
+    String activityIcon;
 }

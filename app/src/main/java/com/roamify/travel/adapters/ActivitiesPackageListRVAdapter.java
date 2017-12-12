@@ -8,11 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
 import com.roamify.travel.activity.ActivitiesList;
 import com.roamify.travel.activity.ActivityPackageDetails;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.models.PackageModel;
+import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 
 import java.util.ArrayList;
@@ -55,6 +58,22 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                 holder.tv_pkgname.setText(data.getPackageName());
                 holder.tv_pkgduration.setText(data.getPackageDuration());
                 holder.pkgprice.setText(data.getPackagePrice());
+                holder.tv_packageSources.setText(data.getPackageSource());
+
+                try {
+                    Glide.with(activity)
+                            .load(Constants.BaseImageUrl + data.getPackageImageName())
+                            .fitCenter()
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .crossFade(1000)
+                            //.override(600, 400)
+                            .error(R.drawable.default_nav_bar)
+                            .placeholder(R.drawable.default_nav_bar)
+                            .into(holder.packageImageView);
+                } catch (Exception e) {
+                    e.fillInStackTrace();
+                }
+
             } catch (Exception e) {
                 e.getMessage();
             }
@@ -67,6 +86,8 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
 
                     //For testing
                     Intent intent = new Intent(activity, ActivityPackageDetails.class);
+                    intent.putExtra("package_id", data.getPackageId());
+                    intent.putExtra("package_name", data.getPackageName());
                     activity.startActivity(intent);
                     activity.finish();
                     activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
