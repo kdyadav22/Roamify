@@ -461,6 +461,9 @@ public class HomePageWithMenu extends AppCompatActivity
         mMenuListRecyclerView.setHasFixedSize(true);
         mMenuListRecyclerView.setItemAnimator(new DefaultItemAnimator());*/
 
+        if (AppController.getInstance().getSearchText() != null) {
+            whereToSearch.setText(AppController.getInstance().getSearchText());
+        }
         whereToSearch.setOnClickListener(this);
         toolbar_textView.setOnClickListener(this);
         autoCompleteTextView.addTextChangedListener(new TextWatcher() {
@@ -499,9 +502,11 @@ public class HomePageWithMenu extends AppCompatActivity
                 toolbar_textView.setText(tv_main.getText().toString());
 
                 AppController.getInstance().setSearchText(tv_main.getText().toString());
-                if (Validations.isNotNullNotEmptyNotWhiteSpace(tv_pos.getText().toString())) {
-                    AppController.getInstance().setSearchImage(pageSearchModelArrayList.get(Integer.parseInt(tv_pos.getText().toString())).getMainImage());
-                    sendToNext(Integer.parseInt(tv_pos.getText().toString()));
+                String position = tv_pos.getText().toString();
+                if (Validations.isNotNullNotEmptyNotWhiteSpace(position)) {
+                    AppController.getInstance().setSearchImage(pageSearchModelArrayList.get(Integer.parseInt(position)).getMainImage());
+                    AppController.getInstance().setSearchText(pageSearchModelArrayList.get(Integer.parseInt(position)).getName());
+                    sendToNext(Integer.parseInt(position));
                 }
             }
         });
@@ -562,6 +567,13 @@ public class HomePageWithMenu extends AppCompatActivity
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } else if (pageSearchModelArrayList.get(pos).getType().equals("Package")) {
                 Intent intent = new Intent(getApplicationContext(), ActivityPackageList.class);
+                intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
+                intent.putExtra("id", pageSearchModelArrayList.get(pos).getId());
+                intent.putExtra("isComingFromSearchPage", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } else if (pageSearchModelArrayList.get(pos).getType().equals("State")) {
+                Intent intent = new Intent(getApplicationContext(), AllActivities.class);
                 intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
                 intent.putExtra("id", pageSearchModelArrayList.get(pos).getId());
                 intent.putExtra("isComingFromSearchPage", true);

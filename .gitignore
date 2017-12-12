@@ -75,3 +75,15 @@ fabric.properties
 # *.iml
 # modules.xml
 # *.ipr
+/app/build/
+/.idea/
+/.gradle/
+/build/
+/gradle/
+/gradle.properties
+/gradlew
+/build.gradle
+/Roamify_Android.iml
+/settings.gradle
+/local.properties
+/gradlew.bat
