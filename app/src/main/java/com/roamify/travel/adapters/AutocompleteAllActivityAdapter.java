@@ -13,16 +13,17 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.roamify.travel.R;
+import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.StateWiseActivityModel;
 
 import java.util.ArrayList;
 
-public class AutocompleteAllActivityAdapter extends ArrayAdapter<StateWiseActivityModel> {
+public class AutocompleteAllActivityAdapter extends ArrayAdapter<ActivityModel> {
     final String TAG = "AutocompleteAllActivityAdapter.java";
     private Activity mContext;
     private int layoutResourceId;
-    private ArrayList<StateWiseActivityModel> dataArrayList = null;
-    public AutocompleteAllActivityAdapter(Activity mContext, int layoutResourceId, ArrayList<StateWiseActivityModel> data) {
+    private ArrayList<ActivityModel> dataArrayList = null;
+    public AutocompleteAllActivityAdapter(Activity mContext, int layoutResourceId, ArrayList<ActivityModel> data) {
         super(mContext, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.mContext = mContext;
@@ -46,7 +47,7 @@ public class AutocompleteAllActivityAdapter extends ArrayAdapter<StateWiseActivi
             }
 
             // object item based on the position
-            StateWiseActivityModel objectItem = dataArrayList.get(position);
+            ActivityModel objectItem = dataArrayList.get(position);
             // get the TextView and then set the text (item name) and tag (item ID) values
             TextView textViewItem = (TextView) convertView.findViewById(R.id.tv_main_text);
             TextView textViewItemPosition = (TextView) convertView.findViewById(R.id.tv_secondary_text);

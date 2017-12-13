@@ -523,8 +523,8 @@ public class RawData {
         return arrayList;
     }
 
-    public static ArrayList<PackageDetailsModel> setPackageDetails() {
-        ArrayList<PackageDetailsModel> arrayList = new ArrayList<>();
+    /*public static PackageDetailsModel setPackageDetails() {
+        //ArrayList<PackageDetailsModel> arrayList = new ArrayList<>();
 
         PackageDetailsModel title1 = new PackageDetailsModel();
 
@@ -546,11 +546,11 @@ public class RawData {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        arrayList.add(title1);
+        //arrayList.add(title1);
 
 
-        return arrayList;
-    }
+        return title1;
+    }*/
 
     /*To use on Home Page to search Destination and Activity*/
     public static ArrayList<HomePageSearchModel> setHomePageSearchItem() {

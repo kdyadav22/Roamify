@@ -7,6 +7,9 @@
     android:fitsSystemWindows="true"
     tools:context="com.roamify.travel.activity.ActivityPackageDetails">
 
-    <include android:id="@+id/included_header" layout="@layout/toolbar_layout"/>
+    <include
+        android:id="@+id/included_header"
+        layout="@layout/toolbar_layout" />
+
     <include layout="@layout/content_activity_package_details" />
 </android.support.design.widget.CoordinatorLayout>

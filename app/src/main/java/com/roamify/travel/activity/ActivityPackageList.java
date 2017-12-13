@@ -69,7 +69,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setTitle("Package List");
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
@@ -134,13 +134,6 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             }
         });
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        currentActivity = ActivityPackageList.this;
-
         if (getIntent().getBooleanExtra("isComingFromSearchPage", false)) {
             String URL = Constants.BaseUrl + "getEquivalentPackage.php?packageId=" + getIntent().getStringExtra("id");
             try {
@@ -156,6 +149,13 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
                 ex.printStackTrace();
             }
         }
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        currentActivity = ActivityPackageList.this;
     }
 
     @Override
@@ -266,5 +266,11 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
 
         if (arrayList.size() > 0)
             recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(arrayList, ActivityPackageList.this, ""));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Constants.activityItemClickListener = null;
     }
 }

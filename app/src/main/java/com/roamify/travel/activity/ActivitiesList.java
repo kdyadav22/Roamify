@@ -99,18 +99,20 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
                 }
             }
         });
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Constants.activityItemClickListener = ActivitiesList.this;
         try {
             String URL = Constants.BaseUrl + "getActivityByLocation.php?locationId=" + getIntent().getStringExtra("loc_id");
             getRequestCall(URL, request_tag);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Constants.activityItemClickListener = ActivitiesList.this;
+
     }
 
     @Override
@@ -144,7 +146,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         imgClear.setOnClickListener(ActivitiesList.this);
         rvRecyclerView = (RecyclerView) findViewById(R.id.rv_recyclerView);
 
-        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setTitle("Activities");
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
@@ -253,5 +255,11 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
 
         if (arrayList.size() > 0)
             rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(arrayList, ActivitiesList.this, 0));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Constants.activityItemClickListener = null;
     }
 }

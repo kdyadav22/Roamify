@@ -14,31 +14,37 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/name"
+            style="@style/edittext"
             android:layout_marginTop="10dp"
-            style="@style/edittext"
-            android:inputType="text|textCapSentences"
-            android:hint="Name*" />
+            android:hint="Name*"
+            android:inputType="text|textCapSentences" />
 
         <EditText
+            android:id="@+id/email"
             style="@style/edittext"
-            android:inputType="textEmailAddress"
-            android:hint="Email*" />
+            android:hint="Email*"
+            android:inputType="textEmailAddress" />
 
         <EditText
+            android:id="@+id/phone"
             style="@style/edittext"
-            android:inputType="phone"
-            android:hint="Phone*" />
+            android:hint="Phone*"
+            android:inputType="phone" />
 
         <EditText
+            android:id="@+id/noOfPerson"
             style="@style/edittext"
+            android:hint="No. of person*"
             android:inputType="numberDecimal"
-            android:hint="No. of person*" />
+            android:visibility="gone" />
 
         <EditText
+            android:id="@+id/comment"
             style="@style/edittext_comment"
             android:gravity="top"
-            android:inputType="textMultiLine"
-            android:hint="Comment" />
+            android:hint="Comment"
+            android:inputType="textMultiLine" />
 
         <View
             android:layout_width="match_parent"
@@ -48,7 +54,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:gravity="center"
             android:orientation="horizontal">
 

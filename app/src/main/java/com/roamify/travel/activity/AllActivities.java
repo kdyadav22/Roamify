@@ -33,6 +33,7 @@ import com.roamify.travel.adapters.AutocompleteAllActivityAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
 import com.roamify.travel.adapters.DestinationWiseActivityRVAdapter;
 import com.roamify.travel.listeners.ActivityItemClickListener;
+import com.roamify.travel.listeners.AllActivityItemClickListener;
 import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.StateWiseActivityModel;
 import com.roamify.travel.rawdata.RawData;
@@ -48,16 +49,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AllActivities extends AppCompatActivity implements ActivityItemClickListener {
+public class AllActivities extends AppCompatActivity implements AllActivityItemClickListener {
 
     protected Toolbar toolbar;
     protected CustomAutoCompleteView etSearchDestination;
-    ArrayAdapter<StateWiseActivityModel> myAdapter;
+    ArrayAdapter<ActivityModel> myAdapter;
     protected ImageView imgClear;
     protected RecyclerView rvLandRecyclerView;
     protected RecyclerView rvWaterRecyclerView;
     protected RecyclerView rvAirRecyclerView;
     String request_tag = "get_all_activity";
+    ArrayList<ActivityModel> arrayList = new ArrayList<>();
     ArrayList<ActivityModel> arrayList1 = new ArrayList<>();
     ArrayList<ActivityModel> arrayList2 = new ArrayList<>();
     ArrayList<ActivityModel> arrayList3 = new ArrayList<>();
@@ -119,39 +121,18 @@ public class AllActivities extends AppCompatActivity implements ActivityItemClic
             }
         });
 
-        myAdapter = new AutocompleteAllActivityAdapter(AllActivities.this, R.layout.autocomplete_allactivity_text_layout, RawData.setStateWiseActivity());
-        etSearchDestination.setAdapter(myAdapter);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Constants.activityItemClickListener = AllActivities.this;
-
         String URL = Constants.BaseUrl + "getAllActivityByLocation.php?locationId=" + getIntent().getStringExtra("loc_id");
         try {
             getRequestCall(URL, request_tag);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        try {
-            rvLandRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(RawData.setStateWiseActivity(), AllActivities.this, 0));
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    }
 
-        try {
-            rvWaterRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(RawData.setStateWiseActivity(), AllActivities.this, 0));
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            rvAirRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(RawData.setStateWiseActivity(), AllActivities.this, 0));
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Constants.allActivityItemClickListener = AllActivities.this;
     }
 
     private void initView() {
@@ -173,7 +154,7 @@ public class AllActivities extends AppCompatActivity implements ActivityItemClic
         rvAirRecyclerView.setHasFixedSize(true);
         rvAirRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setTitle("Activities");
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
@@ -203,11 +184,14 @@ public class AllActivities extends AppCompatActivity implements ActivityItemClic
     }
 
     @Override
-    public void onClicked(int pos) {
+    public void onClicked(String pos) {
         Intent intent;
         try {
             intent = new Intent(getApplicationContext(), ActivityPackageList.class);
-            intent.putExtra("title", RawData.setStateWiseActivity().get(pos).getActivityName());
+            intent.putExtra("loc_name", getIntent().getStringExtra("loc_name"));
+            //intent.putExtra("act_name", arrayList.get(pos).getActivityName());
+            intent.putExtra("loc_id", getIntent().getStringExtra("loc_id"));
+            intent.putExtra("act_id", pos);
             startActivity(intent);
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
         } catch (Exception ex) {
@@ -215,14 +199,14 @@ public class AllActivities extends AppCompatActivity implements ActivityItemClic
         }
     }
 
-    private ArrayList<StateWiseActivityModel> filter(String folderID) {
-        final ArrayList<StateWiseActivityModel> filteredModelList = new ArrayList<>();
-        for (int i = 0; i < RawData.setStateWiseActivity().size(); i++) {
-            StateWiseActivityModel model = new StateWiseActivityModel();
-            final String fId = RawData.setStateWiseActivity().get(i).getActivityName().toLowerCase();
+    private ArrayList<ActivityModel> filter(String folderID) {
+        final ArrayList<ActivityModel> filteredModelList = new ArrayList<>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            ActivityModel model = new ActivityModel();
+            final String fId = arrayList.get(i).getActivityName().toLowerCase();
             if (fId.startsWith(folderID.toLowerCase())) {
-                model.setActivityId(RawData.setStateWiseActivity().get(i).getActivityId());
-                model.setActivityName((RawData.setStateWiseActivity().get(i).getActivityName()));
+                model.setActivityId(arrayList.get(i).getActivityId());
+                model.setActivityName((arrayList.get(i).getActivityName()));
                 filteredModelList.add(model);
             }
         }
@@ -277,19 +261,85 @@ public class AllActivities extends AppCompatActivity implements ActivityItemClic
         Log.d("ObjLen", "ObjLen" + objLen);
 
         JSONArray jsonArray = response.getJSONArray("Water");
-        for (int i = 0; i < jsonArray.length(); i++) {
-            ActivityModel model = new ActivityModel();
-            JSONObject jsonObject = jsonArray.getJSONObject(i);
-            String id = jsonObject.getString("id");
-            String name = jsonObject.getString("name");
-            String thumbImage = jsonObject.getString("thumbImage");
+        if (jsonArray.length() > 0) {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                ActivityModel model = new ActivityModel();
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String name = jsonObject.getString("name");
+                String thumbImage = jsonObject.getString("thumbImage");
 
-            model.setActivityId(id);
-            model.setActivityName(name);
-            model.setActivityIcon(thumbImage);
-            model.setPosition(i);
-            arrayList1.add(model);
+                model.setActivityId(id);
+                model.setActivityName(name);
+                model.setActivityIcon(thumbImage);
+                model.setPosition(i);
+                arrayList1.add(model);
+                arrayList.add(model);
+            }
+
+            try {
+                rvWaterRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(arrayList1, AllActivities.this, 0));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
 
+
+        JSONArray jsonArray1 = response.getJSONArray("Land");
+        if (jsonArray1.length() > 0) {
+            for (int i = 0; i < jsonArray1.length(); i++) {
+                ActivityModel model = new ActivityModel();
+                JSONObject jsonObject = jsonArray1.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String name = jsonObject.getString("name");
+                String thumbImage = jsonObject.getString("thumbImage");
+
+                model.setActivityId(id);
+                model.setActivityName(name);
+                model.setActivityIcon(thumbImage);
+                model.setPosition(i);
+                arrayList2.add(model);
+                arrayList.add(model);
+            }
+            try {
+                rvLandRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(arrayList2, AllActivities.this, 0));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        if (jsonArray1.length() > 0) {
+            JSONArray jsonArray2 = response.getJSONArray("Air");
+            for (int i = 0; i < jsonArray2.length(); i++) {
+                ActivityModel model = new ActivityModel();
+                JSONObject jsonObject = jsonArray2.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String name = jsonObject.getString("name");
+                String thumbImage = jsonObject.getString("thumbImage");
+
+                model.setActivityId(id);
+                model.setActivityName(name);
+                model.setActivityIcon(thumbImage);
+                model.setPosition(i);
+                arrayList3.add(model);
+                arrayList.add(model);
+            }
+
+            try {
+                rvAirRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(arrayList3, AllActivities.this, 0));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        myAdapter = new AutocompleteAllActivityAdapter(AllActivities.this, R.layout.autocomplete_allactivity_text_layout, arrayList);
+        etSearchDestination.setAdapter(myAdapter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Constants.activityItemClickListener = null;
+        Constants.allActivityItemClickListener = null;
     }
 }

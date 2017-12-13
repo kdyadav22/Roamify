@@ -2,8 +2,6 @@ package com.roamify.travel.activity;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
@@ -23,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,6 +34,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
 import com.roamify.travel.fragment.DescriptionFragment;
 import com.roamify.travel.fragment.LocationFragment;
@@ -43,6 +44,7 @@ import com.roamify.travel.models.PackageDetailsModel;
 import com.roamify.travel.models.PackageTabModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.Constants;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,26 +64,34 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     protected TabLayout tablayout;
     protected LinearLayout tabview;
     protected LinearLayout detailsViewContainer;
-    ArrayList<PackageDetailsModel> detailsModelArrayList = new ArrayList<>();
     LinearLayout pager_indicator;
     private int dotsCount;
     private ImageView[] dots;
     ImagePagerAdapter mAdapter;
-    private int[] mImages;
+    private String[] mImages;
     Fragment fragment;
     FragmentManager fragmentManager;
     FragmentTransaction transaction;
+    String request_tag = "get_package_details";
+    String request_tag_for_deal = "get_deal";
+    public PackageDetailsModel packageDetailsModel;
+    static ActivityPackageDetails mInstance;
+
+    public static synchronized ActivityPackageDetails getInstance() {
+        return mInstance;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_package_details);
         initView();
+        mInstance = this;
         tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         setTabName(RawData.setPackageTabMenu());
         fragmentManager = getSupportFragmentManager();
         transaction = fragmentManager.beginTransaction();
-        fragment = new DescriptionFragment();
-        transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
+
         tablayout.setScrollPosition(0, 0f, true);
 
         tablayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -90,8 +100,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 final String tId = RawData.setPackageTabMenu().get(tab.getPosition()).getTabId();
                 final String tName = RawData.setPackageTabMenu().get(tab.getPosition()).getTabName();
                 try {
-                    switch (tName)
-                    {
+                    switch (tName) {
                         case "Details":
                             fragment = new DescriptionFragment();
                             transaction = fragmentManager.beginTransaction();
@@ -116,8 +125,6 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                //transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commitNow();
             }
 
             @Override
@@ -131,30 +138,16 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             }
         });
 
-        detailsModelArrayList = RawData.setPackageDetails();
+    }
 
-        if (detailsModelArrayList.size() > 0) {
-            PackageDetailsModel detailsModel = detailsModelArrayList.get(0);
-            try {
-                JSONArray jsonArray = detailsModel.getPackageImages().getJSONArray("ImageArray");
-                mImages = new int[jsonArray.length()];
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    int imgPath = jsonArray.getInt(i);
-                    mImages[i] = imgPath;
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                mAdapter = new ImagePagerAdapter();
-                treeDetailPager.setAdapter(mAdapter);
-                treeDetailPager.setCurrentItem(0);
-                treeDetailPager.setOnPageChangeListener(this);
-                setUiPageViewController();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        String URL = Constants.BaseUrl + "getPackageDetailsByPackage.php?packageId=" + getIntent().getStringExtra("package_id");
+        try {
+            getRequestCall(URL, request_tag, null);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -169,7 +162,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         detailsViewContainer = (LinearLayout) findViewById(R.id.details_view_container);
         pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("");
+        toolbar.setTitle("Package Details");
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
@@ -183,12 +176,9 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
             upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
             getSupportActionBar().setHomeAsUpIndicator(upArrow);
-        }
-        catch (RuntimeException re)
-        {
+        } catch (RuntimeException re) {
             re.printStackTrace();
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -224,7 +214,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
 
         @Override
         public int getCount() {
-            return mImages.length;
+            return packageDetailsModel.getGalleryImages().length;
         }
 
         @Override
@@ -241,9 +231,22 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             //Just for testing
 
             try {
-                int imagePath = mImages[position];
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), imagePath);
-                imageView.setImageBitmap(bitmap);
+                String imagePath = packageDetailsModel.getGalleryImages()[position];
+                try {
+                    Glide.with(getApplicationContext())
+                            .load(Constants.BaseImageUrl + imagePath)
+                            .fitCenter()
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .crossFade(1000)
+                            //.override(600, 400)
+                            .error(R.drawable.no_image_found)
+                            .placeholder(R.drawable.no_image_found)
+                            .into(imageView);
+                } catch (Exception e) {
+                    e.fillInStackTrace();
+                }
+                //Bitmap bitmap = BitmapFactory.decodeResource(getResources(), imagePath);
+                //imageView.setImageBitmap(bitmap);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -317,12 +320,14 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             WindowManager.LayoutParams wlp = window.getAttributes();
             wlp.gravity = Gravity.CENTER;
             window.setAttributes(wlp);
+
+            final EditText nameEditText = (EditText) mdialog.findViewById(R.id.name);
+            final EditText emailEditText = (EditText) mdialog.findViewById(R.id.email);
+            final EditText phoneEditText = (EditText) mdialog.findViewById(R.id.phone);
+            final EditText commentEditText = (EditText) mdialog.findViewById(R.id.comment);
+
             TextView okButton = (TextView) mdialog.findViewById(R.id.submitButton);
             TextView cancelButton = (TextView) mdialog.findViewById(R.id.cancelButton);
-
-            /*TextView title = (TextView) mdialog.findViewById(R.id.title);
-            TextView message = (TextView) mdialog.findViewById(R.id.msg);
-            message.setText(msg);*/
 
             okButton.setOnClickListener(new View.OnClickListener() {
 
@@ -330,6 +335,25 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 public void onClick(View v) {
                     // TODO Auto-generated method stub
                     mdialog.dismiss();
+                    JSONObject jsonObject = new JSONObject();
+                    try {
+                        jsonObject.put("packageId", packageDetailsModel.getId());
+                        jsonObject.put("userName", nameEditText);
+                        jsonObject.put("userEmail", emailEditText);
+                        jsonObject.put("userPhone", phoneEditText);
+                        jsonObject.put("comment", commentEditText);
+                        jsonObject.put("source", packageDetailsModel.getSource());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        String Url = Constants.BaseUrl + "sendPackageDeal.php";
+                        getRequestCall(Url, request_tag_for_deal, jsonObject);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+
                 }
             });
             cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -346,12 +370,12 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         }
     }
 
-    public void getRequestCall(String url, String tag) {
+    public void getRequestCall(String url, String tag, JSONObject jsonObject) {
         // cancel request from pending queue
         AppController.getInstance().cancelPendingRequests(tag);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url, null,
+                url, jsonObject,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -390,6 +414,71 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     }
 
     private void runOnMainThread(JSONObject response) throws JSONException {
+        if (response.has("details")) {
+            JSONArray jsonArray = response.getJSONArray("details");
+            PackageDetailsModel model = null;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                model = new PackageDetailsModel();
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
 
+                String id = jsonObject.getString("id");
+                String locationId = jsonObject.getString("locationId");
+                String activityId = jsonObject.getString("activityId");
+                String packageName = jsonObject.getString("packageName");
+                String address = jsonObject.getString("address");
+                String packagePrice = jsonObject.getString("packagePrice");
+                String description = jsonObject.getString("description");
+                String features = jsonObject.getString("features");
+                String specification = jsonObject.getString("specification");
+                String ratings = jsonObject.getString("ratings");
+                String source = jsonObject.getString("source");
+                String duration = jsonObject.getString("duration");
+                String galleryImages = jsonObject.getString("galleryImages");
+                String[] spilltedImages = galleryImages.split(",");
+
+                model.setId(id);
+                model.setLocationId(locationId);
+                model.setActivityId(activityId);
+                model.setPackageName(packageName);
+                model.setAddress(address);
+                model.setPackagePrice(packagePrice);
+                model.setDescription(description);
+                model.setFeatures(features);
+                model.setSpecification(specification);
+                model.setRatings(ratings);
+                model.setSource(source);
+                model.setDuration(duration);
+                model.setGalleryImages(spilltedImages);
+            }
+            displayPackageDetails(model);
+        } else {
+            Log.d("Submit Res", "My Res: " + response);
+        }
+    }
+
+    private void displayPackageDetails(PackageDetailsModel packageDetailsModel) {
+        if (packageDetailsModel != null) {
+            this.packageDetailsModel = packageDetailsModel;
+            try {
+                mAdapter = new ImagePagerAdapter();
+                treeDetailPager.setAdapter(mAdapter);
+                treeDetailPager.setCurrentItem(0);
+                treeDetailPager.setOnPageChangeListener(this);
+                setUiPageViewController();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+            tvPackagename.setText(packageDetailsModel.getPackageName());
+
+            fragment = new DescriptionFragment();
+            transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Constants.activityItemClickListener = null;
     }
 }

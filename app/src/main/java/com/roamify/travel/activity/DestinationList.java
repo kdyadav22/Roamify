@@ -145,7 +145,6 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
                     ex.printStackTrace();
                 }
             }
-
         } else if (getIntent().getBooleanExtra("isComingForDestinationWiseSearch", false)) {
             //Display location to specified location
             String URL = Constants.BaseUrl + "getAllLocation.php";
@@ -171,8 +170,6 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         super.onStart();
         try {
             Constants.activityItemClickListener = DestinationList.this;
-            if (arrayList.size() > 0)
-                rvRecyclerView.setAdapter(new DestinationRVAdapter(arrayList, this));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -200,7 +197,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         } catch (InflateException ie) {
             ie.getMessage();
         }
-        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setTitle("Destinations");
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
@@ -355,6 +352,11 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         }
         if (arrayList.size() > 0)
             rvRecyclerView.setAdapter(new DestinationRVAdapter(arrayList, DestinationList.this));
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Constants.activityItemClickListener = null;
     }
 }

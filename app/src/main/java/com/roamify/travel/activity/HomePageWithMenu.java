@@ -258,6 +258,12 @@ public class HomePageWithMenu extends AppCompatActivity
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        Constants.activityItemClickListener = null;
+    }
+
+    @Override
     public void onClicked(int position) {
         Intent intent = null;
         switch (setMenuData().get(position).getTitle()) {

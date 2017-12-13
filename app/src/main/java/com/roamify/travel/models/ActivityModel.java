@@ -26,6 +26,16 @@ public class ActivityModel{
     String activityName;
     String activityId;
 
+    public int getActivityType() {
+        return activityType;
+    }
+
+    public void setActivityType(int activityType) {
+        this.activityType = activityType;
+    }
+
+    int activityType;
+
     public ArrayList<ActivityModel> getActivityModels() {
         return activityModels;
     }

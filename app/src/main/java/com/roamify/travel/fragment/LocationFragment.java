@@ -4,6 +4,8 @@ package com.roamify.travel.fragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -22,8 +24,12 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.roamify.travel.R;
+import com.roamify.travel.activity.ActivityPackageDetails;
 import com.roamify.travel.map.MapWrapperLayout;
 import com.roamify.travel.map.TouchableWrapper;
+import com.roamify.travel.models.PackageDetailsModel;
+import com.roamify.travel.utils.GeocodingLocation;
+import com.roamify.travel.utils.Validations;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +40,7 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
     private SupportMapFragment mapFragment;
     private GoogleMap googleMap;
     Marker mMarker;
+    String address;
 
     public LocationFragment() {
         // Required empty public constructor
@@ -47,6 +54,8 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
         View view = inflater.inflate(R.layout.fragment_location, container, false);
         mRelativeLayoutMapWrapperLayout = (MapWrapperLayout) view.findViewById(R.id.detail_map_relative_layout);
         initializeMap();
+        PackageDetailsModel packageDetailsModel = ActivityPackageDetails.getInstance().packageDetailsModel;
+        address = packageDetailsModel.getAddress();
         return view;
     }
 
@@ -69,7 +78,9 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
 
     @Override
     public void onMapLoaded() {
-        zoomAndAnimateMap(13.0f, 28.567766, 77.287655, "Chaddar Lake");
+        GeocodingLocation locationAddress = new GeocodingLocation();
+        locationAddress.getAddressFromLocation(address,
+                getActivity(), new GeocoderHandler());
     }
 
     @Override
@@ -106,5 +117,30 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
     @Override
     public void onUpdateMapAfterUserInterection() {
 
+    }
+
+    private class GeocoderHandler extends Handler {
+        @Override
+        public void handleMessage(Message message) {
+            String locationAddress;
+            switch (message.what) {
+                case 1:
+                    Bundle bundle = message.getData();
+                    locationAddress = bundle.getString("address");
+                    break;
+                default:
+                    locationAddress = null;
+            }
+
+            if (Validations.isNotNullNotEmptyNotWhiteSpace(locationAddress)) {
+                try {
+                    String latlng[] = locationAddress.split(",");
+                    zoomAndAnimateMap(13.0f, Double.parseDouble(latlng[0]), Double.parseDouble(latlng[1]), address);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+        }
     }
 }
