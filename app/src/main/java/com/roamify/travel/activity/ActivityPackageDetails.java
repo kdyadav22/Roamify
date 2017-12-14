@@ -37,6 +37,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
+import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.fragment.DescriptionFragment;
 import com.roamify.travel.fragment.LocationFragment;
 import com.roamify.travel.fragment.ReviewsFragment;
@@ -44,6 +45,7 @@ import com.roamify.travel.models.PackageDetailsModel;
 import com.roamify.travel.models.PackageTabModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
 
 import org.json.JSONArray;
@@ -143,11 +145,15 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     @Override
     protected void onStart() {
         super.onStart();
-        String URL = Constants.BaseUrl + "getPackageDetailsByPackage.php?packageId=" + getIntent().getStringExtra("package_id");
-        try {
-            getRequestCall(URL, request_tag, null);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+            String URL = Constants.BaseUrl + "getPackageDetailsByPackage.php?packageId=" + getIntent().getStringExtra("package_id");
+            try {
+                getRequestCall(URL, request_tag, null);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
     }
 
@@ -228,8 +234,6 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             ImageView imageView = new ImageView(context);
             imageView.setBackgroundColor(context.getResources().getColor(R.color.black));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            //Just for testing
-
             try {
                 String imagePath = packageDetailsModel.getGalleryImages()[position];
                 try {
@@ -347,13 +351,16 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                         e.printStackTrace();
                     }
 
-                    try {
-                        String Url = Constants.BaseUrl + "sendPackageDeal.php";
-                        getRequestCall(Url, request_tag_for_deal, jsonObject);
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
+                    if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+                        try {
+                            String Url = Constants.BaseUrl + "sendPackageDeal.php";
+                            getRequestCall(Url, request_tag_for_deal, jsonObject);
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    } else {
+                        AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
                     }
-
                 }
             });
             cancelButton.setOnClickListener(new View.OnClickListener() {

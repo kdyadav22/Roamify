@@ -29,6 +29,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivityWiseActivityRVAdapter;
+import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.fragment.TopDestinationFragment;
 import com.roamify.travel.fragment.UpcomingActivitiesFragment;
 import com.roamify.travel.listeners.ActivityItemClickListener;
@@ -38,6 +39,7 @@ import com.roamify.travel.models.RawDataModel;
 import com.roamify.travel.models.StateWiseActivityModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
 
 import org.json.JSONArray;
@@ -99,12 +101,15 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
                 }
             }
         });
-
-        try {
-            String URL = Constants.BaseUrl + "getActivityByLocation.php?locationId=" + getIntent().getStringExtra("loc_id");
-            getRequestCall(URL, request_tag);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+            try {
+                String URL = Constants.BaseUrl + "getActivityByLocation.php?locationId=" + getIntent().getStringExtra("loc_id");
+                getRequestCall(URL, request_tag);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            AlertDialogManager.showAlartDialog(ActivitiesList.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
     }
 
@@ -112,7 +117,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
     protected void onStart() {
         super.onStart();
         Constants.activityItemClickListener = ActivitiesList.this;
-
     }
 
     @Override

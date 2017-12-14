@@ -37,11 +37,13 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.AutocompleteHomePageArrayAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
+import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.models.MenuItemModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
 
@@ -158,11 +160,15 @@ public class HomePageWithMenu extends AppCompatActivity
             }
         });
 
-        try {
-            getRequestCall(Constants.GetAllResultApi, requestTag);
-            //mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), HomePage.getInstance(), listViewHeight / 4));
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        if(new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+            try {
+                getRequestCall(Constants.GetAllResultApi, requestTag);
+                //mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), HomePage.getInstance(), listViewHeight / 4));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }else{
+            AlertDialogManager.showAlartDialog(HomePageWithMenu.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
     }
 

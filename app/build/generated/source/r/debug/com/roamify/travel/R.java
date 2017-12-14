@@ -5031,17 +5031,19 @@ public final class R {
     public static final int mr_user_route_category_name=0x7f0e0053;
     public static final int navigation_drawer_close=0x7f0e0054;
     public static final int navigation_drawer_open=0x7f0e0055;
-    public static final int password_toggle_content_description=0x7f0e0056;
-    public static final int path_password_eye=0x7f0e0057;
-    public static final int path_password_eye_mask_strike_through=0x7f0e0058;
-    public static final int path_password_eye_mask_visible=0x7f0e0059;
-    public static final int path_password_strike_through=0x7f0e005a;
-    public static final int search_menu_title=0x7f0e005b;
-    public static final int status_bar_notification_info_overflow=0x7f0e005c;
-    public static final int submit=0x7f0e005d;
-    public static final int title_activity_details=0x7f0e005e;
-    public static final int title_activity_home_page_with_menu=0x7f0e005f;
-    public static final int water_activity=0x7f0e0060;
+    public static final int no_network_msg=0x7f0e0056;
+    public static final int no_network_title=0x7f0e0057;
+    public static final int password_toggle_content_description=0x7f0e0058;
+    public static final int path_password_eye=0x7f0e0059;
+    public static final int path_password_eye_mask_strike_through=0x7f0e005a;
+    public static final int path_password_eye_mask_visible=0x7f0e005b;
+    public static final int path_password_strike_through=0x7f0e005c;
+    public static final int search_menu_title=0x7f0e005d;
+    public static final int status_bar_notification_info_overflow=0x7f0e005e;
+    public static final int submit=0x7f0e005f;
+    public static final int title_activity_details=0x7f0e0060;
+    public static final int title_activity_home_page_with_menu=0x7f0e0061;
+    public static final int water_activity=0x7f0e0062;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0f0000;

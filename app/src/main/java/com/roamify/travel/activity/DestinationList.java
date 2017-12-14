@@ -29,11 +29,13 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.DestinationRVAdapter;
+import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.DestinationModel;
 import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
 
@@ -131,38 +133,52 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         if (getIntent().getBooleanExtra("isComingFromSearchPage", false)) {
             //Display location to specified location
             if (getIntent().getBooleanExtra("isComingFromSearchPageWithState", false)) {
-                String URL = Constants.BaseUrl + "getLocationByState.php?stateId=" + getIntent().getStringExtra("state_id");
+                if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+                    String URL = Constants.BaseUrl + "getLocationByState.php?stateId=" + getIntent().getStringExtra("state_id");
+                    try {
+                        getRequestCall(URL, request_tag);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    AlertDialogManager.showAlartDialog(DestinationList.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
+                }
+            } else {
+                if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+                    String URL = Constants.BaseUrl + "getLocationByActivity.php?activityId=" + getIntent().getStringExtra("id");
+                    try {
+                        getRequestCall(URL, request_tag);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                } else {
+                    AlertDialogManager.showAlartDialog(DestinationList.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
+                }
+            }
+        } else if (getIntent().getBooleanExtra("isComingForDestinationWiseSearch", false)) {
+            //Display location to specified location
+            if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+                String URL = Constants.BaseUrl + "getAllLocation.php";
                 try {
                     getRequestCall(URL, request_tag);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             } else {
-                String URL = Constants.BaseUrl + "getLocationByActivity.php?activityId=" + getIntent().getStringExtra("id");
+                AlertDialogManager.showAlartDialog(DestinationList.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
+            }
+        } else {
+            if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+                String URL = Constants.BaseUrl + "getLocationBySpecificActivity.php?activityType=" + getIntent().getStringExtra("type");
                 try {
                     getRequestCall(URL, request_tag);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-            }
-        } else if (getIntent().getBooleanExtra("isComingForDestinationWiseSearch", false)) {
-            //Display location to specified location
-            String URL = Constants.BaseUrl + "getAllLocation.php";
-            try {
-                getRequestCall(URL, request_tag);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        } else {
-            //Display location to specific activity,, This will give us only aq spcific type of activity like water/air/land
-            String URL = Constants.BaseUrl + "getLocationBySpecificActivity.php?activityType=" + getIntent().getStringExtra("type");
-            try {
-                getRequestCall(URL, request_tag);
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            } else {
+                AlertDialogManager.showAlartDialog(DestinationList.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
             }
         }
-
     }
 
     @Override
@@ -328,7 +344,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         };
 
         //Adding policy for socket time out
-        RetryPolicy policy = new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        RetryPolicy policy = new DefaultRetryPolicy(Constants.SOCKET_TIME_OUT, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         jsonObjReq.setRetryPolicy(policy);
 
         // Adding request to request queue

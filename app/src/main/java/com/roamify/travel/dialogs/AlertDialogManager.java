@@ -16,7 +16,7 @@ import com.roamify.travel.utils.Validations;
 
 
 public class AlertDialogManager {
-    public void showAlartDialog(Activity context, String titleString, String msg) {
+    public static void showAlartDialog(Activity context, String titleString, String msg) {
         try {
             final Dialog mdialog = new Dialog(context);
             mdialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);

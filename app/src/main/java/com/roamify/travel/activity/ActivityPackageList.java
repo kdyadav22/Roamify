@@ -28,10 +28,12 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivitiesPackageListRVAdapter;
+import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
 
 import org.json.JSONArray;
@@ -134,20 +136,24 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             }
         });
 
-        if (getIntent().getBooleanExtra("isComingFromSearchPage", false)) {
-            String URL = Constants.BaseUrl + "getEquivalentPackage.php?packageId=" + getIntent().getStringExtra("id");
-            try {
-                getRequestCall(URL, request_tag);
-            } catch (Exception ex) {
-                ex.printStackTrace();
+        if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+            if (getIntent().getBooleanExtra("isComingFromSearchPage", false)) {
+                String URL = Constants.BaseUrl + "getEquivalentPackage.php?packageId=" + getIntent().getStringExtra("id");
+                try {
+                    getRequestCall(URL, request_tag);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+                String URL = Constants.BaseUrl + "getPackageListByActivity.php?activityId=" + getIntent().getStringExtra("act_id") + "&locationId=" + getIntent().getStringExtra("loc_id");
+                try {
+                    getRequestCall(URL, request_tag);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         } else {
-            String URL = Constants.BaseUrl + "getPackageListByActivity.php?activityId=" + getIntent().getStringExtra("act_id") + "&locationId=" + getIntent().getStringExtra("loc_id");
-            try {
-                getRequestCall(URL, request_tag);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            AlertDialogManager.showAlartDialog(ActivityPackageList.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
 
     }

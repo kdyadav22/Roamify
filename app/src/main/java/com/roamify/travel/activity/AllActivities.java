@@ -32,12 +32,14 @@ import com.roamify.travel.R;
 import com.roamify.travel.adapters.AutocompleteAllActivityAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
 import com.roamify.travel.adapters.DestinationWiseActivityRVAdapter;
+import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.listeners.AllActivityItemClickListener;
 import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.StateWiseActivityModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
 
@@ -121,11 +123,15 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             }
         });
 
-        String URL = Constants.BaseUrl + "getAllActivityByLocation.php?locationId=" + getIntent().getStringExtra("loc_id");
-        try {
-            getRequestCall(URL, request_tag);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+            String URL = Constants.BaseUrl + "getAllActivityByLocation.php?locationId=" + getIntent().getStringExtra("loc_id");
+            try {
+                getRequestCall(URL, request_tag);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            AlertDialogManager.showAlartDialog(AllActivities.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
     }
 
