@@ -51,7 +51,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AllActivities extends AppCompatActivity implements AllActivityItemClickListener {
+public class AllActivities extends AppCompatActivity implements AllActivityItemClickListener , View.OnClickListener{
 
     protected Toolbar toolbar;
     protected CustomAutoCompleteView etSearchDestination;
@@ -71,7 +71,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_all_activities);
         initView();
-
+        findViewById(R.id.right_bar_button).setOnClickListener(this);
         etSearchDestination.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -187,6 +187,23 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
         });
+
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Validations.hideSoftInput(AllActivities.this);
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.right_bar_button) {
+            Intent intent = new Intent(getApplicationContext(), HomePageWithMenu.class);
+            startActivity(intent);
+            finish();
+            overridePendingTransition(R.anim.left_in, R.anim.right_out);
+        }
     }
 
     @Override

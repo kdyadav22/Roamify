@@ -17,7 +17,7 @@
             android:id="@+id/name"
             style="@style/edittext"
             android:layout_marginTop="10dp"
-            android:hint="Name*"
+            android:hint="Name"
             android:inputType="text|textCapSentences" />
 
         <EditText

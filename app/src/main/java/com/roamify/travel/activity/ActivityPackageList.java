@@ -35,6 +35,7 @@ import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
+import com.roamify.travel.utils.Validations;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -97,6 +98,13 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             public void onClick(View v) {
                 onBackPressed();
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
+            }
+        });
+
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Validations.hideSoftInput(ActivityPackageList.this);
             }
         });
 
@@ -178,7 +186,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.right_bar_button) {
-            Intent intent = new Intent(getApplicationContext(), HomePage.class);
+            Intent intent = new Intent(getApplicationContext(), HomePageWithMenu.class);
             startActivity(intent);
             finish();
             overridePendingTransition(R.anim.left_in, R.anim.right_out);

@@ -2,6 +2,7 @@ package com.roamify.travel.activity;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
@@ -37,6 +38,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
+import com.roamify.travel.adapters.ImagePagerAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.fragment.DescriptionFragment;
 import com.roamify.travel.fragment.LocationFragment;
@@ -47,12 +49,12 @@ import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
+import com.roamify.travel.utils.Validations;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,6 +91,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         super.setContentView(R.layout.activity_package_details);
         initView();
         mInstance = this;
+        findViewById(R.id.right_bar_button).setOnClickListener(this);
         tablayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         setTabName(RawData.setPackageTabMenu());
         fragmentManager = getSupportFragmentManager();
@@ -191,8 +194,15 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             @Override
             public void onClick(View v) {
                 //onBackPressed();
-                finish();
+                //finish();
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
+            }
+        });
+
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Validations.hideSoftInput(ActivityPackageDetails.this);
             }
         });
     }
@@ -201,6 +211,11 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     public void onClick(View view) {
         if (view.getId() == R.id.tv_packagesubmit) {
             showQueryDialog();
+        }else if (view.getId() == R.id.right_bar_button) {
+            Intent intent = new Intent(getApplicationContext(), HomePageWithMenu.class);
+            startActivity(intent);
+            finish();
+            overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
     }
 
@@ -220,7 +235,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
 
         @Override
         public int getCount() {
-            return packageDetailsModel.getGalleryImages().length;
+            return mImages.length;
         }
 
         @Override
@@ -232,25 +247,23 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         public Object instantiateItem(ViewGroup container, final int position) {
             Context context = getApplicationContext();
             ImageView imageView = new ImageView(context);
-            imageView.setBackgroundColor(context.getResources().getColor(R.color.black));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            //imageView.setBackgroundColor(context.getResources().getColor(R.color.black));
+            //imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             try {
-                String imagePath = packageDetailsModel.getGalleryImages()[position];
+                String imagePath = mImages[position];
                 try {
                     Glide.with(getApplicationContext())
                             .load(Constants.BaseImageUrl + imagePath)
                             .fitCenter()
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .crossFade(1000)
-                            //.override(600, 400)
+                            .override(getScreenWidth(getApplicationContext()), 200)
                             .error(R.drawable.no_image_found)
                             .placeholder(R.drawable.no_image_found)
                             .into(imageView);
                 } catch (Exception e) {
                     e.fillInStackTrace();
                 }
-                //Bitmap bitmap = BitmapFactory.decodeResource(getResources(), imagePath);
-                //imageView.setImageBitmap(bitmap);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -339,7 +352,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 public void onClick(View v) {
                     // TODO Auto-generated method stub
                     mdialog.dismiss();
-                    JSONObject jsonObject = new JSONObject();
+                    /*JSONObject jsonObject = new JSONObject();
                     try {
                         jsonObject.put("packageId", packageDetailsModel.getId());
                         jsonObject.put("userName", nameEditText);
@@ -349,12 +362,32 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                         jsonObject.put("source", packageDetailsModel.getSource());
                     } catch (JSONException e) {
                         e.printStackTrace();
-                    }
+                    }*/
 
                     if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
                         try {
-                            String Url = Constants.BaseUrl + "sendPackageDeal.php";
-                            getRequestCall(Url, request_tag_for_deal, jsonObject);
+                            String name = nameEditText.getText().toString().trim();
+                            String email = emailEditText.getText().toString().trim();
+                            String phone = phoneEditText.getText().toString().trim();
+                            String comment = commentEditText.getText().toString().trim();
+
+                            if(!Validations.isNotNullNotEmptyNotWhiteSpace(email)) {
+                                AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, "Alert!", "Email can not be blank.");
+                                return;
+                            }
+
+                            if (!Validations.emailValidator(email)) {
+                                AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, "Alert!", "Please enter valid email address.");
+                                return;
+                            }
+
+                            if(!Validations.isNotNullNotEmptyNotWhiteSpace(phone)) {
+                                AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, "Alert!", "Phone can not be blank.");
+                                return;
+                            }
+
+                            String Url = Constants.BaseUrl + "sendPackageDeal.php?packageId=" + packageDetailsModel.getId() + "&userName=" + name + "&userEmail=" + email + "&userPhone=" + phone + "&comment=" + comment + "&source=" + packageDetailsModel.getSource();
+                            getRequestCall(Url, request_tag_for_deal, null);
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
@@ -459,14 +492,22 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             }
             displayPackageDetails(model);
         } else {
-            Log.d("Submit Res", "My Res: " + response);
+            String status = response.getString("status");
+            if (status.equals("1"))
+                AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, "Thank You!", "Thank you, our team will contact you shortly.");
+            else
+                AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, "Alert!", "There is some problem, please try again.");
+
+            //Log.d("Submit Res", "My Res: " + response);
         }
     }
 
     private void displayPackageDetails(PackageDetailsModel packageDetailsModel) {
         if (packageDetailsModel != null) {
             this.packageDetailsModel = packageDetailsModel;
+            mImages = new String[packageDetailsModel.getGalleryImages().length];
             try {
+                //mAdapter = new ImagePagerAdapter(ActivityPackageDetails.this, mImages);
                 mAdapter = new ImagePagerAdapter();
                 treeDetailPager.setAdapter(mAdapter);
                 treeDetailPager.setCurrentItem(0);
@@ -487,5 +528,14 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     protected void onPause() {
         super.onPause();
         Constants.activityItemClickListener = null;
+    }
+
+    public int getScreenWidth(Context context) {
+        return context.getResources().getDisplayMetrics().widthPixels;
+    }
+
+
+    public int getScreenHeight(Context context) {
+        return context.getResources().getDisplayMetrics().heightPixels;
     }
 }

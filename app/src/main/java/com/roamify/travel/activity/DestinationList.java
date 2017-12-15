@@ -65,7 +65,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_destination_list);
         initView();
-
+        findViewById(R.id.right_bar_button).setOnClickListener(this);
         etSearchDestination.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -195,6 +195,11 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         if (view.getId() == R.id.imgClear) {
             etSearchDestination.setText("");
+        }else if (view.getId() == R.id.right_bar_button) {
+            Intent intent = new Intent(getApplicationContext(), HomePageWithMenu.class);
+            startActivity(intent);
+            finish();
+            overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
     }
 
@@ -238,6 +243,13 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
                 Validations.hideSoftInput(DestinationList.this);
                 finish();
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
+            }
+        });
+
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Validations.hideSoftInput(DestinationList.this);
             }
         });
     }

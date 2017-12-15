@@ -41,6 +41,7 @@ import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
+import com.roamify.travel.utils.Validations;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -67,7 +68,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_activities_list);
         initView();
-
+        findViewById(R.id.right_bar_button).setOnClickListener(this);
         try {
             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 4);
             rvRecyclerView.setLayoutManager(mLayoutManager);
@@ -135,7 +136,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         if (view.getId() == R.id.imgClear) {
             etSearchLocation.setText("");
         } else if (view.getId() == R.id.right_bar_button) {
-            Intent intent = new Intent(getApplicationContext(), HomePage.class);
+            Intent intent = new Intent(getApplicationContext(), HomePageWithMenu.class);
             startActivity(intent);
             finish();
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
@@ -176,6 +177,14 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
         });
+
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Validations.hideSoftInput(ActivitiesList.this);
+            }
+        });
+
         rightBarButton = (ImageView) findViewById(R.id.right_bar_button);
         rightBarButton.setOnClickListener(ActivitiesList.this);
         appbar = (AppBarLayout) findViewById(R.id.appbar);

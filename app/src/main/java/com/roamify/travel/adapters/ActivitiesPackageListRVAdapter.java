@@ -66,9 +66,9 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                             .fitCenter()
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .crossFade(1000)
-                            //.override(600, 400)
-                            .error(R.drawable.default_nav_bar)
-                            .placeholder(R.drawable.default_nav_bar)
+                            .override(100, 100)
+                            .error(R.drawable.no_image_found)
+                            .placeholder(R.drawable.no_image_found)
                             .into(holder.packageImageView);
                 } catch (Exception e) {
                     e.fillInStackTrace();

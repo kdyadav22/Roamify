@@ -512,6 +512,10 @@
         "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-26.1.0.aar\\a6959f036ad81074553ee03ab4d8214d\\res\\drawable-xhdpi-v4\\ic_mr_button_connected_13_dark.png"
     },
     {
+        "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_iv_destinations.png.flat",
+        "source": "D:\\Dummy\\Roamify\\app\\src\\main\\res\\drawable-xhdpi\\iv_destinations.png"
+    },
+    {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_mr_button_connecting_22_light.png.flat",
         "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-26.1.0.aar\\a6959f036ad81074553ee03ab4d8214d\\res\\drawable-xhdpi-v4\\ic_mr_button_connecting_22_light.png"
     },
@@ -654,6 +658,10 @@
     {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_mr_button_connected_03_dark.png.flat",
         "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-26.1.0.aar\\a6959f036ad81074553ee03ab4d8214d\\res\\drawable-xxhdpi-v4\\ic_mr_button_connected_03_dark.png"
+    },
+    {
+        "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_iv_destinations.png.flat",
+        "source": "D:\\Dummy\\Roamify\\app\\src\\main\\res\\drawable-xxhdpi\\iv_destinations.png"
     },
     {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_text_input_password_icon.xml.flat",
@@ -1748,6 +1756,10 @@
         "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-26.1.0.aar\\a6959f036ad81074553ee03ab4d8214d\\res\\drawable-xxhdpi-v4\\ic_mr_button_connecting_17_light.png"
     },
     {
+        "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\layout_view_cell_reviews.xml.flat",
+        "source": "D:\\Dummy\\Roamify\\app\\src\\main\\res\\layout\\view_cell_reviews.xml"
+    },
+    {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_mr_button_connected_19_dark.png.flat",
         "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-26.1.0.aar\\a6959f036ad81074553ee03ab4d8214d\\res\\drawable-xhdpi-v4\\ic_mr_button_connected_19_dark.png"
     },
@@ -2122,6 +2134,10 @@
     {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_navigation_item_separator.xml.flat",
         "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\875cde5bbc2a9edb0cefa71809cf1561\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable_corner_bg_with_whitebg_for_reviewdialog.xml.flat",
+        "source": "D:\\Dummy\\Roamify\\app\\src\\main\\res\\drawable\\corner_bg_with_whitebg_for_reviewdialog.xml"
     },
     {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_nav_contact.png.flat",
@@ -2522,6 +2538,10 @@
     {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\layout_autocomplete_allactivity_text_layout.xml.flat",
         "source": "D:\\Dummy\\Roamify\\app\\src\\main\\res\\layout\\autocomplete_allactivity_text_layout.xml"
+    },
+    {
+        "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_iv_destinations.png.flat",
+        "source": "D:\\Dummy\\Roamify\\app\\src\\main\\res\\drawable-mdpi\\iv_destinations.png"
     },
     {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_vol_type_speaker_dark.png.flat",
@@ -3200,6 +3220,10 @@
         "source": "D:\\Dummy\\Roamify\\app\\src\\main\\res\\drawable-xxhdpi\\ic_action_contact.png"
     },
     {
+        "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_iv_destinations.png.flat",
+        "source": "D:\\Dummy\\Roamify\\app\\src\\main\\res\\drawable-hdpi\\iv_destinations.png"
+    },
+    {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0078a3e84af956fe4ab3774dc4359b60\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
@@ -3282,6 +3306,10 @@
     {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_nav_logout.png.flat",
         "source": "D:\\Dummy\\Roamify\\app\\src\\main\\res\\drawable-mdpi\\nav_logout.png"
+    },
+    {
+        "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\layout_viewpager_image_item.xml.flat",
+        "source": "D:\\Dummy\\Roamify\\app\\src\\main\\res\\layout\\viewpager_image_item.xml"
     },
     {
         "merged": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",

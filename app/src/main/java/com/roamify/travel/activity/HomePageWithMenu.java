@@ -2,6 +2,7 @@ package com.roamify.travel.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -206,7 +207,7 @@ public class HomePageWithMenu extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Intent intent;
@@ -473,6 +474,13 @@ public class HomePageWithMenu extends AppCompatActivity
         mMenuListRecyclerView.setLayoutManager(mLayoutManager);
         mMenuListRecyclerView.setHasFixedSize(true);
         mMenuListRecyclerView.setItemAnimator(new DefaultItemAnimator());*/
+
+        collapsingToolbarLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Validations.hideSoftInput(HomePageWithMenu.this);
+            }
+        });
 
         if (AppController.getInstance().getSearchText() != null) {
             whereToSearch.setText(AppController.getInstance().getSearchText());

@@ -19,7 +19,20 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:theme="@style/ToolbarColoredBackArrow" />
+            app:theme="@style/ToolbarColoredBackArrow" >
+            <ImageView
+                android:id="@+id/right_bar_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="10dp"
+                android:src="@drawable/ic_action_home"
+                android:tint="@color/md_white_1000"
+                android:visibility="visible" />
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
