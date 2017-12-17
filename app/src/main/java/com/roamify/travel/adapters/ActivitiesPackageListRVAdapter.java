@@ -57,13 +57,13 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                 }
                 holder.tv_pkgname.setText(data.getPackageName());
                 holder.tv_pkgduration.setText(data.getPackageDuration());
-                holder.pkgprice.setText(data.getPackagePrice());
+                holder.pkgprice.setText(data.getPackagePrice()+" per person");
                 holder.tv_packageSources.setText(data.getPackageSource());
 
                 try {
                     Glide.with(activity)
                             .load(Constants.BaseImageUrl + data.getPackageImageName())
-                            .fitCenter()
+                            //.fitCenter()
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .crossFade(1000)
                             .override(100, 100)

@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
 import com.roamify.travel.activity.ActivityPackageDetails;
+import com.roamify.travel.activity.ActivityPackageList;
 import com.roamify.travel.models.PackageModel;
+import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 
 import java.util.ArrayList;
@@ -43,7 +47,7 @@ public class TopPackageListRVAdapter extends RecyclerView.Adapter<TopPackageList
         final int width = displayMetrics.widthPixels/2;
         ViewGroup.LayoutParams layoutParams = holder.ll_activity_rowLayout.getLayoutParams();
         layoutParams.width = width-10;
-        //layoutParams.height = width+200;
+        //layoutParams.height = width/2;
         holder.ll_activity_rowLayout.setLayoutParams(layoutParams);
         if (data != null) {
             try {
@@ -57,6 +61,20 @@ public class TopPackageListRVAdapter extends RecyclerView.Adapter<TopPackageList
                 e.getMessage();
             }
 
+            try {
+                Glide.with(activity)
+                        .load(Constants.BaseImageUrl + data.getPackageImageName())
+                        .fitCenter()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .crossFade(1000)
+                        .override(width-10, width-10)
+                        .error(R.drawable.no_image_found)
+                        .placeholder(R.drawable.no_image_found)
+                        .into(holder.packageImageView);
+            } catch (Exception e) {
+                e.fillInStackTrace();
+            }
+
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -64,19 +82,15 @@ public class TopPackageListRVAdapter extends RecyclerView.Adapter<TopPackageList
                         Constants.activityItemClickListener.onClicked(position);
 
                     //For testing
-                    Intent intent = new Intent(activity, ActivityPackageDetails.class);
+                    Intent intent = new Intent(activity, ActivityPackageList.class);
+                    intent.putExtra("title", data.getPackageName());
+                    intent.putExtra("id", data.getPackageId());
+                    intent.putExtra("isComingFromSearchPage", true);
                     activity.startActivity(intent);
                     activity.finish();
                     activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
             });
-
-            /*holder.pkgsubmit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    new AlertDialogManager().showQueryDialog(activity);
-                }
-            });*/
         }
     }
 

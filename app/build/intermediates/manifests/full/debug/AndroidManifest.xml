@@ -20,7 +20,7 @@
         android:name="com.roamify.travel.utils.AppController"
         android:allowBackup="true"
         android:debuggable="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:testOnly="true"

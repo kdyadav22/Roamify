@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:theme="@style/ToolbarColoredBackArrow" >
+            app:theme="@style/ToolbarColoredBackArrow">
+
             <ImageView
                 android:id="@+id/right_bar_button"
                 android:layout_width="50dp"
@@ -94,10 +95,12 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/ll_landActivities"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -117,10 +120,12 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_waterActivities"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -140,10 +145,12 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_airActivities"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -174,7 +181,7 @@
                     android:layout_marginLeft="5dp"
                     android:background="@color/md_grey_100"
                     android:gravity="center|left"
-                    android:text="Top popular Destinations"
+                    android:text="Top Destinations"
                     android:textColor="@color/md_green_700"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -186,23 +193,31 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:background="@color/white"
-                    android:gravity="center|left"
-                    android:text="Upcoming Activities"
-                    android:textColor="@color/md_green_700"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <fragment
-                    android:id="@+id/list_upcoming"
-                    class="com.roamify.travel.fragment.UpcomingActivitiesFragment"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp" />
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/white"
+                        android:gravity="center|left"
+                        android:text="Upcoming Activities"
+                        android:textColor="@color/md_green_700"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <fragment
+                        android:id="@+id/list_upcoming"
+                        class="com.roamify.travel.fragment.UpcomingActivitiesFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp" />
+
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>

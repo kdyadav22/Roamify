@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.roamify.travel.R;
-import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.models.ReviewModel;
-import com.roamify.travel.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -34,7 +32,7 @@ public class ReviewsRVAdapter extends RecyclerView.Adapter<ReviewsViewHandler> {
 
     @Override
     public void onBindViewHolder(ReviewsViewHandler holder, final int position) {
-        final ReviewModel data = reviewModels.get(position);
+        ReviewModel data = reviewModels.get(position);
         if (data != null) {
             try {
                 holder.tv_Name.setText(data.getReviewName());

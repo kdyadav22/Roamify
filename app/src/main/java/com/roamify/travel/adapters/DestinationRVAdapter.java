@@ -55,7 +55,7 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
         try {
             Glide.with(activity)
                     .load(Constants.BaseImageUrl + data.getDestinationImage())
-                    .fitCenter()
+                    //.fitCenter()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .crossFade(1000)
                     .override(width, width)

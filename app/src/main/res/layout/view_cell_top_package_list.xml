@@ -27,7 +27,8 @@
             <ImageView
                 android:id="@+id/iv_activityImage"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:layout_height="wrap_content"
                 android:background="@drawable/no_image_found" />
 
             <LinearLayout
@@ -37,6 +38,7 @@
                 android:layout_gravity="bottom"
                 android:background="@color/white"
                 android:orientation="vertical"
+                android:gravity="center"
                 android:paddingBottom="5dp">
 
                 <TextView
@@ -103,6 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     android:paddingBottom="1dp">
 

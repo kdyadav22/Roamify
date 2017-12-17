@@ -194,7 +194,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             @Override
             public void onClick(View v) {
                 //onBackPressed();
-                //finish();
+                finish();
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
         });
@@ -248,16 +248,16 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             Context context = getApplicationContext();
             ImageView imageView = new ImageView(context);
             //imageView.setBackgroundColor(context.getResources().getColor(R.color.black));
-            //imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             try {
                 String imagePath = mImages[position];
                 try {
                     Glide.with(getApplicationContext())
                             .load(Constants.BaseImageUrl + imagePath)
-                            .fitCenter()
+                            //.fitCenter()
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .crossFade(1000)
-                            .override(getScreenWidth(getApplicationContext()), 200)
+                            .override(getScreenWidth(getApplicationContext()), getScreenWidth(getApplicationContext())/4)
                             .error(R.drawable.no_image_found)
                             .placeholder(R.drawable.no_image_found)
                             .into(imageView);
@@ -476,6 +476,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 String galleryImages = jsonObject.getString("galleryImages");
                 String[] spilltedImages = galleryImages.split(",");
 
+                mImages=spilltedImages;
                 model.setId(id);
                 model.setLocationId(locationId);
                 model.setActivityId(activityId);
@@ -505,7 +506,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     private void displayPackageDetails(PackageDetailsModel packageDetailsModel) {
         if (packageDetailsModel != null) {
             this.packageDetailsModel = packageDetailsModel;
-            mImages = new String[packageDetailsModel.getGalleryImages().length];
+            //mImages = new String[packageDetailsModel.getGalleryImages().length];
             try {
                 //mAdapter = new ImagePagerAdapter(ActivityPackageDetails.this, mImages);
                 mAdapter = new ImagePagerAdapter();

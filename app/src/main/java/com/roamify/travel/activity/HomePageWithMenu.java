@@ -69,7 +69,6 @@ public class HomePageWithMenu extends AppCompatActivity
     protected ImageView ivDestinations;
     protected ImageView collapsedImage;
     protected LinearLayout llIconMenu;
-    TextView header_name, header_email;
     static HomePageWithMenu mInstance;
     protected CustomAutoCompleteView autoCompleteTextView;
     LinearLayout collapsed_toolbar_layout;
@@ -116,7 +115,7 @@ public class HomePageWithMenu extends AppCompatActivity
         toggle.syncState();
 
         collapsingToolbarLayout.setTitle(" ");
-        if (AppController.getInstance().getSearchImage() != null) {
+        /*if (AppController.getInstance().getSearchImage() != null) {
             try {
                 Glide.with(this)
                         .load(Constants.BaseImageUrl + AppController.getInstance().getSearchImage())
@@ -130,7 +129,7 @@ public class HomePageWithMenu extends AppCompatActivity
             } catch (Exception e) {
                 e.fillInStackTrace();
             }
-        }
+        }*/
 
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isShow = false;
@@ -143,9 +142,9 @@ public class HomePageWithMenu extends AppCompatActivity
                 }
                 if (scrollRange + verticalOffset == 0) {
                     Validations.hideSoftInput(HomePageWithMenu.this);
-                    collapsingToolbarLayout.setTitle(" ");
+                    collapsingToolbarLayout.setTitle("");
                     collapsed_toolbar_layout.setVisibility(View.VISIBLE);
-                    toolbar_textView.setText(AppController.getInstance().getSearchText());
+                    toolbar_textView.setText("Where To?");
                     llIconMenu.setVisibility(View.VISIBLE);
                     //To hide auto complete text box
                     /*whereToSearch.setVisibility(View.VISIBLE);
@@ -153,7 +152,7 @@ public class HomePageWithMenu extends AppCompatActivity
                     isShow = true;
                 } else if (isShow) {
                     collapsed_toolbar_layout.setVisibility(View.GONE);
-                    toolbar_textView.setText(AppController.getInstance().getSearchText());
+                    toolbar_textView.setText("Where To?");
                     llIconMenu.setVisibility(View.GONE);
                     collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
                     isShow = false;
@@ -161,14 +160,14 @@ public class HomePageWithMenu extends AppCompatActivity
             }
         });
 
-        if(new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+        if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
             try {
                 getRequestCall(Constants.GetAllResultApi, requestTag);
                 //mMenuListRecyclerView.setAdapter(new MenuGridRVAdapter(setMenuData(), HomePage.getInstance(), listViewHeight / 4));
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        }else{
+        } else {
             AlertDialogManager.showAlartDialog(HomePageWithMenu.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
     }
@@ -250,6 +249,49 @@ public class HomePageWithMenu extends AppCompatActivity
             }
         } else if (id == R.id.nav_logout) {
 
+        }else if (id == R.id.nav_water) {
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "WATER ACTIVITIES");
+                intent.putExtra("type", "Water");
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        else if (id == R.id.nav_land) {
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "LAND ACTIVITIES");
+                intent.putExtra("type", "Land");
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        else if (id == R.id.nav_air) {
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "AIR ACTIVITIES");
+                intent.putExtra("type", "Air");
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        else if (id == R.id.nav_destination) {
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "DESTINATIONS");
+                intent.putExtra("isComingForDestinationWiseSearch", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -396,12 +438,17 @@ public class HomePageWithMenu extends AppCompatActivity
             autoCompleteTextView.setText("");
             whereToSearch.setVisibility(View.GONE);
             rl_autoSearch.setVisibility(View.VISIBLE);
+            autoCompleteTextView.setFocusable(true);
+            autoCompleteTextView.requestFocus();
+            Validations.showSoftInput(HomePageWithMenu.this, autoCompleteTextView);
         } else if (view.getId() == R.id.toolbar_textView) {
             Validations.showSoftInput(HomePageWithMenu.this, autoCompleteTextView);
             autoCompleteTextView.setText("");
             whereToSearch.setVisibility(View.GONE);
             rl_autoSearch.setVisibility(View.VISIBLE);
             appBarLayout.setExpanded(true, true);
+            autoCompleteTextView.setFocusable(true);
+            autoCompleteTextView.requestFocus();
             Validations.showSoftInput(HomePageWithMenu.this, autoCompleteTextView);
         } else if (view.getId() == R.id.bt_waterActivity) {
             try {
@@ -444,13 +491,45 @@ public class HomePageWithMenu extends AppCompatActivity
                 ex.printStackTrace();
             }
         } else if (view.getId() == R.id.iv_waterActivity) {
-
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "WATER ACTIVITIES");
+                intent.putExtra("type", "Water");
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         } else if (view.getId() == R.id.iv_airActivity) {
-
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "AIR ACTIVITIES");
+                intent.putExtra("type", "Air");
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         } else if (view.getId() == R.id.iv_landActivity) {
-
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "LAND ACTIVITIES");
+                intent.putExtra("type", "Land");
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         } else if (view.getId() == R.id.iv_destinations) {
-
+            try {
+                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", "DESTINATIONS");
+                intent.putExtra("isComingForDestinationWiseSearch", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -483,7 +562,7 @@ public class HomePageWithMenu extends AppCompatActivity
         });
 
         if (AppController.getInstance().getSearchText() != null) {
-            whereToSearch.setText(AppController.getInstance().getSearchText());
+            whereToSearch.setText("Where To?");
         }
         whereToSearch.setOnClickListener(this);
         toolbar_textView.setOnClickListener(this);
@@ -519,8 +598,8 @@ public class HomePageWithMenu extends AppCompatActivity
 
                 whereToSearch.setVisibility(View.VISIBLE);
                 rl_autoSearch.setVisibility(View.GONE);
-                whereToSearch.setText(tv_main.getText().toString());
-                toolbar_textView.setText(tv_main.getText().toString());
+                //whereToSearch.setText(tv_main.getText().toString());
+                //toolbar_textView.setText(tv_main.getText().toString());
 
                 AppController.getInstance().setSearchText(tv_main.getText().toString());
                 String position = tv_pos.getText().toString();
@@ -572,6 +651,8 @@ public class HomePageWithMenu extends AppCompatActivity
         try {
             //If item is location type then will go on "All Activites Page"
             //If item is activity type then will go on "Destination List Page"
+            whereToSearch.setVisibility(View.VISIBLE);
+            rl_autoSearch.setVisibility(View.GONE);
             if (pageSearchModelArrayList.get(pos).getType().equals("Activity")) {
                 Intent intent = new Intent(getApplicationContext(), DestinationList.class);
                 intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
@@ -675,7 +756,8 @@ public class HomePageWithMenu extends AppCompatActivity
         try {
             myAdapter = new AutocompleteHomePageArrayAdapter(this, R.layout.autocomplete_text_layout, pageSearchModelArrayList);
             autoCompleteTextView.setAdapter(myAdapter);
-        }catch (Exception Ex)
-        {Ex.printStackTrace();}
+        } catch (Exception Ex) {
+            Ex.printStackTrace();
+        }
     }
 }

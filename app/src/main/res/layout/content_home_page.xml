@@ -41,7 +41,7 @@
                 android:layout_marginLeft="5dp"
                 android:background="@color/white"
                 android:gravity="center|left"
-                android:text="Top popular Activities"
+                android:text="Popular Activities"
                 android:textColor="@color/md_green_700"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -62,14 +62,14 @@
                 android:layout_marginLeft="5dp"
                 android:background="@color/white"
                 android:gravity="center|left"
-                android:text="Upcoming Activities"
+                android:text="Popular Destinations"
                 android:textColor="@color/md_green_700"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <fragment
                 android:id="@+id/list_upcoming"
-                class="com.roamify.travel.fragment.UpcomingActivitiesFragment"
+                class="com.roamify.travel.fragment.TopDestinationFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_upcomingActivities"

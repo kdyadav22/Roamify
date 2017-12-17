@@ -46,7 +46,7 @@ public class DescriptionFragment extends Fragment {
         String pacaDuration = packageDetailsModel.getDuration();
         tvDetailsDuration.setText(pacaDuration);
         String packPrice = packageDetailsModel.getPackagePrice();
-        tvDetailsPrice.setText(packPrice);
+        tvDetailsPrice.setText(packPrice+" per person");
         String packSrc = packageDetailsModel.getSource();
         tvDetailsSource.setText(packSrc);
         String packDesc = packageDetailsModel.getDescription();

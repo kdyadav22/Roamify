@@ -5,34 +5,56 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_mytrips"
-            android:icon="@drawable/nav_trips"
-            android:visible="false"
-            android:title="My Trips" />
+            android:id="@+id/nav_water"
+            android:icon="@drawable/water_activity"
+            android:visible="true"
+            android:title="Water Activities" />
         <item
-            android:id="@+id/nav_aboutus"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="About Us" />
+            android:id="@+id/nav_land"
+            android:icon="@drawable/land_activity"
+            android:title="Land Activities" />
         <item
-            android:id="@+id/nav_contactus"
-            android:icon="@drawable/nav_contact"
-            android:title="Contact Us" />
+            android:id="@+id/nav_air"
+            android:icon="@drawable/air_activity"
+            android:title="Air Activities" />
 
         <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_menu_share"
-            android:title="Share" />
+            android:id="@+id/nav_destination"
+            android:icon="@drawable/iv_destinations"
+            android:title="Destinations" />
 
     </group>
 
-    <item android:title="Profile" android:visible="false">
+    <item android:title="Contact" android:visible="true">
         <menu>
+
+            <item
+                android:id="@+id/nav_mytrips"
+                android:icon="@drawable/nav_trips"
+                android:visible="false"
+                android:title="My Trips" />
+            <item
+                android:id="@+id/nav_aboutus"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="About Us" />
+            <item
+                android:id="@+id/nav_contactus"
+                android:icon="@drawable/nav_contact"
+                android:title="Contact Us" />
+
+            <item
+                android:id="@+id/nav_share"
+                android:visible="false"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
             <item
                 android:id="@+id/nav_signIn"
+                android:visible="false"
                 android:icon="@drawable/nav_profile"
                 android:title="SignIn/SignUp" />
             <item
                 android:id="@+id/nav_logout"
+                android:visible="false"
                 android:icon="@drawable/nav_logout"
                 android:title="Logout" />
         </menu>

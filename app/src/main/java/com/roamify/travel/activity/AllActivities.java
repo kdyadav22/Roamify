@@ -17,7 +17,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -33,11 +32,8 @@ import com.roamify.travel.adapters.AutocompleteAllActivityAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
 import com.roamify.travel.adapters.DestinationWiseActivityRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
-import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.listeners.AllActivityItemClickListener;
 import com.roamify.travel.models.ActivityModel;
-import com.roamify.travel.models.StateWiseActivityModel;
-import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
@@ -51,10 +47,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AllActivities extends AppCompatActivity implements AllActivityItemClickListener , View.OnClickListener{
+public class AllActivities extends AppCompatActivity implements AllActivityItemClickListener, View.OnClickListener {
 
     protected Toolbar toolbar;
     protected CustomAutoCompleteView etSearchDestination;
+    protected LinearLayout llLandActivities;
+    protected LinearLayout llWaterActivities;
+    protected LinearLayout llAirActivities;
     ArrayAdapter<ActivityModel> myAdapter;
     protected ImageView imgClear;
     protected RecyclerView rvLandRecyclerView;
@@ -194,6 +193,10 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
                 Validations.hideSoftInput(AllActivities.this);
             }
         });
+        imgClear = (ImageView) findViewById(R.id.imgClear);
+        llLandActivities = (LinearLayout) findViewById(R.id.ll_landActivities);
+        llWaterActivities = (LinearLayout) findViewById(R.id.ll_waterActivities);
+        llAirActivities = (LinearLayout) findViewById(R.id.ll_airActivities);
     }
 
     @Override
@@ -301,6 +304,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             }
 
             try {
+                llWaterActivities.setVisibility(View.VISIBLE);
                 rvWaterRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(arrayList1, AllActivities.this, 0));
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -325,6 +329,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
                 arrayList.add(model);
             }
             try {
+                llLandActivities.setVisibility(View.VISIBLE);
                 rvLandRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(arrayList2, AllActivities.this, 0));
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -349,6 +354,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             }
 
             try {
+                llAirActivities.setVisibility(View.VISIBLE);
                 rvAirRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(arrayList3, AllActivities.this, 0));
             } catch (Exception ex) {
                 ex.printStackTrace();

@@ -69,13 +69,13 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_reviews, container, false);
+        initView(rootView);
         PackageDetailsModel packageDetailsModel = ActivityPackageDetails.getInstance().packageDetailsModel;
         //http://mohanpackaging.com/app/getReturnReviews.php?packageId=5a2fbdb61f664
         String URL = Constants.BaseUrl + "getReturnReviews.php?packageId=" + packageDetailsModel.getId();
         if (new CheckConnection(getActivity()).isConnectedToInternet()) {
             try {
-                String Url = Constants.BaseUrl + "sendPackageDeal.php";
-                getRequestCall(Url, "get_review", null);
+                getRequestCall(URL, "get_review", null);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -83,7 +83,6 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
             AlertDialogManager.showAlartDialog(getActivity(), getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
 
-        initView(rootView);
         return rootView;
     }
 

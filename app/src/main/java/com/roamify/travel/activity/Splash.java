@@ -24,13 +24,12 @@ public class Splash extends AppCompatActivity {
                         intent = new Intent(Splash.this, HomePageWithMenu.class);
                     }
                     else{
-                        intent = new Intent(Splash.this, LoginActivity.class);
+                        intent = new Intent(Splash.this, HomePageWithMenu.class);
                     }
 
                     finish();
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
                     startActivity(intent);
-
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
