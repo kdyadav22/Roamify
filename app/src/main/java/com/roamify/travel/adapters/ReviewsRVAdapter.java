@@ -31,12 +31,17 @@ public class ReviewsRVAdapter extends RecyclerView.Adapter<ReviewsViewHandler> {
     }
 
     @Override
-    public void onBindViewHolder(ReviewsViewHandler holder, final int position) {
-        ReviewModel data = reviewModels.get(position);
+    public void onBindViewHolder(final ReviewsViewHandler holder, final int position) {
+        final ReviewModel data = reviewModels.get(position);
         if (data != null) {
             try {
-                holder.tv_Name.setText(data.getReviewName());
-                holder.tv_Comment.setText(data.getReviewComment());
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        holder.tv_Name.setText(data.getReviewName());
+                        holder.tv_Comment.setText("\""+data.getReviewComment()+"\"");
+                    }
+                });
             } catch (Exception e) {
                 e.getMessage();
             }

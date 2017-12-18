@@ -336,8 +336,8 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             }
         }
 
-        if (jsonArray1.length() > 0) {
-            JSONArray jsonArray2 = response.getJSONArray("Air");
+        JSONArray jsonArray2 = response.getJSONArray("Air");
+        if (jsonArray2.length() > 0) {
             for (int i = 0; i < jsonArray2.length(); i++) {
                 ActivityModel model = new ActivityModel();
                 JSONObject jsonObject = jsonArray2.getJSONObject(i);

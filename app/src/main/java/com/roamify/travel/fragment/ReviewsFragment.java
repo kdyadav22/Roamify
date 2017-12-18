@@ -7,9 +7,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,7 +75,7 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
         initView(rootView);
         PackageDetailsModel packageDetailsModel = ActivityPackageDetails.getInstance().packageDetailsModel;
         //http://mohanpackaging.com/app/getReturnReviews.php?packageId=5a2fbdb61f664
-        String URL = Constants.BaseUrl + "getReturnReviews.php?packageId=" + packageDetailsModel.getId();
+        String URL = Constants.BaseUrl + "getReturnReviews.php?packageId=5a2fbdb61f664";
         if (new CheckConnection(getActivity()).isConnectedToInternet()) {
             try {
                 getRequestCall(URL, "get_review", null);
@@ -97,6 +100,14 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
         cvRateUsButton = (CardView) rootView.findViewById(R.id.cv_rateUsButton);
         cvRateUsButton.setOnClickListener(ReviewsFragment.this);
         rvRecyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recyclerView);
+        try {
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+            rvRecyclerView.setLayoutManager(mLayoutManager);
+            rvRecyclerView.setHasFixedSize(true);
+            rvRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        } catch (InflateException ie) {
+            ie.getMessage();
+        }
     }
 
     public void showQueryDialog() {
@@ -252,8 +263,14 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
                 arrayList.add(model);
             }
 
-            if (arrayList.size() > 0)
-                rvRecyclerView.setAdapter(new ReviewsRVAdapter(arrayList, getActivity()));
+            if (arrayList.size() > 0) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        rvRecyclerView.setAdapter(new ReviewsRVAdapter(arrayList, getActivity()));
+                    }
+                });
+            }
         } else {
             String status = response.getString("status");
             if (status.equals("1"))

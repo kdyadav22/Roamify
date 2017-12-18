@@ -211,7 +211,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     public void onClick(View view) {
         if (view.getId() == R.id.tv_packagesubmit) {
             showQueryDialog();
-        }else if (view.getId() == R.id.right_bar_button) {
+        } else if (view.getId() == R.id.right_bar_button) {
             Intent intent = new Intent(getApplicationContext(), HomePageWithMenu.class);
             startActivity(intent);
             finish();
@@ -252,15 +252,17 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             try {
                 String imagePath = mImages[position];
                 try {
-                    Glide.with(getApplicationContext())
-                            .load(Constants.BaseImageUrl + imagePath)
-                            //.fitCenter()
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .crossFade(1000)
-                            .override(getScreenWidth(getApplicationContext()), getScreenWidth(getApplicationContext())/4)
-                            .error(R.drawable.no_image_found)
-                            .placeholder(R.drawable.no_image_found)
-                            .into(imageView);
+                    if (Validations.isNotNullNotEmptyNotWhiteSpace(imagePath)) {
+                        Glide.with(getApplicationContext())
+                                .load(Constants.BaseImageUrl + imagePath)
+                                //.fitCenter()
+                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                .crossFade(1000)
+                                .override(getScreenWidth(getApplicationContext()), getScreenWidth(getApplicationContext()) / 4)
+                                .error(R.drawable.no_image_found)
+                                .placeholder(R.drawable.no_image_found)
+                                .into(imageView);
+                    }
                 } catch (Exception e) {
                     e.fillInStackTrace();
                 }
@@ -371,7 +373,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                             String phone = phoneEditText.getText().toString().trim();
                             String comment = commentEditText.getText().toString().trim();
 
-                            if(!Validations.isNotNullNotEmptyNotWhiteSpace(email)) {
+                            if (!Validations.isNotNullNotEmptyNotWhiteSpace(email)) {
                                 AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, "Alert!", "Email can not be blank.");
                                 return;
                             }
@@ -381,7 +383,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                                 return;
                             }
 
-                            if(!Validations.isNotNullNotEmptyNotWhiteSpace(phone)) {
+                            if (!Validations.isNotNullNotEmptyNotWhiteSpace(phone)) {
                                 AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, "Alert!", "Phone can not be blank.");
                                 return;
                             }
@@ -476,7 +478,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 String galleryImages = jsonObject.getString("galleryImages");
                 String[] spilltedImages = galleryImages.split(",");
 
-                mImages=spilltedImages;
+                mImages = spilltedImages;
                 model.setId(id);
                 model.setLocationId(locationId);
                 model.setActivityId(activityId);
@@ -534,7 +536,6 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     public int getScreenWidth(Context context) {
         return context.getResources().getDisplayMetrics().widthPixels;
     }
-
 
     public int getScreenHeight(Context context) {
         return context.getResources().getDisplayMetrics().heightPixels;

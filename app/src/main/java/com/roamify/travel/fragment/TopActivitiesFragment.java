@@ -69,7 +69,7 @@ public class TopActivitiesFragment extends Fragment {
             rvTopActivities.setHasFixedSize(true);
             rvTopActivities.setItemAnimator(new DefaultItemAnimator());
 
-            String URL = Constants.BaseUrl + "getPackageListByActivity.php?activityId=5a28cf8012da5";
+            String URL = Constants.BaseUrl + "getPopularPackage.php";
             if (new CheckConnection(getActivity()).isConnectedToInternet()) {
                 try {
                     getRequestCall(URL, "get_top_activity", null);
@@ -138,10 +138,10 @@ public class TopActivitiesFragment extends Fragment {
             PackageModel model = new PackageModel();
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             String id = jsonObject.getString("id");
-            String name = jsonObject.getString("name");
-            String review = jsonObject.getString("review");
+            String name = jsonObject.getString("packageName");
+            String review = jsonObject.getString("ratings");
             String duration = jsonObject.getString("duration");
-            String price = jsonObject.getString("price");
+            String price = jsonObject.getString("packagePrice");
             String source = jsonObject.getString("source");
             String thumbImage = jsonObject.getString("thumbImage");
             //String locationId = jsonObject.getString("locationId");

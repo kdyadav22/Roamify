@@ -48,7 +48,7 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
 
         ViewGroup.LayoutParams layoutParams = holder.ll_destination_rowLayout.getLayoutParams();
         layoutParams.width = width;
-        layoutParams.height = width+50;
+        layoutParams.height = width+100;
         holder.ll_destination_rowLayout.setLayoutParams(layoutParams);
 
 

@@ -46,9 +46,15 @@ public class TopPackageListRVAdapter extends RecyclerView.Adapter<TopPackageList
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         final int width = displayMetrics.widthPixels/2;
         ViewGroup.LayoutParams layoutParams = holder.ll_activity_rowLayout.getLayoutParams();
-        layoutParams.width = width-10;
-        //layoutParams.height = width/2;
+        layoutParams.width = width - 10;
+        layoutParams.height = width + 100;
         holder.ll_activity_rowLayout.setLayoutParams(layoutParams);
+
+        ViewGroup.LayoutParams layoutParamsImage = holder.packageImageView.getLayoutParams();
+        layoutParamsImage.width = width - 10;
+        layoutParamsImage.height = width - 10;
+        holder.packageImageView.setLayoutParams(layoutParamsImage);
+
         if (data != null) {
             try {
                 if (action.equals("PackageList")) {
@@ -64,10 +70,10 @@ public class TopPackageListRVAdapter extends RecyclerView.Adapter<TopPackageList
             try {
                 Glide.with(activity)
                         .load(Constants.BaseImageUrl + data.getPackageImageName())
-                        .fitCenter()
+                        //.fitCenter()
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .crossFade(1000)
-                        .override(width-10, width-10)
+                        .override(width, width)
                         .error(R.drawable.no_image_found)
                         .placeholder(R.drawable.no_image_found)
                         .into(holder.packageImageView);
