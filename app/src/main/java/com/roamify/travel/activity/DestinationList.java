@@ -294,9 +294,13 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } else {
                 //User come here on tap activity tab from Home page, then he should go for that type activities list on select any location
-                intent = new Intent(getApplicationContext(), ActivitiesList.class);
+                intent = new Intent(getApplicationContext(), ActivityPackageList.class);
                 intent.putExtra("loc_name", arrayList.get(pos).getDestinationName());
                 intent.putExtra("loc_id", arrayList.get(pos).getDestinationId());
+
+                intent.putExtra("act_name", getIntent().getStringExtra("act_name"));
+                intent.putExtra("act_id", getIntent().getStringExtra("act_id"));
+
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
