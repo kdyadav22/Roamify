@@ -75,7 +75,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="30dp"
                                 android:tint="@color/md_green_600"
-                                app:srcCompat="@drawable/ic_hotel_white_24dp" />
+                                app:srcCompat="@drawable/water_activity" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -104,7 +104,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="30dp"
                                 android:tint="@color/md_green_600"
-                                app:srcCompat="@drawable/ic_hotel_white_24dp" />
+                                app:srcCompat="@drawable/air_activity" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -137,9 +137,9 @@
 
                             <ImageView
                                 android:layout_width="40dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:tint="@color/md_green_600"
-                                app:srcCompat="@drawable/ic_hotel_white_24dp" />
+                                app:srcCompat="@drawable/land_activity" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -168,7 +168,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="30dp"
                                 android:tint="@color/md_green_600"
-                                app:srcCompat="@drawable/ic_hotel_white_24dp" />
+                                app:srcCompat="@drawable/iv_destinations" />
 
                             <TextView
                                 android:layout_width="wrap_content"

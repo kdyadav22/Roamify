@@ -29,6 +29,7 @@
 
                 <RelativeLayout
                     android:id="@+id/rlSearch"
+                    android:visibility="gone"
                     style="@style/edittext_white_forsearch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">

@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -54,6 +55,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
     protected LinearLayout llLandActivities;
     protected LinearLayout llWaterActivities;
     protected LinearLayout llAirActivities;
+    protected RelativeLayout rlSearch;
     ArrayAdapter<ActivityModel> myAdapter;
     protected ImageView imgClear;
     protected RecyclerView rvLandRecyclerView;
@@ -71,6 +73,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
         super.setContentView(R.layout.activity_all_activities);
         initView();
         findViewById(R.id.right_bar_button).setOnClickListener(this);
+        findViewById(R.id.right_bar_search_button).setOnClickListener(this);
         etSearchDestination.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -197,6 +200,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
         llLandActivities = (LinearLayout) findViewById(R.id.ll_landActivities);
         llWaterActivities = (LinearLayout) findViewById(R.id.ll_waterActivities);
         llAirActivities = (LinearLayout) findViewById(R.id.ll_airActivities);
+        rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);
     }
 
     @Override
@@ -206,6 +210,8 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             startActivity(intent);
             finish();
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
+        }else if (view.getId() == R.id.right_bar_search_button) {
+            rlSearch.setVisibility(View.VISIBLE);
         }
     }
 

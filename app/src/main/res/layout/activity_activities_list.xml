@@ -41,6 +41,7 @@
                 android:id="@+id/rlSearch"
                 style="@style/edittext_white_forsearch"
                 android:layout_width="wrap_content"
+                android:visibility="gone"
                 android:layout_height="wrap_content">
 
                 <EditText

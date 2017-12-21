@@ -32,6 +32,19 @@
                 android:src="@drawable/ic_action_home"
                 android:tint="@color/md_white_1000"
                 android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/right_bar_search_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="10dp"
+                android:src="@drawable/ic_action_search"
+                android:tint="@color/md_white_1000"
+                android:visibility="visible" />
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
@@ -50,6 +63,7 @@
 
             <RelativeLayout
                 android:id="@+id/rlSearch"
+                android:visibility="gone"
                 style="@style/edittext_white_forsearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">

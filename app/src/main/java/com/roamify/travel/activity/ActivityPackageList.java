@@ -17,6 +17,7 @@ import android.view.InflateException;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -29,9 +30,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivitiesPackageListRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
-import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.PackageModel;
-import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
@@ -46,6 +45,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ActivityPackageList extends AppCompatActivity implements View.OnClickListener {
+    protected RelativeLayout rlSearch;
     Activity currentActivity = null;
     RecyclerView recyclerView;
     protected EditText etSearchDestination;
@@ -56,8 +56,9 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_package_list);
+        super.setContentView(R.layout.activity_package_list);
         findViewById(R.id.right_bar_button).setOnClickListener(this);
+        findViewById(R.id.right_bar_search_button).setOnClickListener(this);
         etSearchDestination = (EditText) findViewById(R.id.et_searchNews);
         imgClear = (ImageView) findViewById(R.id.imgClear);
         imgClear.setOnClickListener(ActivityPackageList.this);
@@ -163,6 +164,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         } else {
             AlertDialogManager.showAlartDialog(ActivityPackageList.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
+        initView();
 
     }
 
@@ -190,6 +192,8 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             startActivity(intent);
             finish();
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
+        } else if (view.getId() == R.id.right_bar_search_button) {
+            rlSearch.setVisibility(View.VISIBLE);
         }
     }
 
@@ -286,5 +290,10 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
     protected void onPause() {
         super.onPause();
         Constants.activityItemClickListener = null;
+    }
+
+    private void initView() {
+        imgClear = (ImageView) findViewById(R.id.imgClear);
+        rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);
     }
 }

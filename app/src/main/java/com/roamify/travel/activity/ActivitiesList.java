@@ -69,6 +69,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         super.setContentView(R.layout.activity_activities_list);
         initView();
         findViewById(R.id.right_bar_button).setOnClickListener(this);
+        findViewById(R.id.right_bar_search_button).setOnClickListener(this);
         try {
             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 4);
             rvRecyclerView.setLayoutManager(mLayoutManager);
@@ -140,6 +141,8 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             startActivity(intent);
             finish();
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
+        }else if (view.getId() == R.id.right_bar_search_button) {
+            rlSearch.setVisibility(View.VISIBLE);
         }
     }
 
