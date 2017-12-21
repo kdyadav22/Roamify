@@ -251,7 +251,7 @@ public class HomePageWithMenu extends AppCompatActivity
 
         }else if (id == R.id.nav_water) {
             try {
-                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "WATER ACTIVITIES");
                 intent.putExtra("type", "Water");
                 startActivity(intent);
@@ -262,7 +262,7 @@ public class HomePageWithMenu extends AppCompatActivity
         }
         else if (id == R.id.nav_land) {
             try {
-                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "LAND ACTIVITIES");
                 intent.putExtra("type", "Land");
                 startActivity(intent);
@@ -273,7 +273,7 @@ public class HomePageWithMenu extends AppCompatActivity
         }
         else if (id == R.id.nav_air) {
             try {
-                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "AIR ACTIVITIES");
                 intent.putExtra("type", "Air");
                 startActivity(intent);
@@ -452,7 +452,7 @@ public class HomePageWithMenu extends AppCompatActivity
             Validations.showSoftInput(HomePageWithMenu.this, autoCompleteTextView);
         } else if (view.getId() == R.id.bt_waterActivity) {
             try {
-                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "WATER ACTIVITIES");
                 intent.putExtra("type", "Water");
                 startActivity(intent);
@@ -462,7 +462,7 @@ public class HomePageWithMenu extends AppCompatActivity
             }
         } else if (view.getId() == R.id.bt_airActivity) {
             try {
-                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "AIR ACTIVITIES");
                 intent.putExtra("type", "Air");
                 startActivity(intent);
@@ -472,7 +472,7 @@ public class HomePageWithMenu extends AppCompatActivity
             }
         } else if (view.getId() == R.id.bt_landActivity) {
             try {
-                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "LAND ACTIVITIES");
                 intent.putExtra("type", "Land");
                 startActivity(intent);
@@ -492,7 +492,7 @@ public class HomePageWithMenu extends AppCompatActivity
             }
         } else if (view.getId() == R.id.iv_waterActivity) {
             try {
-                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "WATER ACTIVITIES");
                 intent.putExtra("type", "Water");
                 startActivity(intent);
@@ -502,7 +502,7 @@ public class HomePageWithMenu extends AppCompatActivity
             }
         } else if (view.getId() == R.id.iv_airActivity) {
             try {
-                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "AIR ACTIVITIES");
                 intent.putExtra("type", "Air");
                 startActivity(intent);
@@ -512,7 +512,7 @@ public class HomePageWithMenu extends AppCompatActivity
             }
         } else if (view.getId() == R.id.iv_landActivity) {
             try {
-                intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "LAND ACTIVITIES");
                 intent.putExtra("type", "Land");
                 startActivity(intent);

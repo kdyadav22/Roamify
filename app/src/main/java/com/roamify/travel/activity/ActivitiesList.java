@@ -105,7 +105,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         });
         if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
             try {
-                String URL = Constants.BaseUrl + "getActivityByLocation.php?locationId=" + getIntent().getStringExtra("loc_id");
+                String URL = Constants.BaseUrl + "getActivityByType.php?type=" + getIntent().getStringExtra("type");
                 getRequestCall(URL, request_tag);
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -123,12 +123,11 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
 
     @Override
     public void onClicked(int pos) {
-        Intent intent = new Intent(getApplicationContext(), ActivityPackageList.class);
+        Intent intent = new Intent(getApplicationContext(), DestinationList.class);
         intent.putExtra("title", arrayList.get(pos).getActivityName());
-        intent.putExtra("loc_name", getIntent().getStringExtra("loc_name"));
         intent.putExtra("act_name", arrayList.get(pos).getActivityName());
-        intent.putExtra("loc_id", getIntent().getStringExtra("loc_id"));
         intent.putExtra("act_id", arrayList.get(pos).getActivityId());
+        intent.putExtra("isComingFromActivities", true);
         startActivity(intent);
     }
 
@@ -154,7 +153,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         imgClear.setOnClickListener(ActivitiesList.this);
         rvRecyclerView = (RecyclerView) findViewById(R.id.rv_recyclerView);
 
-        toolbar.setTitle("Activities");
+        toolbar.setTitle(getIntent().getStringExtra("title"));
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);

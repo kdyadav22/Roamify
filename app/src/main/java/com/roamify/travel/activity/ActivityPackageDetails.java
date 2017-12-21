@@ -171,7 +171,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         detailsViewContainer = (LinearLayout) findViewById(R.id.details_view_container);
         pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Package Details");
+        toolbar.setTitle("Details");
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);

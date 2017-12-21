@@ -10,9 +10,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
-import com.roamify.travel.activity.ActivitiesList;
 import com.roamify.travel.models.DestinationModel;
-import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Constants;
 
 import java.util.ArrayList;

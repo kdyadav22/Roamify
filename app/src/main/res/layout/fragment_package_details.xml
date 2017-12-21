@@ -9,8 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:text="Chadar Frozen River Trek
-Price (Per Person): ` 21,500
-Duration: 9  Days" />
+        android:text="" />
 
 </FrameLayout>

@@ -170,7 +170,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
             }
         } else {
             if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
-                String URL = Constants.BaseUrl + "getLocationBySpecificActivity.php?activityType=" + getIntent().getStringExtra("type");
+                String URL = Constants.BaseUrl + "getLocationByActivityId.php?activityTypeId=" + getIntent().getStringExtra("act_id");
                 try {
                     getRequestCall(URL, request_tag);
                 } catch (Exception ex) {
@@ -221,7 +221,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         } catch (InflateException ie) {
             ie.getMessage();
         }
-        toolbar.setTitle("Destinations");
+        toolbar.setTitle(getIntent().getStringExtra("title"));
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
