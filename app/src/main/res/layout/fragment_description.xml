@@ -19,15 +19,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Package Duration:"
-            android:textSize="16sp"
+            android:text="Duration:"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_details_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2D 3N"
+            android:text=""
             android:textSize="13sp" />
     </LinearLayout>
 
@@ -49,15 +49,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Package Price:"
-            android:textSize="16sp"
+            android:text="Price:"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_details_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="10000 PP"
+            android:text=""
             android:textSize="13sp" />
     </LinearLayout>
 
@@ -80,14 +80,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Source"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_details_source"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Yatra.com"
+            android:text=""
             android:textSize="13sp" />
     </LinearLayout>
 
@@ -109,14 +109,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Description:"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_details_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ffaksfhakfakf"
+            android:text=""
             android:textSize="13sp" />
     </LinearLayout>
 
@@ -134,14 +134,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Specification:"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_details_spec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="jdjdjjdjdj"
+            android:text=""
             android:textSize="13sp" />
     </LinearLayout>
 
@@ -159,14 +159,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Features:"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_details_ftr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="hdfhdhdhdhh"
+            android:text=""
             android:textSize="13sp" />
     </LinearLayout>
 

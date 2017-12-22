@@ -175,7 +175,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onBackPressed();
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
         });

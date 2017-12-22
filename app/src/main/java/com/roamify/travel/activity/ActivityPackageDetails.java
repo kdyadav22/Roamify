@@ -254,7 +254,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 try {
                     if (Validations.isNotNullNotEmptyNotWhiteSpace(imagePath)) {
                         Glide.with(getApplicationContext())
-                                .load(Constants.BaseImageUrl + imagePath)
+                                .load(Constants.BaseImageUrl+imagePath)
                                 //.fitCenter()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .crossFade(1000)

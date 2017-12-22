@@ -32,7 +32,6 @@ import com.roamify.travel.adapters.DestinationRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.DestinationModel;
-import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
@@ -244,7 +243,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
                 Validations.hideSoftInput(DestinationList.this);
-                finish();
+                onBackPressed();
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
         });
@@ -294,9 +293,11 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } else {
                 //User come here on tap activity tab from Home page, then he should go for that type activities list on select any location
-                intent = new Intent(getApplicationContext(), ActivitiesList.class);
+                intent = new Intent(getApplicationContext(), ActivityPackageList.class);
                 intent.putExtra("loc_name", arrayList.get(pos).getDestinationName());
                 intent.putExtra("loc_id", arrayList.get(pos).getDestinationId());
+                intent.putExtra("act_name", getIntent().getStringExtra("act_name"));
+                intent.putExtra("act_id", getIntent().getStringExtra("act_id"));
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
@@ -317,10 +318,6 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
             }
         }
         return filteredModelList;
-    }
-
-    private void goToNext() {
-
     }
 
     public void getRequestCall(String url, String tag) {
