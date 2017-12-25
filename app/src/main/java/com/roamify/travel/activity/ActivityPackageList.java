@@ -46,12 +46,12 @@ import java.util.Map;
 
 public class ActivityPackageList extends AppCompatActivity implements View.OnClickListener {
     protected RelativeLayout rlSearch;
-    Activity currentActivity = null;
-    RecyclerView recyclerView;
+    protected Activity currentActivity = null;
+    protected RecyclerView recyclerView;
     protected EditText etSearchDestination;
     protected ImageView imgClear;
-    ArrayList<PackageModel> arrayList = new ArrayList<>();
-    String request_tag = "get_package_list";
+    protected ArrayList<PackageModel> arrayList = new ArrayList<>();
+    protected String request_tag = "get_package_list";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -194,6 +194,8 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
         } else if (view.getId() == R.id.right_bar_search_button) {
             rlSearch.setVisibility(View.VISIBLE);
+        }else if (view.getId() == R.id.imgClear) {
+            etSearchDestination.setText("");
         }
     }
 

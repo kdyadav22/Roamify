@@ -5,5 +5,5 @@ package com.roamify.travel.listeners;
  */
 
 public interface AllActivityItemClickListener {
-    void onClicked(String activityId);
+    void onClicked(String activityId, String activityName);
 }

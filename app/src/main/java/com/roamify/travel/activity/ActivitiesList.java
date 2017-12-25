@@ -30,14 +30,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivityWiseActivityRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
-import com.roamify.travel.fragment.TopDestinationFragment;
-import com.roamify.travel.fragment.UpcomingActivitiesFragment;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.ActivityModel;
-import com.roamify.travel.models.DestinationModel;
-import com.roamify.travel.models.RawDataModel;
-import com.roamify.travel.models.StateWiseActivityModel;
-import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
@@ -60,8 +54,8 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
     protected ImageView rightBarButton;
     protected AppBarLayout appbar;
     protected RelativeLayout rlSearch;
-    ArrayList<ActivityModel> arrayList = new ArrayList<>();
-    String request_tag = "get_activity_by_location";
+    protected ArrayList<ActivityModel> arrayList = new ArrayList<>();
+    protected String request_tag = "get_activity_by_location";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,11 +116,11 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
     }
 
     @Override
-    public void onClicked(int pos) {
+    public void onClicked(String id, String name) {
         Intent intent = new Intent(getApplicationContext(), DestinationList.class);
-        intent.putExtra("title", arrayList.get(pos).getActivityName());
-        intent.putExtra("act_name", arrayList.get(pos).getActivityName());
-        intent.putExtra("act_id", arrayList.get(pos).getActivityId());
+        intent.putExtra("title", name);
+        intent.putExtra("act_name", name);
+        intent.putExtra("act_id", id);
         intent.putExtra("isComingFromActivities", true);
         startActivity(intent);
     }

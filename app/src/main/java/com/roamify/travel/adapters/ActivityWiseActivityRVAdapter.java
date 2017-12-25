@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
 import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.StateWiseActivityModel;
@@ -37,7 +39,7 @@ public class ActivityWiseActivityRVAdapter extends RecyclerView.Adapter<Destinat
 
     @Override
     public void onBindViewHolder(DestinationWiseViewHandler holder, final int position) {
-        ActivityModel data = menuItemModel.get(position);
+        final ActivityModel data = menuItemModel.get(position);
 
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         final int width = displayMetrics.widthPixels / 4;
@@ -52,11 +54,26 @@ public class ActivityWiseActivityRVAdapter extends RecyclerView.Adapter<Destinat
             } catch (Exception e) {
                 e.getMessage();
             }
+
+            try {
+                Glide.with(activity)
+                        .load(Constants.BaseImageUrl + data.getActivityIcon())
+                        //.fitCenter()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .crossFade(1000)
+                        .override(width, width)
+                        .error(R.drawable.ic_hotel_white_24dp)
+                        .placeholder(R.drawable.ic_hotel_white_24dp)
+                        .into(holder.imageView);
+            } catch (Exception e) {
+                e.fillInStackTrace();
+            }
+
             holder.ll_rowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (Constants.activityItemClickListener != null)
-                        Constants.activityItemClickListener.onClicked(position);
+                        Constants.activityItemClickListener.onClicked(data.getActivityId(), data.getActivityName());
                 }
             });
         }

@@ -161,7 +161,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     }
 
     private void initView() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_detail);
         treeDetailPager = (ViewPager) findViewById(R.id.tree_detail_pager);
         tvPackagename = (TextView) findViewById(R.id.tv_packagename);
         tvPackagesubmit = (TextView) findViewById(R.id.tv_packagesubmit);
@@ -170,7 +170,6 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         tabview = (LinearLayout) findViewById(R.id.tabview);
         detailsViewContainer = (LinearLayout) findViewById(R.id.details_view_container);
         pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Details");
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
@@ -252,9 +251,9 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             try {
                 String imagePath = mImages[position];
                 try {
-                    if (Validations.isNotNullNotEmptyNotWhiteSpace(imagePath)) {
+                    //if (Validations.isNotNullNotEmptyNotWhiteSpace(imagePath)) {
                         Glide.with(getApplicationContext())
-                                .load(Constants.BaseImageUrl+imagePath)
+                                .load(Constants.BaseImageUrl + imagePath)
                                 //.fitCenter()
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .crossFade(1000)
@@ -262,7 +261,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                                 .error(R.drawable.no_image_found)
                                 .placeholder(R.drawable.no_image_found)
                                 .into(imageView);
-                    }
+                    //}
                 } catch (Exception e) {
                     e.fillInStackTrace();
                 }
@@ -522,8 +521,12 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
 
             tvPackagename.setText(packageDetailsModel.getPackageName());
 
-            fragment = new DescriptionFragment();
-            transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
+            try {
+                fragment = new DescriptionFragment();
+                transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commitAllowingStateLoss();
+            } catch (IllegalStateException ise) {
+                ise.printStackTrace();
+            }
         }
     }
 

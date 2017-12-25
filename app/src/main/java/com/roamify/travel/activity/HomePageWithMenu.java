@@ -33,8 +33,6 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.AutocompleteHomePageArrayAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
@@ -42,7 +40,6 @@ import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.models.MenuItemModel;
-import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
@@ -115,6 +112,7 @@ public class HomePageWithMenu extends AppCompatActivity
         toggle.syncState();
 
         collapsingToolbarLayout.setTitle(" ");
+
         /*if (AppController.getInstance().getSearchImage() != null) {
             try {
                 Glide.with(this)
@@ -313,68 +311,7 @@ public class HomePageWithMenu extends AppCompatActivity
     }
 
     @Override
-    public void onClicked(int position) {
-        Intent intent = null;
-        switch (setMenuData().get(position).getTitle()) {
-            case "HOTELS": {
-                break;
-            }
-            case "WATER ACTIVITIES": {
-                try {
-                    intent = new Intent(getApplicationContext(), DestinationList.class);
-                    intent.putExtra("title", "WATER ACTIVITIES");
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                break;
-            }
-            case "AIR ACTIVITIES": {
-                try {
-                    intent = new Intent(getApplicationContext(), DestinationList.class);
-                    intent.putExtra("title", "AIR ACTIVITIES");
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                break;
-            }
-            case "LAND ACTIVITIES": {
-                try {
-                    intent = new Intent(getApplicationContext(), DestinationList.class);
-                    intent.putExtra("title", "LAND ACTIVITIES");
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                break;
-            }
-            case "CONTACT": {
-                break;
-            }
-            case "ABOUT US": {
-                break;
-            }
-            case "FAQ": {
-                break;
-            }
-            case "DESTINATIONS": {
-                try {
-                    intent = new Intent(getApplicationContext(), DestinationList.class);
-                    intent.putExtra("title", "DESTINATIONS");
-                    intent.putExtra("isComingForDestinationWiseSearch", true);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                break;
-            }
-        }
-    }
+    public void onClicked(String id, String name) {}
 
     private ArrayList<MenuItemModel> setMenuData() {
         ArrayList<MenuItemModel> menuItemModels = new ArrayList<>();

@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
 import com.roamify.travel.activity.HomePage;
 import com.roamify.travel.models.ActivityModel;
@@ -54,13 +56,29 @@ public class DestinationWiseActivityRVAdapter extends RecyclerView.Adapter<Desti
             } catch (Exception e) {
                 e.getMessage();
             }
+
+            try {
+                Glide.with(activity)
+                        .load(Constants.BaseImageUrl + data.getActivityIcon())
+                        //.fitCenter()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .crossFade(1000)
+                        .override(width, width)
+                        .error(R.drawable.ic_hotel_white_24dp)
+                        .placeholder(R.drawable.ic_hotel_white_24dp)
+                        .into(holder.imageView);
+            } catch (Exception e) {
+                e.fillInStackTrace();
+            }
+
+
             holder.ll_rowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (Constants.activityItemClickListener != null)
-                        Constants.activityItemClickListener.onClicked(position);
+                        Constants.activityItemClickListener.onClicked(data.getActivityId(), data.getActivityName());
                     else if (Constants.allActivityItemClickListener != null)
-                        Constants.allActivityItemClickListener.onClicked(data.getActivityId());
+                        Constants.allActivityItemClickListener.onClicked(data.getActivityId(), data.getActivityName());
                 }
             });
         }

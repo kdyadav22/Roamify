@@ -115,8 +115,10 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
                     Intent intent;
                     intent = new Intent(getApplicationContext(), ActivityPackageList.class);
                     intent.putExtra("title", actNameTextView.getText().toString());
-                    intent.putExtra("id", actIdTextView.getText().toString());
-
+                    intent.putExtra("act_id", actIdTextView.getText().toString());
+                    intent.putExtra("loc_name", getIntent().getStringExtra("loc_name"));
+                    //intent.putExtra("act_name", arrayList.get(pos).getActivityName());
+                    intent.putExtra("loc_id", getIntent().getStringExtra("loc_id"));
                     startActivity(intent);
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 } catch (Exception ex) {
@@ -162,7 +164,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
         rvAirRecyclerView.setHasFixedSize(true);
         rvAirRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        toolbar.setTitle("Activities");
+        toolbar.setTitle(getIntent().getStringExtra("title"));
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
@@ -216,14 +218,15 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
     }
 
     @Override
-    public void onClicked(String pos) {
+    public void onClicked(String id, String name) {
         Intent intent;
         try {
             intent = new Intent(getApplicationContext(), ActivityPackageList.class);
+
             intent.putExtra("loc_name", getIntent().getStringExtra("loc_name"));
-            //intent.putExtra("act_name", arrayList.get(pos).getActivityName());
+            intent.putExtra("act_name", name);
             intent.putExtra("loc_id", getIntent().getStringExtra("loc_id"));
-            intent.putExtra("act_id", pos);
+            intent.putExtra("act_id", id);
             startActivity(intent);
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
         } catch (Exception ex) {

@@ -32,7 +32,6 @@ import com.roamify.travel.adapters.DestinationRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.DestinationModel;
-import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
@@ -64,8 +63,10 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_destination_list);
         initView();
+
         findViewById(R.id.right_bar_button).setOnClickListener(this);
         findViewById(R.id.right_bar_search_button).setOnClickListener(this);
+
         etSearchDestination.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -77,7 +78,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
                 if (s.length() > 0) {
                     rvRecyclerView.setAdapter(new DestinationRVAdapter(filter(s.toString()), DestinationList.this));
                 } else {
-                    rvRecyclerView.setAdapter(new DestinationRVAdapter(RawData.setDestination(), DestinationList.this));
+                    rvRecyclerView.setAdapter(new DestinationRVAdapter(arrayList, DestinationList.this));
                 }
             }
 
@@ -90,45 +91,6 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
                 }
             }
         });
-
-        /*etSearchDestination.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View arg1, int pos, long id) {
-                RelativeLayout rl = (RelativeLayout) arg1;
-                LinearLayout rl1 = (LinearLayout) rl.getChildAt(0);
-                TextView tv = (TextView) rl1.getChildAt(0);
-                etSearchDestination.setText(tv.getText().toString());
-                Intent intent;
-                Validations.hideSoftInput(DestinationList.this);
-                try {
-                    if (getIntent().getBooleanExtra("isComingFromSearchPage", false)) {
-                        //User come here on select activity from search page, then he should go for package list on select any location
-                        intent = new Intent(getApplicationContext(), ActivityPackageList.class);
-                        intent.putExtra("title", tv.getText().toString());
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                    } else if (getIntent().getBooleanExtra("isComingForDestinationWiseSearch", false)) {
-                        //User come here on tap destination tab from home page, then he should go for all activities list on select any location
-                        intent = new Intent(getApplicationContext(), AllActivities.class);
-                        intent.putExtra("title", tv.getText().toString());
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                    } else {
-                        //User come here on tap activity tab from Home page, then he should go for that type activities list on select any location
-                        intent = new Intent(getApplicationContext(), ActivitiesList.class);
-                        intent.putExtra("title", tv.getText().toString());
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-
-            }
-        });*/
-
-        /*myAdapter = new AutocompleteDestinationAdapter(DestinationList.this, R.layout.destination_list_item, RawData.setDestination());
-        etSearchDestination.setAdapter(myAdapter);*/
 
         if (getIntent().getBooleanExtra("isComingFromSearchPage", false)) {
             //Display location to specified location
@@ -257,7 +219,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
-    public void onClicked(int pos) {
+    public void onClicked(String id, String name) {
         Intent intent;
         Validations.hideSoftInput(DestinationList.this);
         try {
@@ -266,9 +228,10 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
                 if (getIntent().getBooleanExtra("isComingFromSearchPageWithState", false)) {
                     try {
                         intent = new Intent(getApplicationContext(), AllActivities.class);
-                        intent.putExtra("loc_name", arrayList.get(pos).getDestinationName());
+                        intent.putExtra("title", name);
+                        intent.putExtra("loc_name", name);
                         intent.putExtra("act_name", getIntent().getStringExtra("title"));
-                        intent.putExtra("loc_id", arrayList.get(pos).getDestinationId());
+                        intent.putExtra("loc_id", id);
                         intent.putExtra("act_id", getIntent().getStringExtra("id"));
                         startActivity(intent);
                         overridePendingTransition(R.anim.right_in, R.anim.left_out);
@@ -277,9 +240,10 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
                     }
                 } else {
                     intent = new Intent(getApplicationContext(), ActivityPackageList.class);
-                    intent.putExtra("loc_name", arrayList.get(pos).getDestinationName());
+                    intent.putExtra("title", name);
+                    intent.putExtra("loc_name", name);
                     intent.putExtra("act_name", getIntent().getStringExtra("title"));
-                    intent.putExtra("loc_id", arrayList.get(pos).getDestinationId());
+                    intent.putExtra("loc_id", id);
                     intent.putExtra("act_id", getIntent().getStringExtra("id"));
                     startActivity(intent);
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
@@ -287,15 +251,17 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
             } else if (getIntent().getBooleanExtra("isComingForDestinationWiseSearch", false)) {
                 //User come here on tap destination tab from home page, then he should go for all activities list on select any location
                 intent = new Intent(getApplicationContext(), AllActivities.class);
-                intent.putExtra("loc_name", arrayList.get(pos).getDestinationName());
-                intent.putExtra("loc_id", arrayList.get(pos).getDestinationId());
+                intent.putExtra("title", name);
+                intent.putExtra("loc_name", name);
+                intent.putExtra("loc_id", id);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } else {
                 //User come here on tap activity tab from Home page, then he should go for that type activities list on select any location
                 intent = new Intent(getApplicationContext(), ActivityPackageList.class);
-                intent.putExtra("loc_name", arrayList.get(pos).getDestinationName());
-                intent.putExtra("loc_id", arrayList.get(pos).getDestinationId());
+                intent.putExtra("title", name);
+                intent.putExtra("loc_name", name);
+                intent.putExtra("loc_id", id);
                 intent.putExtra("act_name", getIntent().getStringExtra("act_name"));
                 intent.putExtra("act_id", getIntent().getStringExtra("act_id"));
                 startActivity(intent);
@@ -308,12 +274,13 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
 
     private ArrayList<DestinationModel> filter(String folderID) {
         final ArrayList<DestinationModel> filteredModelList = new ArrayList<>();
-        for (int i = 0; i < RawData.setDestination().size(); i++) {
+        for (int i = 0; i < arrayList.size(); i++) {
             DestinationModel model = new DestinationModel();
-            final String fId = RawData.setDestination().get(i).getDestinationName().toLowerCase();
+            final String fId = arrayList.get(i).getDestinationName().toLowerCase();
             if (fId.startsWith(folderID.toLowerCase())) {
-                model.setDestinationId(RawData.setDestination().get(i).getDestinationId());
-                model.setDestinationName((RawData.setDestination().get(i).getDestinationName()));
+                model.setDestinationId(arrayList.get(i).getDestinationId());
+                model.setDestinationName(arrayList.get(i).getDestinationName());
+                model.setDestinationImage(arrayList.get(i).getDestinationImage());
                 filteredModelList.add(model);
             }
         }
@@ -381,7 +348,6 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
         if (arrayList.size() > 0)
             rvRecyclerView.setAdapter(new DestinationRVAdapter(arrayList, DestinationList.this));
     }
-
     @Override
     protected void onPause() {
         super.onPause();

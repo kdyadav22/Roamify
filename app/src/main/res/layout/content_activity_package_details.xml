@@ -79,9 +79,9 @@
                             android:layout_weight=".40"
                             android:ellipsize="end"
                             android:gravity="center|left"
-                            android:maxLines="3"
-                            android:textSize="12sp"
-                            android:text="Moon Peak Expedition"
+                            android:maxLines="2"
+                            android:textSize="14sp"
+                            android:text=""
                             android:textColor="@color/md_white_1000" />
 
                         <!--<LinearLayout

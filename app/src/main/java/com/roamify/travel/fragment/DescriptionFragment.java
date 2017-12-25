@@ -29,6 +29,9 @@ public class DescriptionFragment extends Fragment {
     protected LinearLayout llDetailsSpec;
     protected TextView tvDetailsFtr;
     protected LinearLayout llDetailsFtr;
+    protected LinearLayout llDetailsDuration;
+    protected LinearLayout llDetailsPrice;
+    protected LinearLayout llDetailsSource;
 
     public DescriptionFragment() {
         // Required empty public constructor
@@ -44,13 +47,25 @@ public class DescriptionFragment extends Fragment {
 
         PackageDetailsModel packageDetailsModel = ActivityPackageDetails.getInstance().packageDetailsModel;
         String pacaDuration = packageDetailsModel.getDuration();
-        tvDetailsDuration.setText(pacaDuration);
+        if (Validations.isNotNullNotEmptyNotWhiteSpace(pacaDuration)) {
+            llDetailsDuration.setVisibility(View.VISIBLE);
+            tvDetailsDuration.setText(pacaDuration);
+        }
         String packPrice = packageDetailsModel.getPackagePrice();
-        tvDetailsPrice.setText("Rs. "+packPrice+" per person");
+        if (Validations.isNotNullNotEmptyNotWhiteSpace(packPrice)) {
+            llDetailsPrice.setVisibility(View.VISIBLE);
+            tvDetailsPrice.setText("Rs. " + packPrice + " per person");
+        }
+
         String packSrc = packageDetailsModel.getSource();
-        tvDetailsSource.setText(packSrc);
+        if (Validations.isNotNullNotEmptyNotWhiteSpace(packSrc)) {
+            llDetailsSource.setVisibility(View.VISIBLE);
+            tvDetailsSource.setText(packSrc);
+        }
+
         String packDesc = packageDetailsModel.getDescription();
         tvDetailsDesc.setText(packDesc);
+
         String packSpeci = packageDetailsModel.getSpecification();
         if (Validations.isNotNullNotEmptyNotWhiteSpace(packSpeci)) {
             llDetailsSpec.setVisibility(View.VISIBLE);
@@ -74,5 +89,8 @@ public class DescriptionFragment extends Fragment {
         llDetailsSpec = (LinearLayout) rootView.findViewById(R.id.ll_details_spec);
         tvDetailsFtr = (TextView) rootView.findViewById(R.id.tv_details_ftr);
         llDetailsFtr = (LinearLayout) rootView.findViewById(R.id.ll_details_ftr);
+        llDetailsDuration = (LinearLayout) rootView.findViewById(R.id.ll_details_duration);
+        llDetailsPrice = (LinearLayout) rootView.findViewById(R.id.ll_details_price);
+        llDetailsSource = (LinearLayout) rootView.findViewById(R.id.ll_details_source);
     }
 }

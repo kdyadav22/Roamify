@@ -14,6 +14,7 @@ import com.roamify.travel.R;
 import com.roamify.travel.activity.ActivityPackageDetails;
 import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.utils.Constants;
+import com.roamify.travel.utils.Validations;
 
 import java.util.ArrayList;
 
@@ -53,9 +54,13 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                     holder.ll_durationNPriceSection.setVisibility(View.VISIBLE);
                 }
                 holder.tv_pkgname.setText(data.getPackageName());
-                holder.tv_pkgduration.setText(data.getPackageDuration());
-                holder.pkgprice.setText(data.getPackagePrice()+" per person");
-                holder.tv_packageSources.setText(data.getPackageSource());
+
+                if (Validations.isNotNullNotEmptyNotWhiteSpace(data.getPackageDuration()))
+                    holder.tv_pkgduration.setText(data.getPackageDuration());
+                if (Validations.isNotNullNotEmptyNotWhiteSpace(data.getPackagePrice()))
+                    holder.pkgprice.setText(data.getPackagePrice() + " per person");
+                if (Validations.isNotNullNotEmptyNotWhiteSpace(data.getPackageSource()))
+                    holder.tv_packageSources.setText(data.getPackageSource());
 
                 try {
                     Glide.with(activity)
@@ -79,14 +84,14 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                 @Override
                 public void onClick(View view) {
                     if (Constants.activityItemClickListener != null)
-                        Constants.activityItemClickListener.onClicked(position);
+                        Constants.activityItemClickListener.onClicked(data.getPackageId(), data.getPackageName());
 
                     //For testing
                     Intent intent = new Intent(activity, ActivityPackageDetails.class);
                     intent.putExtra("package_id", data.getPackageId());
                     intent.putExtra("package_name", data.getPackageName());
                     activity.startActivity(intent);
-                    activity.finish();
+                    //activity.finish();
                     activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
             });

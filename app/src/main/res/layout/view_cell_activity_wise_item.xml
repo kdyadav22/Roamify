@@ -32,7 +32,7 @@
                 android:gravity="center"
                 android:text="Textview"
                 android:textColor="@color/md_green_700"
-                android:textSize="10dp" />
+                android:textSize="12dp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

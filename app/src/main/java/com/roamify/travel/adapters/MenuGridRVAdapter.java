@@ -36,7 +36,7 @@ public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> {
 
     @Override
     public void onBindViewHolder(MenuViewHandler holder, final int position) {
-        MenuItemModel data = menuItemModel.getMenuItemModels().get(position);
+        final MenuItemModel data = menuItemModel.getMenuItemModels().get(position);
         menuItemModel.setHolder(holder);
         menuItemModel.setPosition(position);
         if (data != null) {
@@ -51,8 +51,8 @@ public class MenuGridRVAdapter extends RecyclerView.Adapter<MenuViewHandler> {
             holder.ll_rowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (Constants.activityItemClickListener != null)
-                        Constants.activityItemClickListener.onClicked(position);
+                    /*if (Constants.activityItemClickListener != null)
+                        Constants.activityItemClickListener.onClicked(data.);*/
                 }
             });
         }

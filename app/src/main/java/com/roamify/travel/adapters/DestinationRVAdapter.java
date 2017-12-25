@@ -15,6 +15,8 @@ import com.roamify.travel.utils.Constants;
 
 import java.util.ArrayList;
 
+import static com.roamify.travel.utils.Constants.activityItemClickListener;
+
 /**
  * Created by kapilyadav on 27-Sep-17.
  */
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHandler> {
     private Activity activity;
     private ArrayList<DestinationModel> activityModels;
+
     public DestinationRVAdapter(ArrayList<DestinationModel> activityModels, Activity activity) {
         this.activity = activity;
         this.activityModels = activityModels;
@@ -37,18 +40,17 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
     public void onBindViewHolder(DestinationViewHandler holder, final int position) {
         final DestinationModel data = activityModels.get(position);
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
-        final int width = displayMetrics.widthPixels/3;
-
+        final int width = displayMetrics.widthPixels / 3;
+        final int height = displayMetrics.widthPixels / 3;
         android.view.ViewGroup.LayoutParams layoutParamsImageview = holder.iv_destinationImage.getLayoutParams();
         layoutParamsImageview.width = width;
-        layoutParamsImageview.height = width;
+        layoutParamsImageview.height = height;
         holder.iv_destinationImage.setLayoutParams(layoutParamsImageview);
 
         ViewGroup.LayoutParams layoutParams = holder.ll_destination_rowLayout.getLayoutParams();
         layoutParams.width = width;
-        layoutParams.height = width+100;
+        layoutParams.height = width + 100;
         holder.ll_destination_rowLayout.setLayoutParams(layoutParams);
-
 
         try {
             Glide.with(activity)
@@ -56,14 +58,13 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
                     //.fitCenter()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .crossFade(1000)
-                    .override(width, width)
+                    .override(width, height)
                     .error(R.drawable.no_image_found)
                     .placeholder(R.drawable.no_image_found)
                     .into(holder.iv_destinationImage);
         } catch (Exception e) {
             e.fillInStackTrace();
         }
-
 
         if (data != null) {
             try {
@@ -74,7 +75,8 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
             holder.ll_destination_rowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Constants.activityItemClickListener.onClicked(position);
+                    if (activityItemClickListener != null)
+                        activityItemClickListener.onClicked(data.getDestinationId(), data.getDestinationName());
                 }
             });
         }

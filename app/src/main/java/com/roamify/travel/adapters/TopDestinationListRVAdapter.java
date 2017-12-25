@@ -79,7 +79,6 @@ public class TopDestinationListRVAdapter extends RecyclerView.Adapter<TopPackage
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     Intent intent = new Intent(activity, AllActivities.class);
                     intent.putExtra("loc_name", data.getDestinationName());
                     intent.putExtra("loc_id", data.getDestinationId());

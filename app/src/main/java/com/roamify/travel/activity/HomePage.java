@@ -53,7 +53,6 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
     TextView whereToSearch;
     RelativeLayout rl_autoSearch;
 
-
     public static synchronized HomePage getInstance() {
         return mInstance;
     }
@@ -91,68 +90,7 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
     }
 
     @Override
-    public void onClicked(int position) {
-        Intent intent = null;
-        switch (setMenuData().get(position).getTitle()) {
-            case "HOTELS": {
-                break;
-            }
-            case "WATER ACTIVITIES": {
-                try {
-                    intent = new Intent(getApplicationContext(), DestinationList.class);
-                    intent.putExtra("title", "WATER ACTIVITIES");
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                break;
-            }
-            case "AIR ACTIVITIES": {
-                try {
-                    intent = new Intent(getApplicationContext(), DestinationList.class);
-                    intent.putExtra("title", "AIR ACTIVITIES");
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                break;
-            }
-            case "LAND ACTIVITIES": {
-                try {
-                    intent = new Intent(getApplicationContext(), DestinationList.class);
-                    intent.putExtra("title", "LAND ACTIVITIES");
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                break;
-            }
-            case "CONTACT": {
-                break;
-            }
-            case "ABOUT US": {
-                break;
-            }
-            case "FAQ": {
-                break;
-            }
-            case "DESTINATIONS": {
-                try {
-                    intent = new Intent(getApplicationContext(), DestinationList.class);
-                    intent.putExtra("title", "DESTINATIONS");
-                    intent.putExtra("isComingForDestinationWiseSearch", true);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                break;
-            }
-        }
-    }
+    public void onClicked(String id, String name) {}
 
     private ArrayList<MenuItemModel> setMenuData() {
         ArrayList<MenuItemModel> menuItemModels = new ArrayList<>();

@@ -4,10 +4,34 @@
     android:layout_height="match_parent"
     tools:context="com.roamify.travel.fragment.TopActivitiesFragment">
 
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_topActivities"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="horizontal" />
+
+    <RelativeLayout
+        android:id="@+id/rl_arrowLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:tint="@color/md_black_1000"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/left_arrow" />
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:tint="@color/md_black_1000"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/right_arrow" />
+
+    </RelativeLayout>
 </FrameLayout>

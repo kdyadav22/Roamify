@@ -102,7 +102,7 @@
                     android:layout_marginLeft="5dp"
                     android:background="@color/md_grey_100"
                     android:gravity="center|left"
-                    android:text="Top Destinations"
+                    android:text="Popular Destinations"
                     android:textColor="@color/md_green_700"
                     android:textSize="18sp"
                     android:textStyle="bold" />

@@ -47,7 +47,7 @@ public class SearchRVAdapter extends RecyclerView.Adapter<SearchViewHandler> {
                 @Override
                 public void onClick(View view) {
                     if (Constants.activityItemClickListener != null)
-                        Constants.activityItemClickListener.onClicked(position);
+                        Constants.activityItemClickListener.onClicked(data.getId(), data.getName());
                 }
             });
         }

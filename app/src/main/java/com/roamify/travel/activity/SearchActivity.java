@@ -136,26 +136,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
-    public void onClicked(int pos) {
+    public void onClicked(String id, String name) {
         Validations.hideSoftInput(SearchActivity.this);
-        try {
-            //If item is location type then will go on "All Activites Page"
-            //If item is activity type then will go on "Destination List Page"
-            if (RawData.setHomePageSearchItem().get(pos).getType().equals("A")) {
-                Intent intent = new Intent(getApplicationContext(), DestinationList.class);
-                intent.putExtra("title", RawData.setHomePageSearchItem().get(pos).getName());
-                intent.putExtra("isComingFromSearchPage", true);
-                startActivity(intent);
-                overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            } else {
-                Intent intent = new Intent(getApplicationContext(), AllActivities.class);
-                intent.putExtra("title", RawData.setHomePageSearchItem().get(pos).getName());
-                startActivity(intent);
-                overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            }
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
     }
 }

@@ -12,7 +12,8 @@ import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -23,15 +24,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
-import com.roamify.travel.activity.ActivityPackageList;
-import com.roamify.travel.adapters.ActivitiesPackageListRVAdapter;
-import com.roamify.travel.adapters.ReviewsRVAdapter;
 import com.roamify.travel.adapters.TopPackageListRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.models.PackageModel;
-import com.roamify.travel.models.RawDataModel;
-import com.roamify.travel.models.ReviewModel;
-import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
@@ -47,19 +42,21 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TopActivitiesFragment extends Fragment {
-    RecyclerView rvTopActivities;
-    private View rootView;
-    ArrayList<PackageModel> arrayList = new ArrayList<>();
+public class TopActivitiesFragment extends Fragment implements View.OnClickListener {
+    protected ImageView ivLeft;
+    protected ImageView ivRight;
+    protected RelativeLayout rlArrowLayout;
+    protected RecyclerView rvTopActivities;
+    protected ArrayList<PackageModel> arrayList = new ArrayList<>();
+
     public TopActivitiesFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_top_activities, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_top_activities, container, false);
         initView(rootView);
         try {
             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
@@ -83,10 +80,34 @@ public class TopActivitiesFragment extends Fragment {
         } catch (InflateException ie) {
             ie.getMessage();
         }
+
+        rvTopActivities.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (arrayList.size() > 2) {
+                    rlArrowLayout.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (arrayList.size() > 2) {
+                    rlArrowLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
         return rootView;
     }
+
     private void initView(View rootView) {
         rvTopActivities = (RecyclerView) rootView.findViewById(R.id.rv_topActivities);
+        ivLeft = (ImageView) rootView.findViewById(R.id.iv_left);
+        ivLeft.setOnClickListener(TopActivitiesFragment.this);
+        ivRight = (ImageView) rootView.findViewById(R.id.iv_right);
+        ivRight.setOnClickListener(TopActivitiesFragment.this);
+        rlArrowLayout = (RelativeLayout) rootView.findViewById(R.id.rl_arrowLayout);
     }
 
     public void getRequestCall(String url, String tag, JSONObject jsonObject) {
@@ -155,8 +176,21 @@ public class TopActivitiesFragment extends Fragment {
             arrayList.add(model);
         }
 
-        if (arrayList.size() > 0)
-        rvTopActivities.setAdapter(new TopPackageListRVAdapter(arrayList, getActivity(),""));
+        if (arrayList.size() > 0) {
+            rvTopActivities.setAdapter(new TopPackageListRVAdapter(arrayList, getActivity(), ""));
+            if (arrayList.size() > 2) {
+                rlArrowLayout.setVisibility(View.VISIBLE);
+            }
+        }
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.iv_left) {
+
+        } else if (view.getId() == R.id.iv_right) {
+
+        }
     }
 }

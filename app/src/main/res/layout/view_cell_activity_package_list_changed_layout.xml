@@ -83,7 +83,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight=".50"
-                        android:text="5D/4N"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
@@ -92,9 +92,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight=".50"
-                        android:text="12000 per person"
+                        android:text=""
                         android:textColor="@color/black"
-                        android:textSize="11sp" />
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -136,9 +136,9 @@
                     android:ellipsize="end"
                     android:gravity="center|right"
                     android:maxLines="1"
-                    android:text="Make My Trip"
+                    android:text=""
                     android:textColor="@color/md_green_700"
-                    android:textSize="11sp"
+                    android:textSize="12sp"
                     android:visibility="visible" />
             </LinearLayout>
         </LinearLayout>

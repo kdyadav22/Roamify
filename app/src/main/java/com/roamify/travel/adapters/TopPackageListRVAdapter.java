@@ -85,15 +85,15 @@ public class TopPackageListRVAdapter extends RecyclerView.Adapter<TopPackageList
                 @Override
                 public void onClick(View view) {
                     if (Constants.activityItemClickListener != null)
-                        Constants.activityItemClickListener.onClicked(position);
+                        Constants.activityItemClickListener.onClicked(data.getPackageId(), data.getPackageName());
 
                     //For testing
-                    Intent intent = new Intent(activity, ActivityPackageList.class);
+                    Intent intent = new Intent(activity, ActivityPackageDetails.class);
                     intent.putExtra("title", data.getPackageName());
-                    intent.putExtra("id", data.getPackageId());
+                    intent.putExtra("package_id", data.getPackageId());
                     intent.putExtra("isComingFromSearchPage", true);
                     activity.startActivity(intent);
-                    activity.finish();
+                    //activity.finish();
                     activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
             });
