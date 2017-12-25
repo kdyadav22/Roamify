@@ -10660,6 +10660,10 @@
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\90fe91375d3dfbc8a77d00b424799221\\res\\drawable-hdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_launcher.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/autoresizetextview-0.0.2.aar/e7541fe0462a8c2f584e60a0adcd919a/res/drawable-xxhdpi-v4/ic_launcher.png"
+    },
+    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_menu_slideshow.xml.flat",
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\src\\main\\res\\drawable-v21\\ic_menu_slideshow.xml"
     },
@@ -20744,6 +20748,10 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/cb02bc9936a4263b931ef718b2b5d31a/res/drawable-xxhdpi-v4/ic_mr_button_connecting_05_dark.png"
     },
     {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_launcher.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/autoresizetextview-0.0.2.aar/e7541fe0462a8c2f584e60a0adcd919a/res/drawable-mdpi-v4/ic_launcher.png"
+    },
+    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_mr_button_connecting_19_light.png.flat",
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-26.1.0.aar\\a6959f036ad81074553ee03ab4d8214d\\res\\drawable-xxhdpi-v4\\ic_mr_button_connecting_19_light.png"
     },
@@ -23192,6 +23200,10 @@
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0078a3e84af956fe4ab3774dc4359b60\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_launcher.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/autoresizetextview-0.0.2.aar/e7541fe0462a8c2f584e60a0adcd919a/res/drawable-xhdpi-v4/ic_launcher.png"
+    },
+    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_nav_contact.png.flat",
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\src\\main\\res\\drawable-hdpi\\nav_contact.png"
     },
@@ -25298,6 +25310,10 @@
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Dummy\\Roamify\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0078a3e84af956fe4ab3774dc4359b60\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_launcher.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/autoresizetextview-0.0.2.aar/e7541fe0462a8c2f584e60a0adcd919a/res/drawable-hdpi-v4/ic_launcher.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_playcardp403_1.jpg.flat",

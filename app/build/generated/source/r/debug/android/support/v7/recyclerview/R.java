@@ -23,9 +23,9 @@ public final class R {
         public static final int fontStyle = 0x7f0300ae;
         public static final int fontWeight = 0x7f0300af;
         public static final int layoutManager = 0x7f0300d1;
-        public static final int reverseLayout = 0x7f030146;
-        public static final int spanCount = 0x7f030156;
-        public static final int stackFromEnd = 0x7f03015c;
+        public static final int reverseLayout = 0x7f030148;
+        public static final int spanCount = 0x7f030159;
+        public static final int stackFromEnd = 0x7f03015f;
     }
     public static final class bool {
         public static final int abc_action_bar_embed_tabs = 0x7f040000;
@@ -141,7 +141,7 @@ public final class R {
         public static final int FontFamilyFont_font = 0;
         public static final int FontFamilyFont_fontStyle = 1;
         public static final int FontFamilyFont_fontWeight = 2;
-        public static final int[] RecyclerView = { 0x010100c4, 0x010100f1, 0x7f0300a1, 0x7f0300a2, 0x7f0300a3, 0x7f0300a4, 0x7f0300a5, 0x7f0300d1, 0x7f030146, 0x7f030156, 0x7f03015c };
+        public static final int[] RecyclerView = { 0x010100c4, 0x010100f1, 0x7f0300a1, 0x7f0300a2, 0x7f0300a3, 0x7f0300a4, 0x7f0300a5, 0x7f0300d1, 0x7f030148, 0x7f030159, 0x7f03015f };
         public static final int RecyclerView_android_orientation = 0;
         public static final int RecyclerView_android_descendantFocusability = 1;
         public static final int RecyclerView_fastScrollEnabled = 2;

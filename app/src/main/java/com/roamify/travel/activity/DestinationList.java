@@ -54,9 +54,9 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
     protected RelativeLayout rlSearch;
     protected RecyclerView rvRecyclerView;
     //CustomAutoCompleteView etSearchDestination;
-    ArrayAdapter<DestinationModel> myAdapter;
-    String request_tag = "get_destination_by_activity";
-    ArrayList<DestinationModel> arrayList = new ArrayList<>();
+    protected ArrayAdapter<DestinationModel> myAdapter;
+    protected String request_tag = "get_destination_by_activity";
+    protected ArrayList<DestinationModel> arrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
