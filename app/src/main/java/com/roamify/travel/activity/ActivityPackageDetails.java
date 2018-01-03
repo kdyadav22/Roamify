@@ -38,10 +38,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.roamify.travel.R;
-import com.roamify.travel.adapters.ImagePagerAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.fragment.DescriptionFragment;
 import com.roamify.travel.fragment.LocationFragment;
+import com.roamify.travel.fragment.RelatedActivitiesFragment;
 import com.roamify.travel.fragment.ReviewsFragment;
 import com.roamify.travel.models.PackageDetailsModel;
 import com.roamify.travel.models.PackageTabModel;
@@ -68,6 +68,8 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     protected TabLayout tablayout;
     protected LinearLayout tabview;
     protected LinearLayout detailsViewContainer;
+    protected LinearLayout llRelatedListView;
+    protected LinearLayout relatedViewContainer;
     LinearLayout pager_indicator;
     private int dotsCount;
     private ImageView[] dots;
@@ -75,7 +77,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     private String[] mImages;
     Fragment fragment;
     FragmentManager fragmentManager;
-    FragmentTransaction transaction;
+    FragmentTransaction transaction, fragmentTransaction;
     String request_tag = "get_package_details";
     String request_tag_for_deal = "get_deal";
     public PackageDetailsModel packageDetailsModel;
@@ -96,6 +98,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         setTabName(RawData.setPackageTabMenu());
         fragmentManager = getSupportFragmentManager();
         transaction = fragmentManager.beginTransaction();
+
 
         tablayout.setScrollPosition(0, 0f, true);
 
@@ -204,6 +207,8 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 Validations.hideSoftInput(ActivityPackageDetails.this);
             }
         });
+        llRelatedListView = (LinearLayout) findViewById(R.id.ll_relatedListView);
+        relatedViewContainer = (LinearLayout) findViewById(R.id.related_view_container);
     }
 
     @Override
@@ -252,15 +257,15 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 String imagePath = mImages[position];
                 try {
                     //if (Validations.isNotNullNotEmptyNotWhiteSpace(imagePath)) {
-                        Glide.with(getApplicationContext())
-                                .load(Constants.BaseImageUrl + imagePath)
-                                //.fitCenter()
-                                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                                .crossFade(1000)
-                                .override(getScreenWidth(getApplicationContext()), getScreenWidth(getApplicationContext()) / 4)
-                                .error(R.drawable.no_image_found)
-                                .placeholder(R.drawable.no_image_found)
-                                .into(imageView);
+                    Glide.with(getApplicationContext())
+                            .load(Constants.BaseImageUrl + imagePath)
+                            //.fitCenter()
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .crossFade(1000)
+                            .override(getScreenWidth(getApplicationContext()), getScreenWidth(getApplicationContext()) / 4)
+                            .error(R.drawable.no_image_found)
+                            .placeholder(R.drawable.no_image_found)
+                            .into(imageView);
                     //}
                 } catch (Exception e) {
                     e.fillInStackTrace();
@@ -526,6 +531,20 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commitAllowingStateLoss();
             } catch (IllegalStateException ise) {
                 ise.printStackTrace();
+            }
+
+            if (!getIntent().getBooleanExtra("isComingFromPkgList", false)) {
+                try {
+                    llRelatedListView.setVisibility(View.VISIBLE);
+                    fragment = new RelatedActivitiesFragment();
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("package_id", getIntent().getStringExtra("package_id"));
+                    fragment.setArguments(bundle);
+                    fragmentTransaction.replace(R.id.related_view_container, fragment).addToBackStack(null).commitAllowingStateLoss();
+                } catch (IllegalStateException ise) {
+                    ise.printStackTrace();
+                }
             }
         }
     }

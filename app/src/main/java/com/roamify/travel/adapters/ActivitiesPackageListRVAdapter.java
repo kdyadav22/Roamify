@@ -90,6 +90,7 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                     Intent intent = new Intent(activity, ActivityPackageDetails.class);
                     intent.putExtra("package_id", data.getPackageId());
                     intent.putExtra("package_name", data.getPackageName());
+                    intent.putExtra("isComingFromPkgList", true);
                     activity.startActivity(intent);
                     //activity.finish();
                     activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);

@@ -605,9 +605,9 @@ public class HomePageWithMenu extends AppCompatActivity
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } else if (pageSearchModelArrayList.get(pos).getType().equals("Package")) {
-                Intent intent = new Intent(getApplicationContext(), ActivityPackageList.class);
+                Intent intent = new Intent(getApplicationContext(), ActivityPackageDetails.class);
                 intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
-                intent.putExtra("id", pageSearchModelArrayList.get(pos).getId());
+                intent.putExtra("package_id", pageSearchModelArrayList.get(pos).getId());
                 //intent.putExtra("loc_id", pageSearchModelArrayList.get(pos).getId());
                 //intent.putExtra("act_id", pageSearchModelArrayList.get(pos).getId());
                 intent.putExtra("isComingFromSearchPage", true);
@@ -621,6 +621,14 @@ public class HomePageWithMenu extends AppCompatActivity
                 intent.putExtra("isComingFromSearchPageWithState", true);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            }else if (pageSearchModelArrayList.get(pos).getType().equals("Zone")) {
+                /*Intent intent = new Intent(getApplicationContext(), DestinationList.class);
+                intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
+                intent.putExtra("state_id", pageSearchModelArrayList.get(pos).getId());
+                intent.putExtra("isComingFromSearchPage", true);
+                intent.putExtra("isComingFromSearchPageWithState", true);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);*/
             }
         } catch (Exception ex) {
             ex.printStackTrace();
