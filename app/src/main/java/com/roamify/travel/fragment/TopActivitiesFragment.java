@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -48,6 +49,8 @@ public class TopActivitiesFragment extends Fragment implements View.OnClickListe
     protected RelativeLayout rlArrowLayout;
     protected RecyclerView rvTopActivities;
     protected ArrayList<PackageModel> arrayList = new ArrayList<>();
+    protected View rootView;
+    protected TextView tvTopPopularActivities;
 
     public TopActivitiesFragment() {
         // Required empty public constructor
@@ -108,6 +111,7 @@ public class TopActivitiesFragment extends Fragment implements View.OnClickListe
         ivRight = (ImageView) rootView.findViewById(R.id.iv_right);
         ivRight.setOnClickListener(TopActivitiesFragment.this);
         rlArrowLayout = (RelativeLayout) rootView.findViewById(R.id.rl_arrowLayout);
+        tvTopPopularActivities = (TextView) rootView.findViewById(R.id.tv_topPopularActivities);
     }
 
     public void getRequestCall(String url, String tag, JSONObject jsonObject) {
@@ -177,6 +181,8 @@ public class TopActivitiesFragment extends Fragment implements View.OnClickListe
         }
 
         if (arrayList.size() > 0) {
+            tvTopPopularActivities.setVisibility(View.VISIBLE);
+            rvTopActivities.setVisibility(View.VISIBLE);
             rvTopActivities.setAdapter(new TopPackageListRVAdapter(arrayList, getActivity(), ""));
             if (arrayList.size() > 2) {
                 rlArrowLayout.setVisibility(View.VISIBLE);

@@ -4,7 +4,6 @@ package com.roamify.travel.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,6 +11,9 @@ import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -22,15 +24,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
-import com.roamify.travel.activity.DestinationList;
-import com.roamify.travel.adapters.ActivitiesPackageListRVAdapter;
-import com.roamify.travel.adapters.DestinationRVAdapter;
 import com.roamify.travel.adapters.TopDestinationListRVAdapter;
-import com.roamify.travel.adapters.TopPackageListRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.models.DestinationModel;
-import com.roamify.travel.models.RawDataModel;
-import com.roamify.travel.rawdata.RawData;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
@@ -47,9 +43,14 @@ import java.util.Map;
  * A simple {@link Fragment} subclass.
  */
 public class TopDestinationFragment extends Fragment {
+    protected TextView tvTopPopularDestinations;
+    protected ImageView ivLeft;
+    protected ImageView ivRight;
+    protected RelativeLayout rlArrowLayout;
     RecyclerView rvTopActivities;
     private View rootView;
     ArrayList<DestinationModel> arrayList = new ArrayList<>();
+
     public TopDestinationFragment() {
         // Required empty public constructor
     }
@@ -80,8 +81,13 @@ public class TopDestinationFragment extends Fragment {
         }
         return rootView;
     }
+
     private void initView(View rootView) {
         rvTopActivities = (RecyclerView) rootView.findViewById(R.id.rv_topDestination);
+        tvTopPopularDestinations = (TextView) rootView.findViewById(R.id.tv_topPopularDestinations);
+        ivLeft = (ImageView) rootView.findViewById(R.id.iv_left);
+        ivRight = (ImageView) rootView.findViewById(R.id.iv_right);
+        rlArrowLayout = (RelativeLayout) rootView.findViewById(R.id.rl_arrowLayout);
     }
 
     public void getRequestCall(String url, String tag, JSONObject jsonObject) {
@@ -143,7 +149,12 @@ public class TopDestinationFragment extends Fragment {
             arrayList.add(model);
         }
         if (arrayList.size() > 0)
-            rvTopActivities.setAdapter(new TopDestinationListRVAdapter(arrayList, getActivity(),""));
+            tvTopPopularDestinations.setVisibility(View.VISIBLE);
+            rvTopActivities.setVisibility(View.VISIBLE);
+            rvTopActivities.setAdapter(new TopDestinationListRVAdapter(arrayList, getActivity(), ""));
+        if (arrayList.size() > 2) {
+            rlArrowLayout.setVisibility(View.VISIBLE);
+        }
     }
 
 }

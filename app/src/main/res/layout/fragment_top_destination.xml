@@ -1,37 +1,60 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.roamify.travel.fragment.TopDestinationFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_topDestination"
+    <TextView
+        android:id="@+id/tv_topPopularDestinations"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="horizontal" />
+        android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
+        android:background="@color/white"
+        android:gravity="center|left"
+        android:text="Popular Destinations"
+        android:textColor="@color/md_green_700"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:textStyle="bold" />
 
     <RelativeLayout
-        android:id="@+id/rl_arrowLayout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:visibility="gone"
-        android:layout_gravity="center">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_topPopularDestinations"
+        android:layout_gravity="center"
+        android:visibility="visible">
 
-        <ImageView
-            android:id="@+id/iv_left"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:tint="@color/md_black_1000"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/left_arrow" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_topDestination"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:scrollbars="horizontal" />
 
-        <ImageView
-            android:id="@+id/iv_right"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:tint="@color/md_black_1000"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/right_arrow" />
+        <RelativeLayout
+            android:id="@+id/rl_arrowLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_left"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/left_arrow"
+                android:tint="@color/md_black_1000" />
+
+            <ImageView
+                android:id="@+id/iv_right"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/right_arrow"
+                android:tint="@color/md_black_1000" />
+        </RelativeLayout>
 
     </RelativeLayout>
-</FrameLayout>
+</RelativeLayout>

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -25,7 +26,6 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.RelatedPackageListRVAdapter;
-import com.roamify.travel.adapters.TopPackageListRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.utils.AppController;
@@ -49,8 +49,11 @@ public class RelatedActivitiesFragment extends Fragment implements View.OnClickL
     protected RelativeLayout rlArrowLayout;
     protected RecyclerView rvTopActivities;
     protected ArrayList<PackageModel> arrayList = new ArrayList<>();
+    protected View rootView;
+    protected TextView tvTopPopularActivities;
 
-    Bundle bundle=new Bundle();
+    Bundle bundle = new Bundle();
+
     public RelatedActivitiesFragment() {
         // Required empty public constructor
 
@@ -61,7 +64,7 @@ public class RelatedActivitiesFragment extends Fragment implements View.OnClickL
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_top_activities, container, false);
         initView(rootView);
-        bundle=getArguments();
+        bundle = getArguments();
         try {
             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
             //rvTopActivities.setLayoutManager(mLayoutManager);
@@ -112,6 +115,8 @@ public class RelatedActivitiesFragment extends Fragment implements View.OnClickL
         ivRight = (ImageView) rootView.findViewById(R.id.iv_right);
         ivRight.setOnClickListener(RelatedActivitiesFragment.this);
         rlArrowLayout = (RelativeLayout) rootView.findViewById(R.id.rl_arrowLayout);
+        tvTopPopularActivities = (TextView) rootView.findViewById(R.id.tv_topPopularActivities);
+        tvTopPopularActivities.setText("Related Activities");
     }
 
     public void getRequestCall(String url, String tag, JSONObject jsonObject) {
@@ -185,6 +190,8 @@ public class RelatedActivitiesFragment extends Fragment implements View.OnClickL
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    tvTopPopularActivities.setVisibility(View.VISIBLE);
+                    rvTopActivities.setVisibility(View.VISIBLE);
                     rvTopActivities.setAdapter(new RelatedPackageListRVAdapter(arrayList, getActivity(), ""));
                     if (arrayList.size() > 2) {
                         rlArrowLayout.setVisibility(View.VISIBLE);
