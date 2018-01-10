@@ -37,6 +37,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -192,6 +194,12 @@ public class RelatedActivitiesFragment extends Fragment implements View.OnClickL
                 public void run() {
                     tvTopPopularActivities.setVisibility(View.VISIBLE);
                     rvTopActivities.setVisibility(View.VISIBLE);
+                    Collections.sort(arrayList, new Comparator<PackageModel>() {
+                        @Override
+                        public int compare(PackageModel s1, PackageModel s2) {
+                            return s1.getPackageName().compareToIgnoreCase(s2.getPackageName());
+                        }
+                    });
                     rvTopActivities.setAdapter(new RelatedPackageListRVAdapter(arrayList, getActivity(), ""));
                     if (arrayList.size() > 2) {
                         rlArrowLayout.setVisibility(View.VISIBLE);

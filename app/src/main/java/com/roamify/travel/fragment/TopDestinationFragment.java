@@ -27,6 +27,7 @@ import com.roamify.travel.R;
 import com.roamify.travel.adapters.TopDestinationListRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.models.DestinationModel;
+import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
@@ -36,6 +37,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -151,6 +154,12 @@ public class TopDestinationFragment extends Fragment {
         if (arrayList.size() > 0)
             tvTopPopularDestinations.setVisibility(View.VISIBLE);
             rvTopActivities.setVisibility(View.VISIBLE);
+        Collections.sort(arrayList, new Comparator<DestinationModel>() {
+            @Override
+            public int compare(DestinationModel s1, DestinationModel s2) {
+                return s1.getDestinationName().compareToIgnoreCase(s2.getDestinationName());
+            }
+        });
             rvTopActivities.setAdapter(new TopDestinationListRVAdapter(arrayList, getActivity(), ""));
         if (arrayList.size() > 2) {
             rlArrowLayout.setVisibility(View.VISIBLE);

@@ -30,6 +30,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivitiesPackageListRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
+import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
@@ -41,6 +42,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -286,6 +289,12 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         }
 
         if (arrayList.size() > 0)
+            Collections.sort(arrayList, new Comparator<PackageModel>() {
+                @Override
+                public int compare(PackageModel s1, PackageModel s2) {
+                    return s1.getPackageName().compareToIgnoreCase(s2.getPackageName());
+                }
+            });
             recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(arrayList, ActivityPackageList.this, ""));
     }
 

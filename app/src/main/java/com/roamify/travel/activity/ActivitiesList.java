@@ -32,6 +32,7 @@ import com.roamify.travel.adapters.ActivityWiseActivityRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.ActivityModel;
+import com.roamify.travel.models.DestinationModel;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
@@ -42,6 +43,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -262,8 +265,15 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             arrayList.add(model);
         }
 
-        if (arrayList.size() > 0)
+        if (arrayList.size() > 0) {
+            Collections.sort(arrayList, new Comparator<ActivityModel>() {
+                @Override
+                public int compare(ActivityModel s1, ActivityModel s2) {
+                    return s1.getActivityName().compareToIgnoreCase(s2.getActivityName());
+                }
+            });
             rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(arrayList, ActivitiesList.this, 0));
+        }
     }
 
     @Override
