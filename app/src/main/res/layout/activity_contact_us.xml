@@ -33,7 +33,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_launcher" />
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:text="Romify"
+                android:text="Roamify"
                 android:textColor="#008080"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -76,7 +76,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:text="support@romify.com"
+                android:text="support@roamify.com"
                 android:textColor="@color/md_green_700"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -88,7 +88,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="www.romify.com"
+                android:text="www.roamify.com"
                 android:textColor="@color/md_green_700"
                 android:textSize="18sp"
                 android:textStyle="bold" />

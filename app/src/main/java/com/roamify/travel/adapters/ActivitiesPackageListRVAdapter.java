@@ -2,9 +2,12 @@ package com.roamify.travel.adapters;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +24,7 @@ import com.roamify.travel.utils.Validations;
 import java.util.ArrayList;
 
 /**
- * Created by kapilyadav on 27-Sep-17.
+ * Created by kapil yadav on 27-Sep-17.
  */
 
 public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<ActivityPackageListViewHandler> {
@@ -34,18 +37,26 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
         this.activityModels = activityModels;
         this.action = action;
     }
-
     @Override
     public ActivityPackageListViewHandler onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cell_activity_package_list_changed_layout, parent, false);
         return new ActivityPackageListViewHandler(itemView);
     }
-
     @Override
     public void onBindViewHolder(ActivityPackageListViewHandler holder, final int position) {
         final PackageModel data = activityModels.get(holder.getAdapterPosition());
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         final int width = displayMetrics.widthPixels;
+
+        try {
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(activity);
+            holder.recyclerView.setLayoutManager(mLayoutManager);
+            holder.recyclerView.setHasFixedSize(true);
+            holder.recyclerView.setItemAnimator(new DefaultItemAnimator());
+        } catch (InflateException ie) {
+            ie.getMessage();
+        }
+
         ViewGroup.LayoutParams layoutParams = holder.ll_activity_rowLayout.getLayoutParams();
         layoutParams.width = width;
         //layoutParams.height = width+200;
@@ -61,9 +72,14 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                     holder.tv_pkgduration.setText(data.getPackageDuration());
                 if (Validations.isNotNullNotEmptyNotWhiteSpace(data.getPackagePrice()))
                     holder.pkgprice.setText(data.getPackagePrice() + " per person");
-                if (Validations.isNotNullNotEmptyNotWhiteSpace(data.getPackageSource()))
-                    holder.tv_packageSources.setText(data.getPackageSource().replace(",","\n"));
-
+                if (Validations.isNotNullNotEmptyNotWhiteSpace(data.getPackageSource())) {
+                    holder.recyclerView.setVisibility(View.VISIBLE);
+                    //holder.tv_packageSources.setText(data.getPackageSource().replace(",", "\n"));
+                    String sources[] = data.getPackageSource().split(",");
+                    if (sources.length > 0) {
+                        holder.recyclerView.setAdapter(new SourceRVAdapter(sources, activity));
+                    }
+                }
                 try {
                     Glide.with(activity)
                             .load(Constants.BaseImageUrl + data.getPackageImageName())
@@ -99,7 +115,7 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                 }
             });
 
-            LinkUtils.autoLink(holder.tv_packageSources, new LinkUtils.OnClickListener() {
+            /*LinkUtils.autoLink(holder.tv_packageSources, new LinkUtils.OnClickListener() {
                 @Override
                 public void onLinkClicked(final String link) {
                     Log.i("SensibleUrlSpan", "Span Link clicked:" + link);
@@ -109,10 +125,9 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                 public void onClicked() {
                     Log.i("SensibleUrlSpan", "Url: ");
                 }
-            });
+            });*/
         }
     }
-
     @Override
     public int getItemCount() {
         return activityModels.size();

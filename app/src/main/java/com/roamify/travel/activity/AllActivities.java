@@ -58,6 +58,9 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
     protected LinearLayout llWaterActivities;
     protected LinearLayout llAirActivities;
     protected RelativeLayout rlSearch;
+    protected RelativeLayout rlArrowLayoutLand;
+    protected RelativeLayout rlArrowLayoutWater;
+    protected RelativeLayout rlArrowLayoutAir;
     ArrayAdapter<ActivityModel> myAdapter;
     protected ImageView imgClear;
     protected RecyclerView rvLandRecyclerView;
@@ -205,6 +208,9 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
         llWaterActivities = (LinearLayout) findViewById(R.id.ll_waterActivities);
         llAirActivities = (LinearLayout) findViewById(R.id.ll_airActivities);
         rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);
+        rlArrowLayoutLand = (RelativeLayout) findViewById(R.id.rl_arrowLayoutLand);
+        rlArrowLayoutWater = (RelativeLayout) findViewById(R.id.rl_arrowLayoutWater);
+        rlArrowLayoutAir = (RelativeLayout) findViewById(R.id.rl_arrowLayoutAir);
     }
 
     @Override
@@ -214,7 +220,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             startActivity(intent);
             finish();
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
-        }else if (view.getId() == R.id.right_bar_search_button) {
+        } else if (view.getId() == R.id.right_bar_search_button) {
             rlSearch.setVisibility(View.VISIBLE);
         }
     }
@@ -315,6 +321,10 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             }
 
             try {
+                if (arrayList1.size() > 4) {
+                    rlArrowLayoutWater.setVisibility(View.VISIBLE);
+                }
+
                 llWaterActivities.setVisibility(View.VISIBLE);
                 Collections.sort(arrayList1, new Comparator<ActivityModel>() {
                     @Override
@@ -346,6 +356,9 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
                 arrayList.add(model);
             }
             try {
+                if (arrayList2.size() > 4) {
+                    rlArrowLayoutLand.setVisibility(View.VISIBLE);
+                }
                 llLandActivities.setVisibility(View.VISIBLE);
                 Collections.sort(arrayList2, new Comparator<ActivityModel>() {
                     @Override
@@ -377,6 +390,11 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             }
 
             try {
+
+                if (arrayList3.size() > 4) {
+                    rlArrowLayoutAir.setVisibility(View.VISIBLE);
+                }
+
                 llAirActivities.setVisibility(View.VISIBLE);
                 Collections.sort(arrayList3, new Comparator<ActivityModel>() {
                     @Override
