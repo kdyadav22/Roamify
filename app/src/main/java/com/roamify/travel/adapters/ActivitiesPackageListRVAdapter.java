@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.roamify.travel.R;
 import com.roamify.travel.activity.ActivityPackageDetails;
 import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.utils.Constants;
+import com.roamify.travel.utils.LinkUtils;
 import com.roamify.travel.utils.Validations;
 
 import java.util.ArrayList;
@@ -60,7 +62,7 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                 if (Validations.isNotNullNotEmptyNotWhiteSpace(data.getPackagePrice()))
                     holder.pkgprice.setText(data.getPackagePrice() + " per person");
                 if (Validations.isNotNullNotEmptyNotWhiteSpace(data.getPackageSource()))
-                    holder.tv_packageSources.setText(data.getPackageSource());
+                    holder.tv_packageSources.setText(data.getPackageSource().replace(",","\n"));
 
                 try {
                     Glide.with(activity)
@@ -90,18 +92,24 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                     Intent intent = new Intent(activity, ActivityPackageDetails.class);
                     intent.putExtra("package_id", data.getPackageId());
                     intent.putExtra("package_name", data.getPackageName());
+                    intent.putExtra("isComingFromPkgList", true);
                     activity.startActivity(intent);
                     //activity.finish();
                     activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
             });
 
-            /*holder.pkgsubmit.setOnClickListener(new View.OnClickListener() {
+            LinkUtils.autoLink(holder.tv_packageSources, new LinkUtils.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    new AlertDialogManager().showQueryDialog(activity);
+                public void onLinkClicked(final String link) {
+                    Log.i("SensibleUrlSpan", "Span Link clicked:" + link);
                 }
-            });*/
+
+                @Override
+                public void onClicked() {
+                    Log.i("SensibleUrlSpan", "Url: ");
+                }
+            });
         }
     }
 

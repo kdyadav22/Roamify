@@ -42,6 +42,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,9 +56,9 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
     protected RelativeLayout rlSearch;
     protected RecyclerView rvRecyclerView;
     //CustomAutoCompleteView etSearchDestination;
-    ArrayAdapter<DestinationModel> myAdapter;
-    String request_tag = "get_destination_by_activity";
-    ArrayList<DestinationModel> arrayList = new ArrayList<>();
+    protected ArrayAdapter<DestinationModel> myAdapter;
+    protected String request_tag = "get_destination_by_activity";
+    protected ArrayList<DestinationModel> arrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -345,8 +347,15 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
 
             arrayList.add(model);
         }
-        if (arrayList.size() > 0)
+        if (arrayList.size() > 0) {
+            Collections.sort(arrayList, new Comparator<DestinationModel>() {
+                @Override
+                public int compare(DestinationModel s1, DestinationModel s2) {
+                    return s1.getDestinationName().compareToIgnoreCase(s2.getDestinationName());
+                }
+            });
             rvRecyclerView.setAdapter(new DestinationRVAdapter(arrayList, DestinationList.this));
+        }
     }
     @Override
     protected void onPause() {

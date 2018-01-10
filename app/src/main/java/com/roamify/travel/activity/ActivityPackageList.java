@@ -30,6 +30,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivitiesPackageListRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
+import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
@@ -41,6 +42,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -279,12 +282,19 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             model.setPackageReview(review);
             model.setPackageDuration(duration);
             model.setPackagePrice(price);
+            //String sources = "https://www.yatra.com/activities/details/product/EST_edbb1f50-192a-5a4f-9351-ab69d99cc95a, https://www.yatra.com/activities/details/product/TOR_32602P19/lombok, https://www.yatra.com/activities/details/product/TOR_3665P131/lombok, https://www.yatra.com/activities/details/product/EST_1c0d4dd5-94df-5bfe-a882-dd7ac2ba3a4a/lombok";
             model.setPackageSource(source);
             model.setPackageImageName(thumbImage);
             arrayList.add(model);
         }
 
         if (arrayList.size() > 0)
+            Collections.sort(arrayList, new Comparator<PackageModel>() {
+                @Override
+                public int compare(PackageModel s1, PackageModel s2) {
+                    return s1.getPackageName().compareToIgnoreCase(s2.getPackageName());
+                }
+            });
             recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(arrayList, ActivityPackageList.this, ""));
     }
 

@@ -40,8 +40,8 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
     public void onBindViewHolder(DestinationViewHandler holder, final int position) {
         final DestinationModel data = activityModels.get(position);
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
-        final int width = displayMetrics.widthPixels / 3;
-        final int height = displayMetrics.widthPixels / 3;
+        int width = displayMetrics.widthPixels / 3;
+        int height = displayMetrics.widthPixels / 3;
         android.view.ViewGroup.LayoutParams layoutParamsImageview = holder.iv_destinationImage.getLayoutParams();
         layoutParamsImageview.width = width;
         layoutParamsImageview.height = height;
@@ -67,11 +67,13 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
         }
 
         if (data != null) {
+
             try {
                 holder.tv_destinationName.setText(data.getDestinationName());
             } catch (Exception e) {
                 e.getMessage();
             }
+
             holder.ll_destination_rowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -79,6 +81,7 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
                         activityItemClickListener.onClicked(data.getDestinationId(), data.getDestinationName());
                 }
             });
+
         }
     }
 

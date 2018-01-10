@@ -45,6 +45,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -314,6 +316,12 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
 
             try {
                 llWaterActivities.setVisibility(View.VISIBLE);
+                Collections.sort(arrayList1, new Comparator<ActivityModel>() {
+                    @Override
+                    public int compare(ActivityModel s1, ActivityModel s2) {
+                        return s1.getActivityName().compareToIgnoreCase(s2.getActivityName());
+                    }
+                });
                 rvWaterRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(arrayList1, AllActivities.this, 0));
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -339,6 +347,12 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             }
             try {
                 llLandActivities.setVisibility(View.VISIBLE);
+                Collections.sort(arrayList2, new Comparator<ActivityModel>() {
+                    @Override
+                    public int compare(ActivityModel s1, ActivityModel s2) {
+                        return s1.getActivityName().compareToIgnoreCase(s2.getActivityName());
+                    }
+                });
                 rvLandRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(arrayList2, AllActivities.this, 0));
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -364,6 +378,12 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
 
             try {
                 llAirActivities.setVisibility(View.VISIBLE);
+                Collections.sort(arrayList3, new Comparator<ActivityModel>() {
+                    @Override
+                    public int compare(ActivityModel s1, ActivityModel s2) {
+                        return s1.getActivityName().compareToIgnoreCase(s2.getActivityName());
+                    }
+                });
                 rvAirRecyclerView.setAdapter(new DestinationWiseActivityRVAdapter(arrayList3, AllActivities.this, 0));
             } catch (Exception ex) {
                 ex.printStackTrace();

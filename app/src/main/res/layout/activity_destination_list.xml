@@ -145,6 +145,7 @@
                     android:text="Popular Activities"
                     android:textColor="@color/md_green_700"
                     android:textSize="18sp"
+                    android:visibility="gone"
                     android:textStyle="bold" />
 
                 <fragment

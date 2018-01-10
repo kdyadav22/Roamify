@@ -16,9 +16,9 @@
 
         <LinearLayout
             android:id="@+id/ll_rv_portion"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <!--<android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_menu"
@@ -33,47 +33,61 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
-            <TextView
-                android:id="@+id/tv_topPopularActivities"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/white"
-                android:gravity="center|left"
-                android:text="Popular Activities"
-                android:textColor="@color/md_green_700"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <fragment
-                android:id="@+id/list_frag"
-                class="com.roamify.travel.fragment.TopActivitiesFragment"
+            <LinearLayout
+                android:id="@+id/ll_popularActivitiesView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_topPopularActivities"
-                android:layout_marginBottom="5dp" />
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_topPopularActivities"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/white"
+                    android:gravity="center|left"
+                    android:text="Popular Activities"
+                    android:textColor="@color/md_green_700"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_upcomingActivities"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_below="@+id/list_frag"
-                android:layout_marginLeft="5dp"
-                android:background="@color/white"
-                android:gravity="center|left"
-                android:text="Popular Destinations"
-                android:textColor="@color/md_green_700"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                <fragment
+                    android:id="@+id/list_frag"
+                    class="com.roamify.travel.fragment.TopActivitiesFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_topPopularActivities"
+                    android:layout_marginBottom="5dp" />
+            </LinearLayout>
 
-            <fragment
-                android:id="@+id/list_upcoming"
-                class="com.roamify.travel.fragment.TopDestinationFragment"
+            <LinearLayout
+                android:id="@+id/ll_popularDestinationView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_upcomingActivities"
-                android:layout_marginBottom="10dp" />
+                android:layout_below="@+id/ll_popularActivitiesView"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_upcomingActivities"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/white"
+                    android:gravity="center|left"
+                    android:text="Popular Destinations"
+                    android:textColor="@color/md_green_700"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    android:textStyle="bold" />
+
+                <fragment
+                    android:id="@+id/list_upcoming"
+                    class="com.roamify.travel.fragment.TopDestinationFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_upcomingActivities"
+                    android:layout_marginBottom="10dp" />
+            </LinearLayout>
 
             <!--<LinearLayout
                 android:id="@+id/ll_iconMenu"

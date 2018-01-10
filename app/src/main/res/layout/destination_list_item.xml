@@ -1,53 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:id="@+id/ll_destination_rowLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:padding="5dp"
         android:background="@drawable/list_button_pressed_bg"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/iv_destinationImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/no_image_found"
             android:scaleType="fitXY"
-            android:background="@drawable/no_image_found" />
+            tools:ignore="ContentDescription" />
 
-        <TextView
+        <me.grantland.widget.AutofitTextView
             android:id="@+id/tv_destinationName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="TextView"
-            android:maxLines="2"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_marginTop="2dp"
-            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:singleLine="true"
+            android:text="TextView"
+            app:minTextSize="12sp"
             android:textColor="@color/md_grey_600"
-            android:textSize="13dp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tv_destinationId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:text=""
-            android:textColor="#a4a4ac"
-            android:textSize="14sp"
             android:visibility="gone" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="1dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/md_grey_100"
-        android:layout_height="1dp" />
+        android:background="@color/md_grey_100" />
 </RelativeLayout>

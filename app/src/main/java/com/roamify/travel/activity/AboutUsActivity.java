@@ -16,12 +16,14 @@ public class AboutUsActivity extends AppCompatActivity implements View.OnClickLi
     protected ImageView rightBarButton;
     protected Toolbar toolbar;
     protected AppBarLayout appbar;
+    protected ImageView rightBarSearchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_about_us);
         initView();
+        rightBarSearchButton.setVisibility(View.GONE);
     }
 
     @Override
@@ -54,12 +56,9 @@ public class AboutUsActivity extends AppCompatActivity implements View.OnClickLi
             final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
             upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
             getSupportActionBar().setHomeAsUpIndicator(upArrow);
-        }
-        catch (RuntimeException re)
-        {
+        } catch (RuntimeException re) {
             re.printStackTrace();
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -69,5 +68,6 @@ public class AboutUsActivity extends AppCompatActivity implements View.OnClickLi
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
         });
+        rightBarSearchButton = (ImageView) findViewById(R.id.right_bar_search_button);
     }
 }
