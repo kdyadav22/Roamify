@@ -84,17 +84,17 @@ public final class R {
         public static final int hybrid = 0x7f08006e;
         public static final int icon_only = 0x7f080071;
         public static final int light = 0x7f080089;
-        public static final int none = 0x7f0800da;
-        public static final int normal = 0x7f0800db;
-        public static final int radio = 0x7f0800ea;
-        public static final int satellite = 0x7f080101;
-        public static final int standard = 0x7f080125;
-        public static final int terrain = 0x7f080130;
-        public static final int text = 0x7f080131;
-        public static final int text2 = 0x7f080132;
-        public static final int toolbar = 0x7f08013e;
-        public static final int wide = 0x7f080171;
-        public static final int wrap_content = 0x7f080174;
+        public static final int none = 0x7f0800dc;
+        public static final int normal = 0x7f0800dd;
+        public static final int radio = 0x7f0800ec;
+        public static final int satellite = 0x7f080106;
+        public static final int standard = 0x7f08012a;
+        public static final int terrain = 0x7f080135;
+        public static final int text = 0x7f080136;
+        public static final int text2 = 0x7f080137;
+        public static final int toolbar = 0x7f080143;
+        public static final int wide = 0x7f080175;
+        public static final int wrap_content = 0x7f080178;
     }
     public static final class integer {
         public static final int google_play_services_version = 0x7f090007;

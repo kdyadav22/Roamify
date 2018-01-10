@@ -60,6 +60,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_package_list);
+        initView();
         findViewById(R.id.right_bar_button).setOnClickListener(this);
         findViewById(R.id.right_bar_search_button).setOnClickListener(this);
         etSearchDestination = (EditText) findViewById(R.id.et_searchNews);
@@ -76,7 +77,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Package List");
+        toolbar.setTitle("Activity");
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
@@ -167,7 +168,6 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         } else {
             AlertDialogManager.showAlartDialog(ActivityPackageList.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
-        initView();
 
     }
 
@@ -197,7 +197,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             overridePendingTransition(R.anim.left_in, R.anim.right_out);
         } else if (view.getId() == R.id.right_bar_search_button) {
             rlSearch.setVisibility(View.VISIBLE);
-        }else if (view.getId() == R.id.imgClear) {
+        } else if (view.getId() == R.id.imgClear) {
             etSearchDestination.setText("");
         }
     }
@@ -288,7 +288,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             arrayList.add(model);
         }
 
-        if (arrayList.size() > 0)
+        if (arrayList.size() > 0) {
             Collections.sort(arrayList, new Comparator<PackageModel>() {
                 @Override
                 public int compare(PackageModel s1, PackageModel s2) {
@@ -296,6 +296,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
                 }
             });
             recyclerView.setAdapter(new ActivitiesPackageListRVAdapter(arrayList, ActivityPackageList.this, ""));
+        }
     }
 
     @Override

@@ -63,10 +63,10 @@
 
             <RelativeLayout
                 android:id="@+id/rlSearch"
-                android:visibility="gone"
                 style="@style/edittext_white_forsearch"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <com.roamify.travel.adapters.CustomAutoCompleteView
                     android:id="@+id/et_autosearch"
@@ -117,7 +117,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
+                    android:paddingLeft="5dp"
                     android:background="@color/md_grey_100"
                     android:gravity="center|left"
                     android:text="Land Activities"
@@ -125,10 +125,49 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <android.support.v7.widget.RecyclerView
+                <!--<android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_LandRecyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content" />-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="visible">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_LandRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_height="wrap_content" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_arrowLayoutLand"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/left_arrow"
+                            android:tint="@color/md_black_1000" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/right_arrow"
+                            android:tint="@color/md_black_1000" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -141,7 +180,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
+                    android:paddingLeft="5dp"
                     android:background="@color/md_grey_100"
                     android:gravity="center|left"
                     android:text="Water Activities"
@@ -149,10 +188,47 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <android.support.v7.widget.RecyclerView
+                <!--<android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_WaterRecyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content" />-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="visible">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_WaterRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_height="wrap_content" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_arrowLayoutWater"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/left_arrow"
+                            android:tint="@color/md_black_1000" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/right_arrow"
+                            android:tint="@color/md_black_1000" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -165,7 +241,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
+                    android:paddingLeft="5dp"
                     android:background="@color/md_grey_100"
                     android:gravity="center|left"
                     android:text="Air Activities"
@@ -173,10 +249,47 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <android.support.v7.widget.RecyclerView
+                <!--<android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_AirRecyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content" />-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="visible">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_AirRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_height="wrap_content" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_arrowLayoutAir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/left_arrow"
+                            android:tint="@color/md_black_1000" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/right_arrow"
+                            android:tint="@color/md_black_1000" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -193,8 +306,8 @@
                     android:text="Popular Destinations"
                     android:textColor="@color/md_green_700"
                     android:textSize="18sp"
-                    android:visibility="gone"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <fragment
                     android:id="@+id/list_frag"
@@ -232,4 +345,5 @@
 
         </LinearLayout>
     </ScrollView>
+
 </RelativeLayout>
