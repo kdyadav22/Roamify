@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -95,7 +96,7 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
                 try {
                     if(Validations.isNotNullNotEmptyNotWhiteSpace(address)) {
                         latLng = getGeoCoordsFromAddress(getActivity(), address);
-                        zoomAndAnimateMap(13.0f, latLng, address);
+                        zoomAndAnimateMap(20.0f, latLng, address);
                     }
                 } catch (Exception Ex) {
                     Ex.printStackTrace();
@@ -144,17 +145,22 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    mMarker = googleMap.addMarker(markerOptions
-                            .position(latLng)
-                            .title(locationName)
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-                            .alpha(0.7f));
+                    if(latLng!=null) {
+                        mMarker = googleMap.addMarker(markerOptions
+                                .position(latLng)
+                                .title(locationName)
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                                .alpha(0.7f));
 
-                    googleMap.setPadding(30, 300, 50, 20);
-                    builder.include(markerOptions.getPosition());
-                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, mapZooming);
-                    //googleMap.moveCamera(cameraUpdate);
-                    googleMap.animateCamera(cameraUpdate);
+                        googleMap.setPadding(30, 200, 30, 20);
+                        builder.include(markerOptions.getPosition());
+                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, mapZooming);
+                        //googleMap.moveCamera(cameraUpdate);
+                        googleMap.animateCamera(cameraUpdate);
+                    }else
+                    {
+                        Toast.makeText(getActivity(), "Location not found", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         } catch (Exception ex) {

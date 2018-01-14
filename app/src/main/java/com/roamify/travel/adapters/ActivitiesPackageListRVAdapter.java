@@ -115,6 +115,23 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                 }
             });
 
+            holder.recyclerView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (Constants.activityItemClickListener != null)
+                        Constants.activityItemClickListener.onClicked(data.getPackageId(), data.getPackageName());
+
+                    //For testing
+                    Intent intent = new Intent(activity, ActivityPackageDetails.class);
+                    intent.putExtra("package_id", data.getPackageId());
+                    intent.putExtra("package_name", data.getPackageName());
+                    intent.putExtra("isComingFromPkgList", true);
+                    activity.startActivity(intent);
+                    //activity.finish();
+                    activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                }
+            });
+
             /*LinkUtils.autoLink(holder.tv_packageSources, new LinkUtils.OnClickListener() {
                 @Override
                 public void onLinkClicked(final String link) {

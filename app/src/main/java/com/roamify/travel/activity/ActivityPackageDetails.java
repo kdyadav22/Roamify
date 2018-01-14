@@ -562,4 +562,11 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     public int getScreenHeight(Context context) {
         return context.getResources().getDisplayMetrics().heightPixels;
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.left_in, R.anim.right_out);
+    }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.roamify.travel.R;
 import com.roamify.travel.models.ReviewModel;
+import com.roamify.travel.utils.Validations;
 
 import java.util.ArrayList;
 
@@ -38,8 +39,13 @@ public class ReviewsRVAdapter extends RecyclerView.Adapter<ReviewsViewHandler> {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        holder.tv_Name.setText(data.getReviewName());
-                        holder.tv_Comment.setText("\""+data.getReviewComment()+"\"");
+                        if(Validations.isNotNullNotEmptyNotWhiteSpace(data.getReviewName()) || Validations.isNotNullNotEmptyNotWhiteSpace(data.getReviewComment()) ) {
+                            holder.tv_Name.setText(data.getReviewName());
+                            holder.tv_Comment.setText("\"" + data.getReviewComment() + "\"");
+                        }else
+                        {
+                            holder.tv_Name.setText("No reviews...");
+                        }
                     }
                 });
             } catch (Exception e) {

@@ -2,7 +2,6 @@ package com.roamify.travel.adapters;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +9,7 @@ import android.view.ViewGroup;
 
 import com.roamify.travel.R;
 import com.roamify.travel.activity.Website;
-import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.models.SourceSiteModel;
-import com.roamify.travel.utils.Constants;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,12 +18,12 @@ import java.util.ArrayList;
  * Created by kapilyadav on 27-Sep-17.
  */
 
-public class SourceRVAdapter extends RecyclerView.Adapter<SourceViewHandler> {
+public class SourceRVAdapterDetails extends RecyclerView.Adapter<SourceViewHandler> {
     private Activity activity;
     private ArrayList<SourceSiteModel> activityModels;
     String sources[];
 
-    public SourceRVAdapter(String activityModels[], Activity activity) {
+    public SourceRVAdapterDetails(String activityModels[], Activity activity) {
         this.activity = activity;
         //this.activityModels = activityModels;
         sources = activityModels;
@@ -34,7 +31,7 @@ public class SourceRVAdapter extends RecyclerView.Adapter<SourceViewHandler> {
 
     @Override
     public SourceViewHandler onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cell_source_list, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cell_source_list_on_descrition, parent, false);
         return new SourceViewHandler(itemView);
     }
 

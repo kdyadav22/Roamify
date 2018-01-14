@@ -142,7 +142,7 @@ public class HomePageWithMenu extends AppCompatActivity
                     Validations.hideSoftInput(HomePageWithMenu.this);
                     collapsingToolbarLayout.setTitle("");
                     collapsed_toolbar_layout.setVisibility(View.VISIBLE);
-                    toolbar_textView.setText("Where To?");
+                    toolbar_textView.setText("Search for?");
                     llIconMenu.setVisibility(View.VISIBLE);
                     //To hide auto complete text box
                     /*whereToSearch.setVisibility(View.VISIBLE);
@@ -150,7 +150,7 @@ public class HomePageWithMenu extends AppCompatActivity
                     isShow = true;
                 } else if (isShow) {
                     collapsed_toolbar_layout.setVisibility(View.GONE);
-                    toolbar_textView.setText("Where To?");
+                    toolbar_textView.setText("Search for?");
                     llIconMenu.setVisibility(View.GONE);
                     collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
                     isShow = false;
@@ -499,7 +499,7 @@ public class HomePageWithMenu extends AppCompatActivity
         });
 
         if (AppController.getInstance().getSearchText() != null) {
-            whereToSearch.setText("Where To?");
+            whereToSearch.setText("Search for?");
         }
         whereToSearch.setOnClickListener(this);
         toolbar_textView.setOnClickListener(this);

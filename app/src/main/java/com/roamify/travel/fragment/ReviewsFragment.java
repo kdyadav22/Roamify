@@ -63,7 +63,7 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
     float ratingNumber = 0.0f;
     boolean rateUs = false;
     ArrayList<ReviewModel> arrayList = new ArrayList<>();
-
+    TextView textView;
     public ReviewsFragment() {
         // Required empty public constructor
     }
@@ -97,6 +97,7 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView(View rootView) {
+        textView = (TextView)rootView.findViewById(R.id.tv_noreviews);
         cvRateUsButton = (CardView) rootView.findViewById(R.id.cv_rateUsButton);
         cvRateUsButton.setOnClickListener(ReviewsFragment.this);
         rvRecyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recyclerView);
@@ -267,10 +268,13 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        textView.setVisibility(View.GONE);
+                        rvRecyclerView.setVisibility(View.VISIBLE);
                         rvRecyclerView.setAdapter(new ReviewsRVAdapter(arrayList, getActivity()));
                     }
                 });
             }
+
         } else {
             String status = response.getString("status");
             if (status.equals("1"))

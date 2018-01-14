@@ -38,7 +38,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:background="@drawable/bg_white"
-                    android:text="Where to?"
+                    android:text="Search for?"
                     android:gravity="center"
                     android:drawableRight="@drawable/ic_action_downarrow"
                     android:textColor="@color/black"

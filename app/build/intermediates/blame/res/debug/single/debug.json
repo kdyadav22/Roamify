@@ -572,6 +572,10 @@
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable-hdpi/ic_action_humberg.png"
     },
     {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/layout_view_cell_source_list_on_descrition.xml.flat",
+        "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/layout/view_cell_source_list_on_descrition.xml"
+    },
+    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connecting_04_light.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/cb02bc9936a4263b931ef718b2b5d31a/res/drawable-xxhdpi-v4/ic_mr_button_connecting_04_light.png"
     },

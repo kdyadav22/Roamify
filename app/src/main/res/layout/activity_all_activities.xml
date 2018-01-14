@@ -49,10 +49,59 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <RelativeLayout
+        android:id="@+id/rlSearch"
+        style="@style/edittext_white_forsearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/appbar"
+        android:visibility="gone">
+
+        <com.roamify.travel.adapters.CustomAutoCompleteView
+            android:id="@+id/et_autosearch"
+            style="@style/edittext_search"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_toLeftOf="@+id/imgClear"
+            android:layout_toRightOf="@+id/imgSearch"
+            android:background="@android:color/transparent"
+            android:gravity="left|center"
+            android:hint="Search"
+            android:imeOptions="actionDone"
+            android:paddingLeft="10dp"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/imgSearch"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:gravity="left|center"
+            android:src="@drawable/ic_action_search"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgClear"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_action_cancel"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/appbar"
+        android:layout_below="@+id/rlSearch"
         android:background="@color/white"
         android:fillViewport="true">
 
@@ -61,7 +110,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RelativeLayout
+            <!--<RelativeLayout
                 android:id="@+id/rlSearch"
                 style="@style/edittext_white_forsearch"
                 android:layout_width="wrap_content"
@@ -105,7 +154,7 @@
                     android:layout_marginRight="5dp"
                     android:src="@drawable/ic_action_cancel"
                     android:visibility="gone" />
-            </RelativeLayout>
+            </RelativeLayout>-->
 
             <LinearLayout
                 android:id="@+id/ll_landActivities"
@@ -117,9 +166,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:paddingLeft="5dp"
                     android:background="@color/md_grey_100"
                     android:gravity="center|left"
+                    android:paddingLeft="5dp"
                     android:text="Land Activities"
                     android:textColor="@color/md_green_700"
                     android:textSize="18sp"
@@ -139,9 +188,9 @@
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv_LandRecyclerView"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_marginRight="5dp" />
 
                     <RelativeLayout
                         android:id="@+id/rl_arrowLayoutLand"
@@ -180,9 +229,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:paddingLeft="5dp"
                     android:background="@color/md_grey_100"
                     android:gravity="center|left"
+                    android:paddingLeft="5dp"
                     android:text="Water Activities"
                     android:textColor="@color/md_green_700"
                     android:textSize="18sp"
@@ -201,9 +250,9 @@
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv_WaterRecyclerView"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_marginRight="5dp" />
 
                     <RelativeLayout
                         android:id="@+id/rl_arrowLayoutWater"
@@ -241,9 +290,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:paddingLeft="5dp"
                     android:background="@color/md_grey_100"
                     android:gravity="center|left"
+                    android:paddingLeft="5dp"
                     android:text="Air Activities"
                     android:textColor="@color/md_green_700"
                     android:textSize="18sp"
@@ -262,9 +311,9 @@
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv_AirRecyclerView"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_marginRight="5dp" />
 
                     <RelativeLayout
                         android:id="@+id/rl_arrowLayoutAir"
@@ -344,6 +393,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
 </RelativeLayout>

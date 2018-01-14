@@ -28,7 +28,21 @@
         android:id="@+id/rv_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp" />
+
+    <TextView
+        android:id="@+id/tv_noreviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="left"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:visibility="visible"
+        android:text="No reviews, Please rate this activity to make memorisable trip."
+        android:textSize="15sp" />
 
 </LinearLayout>

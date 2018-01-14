@@ -127,7 +127,7 @@ public class AppController extends Application {
     }
 
     public String getSearchText() {
-        return mAppSharedPreferences.getString("searchText", "Where To?");
+        return mAppSharedPreferences.getString("searchText", "Search for?");
     }
 
     public void setSearchText(String searchedText) {

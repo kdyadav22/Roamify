@@ -148,7 +148,7 @@ public class HomePageOriginal extends AppCompatActivity implements ActivityItemC
         if (view.getId() == R.id.autoCompleteTextView) {
             Validations.hideSoftInput(HomePageOriginal.this);
             Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-            intent.putExtra("title", "Where to?");
+            intent.putExtra("title", "Search for?");
             startActivity(intent);
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
         }

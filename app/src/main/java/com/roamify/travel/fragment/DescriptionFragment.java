@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.roamify.travel.R;
 import com.roamify.travel.activity.ActivityPackageDetails;
 import com.roamify.travel.adapters.SourceRVAdapter;
+import com.roamify.travel.adapters.SourceRVAdapterDetails;
 import com.roamify.travel.models.PackageDetailsModel;
 import com.roamify.travel.utils.Validations;
 
@@ -81,7 +82,7 @@ public class DescriptionFragment extends Fragment {
             //holder.tv_packageSources.setText(data.getPackageSource().replace(",", "\n"));
             String sources[] = packSrc.split(",");
             if (sources.length > 0) {
-                rvRecyclerView.setAdapter(new SourceRVAdapter(sources, getActivity()));
+                rvRecyclerView.setAdapter(new SourceRVAdapterDetails(sources, getActivity()));
             }
 
             llDetailsSource.setVisibility(View.VISIBLE);
