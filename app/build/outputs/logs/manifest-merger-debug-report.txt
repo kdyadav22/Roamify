@@ -4,33 +4,48 @@ ADDED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidMa
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:2:1-115:12
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:2:1-115:12
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:2:1-115:12
-MERGED from [com.android.volley:volley:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/a512f2432a1ddc52dba0dbeaad6f2a46/AndroidManifest.xml:2:1-11:12
-MERGED from [me.grantland:autofittextview:0.2.1] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/autofittextview-0.2.1.aar/1c64ed261acd5852b1b966f9e23ff938/AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/8971babaecdfd2aa34f579587d2c37bd/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/cb02bc9936a4263b931ef718b2b5d31a/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/90fe91375d3dfbc8a77d00b424799221/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/45464bac3a9ce59284af54933d9166eb/AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/44736ae45997187984d75fd52e586737/AndroidManifest.xml:17:1-28:12
-MERGED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:16:1-25:12
-MERGED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/ea6b3f7b6a1d97e159581e5e5d284137/AndroidManifest.xml:16:1-21:12
-MERGED from [com.google.android.gms:play-services-tasks:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/a12b34891ff0caf4791572b7e349330c/AndroidManifest.xml:2:1-5:12
-MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/40f4c7139d328344fa491dd66e844eed/AndroidManifest.xml:16:1-23:12
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/c90f03e6f24447b63c71fdbb019e61cc/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/ba0a3043a3dc65011a28664076a578c3/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/459ba3ec0b4b033cf86779e169ad6da4/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/269d1bda311bc725cb2a4ca7534338af/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/d3c72ba71e86948ec469828dfe4bd896/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/341a4f95682684fdfdf45d34d3ae0e2f/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/a4f9989b83ebcb2977ced40db22e671c/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/342a38bc6e070645cade92fa1d113aa4/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8daf4be13cb1cf87c9501937e28c9e5b/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/6dbed2de3245ae050d53ae8360764d62/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8dc102e0904f54c236550167be9efb3a/AndroidManifest.xml:17:1-31:12
-MERGED from [com.google.android.gms:play-services-maps-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/1e1baeef3821a7149b925d71875ee160/AndroidManifest.xml:2:1-6:12
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/4d81466243677ea17ce88efac522bf6e/AndroidManifest.xml:17:1-30:12
-MERGED from [com.google.android.gms:play-services-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/b38be6860771411c917419215688e827/AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.android.gms:play-services-basement-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/76a0af945e1734e9c328457e58eac77b/AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/ea3a71f97b812f6e8ccbfda2781a9c23/AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.volley:volley:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/9c39e5fe93abb535cd779a469d5843f6/AndroidManifest.xml:2:1-11:12
+MERGED from [me.grantland:autofittextview:0.2.1] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/autofittextview-0.2.1.aar/eeb7865894884243b20c64e2142264ba/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:16:1-26:12
+MERGED from [com.android.support:multidex:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/916d2edaf40adde289ba6fdc7cc3f3db/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-core:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-core-11.6.0.aar/fea0fb2155b439922c06a41ca5d3b416/AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1da1004567a8e30eab5995a6130fed/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/fab322be67c1c3819a661adce058974c/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/d2619b546d7722f0c06c0380844d15bd/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f1d4201a742ee4b46e38e85b706b8a18/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:16:1-25:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.6.0.aar/9b08bbc3793900d7eab19c6ad7710a76/AndroidManifest.xml:2:1-4:12
+MERGED from [com.google.android.gms:play-services-auth-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.6.0.aar/11cf9b7dbf6b22a1be08bd39874e2938/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/AndroidManifest.xml:16:1-21:12
+MERGED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:16:1-35:12
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:16:1-29:12
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:16:1-47:12
+MERGED from [com.google.firebase:firebase-common:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/e3ca11227f7223314ff22e539d8c4e1d/AndroidManifest.xml:2:1-8:12
+MERGED from [com.google.android.gms:play-services-tasks:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/65010422e8261177ae151f3326094abf/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/f6bc8dfb4cd83e253c33e51a157352be/AndroidManifest.xml:16:1-23:12
+MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/6bef286b020f8f95528a85f8f300101a/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/00886c2e97d2c229f167df1868037af6/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/7b68493fa5dcc6bd1cfc41636423b915/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/3ba8e6597f55552868279c0254027fb5/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/a44a0d8a69d83dcc4aa3b3b9e1fa4f0c/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/8b3aa7b351ce30cf2bdb95f2fe9c22eb/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/86b39fc31d493a0bbd8a2f2bc1d73c74/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/de3c8027503584cdcea12f8dd66a8c24/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/1b798b9e82aaae22e8e11842d49ee18a/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10876ffe95db14f4f68e3e6f1c1169f1/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/fd904a0ccc04015068e1baaf573f6007/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4235560aaafc00dd8965232a4f63cd91/AndroidManifest.xml:17:1-31:12
+MERGED from [com.google.android.gms:play-services-maps-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/32866d6688db16ff0a94d33dc0ace99f/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.6.0.aar/15cab8a87b731ff91f36bc1736902e84/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.6.0.aar/6a0cb2790017789692ad4ff698cdcc50/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/68fb2be53656f66c489e72aa6b143db6/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/019a256ab94e82d487b7610e44d4c688/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/a50b2a2904f695fe0e4a1d0d70d19d9e/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-analytics-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/e90448e3b0a582c956c60a2c56c4bec6/AndroidManifest.xml:2:1-6:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6f7c30ccce2a6647871ec2e0c9369f29/AndroidManifest.xml:17:1-30:12
+MERGED from [com.google.firebase:firebase-common-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/44a5d937b56edc2cc3e15e93e82529e6/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-analytics-impl-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-license-11.6.0.aar/06304e94bebe22bcb8f4d68b48d95b37/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-iid-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/8dbf0895ff4b1f6f7ef84ebf509f1f08/AndroidManifest.xml:2:1-6:12
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:2:1-115:12
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:2:1-115:12
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:2:1-115:12
@@ -50,58 +65,82 @@ INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/Androi
 		ADDED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:2:11-69
 application
 ADDED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:5:5-113:19
-MERGED from [com.android.volley:volley:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/a512f2432a1ddc52dba0dbeaad6f2a46/AndroidManifest.xml:9:5-20
-MERGED from [com.android.volley:volley:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/a512f2432a1ddc52dba0dbeaad6f2a46/AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/8971babaecdfd2aa34f579587d2c37bd/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/8971babaecdfd2aa34f579587d2c37bd/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/cb02bc9936a4263b931ef718b2b5d31a/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/cb02bc9936a4263b931ef718b2b5d31a/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/90fe91375d3dfbc8a77d00b424799221/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/90fe91375d3dfbc8a77d00b424799221/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/45464bac3a9ce59284af54933d9166eb/AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/45464bac3a9ce59284af54933d9166eb/AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/44736ae45997187984d75fd52e586737/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/44736ae45997187984d75fd52e586737/AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:24:5-19
-MERGED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:24:5-19
-MERGED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/ea6b3f7b6a1d97e159581e5e5d284137/AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/ea6b3f7b6a1d97e159581e5e5d284137/AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-tasks:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/a12b34891ff0caf4791572b7e349330c/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-tasks:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/a12b34891ff0caf4791572b7e349330c/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/40f4c7139d328344fa491dd66e844eed/AndroidManifest.xml:19:5-21:19
-MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/40f4c7139d328344fa491dd66e844eed/AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/c90f03e6f24447b63c71fdbb019e61cc/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/c90f03e6f24447b63c71fdbb019e61cc/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/ba0a3043a3dc65011a28664076a578c3/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/ba0a3043a3dc65011a28664076a578c3/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/459ba3ec0b4b033cf86779e169ad6da4/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/459ba3ec0b4b033cf86779e169ad6da4/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/269d1bda311bc725cb2a4ca7534338af/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/269d1bda311bc725cb2a4ca7534338af/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/d3c72ba71e86948ec469828dfe4bd896/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/d3c72ba71e86948ec469828dfe4bd896/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/341a4f95682684fdfdf45d34d3ae0e2f/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/341a4f95682684fdfdf45d34d3ae0e2f/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/a4f9989b83ebcb2977ced40db22e671c/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/a4f9989b83ebcb2977ced40db22e671c/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/342a38bc6e070645cade92fa1d113aa4/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/342a38bc6e070645cade92fa1d113aa4/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8daf4be13cb1cf87c9501937e28c9e5b/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8daf4be13cb1cf87c9501937e28c9e5b/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/6dbed2de3245ae050d53ae8360764d62/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/6dbed2de3245ae050d53ae8360764d62/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8dc102e0904f54c236550167be9efb3a/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8dc102e0904f54c236550167be9efb3a/AndroidManifest.xml:25:5-29:19
-MERGED from [com.google.android.gms:play-services-maps-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/1e1baeef3821a7149b925d71875ee160/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-maps-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/1e1baeef3821a7149b925d71875ee160/AndroidManifest.xml:5:5-20
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/4d81466243677ea17ce88efac522bf6e/AndroidManifest.xml:24:5-28:19
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/4d81466243677ea17ce88efac522bf6e/AndroidManifest.xml:24:5-28:19
-MERGED from [com.google.android.gms:play-services-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/b38be6860771411c917419215688e827/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/b38be6860771411c917419215688e827/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-basement-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/76a0af945e1734e9c328457e58eac77b/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-basement-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/76a0af945e1734e9c328457e58eac77b/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/ea3a71f97b812f6e8ccbfda2781a9c23/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/ea3a71f97b812f6e8ccbfda2781a9c23/AndroidManifest.xml:5:5-20
+MERGED from [com.android.volley:volley:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/9c39e5fe93abb535cd779a469d5843f6/AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/9c39e5fe93abb535cd779a469d5843f6/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:19:5-25:19
+MERGED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:19:5-25:19
+MERGED from [com.google.firebase:firebase-core:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-core-11.6.0.aar/fea0fb2155b439922c06a41ca5d3b416/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-core:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-core-11.6.0.aar/fea0fb2155b439922c06a41ca5d3b416/AndroidManifest.xml:5:5-20
+MERGED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1da1004567a8e30eab5995a6130fed/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1da1004567a8e30eab5995a6130fed/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/fab322be67c1c3819a661adce058974c/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/fab322be67c1c3819a661adce058974c/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/d2619b546d7722f0c06c0380844d15bd/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/d2619b546d7722f0c06c0380844d15bd/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f1d4201a742ee4b46e38e85b706b8a18/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f1d4201a742ee4b46e38e85b706b8a18/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:24:5-34:19
+MERGED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:24:5-34:19
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:29:5-46:19
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:29:5-46:19
+MERGED from [com.google.firebase:firebase-common:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/e3ca11227f7223314ff22e539d8c4e1d/AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.firebase:firebase-common:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/e3ca11227f7223314ff22e539d8c4e1d/AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.android.gms:play-services-tasks:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/65010422e8261177ae151f3326094abf/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-tasks:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/65010422e8261177ae151f3326094abf/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/f6bc8dfb4cd83e253c33e51a157352be/AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/f6bc8dfb4cd83e253c33e51a157352be/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/6bef286b020f8f95528a85f8f300101a/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/6bef286b020f8f95528a85f8f300101a/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/00886c2e97d2c229f167df1868037af6/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/00886c2e97d2c229f167df1868037af6/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/7b68493fa5dcc6bd1cfc41636423b915/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/7b68493fa5dcc6bd1cfc41636423b915/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/3ba8e6597f55552868279c0254027fb5/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/3ba8e6597f55552868279c0254027fb5/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/a44a0d8a69d83dcc4aa3b3b9e1fa4f0c/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/a44a0d8a69d83dcc4aa3b3b9e1fa4f0c/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/8b3aa7b351ce30cf2bdb95f2fe9c22eb/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/8b3aa7b351ce30cf2bdb95f2fe9c22eb/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/86b39fc31d493a0bbd8a2f2bc1d73c74/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/86b39fc31d493a0bbd8a2f2bc1d73c74/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/de3c8027503584cdcea12f8dd66a8c24/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/de3c8027503584cdcea12f8dd66a8c24/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/1b798b9e82aaae22e8e11842d49ee18a/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/1b798b9e82aaae22e8e11842d49ee18a/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10876ffe95db14f4f68e3e6f1c1169f1/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10876ffe95db14f4f68e3e6f1c1169f1/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/fd904a0ccc04015068e1baaf573f6007/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/fd904a0ccc04015068e1baaf573f6007/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4235560aaafc00dd8965232a4f63cd91/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4235560aaafc00dd8965232a4f63cd91/AndroidManifest.xml:25:5-29:19
+MERGED from [com.google.android.gms:play-services-maps-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/32866d6688db16ff0a94d33dc0ace99f/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-maps-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/32866d6688db16ff0a94d33dc0ace99f/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.6.0.aar/15cab8a87b731ff91f36bc1736902e84/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.6.0.aar/15cab8a87b731ff91f36bc1736902e84/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.6.0.aar/6a0cb2790017789692ad4ff698cdcc50/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.6.0.aar/6a0cb2790017789692ad4ff698cdcc50/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/68fb2be53656f66c489e72aa6b143db6/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/68fb2be53656f66c489e72aa6b143db6/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/019a256ab94e82d487b7610e44d4c688/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/019a256ab94e82d487b7610e44d4c688/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/a50b2a2904f695fe0e4a1d0d70d19d9e/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/a50b2a2904f695fe0e4a1d0d70d19d9e/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/e90448e3b0a582c956c60a2c56c4bec6/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/e90448e3b0a582c956c60a2c56c4bec6/AndroidManifest.xml:5:5-20
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6f7c30ccce2a6647871ec2e0c9369f29/AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6f7c30ccce2a6647871ec2e0c9369f29/AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-common-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/44a5d937b56edc2cc3e15e93e82529e6/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-common-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/44a5d937b56edc2cc3e15e93e82529e6/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics-impl-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-license-11.6.0.aar/06304e94bebe22bcb8f4d68b48d95b37/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics-impl-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-license-11.6.0.aar/06304e94bebe22bcb8f4d68b48d95b37/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-iid-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/8dbf0895ff4b1f6f7ef84ebf509f1f08/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-iid-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/8dbf0895ff4b1f6f7ef84ebf509f1f08/AndroidManifest.xml:5:5-20
 	android:supportsRtl
 		ADDED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:10:9-35
 	android:label
@@ -194,8 +233,8 @@ ADDED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidMa
 		ADDED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:47:13-57
 meta-data#com.google.android.gms.version
 ADDED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:53:9-55:69
-MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/40f4c7139d328344fa491dd66e844eed/AndroidManifest.xml:20:9-121
-MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/40f4c7139d328344fa491dd66e844eed/AndroidManifest.xml:20:9-121
+MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/f6bc8dfb4cd83e253c33e51a157352be/AndroidManifest.xml:20:9-121
+MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/f6bc8dfb4cd83e253c33e51a157352be/AndroidManifest.xml:20:9-121
 	android:value
 		ADDED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml:55:13-66
 	android:name
@@ -310,64 +349,94 @@ uses-sdk
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml
-MERGED from [com.android.volley:volley:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/a512f2432a1ddc52dba0dbeaad6f2a46/AndroidManifest.xml:7:5-43
-MERGED from [com.android.volley:volley:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/a512f2432a1ddc52dba0dbeaad6f2a46/AndroidManifest.xml:7:5-43
-MERGED from [me.grantland:autofittextview:0.2.1] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/autofittextview-0.2.1.aar/1c64ed261acd5852b1b966f9e23ff938/AndroidManifest.xml:7:5-9:41
-MERGED from [me.grantland:autofittextview:0.2.1] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/autofittextview-0.2.1.aar/1c64ed261acd5852b1b966f9e23ff938/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/8971babaecdfd2aa34f579587d2c37bd/AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/8971babaecdfd2aa34f579587d2c37bd/AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/cb02bc9936a4263b931ef718b2b5d31a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/cb02bc9936a4263b931ef718b2b5d31a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/90fe91375d3dfbc8a77d00b424799221/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/90fe91375d3dfbc8a77d00b424799221/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/45464bac3a9ce59284af54933d9166eb/AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/45464bac3a9ce59284af54933d9166eb/AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/44736ae45997187984d75fd52e586737/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/44736ae45997187984d75fd52e586737/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:23:5-43
-MERGED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:23:5-43
-MERGED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/ea6b3f7b6a1d97e159581e5e5d284137/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/ea6b3f7b6a1d97e159581e5e5d284137/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-tasks:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/a12b34891ff0caf4791572b7e349330c/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-tasks:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/a12b34891ff0caf4791572b7e349330c/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/40f4c7139d328344fa491dd66e844eed/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/40f4c7139d328344fa491dd66e844eed/AndroidManifest.xml:17:5-43
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/c90f03e6f24447b63c71fdbb019e61cc/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/c90f03e6f24447b63c71fdbb019e61cc/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/ba0a3043a3dc65011a28664076a578c3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/ba0a3043a3dc65011a28664076a578c3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/459ba3ec0b4b033cf86779e169ad6da4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/459ba3ec0b4b033cf86779e169ad6da4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/269d1bda311bc725cb2a4ca7534338af/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/269d1bda311bc725cb2a4ca7534338af/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/d3c72ba71e86948ec469828dfe4bd896/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/d3c72ba71e86948ec469828dfe4bd896/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/341a4f95682684fdfdf45d34d3ae0e2f/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/341a4f95682684fdfdf45d34d3ae0e2f/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/a4f9989b83ebcb2977ced40db22e671c/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/a4f9989b83ebcb2977ced40db22e671c/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/342a38bc6e070645cade92fa1d113aa4/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/342a38bc6e070645cade92fa1d113aa4/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8daf4be13cb1cf87c9501937e28c9e5b/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8daf4be13cb1cf87c9501937e28c9e5b/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/6dbed2de3245ae050d53ae8360764d62/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/6dbed2de3245ae050d53ae8360764d62/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8dc102e0904f54c236550167be9efb3a/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8dc102e0904f54c236550167be9efb3a/AndroidManifest.xml:21:5-23:58
-MERGED from [com.google.android.gms:play-services-maps-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/1e1baeef3821a7149b925d71875ee160/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-maps-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/1e1baeef3821a7149b925d71875ee160/AndroidManifest.xml:4:5-43
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/4d81466243677ea17ce88efac522bf6e/AndroidManifest.xml:20:5-22:41
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/4d81466243677ea17ce88efac522bf6e/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.gms:play-services-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/b38be6860771411c917419215688e827/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/b38be6860771411c917419215688e827/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-basement-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/76a0af945e1734e9c328457e58eac77b/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-basement-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/76a0af945e1734e9c328457e58eac77b/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/ea3a71f97b812f6e8ccbfda2781a9c23/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/ea3a71f97b812f6e8ccbfda2781a9c23/AndroidManifest.xml:4:5-43
+MERGED from [com.android.volley:volley:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/9c39e5fe93abb535cd779a469d5843f6/AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/9c39e5fe93abb535cd779a469d5843f6/AndroidManifest.xml:7:5-43
+MERGED from [me.grantland:autofittextview:0.2.1] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/autofittextview-0.2.1.aar/eeb7865894884243b20c64e2142264ba/AndroidManifest.xml:7:5-9:41
+MERGED from [me.grantland:autofittextview:0.2.1] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/autofittextview-0.2.1.aar/eeb7865894884243b20c64e2142264ba/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:multidex:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/916d2edaf40adde289ba6fdc7cc3f3db/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/916d2edaf40adde289ba6fdc7cc3f3db/AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-core:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-core-11.6.0.aar/fea0fb2155b439922c06a41ca5d3b416/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-core:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-core-11.6.0.aar/fea0fb2155b439922c06a41ca5d3b416/AndroidManifest.xml:4:5-43
+MERGED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1da1004567a8e30eab5995a6130fed/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1da1004567a8e30eab5995a6130fed/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/fab322be67c1c3819a661adce058974c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/fab322be67c1c3819a661adce058974c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/d2619b546d7722f0c06c0380844d15bd/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/d2619b546d7722f0c06c0380844d15bd/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f1d4201a742ee4b46e38e85b706b8a18/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/f1d4201a742ee4b46e38e85b706b8a18/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.6.0.aar/9b08bbc3793900d7eab19c6ad7710a76/AndroidManifest.xml:3:3-41
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.6.0.aar/9b08bbc3793900d7eab19c6ad7710a76/AndroidManifest.xml:3:3-41
+MERGED from [com.google.android.gms:play-services-auth-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.6.0.aar/11cf9b7dbf6b22a1be08bd39874e2938/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.6.0.aar/11cf9b7dbf6b22a1be08bd39874e2938/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-common:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/e3ca11227f7223314ff22e539d8c4e1d/AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-common:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/e3ca11227f7223314ff22e539d8c4e1d/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/65010422e8261177ae151f3326094abf/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/65010422e8261177ae151f3326094abf/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/f6bc8dfb4cd83e253c33e51a157352be/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/f6bc8dfb4cd83e253c33e51a157352be/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/6bef286b020f8f95528a85f8f300101a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/6bef286b020f8f95528a85f8f300101a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/00886c2e97d2c229f167df1868037af6/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/00886c2e97d2c229f167df1868037af6/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/7b68493fa5dcc6bd1cfc41636423b915/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/7b68493fa5dcc6bd1cfc41636423b915/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/3ba8e6597f55552868279c0254027fb5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/3ba8e6597f55552868279c0254027fb5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/a44a0d8a69d83dcc4aa3b3b9e1fa4f0c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/a44a0d8a69d83dcc4aa3b3b9e1fa4f0c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/8b3aa7b351ce30cf2bdb95f2fe9c22eb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/8b3aa7b351ce30cf2bdb95f2fe9c22eb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/86b39fc31d493a0bbd8a2f2bc1d73c74/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/86b39fc31d493a0bbd8a2f2bc1d73c74/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/de3c8027503584cdcea12f8dd66a8c24/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/de3c8027503584cdcea12f8dd66a8c24/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/1b798b9e82aaae22e8e11842d49ee18a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/1b798b9e82aaae22e8e11842d49ee18a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10876ffe95db14f4f68e3e6f1c1169f1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10876ffe95db14f4f68e3e6f1c1169f1/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/fd904a0ccc04015068e1baaf573f6007/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/fd904a0ccc04015068e1baaf573f6007/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4235560aaafc00dd8965232a4f63cd91/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4235560aaafc00dd8965232a4f63cd91/AndroidManifest.xml:21:5-23:58
+MERGED from [com.google.android.gms:play-services-maps-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/32866d6688db16ff0a94d33dc0ace99f/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-maps-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/32866d6688db16ff0a94d33dc0ace99f/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.6.0.aar/15cab8a87b731ff91f36bc1736902e84/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.6.0.aar/15cab8a87b731ff91f36bc1736902e84/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.6.0.aar/6a0cb2790017789692ad4ff698cdcc50/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.6.0.aar/6a0cb2790017789692ad4ff698cdcc50/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/68fb2be53656f66c489e72aa6b143db6/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/68fb2be53656f66c489e72aa6b143db6/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/019a256ab94e82d487b7610e44d4c688/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/019a256ab94e82d487b7610e44d4c688/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/a50b2a2904f695fe0e4a1d0d70d19d9e/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/a50b2a2904f695fe0e4a1d0d70d19d9e/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/e90448e3b0a582c956c60a2c56c4bec6/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/e90448e3b0a582c956c60a2c56c4bec6/AndroidManifest.xml:4:5-43
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6f7c30ccce2a6647871ec2e0c9369f29/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6f7c30ccce2a6647871ec2e0c9369f29/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-common-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/44a5d937b56edc2cc3e15e93e82529e6/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-common-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/44a5d937b56edc2cc3e15e93e82529e6/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-license-11.6.0.aar/06304e94bebe22bcb8f4d68b48d95b37/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-license-11.6.0.aar/06304e94bebe22bcb8f4d68b48d95b37/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-iid-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/8dbf0895ff4b1f6f7ef84ebf509f1f08/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-iid-license:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/8dbf0895ff4b1f6f7ef84ebf509f1f08/AndroidManifest.xml:4:5-43
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/8971babaecdfd2aa34f579587d2c37bd/AndroidManifest.xml:23:9-59
+		ADDED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1da1004567a8e30eab5995a6130fed/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
 		INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml
 		ADDED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml
@@ -376,65 +445,221 @@ INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/Androi
 		INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml
 		ADDED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/AndroidManifest.xml
-meta-data#android.support.VERSION
-ADDED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/8971babaecdfd2aa34f579587d2c37bd/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/cb02bc9936a4263b931ef718b2b5d31a/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/cb02bc9936a4263b931ef718b2b5d31a/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/90fe91375d3dfbc8a77d00b424799221/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/90fe91375d3dfbc8a77d00b424799221/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/44736ae45997187984d75fd52e586737/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/44736ae45997187984d75fd52e586737/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/c90f03e6f24447b63c71fdbb019e61cc/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/c90f03e6f24447b63c71fdbb019e61cc/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/ba0a3043a3dc65011a28664076a578c3/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/ba0a3043a3dc65011a28664076a578c3/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/459ba3ec0b4b033cf86779e169ad6da4/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/459ba3ec0b4b033cf86779e169ad6da4/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/269d1bda311bc725cb2a4ca7534338af/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/269d1bda311bc725cb2a4ca7534338af/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/d3c72ba71e86948ec469828dfe4bd896/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/d3c72ba71e86948ec469828dfe4bd896/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/341a4f95682684fdfdf45d34d3ae0e2f/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/341a4f95682684fdfdf45d34d3ae0e2f/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/a4f9989b83ebcb2977ced40db22e671c/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/a4f9989b83ebcb2977ced40db22e671c/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/342a38bc6e070645cade92fa1d113aa4/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/342a38bc6e070645cade92fa1d113aa4/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8daf4be13cb1cf87c9501937e28c9e5b/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8daf4be13cb1cf87c9501937e28c9e5b/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/6dbed2de3245ae050d53ae8360764d62/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/6dbed2de3245ae050d53ae8360764d62/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8dc102e0904f54c236550167be9efb3a/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8dc102e0904f54c236550167be9efb3a/AndroidManifest.xml:26:9-28:38
-	android:value
-		ADDED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/8971babaecdfd2aa34f579587d2c37bd/AndroidManifest.xml:28:13-35
-	android:name
-		ADDED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/8971babaecdfd2aa34f579587d2c37bd/AndroidManifest.xml:27:13-51
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:19:5-78
-	android:name
-		ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:19:22-76
-uses-permission#android.permission.INTERNET
-ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:20:5-66
-	android:name
-		ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:20:22-64
-uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:21:5-77
-	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:21:19-51
-	android:required
-		ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/08f10536a0f0d7b98d5a4dd4a5b70577/AndroidManifest.xml:21:52-75
-activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/ea6b3f7b6a1d97e159581e5e5d284137/AndroidManifest.xml:19:9-172
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:20:9-189
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:20:129-162
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/ea6b3f7b6a1d97e159581e5e5d284137/AndroidManifest.xml:19:146-170
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:20:163-187
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/ea6b3f7b6a1d97e159581e5e5d284137/AndroidManifest.xml:19:86-145
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:20:69-128
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/ea6b3f7b6a1d97e159581e5e5d284137/AndroidManifest.xml:19:19-85
-meta-data#android.arch.lifecycle.VERSION
-ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/4d81466243677ea17ce88efac522bf6e/AndroidManifest.xml:25:9-27:47
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:20:19-68
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:24:9-184
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:24:64-87
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:24:88-182
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/6556cd06eb06b4966c04a468e59571d1/AndroidManifest.xml:24:18-63
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1da1004567a8e30eab5995a6130fed/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/fab322be67c1c3819a661adce058974c/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:mediarouter-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-26.1.0.aar/fab322be67c1c3819a661adce058974c/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/d2619b546d7722f0c06c0380844d15bd/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/d2619b546d7722f0c06c0380844d15bd/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/6bef286b020f8f95528a85f8f300101a/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/6bef286b020f8f95528a85f8f300101a/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/00886c2e97d2c229f167df1868037af6/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/00886c2e97d2c229f167df1868037af6/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/7b68493fa5dcc6bd1cfc41636423b915/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/7b68493fa5dcc6bd1cfc41636423b915/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/3ba8e6597f55552868279c0254027fb5/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/3ba8e6597f55552868279c0254027fb5/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/a44a0d8a69d83dcc4aa3b3b9e1fa4f0c/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/a44a0d8a69d83dcc4aa3b3b9e1fa4f0c/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/8b3aa7b351ce30cf2bdb95f2fe9c22eb/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/8b3aa7b351ce30cf2bdb95f2fe9c22eb/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/86b39fc31d493a0bbd8a2f2bc1d73c74/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/86b39fc31d493a0bbd8a2f2bc1d73c74/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/de3c8027503584cdcea12f8dd66a8c24/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/de3c8027503584cdcea12f8dd66a8c24/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/1b798b9e82aaae22e8e11842d49ee18a/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:palette-v7:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/palette-v7-26.1.0.aar/1b798b9e82aaae22e8e11842d49ee18a/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10876ffe95db14f4f68e3e6f1c1169f1/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/10876ffe95db14f4f68e3e6f1c1169f1/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/fd904a0ccc04015068e1baaf573f6007/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/fd904a0ccc04015068e1baaf573f6007/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4235560aaafc00dd8965232a4f63cd91/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/4235560aaafc00dd8965232a4f63cd91/AndroidManifest.xml:26:9-28:38
 	android:value
-		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/4d81466243677ea17ce88efac522bf6e/AndroidManifest.xml:27:13-44
+		ADDED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1da1004567a8e30eab5995a6130fed/AndroidManifest.xml:28:13-35
 	android:name
-		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/4d81466243677ea17ce88efac522bf6e/AndroidManifest.xml:26:13-58
+		ADDED from [com.android.support:design:26.1.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1da1004567a8e30eab5995a6130fed/AndroidManifest.xml:27:13-51
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:19:5-78
+MERGED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:19:5-78
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:19:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:20:22-64
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/6cade834c182cdc48f043baa767450fc/AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/AndroidManifest.xml:19:19-85
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:21:5-67
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:22:22-65
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:25:7-26:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:25:90-112
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:25:113-137
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:25:17-89
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:27:7-31:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:27:162-184
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:27:185-208
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:27:105-161
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:27:17-104
+intent-filter#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:28:11-30:27
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:29:15-76
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:29:23-74
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:32:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:27:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/166ed4df17e1b600484295301f7ce3a4/AndroidManifest.xml:27:7-137
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:32:88-110
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:32:111-135
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:32:16-87
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:33:7-197
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:33:148-170
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:33:171-195
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:33:91-147
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/f0fc1970a508b0dafae46c13bda07429/AndroidManifest.xml:33:16-90
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:23:5-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:23:22-79
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:25:5-109
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:25:72-107
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:25:17-71
+permission#com.roamify.travel.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:25:5-109
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:25:72-107
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:25:17-71
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:27:5-78
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:27:22-76
+uses-permission#com.roamify.travel.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:27:5-78
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:27:22-76
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:31:9-36:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:31:85-108
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:31:109-169
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:31:19-84
+intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:32:13-35:29
+intent-filter#com.google.android.c2dm.intent.RECEIVE+com.roamify.travel
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:32:13-35:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:33:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:33:25-78
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:34:17-60
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:34:27-58
+category#com.roamify.travel
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:34:17-60
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:34:27-58
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:40:9-44:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:40:83-106
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:40:18-82
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:41:13-43:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:41:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:42:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/13be98fdb325a6761b0c3cbf9724a49b/AndroidManifest.xml:42:25-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/e3ca11227f7223314ff22e539d8c4e1d/AndroidManifest.xml:6:9-194
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/e3ca11227f7223314ff22e539d8c4e1d/AndroidManifest.xml:6:19-78
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/e3ca11227f7223314ff22e539d8c4e1d/AndroidManifest.xml:6:144-168
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/e3ca11227f7223314ff22e539d8c4e1d/AndroidManifest.xml:6:169-192
+	android:name
+		ADDED from [com.google.firebase:firebase-common:11.6.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/e3ca11227f7223314ff22e539d8c4e1d/AndroidManifest.xml:6:79-143
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6f7c30ccce2a6647871ec2e0c9369f29/AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6f7c30ccce2a6647871ec2e0c9369f29/AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/Kapil/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6f7c30ccce2a6647871ec2e0c9369f29/AndroidManifest.xml:26:13-58

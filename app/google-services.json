@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "632328407464",
+    "project_id": "roamify-185811"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632328407464:android:9e4ea2bee61054c4",
+        "android_client_info": {
+          "package_name": "com.roamify.travel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632328407464-486aoh639tohp8nj065vkr35ua5calop.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "632328407464-m6teghr7ja2p1q6fb0vtol8325i28vfe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.roamify.travel",
+            "certificate_hash": "311f6d5a01cb0ce41c4632eddeb74a2585550968"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiYmqtyZQ6MXVpISuwnQEUaoZ_6PUi4HI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -214,7 +214,14 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.tv_packagesubmit) {
-            showQueryDialog();
+            if (Validations.isNotNullNotEmptyNotWhiteSpace(AppController.getInstance().getUserId())) {
+                showQueryDialog();
+            } else {
+                Intent intent = new Intent(getApplicationContext(), HomePageWithMenu.class);
+                intent.putExtra("isComingFromSplash", false);
+                startActivity(intent);
+                overridePendingTransition(R.anim.left_in, R.anim.right_out);
+            }
         } else if (view.getId() == R.id.right_bar_button) {
             Intent intent = new Intent(getApplicationContext(), HomePageWithMenu.class);
             startActivity(intent);
@@ -358,17 +365,6 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 public void onClick(View v) {
                     // TODO Auto-generated method stub
                     mdialog.dismiss();
-                    /*JSONObject jsonObject = new JSONObject();
-                    try {
-                        jsonObject.put("packageId", packageDetailsModel.getId());
-                        jsonObject.put("userName", nameEditText);
-                        jsonObject.put("userEmail", emailEditText);
-                        jsonObject.put("userPhone", phoneEditText);
-                        jsonObject.put("comment", commentEditText);
-                        jsonObject.put("source", packageDetailsModel.getSource());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }*/
 
                     if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
                         try {

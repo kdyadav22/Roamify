@@ -7,9 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.roamify.travel.R;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.Validations;
 
 public class Splash extends AppCompatActivity {
     public static int SPLASH_DISPLAY_TIME = 2000; /*2 seconds*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,21 +22,22 @@ public class Splash extends AppCompatActivity {
             public void run() {
                 Intent intent;
                 try {
-                    if(AppController.getInstance().getSkipped()) {
+                    if (Validations.isNotNullNotEmptyNotWhiteSpace(AppController.getInstance().getUserId())) {
                         intent = new Intent(Splash.this, HomePageWithMenu.class);
-                    }
-                    else{
-                        intent = new Intent(Splash.this, HomePageWithMenu.class);
+                    } else {
+                        intent = new Intent(Splash.this, LoginActivity.class);
                     }
 
+                    intent.putExtra("isComingFromSplash", true);
+                    startActivity(intent);
                     finish();
                     overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                    startActivity(intent);
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
-        },SPLASH_DISPLAY_TIME);
+        }, SPLASH_DISPLAY_TIME);
     }
 
 }

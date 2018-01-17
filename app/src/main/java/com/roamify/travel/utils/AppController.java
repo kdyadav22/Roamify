@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.StrictMode;
+import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class AppController extends Application {
         mInstance = this;
         enableStrictMode();
         ctx = this;
+        MultiDex.install(this);
     }
 
     @Override
