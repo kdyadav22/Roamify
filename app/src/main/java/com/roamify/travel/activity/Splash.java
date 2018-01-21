@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
+import com.facebook.AccessToken;
 import com.roamify.travel.R;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.Validations;
@@ -22,10 +23,16 @@ public class Splash extends AppCompatActivity {
             public void run() {
                 Intent intent;
                 try {
-                    if (Validations.isNotNullNotEmptyNotWhiteSpace(AppController.getInstance().getUserId())) {
+                    /*if (Validations.isNotNullNotEmptyNotWhiteSpace(AppController.getInstance().getUserId())) {
                         intent = new Intent(Splash.this, HomePageWithMenu.class);
                     } else {
+                        intent = new Intent(Splash.this, HomePageWithMenu.class);
+                    }*/
+
+                    if (AccessToken.getCurrentAccessToken() == null) {
                         intent = new Intent(Splash.this, LoginActivity.class);
+                    } else {
+                        intent = new Intent(Splash.this, HomePageWithMenu.class);
                     }
 
                     intent.putExtra("isComingFromSplash", true);

@@ -4,7 +4,7 @@
             "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/d2619b546d7722f0c06c0380844d15bd/res/values-v23/values-v23.xml",
+                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/7b68493fa5dcc6bd1cfc41636423b915/res/values-v23/values-v23.xml",
+                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.1.aar/eccc67c98baccadda0f84fbbdd882c8d/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -18,6 +18,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.facebook.FacebookSdk;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.io.File;
 
@@ -41,7 +43,9 @@ public class AppController extends Application {
         mInstance = this;
         enableStrictMode();
         ctx = this;
-        MultiDex.install(this);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        Fresco.initialize(this);
+
     }
 
     @Override
@@ -180,6 +184,7 @@ public class AppController extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     @SuppressLint("NewApi")

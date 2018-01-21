@@ -99,7 +99,6 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         fragmentManager = getSupportFragmentManager();
         transaction = fragmentManager.beginTransaction();
 
-
         tablayout.setScrollPosition(0, 0f, true);
 
         tablayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -146,11 +145,6 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             }
         });
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
             String URL = Constants.BaseUrl + "getPackageDetailsByPackage.php?packageId=" + getIntent().getStringExtra("package_id");
             try {
@@ -161,6 +155,22 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         } else {
             AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        /*if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+            String URL = Constants.BaseUrl + "getPackageDetailsByPackage.php?packageId=" + getIntent().getStringExtra("package_id");
+            try {
+                getRequestCall(URL, request_tag, null);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
+        }*/
     }
 
     private void initView() {
@@ -217,8 +227,8 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             if (Validations.isNotNullNotEmptyNotWhiteSpace(AppController.getInstance().getUserId())) {
                 showQueryDialog();
             } else {
-                Intent intent = new Intent(getApplicationContext(), HomePageWithMenu.class);
-                intent.putExtra("isComingFromSplash", false);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                intent.putExtra("isComingFromDetails", true);
                 startActivity(intent);
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }

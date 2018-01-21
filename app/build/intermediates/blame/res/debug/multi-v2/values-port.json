@@ -4,7 +4,7 @@
             "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/d2619b546d7722f0c06c0380844d15bd/res/values-port/values-port.xml",
+                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

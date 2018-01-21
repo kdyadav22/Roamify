@@ -21,16 +21,19 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.google.android.gms.auth.api.Auth;
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.Profile;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.roamify.travel.R;
@@ -39,6 +42,7 @@ import com.roamify.travel.utils.AppController;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,19 +58,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected TextView registerButton;
     private static final String TAG = LoginActivity.class.getSimpleName();
     private static final int RC_SIGN_IN = 007;
+    protected LoginButton loginButton;
 
     private GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog;
 
     private SignInButton btnSignIn;
 
+    private static final String EMAIL = "email";
+    private static final String USER_POSTS = "user_posts";
+    private static final String USER_PROFILE = "user_profile";
+
+    private CallbackManager mCallbackManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_login);
+        mCallbackManager = CallbackManager.Factory.create();
         initView();
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        /*GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
@@ -77,7 +89,72 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         // Customizing G+ button
         btnSignIn.setSize(SignInButton.SIZE_STANDARD);
-        btnSignIn.setScopes(gso.getScopeArray());
+        btnSignIn.setScopes(gso.getScopeArray());*/
+
+        // Set the initial permissions to request from the user while logging in
+        loginButton.setReadPermissions(Arrays.asList(EMAIL, USER_POSTS));
+
+        // Register a callback to respond to the user
+        loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d(TAG, "Got cached sign-in " + loginResult.getAccessToken());
+                AccessToken accessToken = loginResult.getAccessToken();
+                Profile profile = Profile.getCurrentProfile();
+                AppController.getInstance().setUserId(profile.getId());
+                nextActivity(profile);
+            }
+
+            @Override
+            public void onCancel() {
+                //setResult(RESULT_CANCELED);
+                //finish();
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                // Handle exception
+            }
+        });
+    }
+
+    private void nextActivity(Profile profile) {
+        if (profile != null) {
+            if(getIntent().getBooleanExtra("isComingFromDetails", false))
+            {
+                onBackPressed();
+            }else
+            {
+                Intent main = new Intent(LoginActivity.this, HomePageWithMenu.class);
+                main.putExtra("name", profile.getFirstName());
+                main.putExtra("surname", profile.getLastName());
+                main.putExtra("imageUrl", profile.getProfilePictureUri(200, 200).toString());
+                startActivity(main);
+            }
+
+        }
+    }
+
+    protected void getUserDetails(LoginResult loginResult) {
+        GraphRequest data_request = GraphRequest.newMeRequest(
+                loginResult.getAccessToken(),
+                new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(
+                            JSONObject json_object,
+                            GraphResponse response) {
+                        Intent intent = new Intent(LoginActivity.this,
+                                HomePageWithMenu.class);
+                        intent.putExtra("userProfile", json_object.toString());
+                        startActivity(intent);
+                    }
+
+                });
+        Bundle permission_param = new Bundle();
+        permission_param.putString("fields", "id,name,email,picture.width(120).height(120)");
+        data_request.setParameters(permission_param);
+        data_request.executeAsync();
+
     }
 
     @Override
@@ -97,27 +174,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             goToNext();
         } else if (view.getId() == R.id.btn_sign_in) {
             try {
-                signIn();
+                //signIn();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         } else if (view.getId() == R.id.tv_skipBtn) {
             AppController.getInstance().isSkipped(true);
             goToNext();
+        } else if (view.getId() == R.id.login_button) {
+
         }
     }
 
     private void goToNext() {
         try {
-            if(getIntent().getBooleanExtra("isComingFromSplash", false))
-            {
+            if (getIntent().getBooleanExtra("isComingFromSplash", false)) {
                 Intent intent = new Intent(getApplicationContext(), HomePageWithMenu.class);
                 if (getIntent().getBooleanExtra("comingFromHomePage", false))
                     intent.putExtra("comingFromHomePage", true);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            }else
-            {
+            } else {
                 finish();
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
@@ -143,6 +220,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         btnSignIn = (SignInButton) findViewById(R.id.btn_sign_in);
         btnSignIn.setOnClickListener(this);
+        loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setOnClickListener(LoginActivity.this);
     }
 
     public void getRequestCall(String url, String tag) {
@@ -192,13 +271,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void signIn() {
+    /*private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
+    }*/
 
 
-    private void signOut() {
+    /*private void signOut() {
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
@@ -206,7 +285,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         //updateUI(false);
                     }
                 });
-    }
+    }*/
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
@@ -219,8 +298,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSignInResult(result);
+            //GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            //handleSignInResult(result);
+        } else {
+            mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -234,7 +315,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 });
     }*/
 
-    private void handleSignInResult(GoogleSignInResult result) {
+    /*private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
@@ -249,11 +330,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Log.e(TAG, "Name: " + personName + ", email: " + email
                     + ", Image: " + personPhotoUrl);
 
-           AppController.getInstance().setUserId(acct.getIdToken());
-           goToNext();
+            AppController.getInstance().setUserId(acct.getIdToken());
+            goToNext();
 
         }
-    }
+    }*/
 
     private void showProgressDialog() {
         if (mProgressDialog == null) {
@@ -275,7 +356,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onStart() {
         super.onStart();
 
-        OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
+        /*OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
         if (opr.isDone()) {
             // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
             // and the GoogleSignInResult will be available instantly.
@@ -294,6 +375,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     //handleSignInResult(googleSignInResult);
                 }
             });
-        }
+        }*/
+
+
     }
 }
