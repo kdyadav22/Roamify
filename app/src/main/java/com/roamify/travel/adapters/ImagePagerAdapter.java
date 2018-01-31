@@ -57,8 +57,8 @@ public class ImagePagerAdapter extends PagerAdapter {
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .crossFade(1000)
                         //.override(600, 400)
-                        .error(R.drawable.no_image_found)
-                        .placeholder(R.drawable.no_image_found)
+                        .error(R.drawable.default_image)
+                        .placeholder(R.drawable.default_image)
                         .into(imageView);
             } catch (Exception e) {
                 e.fillInStackTrace();

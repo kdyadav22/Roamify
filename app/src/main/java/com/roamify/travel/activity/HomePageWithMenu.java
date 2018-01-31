@@ -53,8 +53,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HomePageWithMenu extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ActivityItemClickListener, View.OnClickListener {
+public class HomePageWithMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ActivityItemClickListener, View.OnClickListener {
     String requestTag = "get_all_result";
     protected LinearLayout btWaterActivity;
     protected LinearLayout btAirActivity;

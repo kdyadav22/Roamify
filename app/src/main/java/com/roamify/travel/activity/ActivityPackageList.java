@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -63,12 +64,13 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         initView();
         findViewById(R.id.right_bar_button).setOnClickListener(this);
         findViewById(R.id.right_bar_search_button).setOnClickListener(this);
-        etSearchDestination = (EditText) findViewById(R.id.et_searchNews);
-        imgClear = (ImageView) findViewById(R.id.imgClear);
+        etSearchDestination = findViewById(R.id.et_searchNews);
+        imgClear = findViewById(R.id.imgClear);
         imgClear.setOnClickListener(ActivityPackageList.this);
-        recyclerView = (RecyclerView) findViewById(R.id.rv_recyclerView);
+        recyclerView = findViewById(R.id.rv_recyclerView);
         try {
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
             recyclerView.setLayoutManager(mLayoutManager);
             recyclerView.setHasFixedSize(true);
             recyclerView.setItemAnimator(new DefaultItemAnimator());

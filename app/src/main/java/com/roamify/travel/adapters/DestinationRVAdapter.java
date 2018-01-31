@@ -49,7 +49,7 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
 
         ViewGroup.LayoutParams layoutParams = holder.ll_destination_rowLayout.getLayoutParams();
         layoutParams.width = width;
-        layoutParams.height = width + 100;
+        layoutParams.height = height;
         holder.ll_destination_rowLayout.setLayoutParams(layoutParams);
 
         try {
@@ -59,8 +59,8 @@ public class DestinationRVAdapter extends RecyclerView.Adapter<DestinationViewHa
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .crossFade(1000)
                     .override(width, height)
-                    .error(R.drawable.no_image_found)
-                    .placeholder(R.drawable.no_image_found)
+                    .error(R.drawable.default_image)
+                    .placeholder(R.drawable.default_image)
                     .into(holder.iv_destinationImage);
         } catch (Exception e) {
             e.fillInStackTrace();

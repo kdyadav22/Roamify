@@ -32,7 +32,6 @@ import com.roamify.travel.adapters.ActivityWiseActivityRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.ActivityModel;
-import com.roamify.travel.models.DestinationModel;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
 import com.roamify.travel.utils.Constants;
@@ -67,6 +66,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         initView();
         findViewById(R.id.right_bar_button).setOnClickListener(this);
         findViewById(R.id.right_bar_search_button).setOnClickListener(this);
+
         try {
             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 4);
             rvRecyclerView.setLayoutManager(mLayoutManager);
@@ -100,6 +100,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
                 }
             }
         });
+
         if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
             try {
                 String URL = Constants.BaseUrl + "getActivityByType.php?type=" + getIntent().getStringExtra("type");
@@ -110,14 +111,13 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         } else {
             AlertDialogManager.showAlartDialog(ActivitiesList.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
-    }
 
+    }
     @Override
     protected void onStart() {
         super.onStart();
         Constants.activityItemClickListener = ActivitiesList.this;
     }
-
     @Override
     public void onClicked(String id, String name) {
         Intent intent = new Intent(getApplicationContext(), DestinationList.class);
@@ -127,7 +127,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         intent.putExtra("isComingFromActivities", true);
         startActivity(intent);
     }
-
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.imgClear) {
@@ -141,7 +140,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             rlSearch.setVisibility(View.VISIBLE);
         }
     }
-
     private void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         etSearchLocation = (EditText) findViewById(R.id.et_searchNews);
@@ -189,7 +187,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         appbar = (AppBarLayout) findViewById(R.id.appbar);
         rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);
     }
-
     private ArrayList<ActivityModel> filter(String folderID) {
         final ArrayList<ActivityModel> filteredModelList = new ArrayList<>();
         for (int i = 0; i < arrayList.size(); i++) {
@@ -205,7 +202,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         }
         return filteredModelList;
     }
-
     public void getRequestCall(String url, String tag) {
         // cancel request from pending queue
         AppController.getInstance().cancelPendingRequests(tag);
@@ -248,7 +244,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
     }
-
     private void runOnMainThread(JSONObject response) throws JSONException {
         JSONArray jsonArray = response.getJSONArray("details");
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -275,7 +270,6 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(arrayList, ActivitiesList.this, 0));
         }
     }
-
     @Override
     protected void onPause() {
         super.onPause();

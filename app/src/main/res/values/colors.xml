@@ -8,8 +8,8 @@
     <color name="color_contact_us">#3EAF81</color>
     <color name="color_about_us">#4F94B5</color>
     <color name="color_faq">#5CAFB7</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#55A83E</color>
+    <color name="colorPrimaryDark">#55A83E</color>
     <color name="colorAccent">#FF4081</color>
     <color name="black">#FF000000</color>
     <color name="blue">#FF0000FF</color>
@@ -35,6 +35,7 @@
     <color name="lightbrown">#FFBCBFC6</color>
     <color name="transparentgrey">#FFE4E4E3</color>
     <color name="translucentblack">#77000000</color>
+    <color name="translucentgreen">#9955A83E</color>
     <color name="translucentwhite">#99ffffff</color>
     <color name="translucentwhitelight">#55ffffff</color>
     <color name="holo_green_dark">#ff669900</color>

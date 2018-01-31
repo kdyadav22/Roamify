@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -155,17 +156,20 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         rvLandRecyclerView = (RecyclerView) findViewById(R.id.rv_LandRecyclerView);
-        rvLandRecyclerView.setLayoutManager(new LinearLayoutManager(AllActivities.this, LinearLayoutManager.HORIZONTAL, false));
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 4);
+        rvLandRecyclerView.setLayoutManager(mLayoutManager);
         rvLandRecyclerView.setHasFixedSize(true);
         rvLandRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         rvWaterRecyclerView = (RecyclerView) findViewById(R.id.rv_WaterRecyclerView);
-        rvWaterRecyclerView.setLayoutManager(new LinearLayoutManager(AllActivities.this, LinearLayoutManager.HORIZONTAL, false));
+        RecyclerView.LayoutManager mLayoutManager1 = new GridLayoutManager(getApplicationContext(), 4);
+        rvWaterRecyclerView.setLayoutManager(mLayoutManager1);
         rvWaterRecyclerView.setHasFixedSize(true);
         rvWaterRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         rvAirRecyclerView = (RecyclerView) findViewById(R.id.rv_AirRecyclerView);
-        rvAirRecyclerView.setLayoutManager(new LinearLayoutManager(AllActivities.this, LinearLayoutManager.HORIZONTAL, false));
+        RecyclerView.LayoutManager mLayoutManager2 = new GridLayoutManager(getApplicationContext(), 4);
+        rvAirRecyclerView.setLayoutManager(mLayoutManager2);
         rvAirRecyclerView.setHasFixedSize(true);
         rvAirRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -189,6 +193,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -203,6 +208,7 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
                 Validations.hideSoftInput(AllActivities.this);
             }
         });
+
         imgClear = (ImageView) findViewById(R.id.imgClear);
         llLandActivities = (LinearLayout) findViewById(R.id.ll_landActivities);
         llWaterActivities = (LinearLayout) findViewById(R.id.ll_waterActivities);
@@ -321,9 +327,9 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             }
 
             try {
-                if (arrayList1.size() > 4) {
+                /*if (arrayList1.size() > 4) {
                     rlArrowLayoutWater.setVisibility(View.VISIBLE);
-                }
+                }*/
 
                 llWaterActivities.setVisibility(View.VISIBLE);
                 Collections.sort(arrayList1, new Comparator<ActivityModel>() {
@@ -337,7 +343,6 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
                 ex.printStackTrace();
             }
         }
-
 
         JSONArray jsonArray1 = response.getJSONArray("Land");
         if (jsonArray1.length() > 0) {
@@ -356,9 +361,9 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
                 arrayList.add(model);
             }
             try {
-                if (arrayList2.size() > 4) {
+                /*if (arrayList2.size() > 4) {
                     rlArrowLayoutLand.setVisibility(View.VISIBLE);
-                }
+                }*/
                 llLandActivities.setVisibility(View.VISIBLE);
                 Collections.sort(arrayList2, new Comparator<ActivityModel>() {
                     @Override
@@ -390,10 +395,9 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             }
 
             try {
-
-                if (arrayList3.size() > 4) {
+                /*if (arrayList3.size() > 4) {
                     rlArrowLayoutAir.setVisibility(View.VISIBLE);
-                }
+                }*/
 
                 llAirActivities.setVisibility(View.VISIBLE);
                 Collections.sort(arrayList3, new Comparator<ActivityModel>() {

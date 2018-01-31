@@ -72,8 +72,8 @@ public class RelatedPackageListRVAdapter extends RecyclerView.Adapter<TopPackage
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .crossFade(1000)
                         .override(width, width)
-                        .error(R.drawable.no_image_found)
-                        .placeholder(R.drawable.no_image_found)
+                        .error(R.drawable.default_image)
+                        .placeholder(R.drawable.default_image)
                         .into(holder.packageImageView);
             } catch (Exception e) {
                 e.fillInStackTrace();
