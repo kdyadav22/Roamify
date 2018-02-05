@@ -9,14 +9,13 @@
     <include
         android:id="@+id/included_header"
         layout="@layout/toolbar_layout" />
-
     <RelativeLayout
         android:id="@+id/rlSearch"
         style="@style/edittext_white_forsearch"
         android:layout_width="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_below="@+id/included_header"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/included_header"
+        android:layout_marginBottom="10dp"
         android:visibility="gone">
 
         <EditText
@@ -57,7 +56,6 @@
             android:src="@drawable/ic_action_cancel"
             android:visibility="gone" />
     </RelativeLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -72,7 +70,7 @@
             <LinearLayout
                 android:id="@+id/main_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <android.support.v7.widget.RecyclerView
@@ -104,7 +102,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp" />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -133,4 +130,5 @@
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
+
 </RelativeLayout>

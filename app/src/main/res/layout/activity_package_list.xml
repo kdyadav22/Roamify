@@ -3,9 +3,132 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.roamify.travel.activity.ActivityPackageList">
 
     <include
-        layout="@layout/content_app_bar_activity_details" />
+        android:id="@+id/included_header"
+        layout="@layout/toolbar_layout" />
+    <RelativeLayout
+        android:id="@+id/rlSearch"
+        style="@style/edittext_white_forsearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/included_header"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/et_searchNews"
+            style="@style/edittext_search"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_toLeftOf="@+id/imgClear"
+            android:layout_toRightOf="@+id/imgSearch"
+            android:background="@android:color/transparent"
+            android:gravity="left|center"
+            android:hint="Search"
+            android:imeOptions="actionDone"
+            android:paddingLeft="10dp"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/imgSearch"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:gravity="left|center"
+            android:src="@drawable/ic_action_search"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgClear"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_action_cancel"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlSearch"
+        android:background="@color/white"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/main_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/white"
+                        android:gravity="center|left"
+                        android:text="Top Destinations"
+                        android:textColor="@color/md_green_700"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <fragment
+                        android:id="@+id/list_frag"
+                        class="com.roamify.travel.fragment.TopDestinationFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/white"
+                        android:gravity="center|left"
+                        android:text="Upcoming Activities"
+                        android:textColor="@color/md_green_700"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <fragment
+                        android:id="@+id/list_upcoming"
+                        class="com.roamify.travel.fragment.UpcomingActivitiesFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

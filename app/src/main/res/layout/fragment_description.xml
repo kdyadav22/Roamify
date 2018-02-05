@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="20dp"
     android:background="@color/md_white_1000"
     android:orientation="vertical"
     tools:context="com.roamify.travel.fragment.DescriptionFragment">
@@ -15,14 +14,15 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Duration:"
             android:textSize="15sp"
+            android:textColor="@color/md_grey_800"
             android:textStyle="bold" />
 
         <TextView
@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textColor="@color/md_grey_700"
             android:textSize="13sp" />
     </LinearLayout>
 
@@ -38,9 +39,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:visibility="gone"
         android:layout_marginRight="5dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,6 +56,7 @@
             android:layout_marginTop="5dp"
             android:text="Price:"
             android:textSize="15sp"
+            android:textColor="@color/md_grey_800"
             android:textStyle="bold" />
 
         <TextView
@@ -62,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textColor="@color/md_grey_700"
             android:textSize="13sp" />
     </LinearLayout>
 
@@ -70,9 +73,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:visibility="gone"
         android:layout_marginRight="5dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,7 +88,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Source"
+            android:text="Service Provider"
+            android:textColor="@color/md_grey_800"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -98,10 +102,10 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_recyclerView"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center|left"
-            android:visibility="gone"
-            android:layout_height="wrap_content" />
+            android:visibility="gone" />
     </LinearLayout>
 
     <LinearLayout
@@ -110,8 +114,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -125,6 +129,7 @@
             android:layout_marginTop="5dp"
             android:text="Description:"
             android:textSize="15sp"
+            android:textColor="@color/md_grey_800"
             android:textStyle="bold" />
 
         <com.roamify.travel.justify_textview.MyJustifiedTextView
@@ -132,7 +137,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
-            android:textColor="@color/md_grey_800"
+            android:textColor="@color/md_grey_700"
             android:textSize="13sp" />
     </LinearLayout>
 
@@ -151,6 +156,7 @@
             android:layout_height="wrap_content"
             android:text="Specification:"
             android:textSize="15sp"
+            android:textColor="@color/md_grey_800"
             android:textStyle="bold" />
 
         <com.roamify.travel.justify_textview.MyJustifiedTextView
@@ -158,6 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textColor="@color/md_grey_700"
             android:textSize="13sp" />
     </LinearLayout>
 
@@ -176,6 +183,7 @@
             android:layout_height="wrap_content"
             android:text="Features:"
             android:textSize="15sp"
+            android:textColor="@color/md_grey_800"
             android:textStyle="bold" />
 
         <com.roamify.travel.justify_textview.MyJustifiedTextView
@@ -183,6 +191,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
+            android:textColor="@color/md_grey_700"
             android:textSize="13sp" />
     </LinearLayout>
 

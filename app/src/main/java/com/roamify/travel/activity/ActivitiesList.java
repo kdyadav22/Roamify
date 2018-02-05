@@ -113,11 +113,13 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         }
 
     }
+
     @Override
     protected void onStart() {
         super.onStart();
         Constants.activityItemClickListener = ActivitiesList.this;
     }
+
     @Override
     public void onClicked(String id, String name) {
         Intent intent = new Intent(getApplicationContext(), DestinationList.class);
@@ -127,6 +129,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         intent.putExtra("isComingFromActivities", true);
         startActivity(intent);
     }
+
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.imgClear) {
@@ -140,6 +143,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             rlSearch.setVisibility(View.VISIBLE);
         }
     }
+
     private void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         etSearchLocation = (EditText) findViewById(R.id.et_searchNews);
@@ -187,6 +191,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         appbar = (AppBarLayout) findViewById(R.id.appbar);
         rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);
     }
+
     private ArrayList<ActivityModel> filter(String folderID) {
         final ArrayList<ActivityModel> filteredModelList = new ArrayList<>();
         for (int i = 0; i < arrayList.size(); i++) {
@@ -202,6 +207,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         }
         return filteredModelList;
     }
+
     public void getRequestCall(String url, String tag) {
         // cancel request from pending queue
         AppController.getInstance().cancelPendingRequests(tag);
@@ -244,6 +250,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
     }
+
     private void runOnMainThread(JSONObject response) throws JSONException {
         JSONArray jsonArray = response.getJSONArray("details");
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -270,6 +277,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             rvRecyclerView.setAdapter(new ActivityWiseActivityRVAdapter(arrayList, ActivitiesList.this, 0));
         }
     }
+
     @Override
     protected void onPause() {
         super.onPause();

@@ -31,11 +31,13 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
         this.activityModels = activityModels;
         this.action = action;
     }
+
     @Override
     public ActivityPackageListViewHandler onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cell_activity_package_list_changed_layout, parent, false);
         return new ActivityPackageListViewHandler(itemView);
     }
+
     @Override
     public void onBindViewHolder(ActivityPackageListViewHandler holder, final int position) {
         final PackageModel data = activityModels.get(holder.getAdapterPosition());
@@ -146,6 +148,7 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
             });*/
         }
     }
+
     @Override
     public int getItemCount() {
         return activityModels.size();
