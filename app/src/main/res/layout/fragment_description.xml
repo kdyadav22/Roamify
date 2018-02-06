@@ -48,6 +48,7 @@
             android:layout_height="1dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
+            android:visibility="gone"
             android:background="@color/md_grey_200" />
 
         <TextView
@@ -82,6 +83,7 @@
             android:layout_height="1dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
+            android:visibility="gone"
             android:background="@color/md_grey_200" />
 
         <TextView
@@ -121,6 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="5dp"
+            android:visibility="gone"
             android:background="@color/md_grey_300" />
 
         <TextView

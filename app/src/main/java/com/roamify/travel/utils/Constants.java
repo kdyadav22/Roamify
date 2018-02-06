@@ -2,6 +2,7 @@ package com.roamify.travel.utils;
 
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.listeners.AllActivityItemClickListener;
+import com.roamify.travel.listeners.RatingBarCallback;
 
 /**
  * Created by Panalink-03 on 11/24/2017.
@@ -10,6 +11,7 @@ import com.roamify.travel.listeners.AllActivityItemClickListener;
 public class Constants {
     public static ActivityItemClickListener activityItemClickListener;
     public static AllActivityItemClickListener allActivityItemClickListener;
+    public static RatingBarCallback ratingBarCallback;
 
     public static final int SOCKET_TIME_OUT = 30 * 1000; //30 seconds; Changeable
     public static final int DEFAULT_MAX_RETRIES = 3;

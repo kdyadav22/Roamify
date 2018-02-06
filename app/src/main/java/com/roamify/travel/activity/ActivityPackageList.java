@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -31,7 +30,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.ActivitiesPackageListRVAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
-import com.roamify.travel.models.ActivityModel;
 import com.roamify.travel.models.PackageModel;
 import com.roamify.travel.utils.AppController;
 import com.roamify.travel.utils.CheckConnection;
@@ -172,13 +170,11 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         }
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();
         currentActivity = ActivityPackageList.this;
     }
-
     @Override
     public void onBackPressed() {
         /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -189,7 +185,6 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         }*/
         super.onBackPressed();
     }
-
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.right_bar_button) {
@@ -222,7 +217,6 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         }
         return filteredModelList;
     }
-
     public void getRequestCall(String url, String tag) {
         // cancel request from pending queue
         AppController.getInstance().cancelPendingRequests(tag);
@@ -265,7 +259,6 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
     }
-
     private void runOnMainThread(JSONObject response) throws JSONException {
         JSONArray jsonArray = response.getJSONArray("details");
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -306,7 +299,6 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
         super.onPause();
         Constants.activityItemClickListener = null;
     }
-
     private void initView() {
         imgClear = (ImageView) findViewById(R.id.imgClear);
         rlSearch = (RelativeLayout) findViewById(R.id.rlSearch);

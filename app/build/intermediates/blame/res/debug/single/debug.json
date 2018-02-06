@@ -88,12 +88,12 @@
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable/destination_button_bg.xml"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_13_dark.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_13_dark.png"
-    },
-    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/anim_design_snackbar_in.xml.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-27.0.1.aar/25457bf9877bafbdd8f38a71bff70e01/res/anim/design_snackbar_in.xml"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_13_dark.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_13_dark.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_romify_title.png.flat",
@@ -120,28 +120,28 @@
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/generated/res/pngs/debug/drawable-anydpi-v21/iv_land.xml"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/color-v21_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/color-v21/abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-xhdpi-v4/abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/color-v21_abc_btn_colored_borderless_text_material.xml.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/color-v21/abc_btn_colored_borderless_text_material.xml"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/layout_view_cell_top_package_list.xml.flat",
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/layout/view_cell_top_package_list.xml"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-mdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/animator-v21_design_appbar_state_list_animator.xml.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-27.0.1.aar/25457bf9877bafbdd8f38a71bff70e01/res/animator-v21/design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-mdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_holo_light.xml.flat",
@@ -280,12 +280,12 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_28_light.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_25_light.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_25_light.png"
-    },
-    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_design_ic_visibility_off.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/design-27.0.1.aar/25457bf9877bafbdd8f38a71bff70e01/res/drawable-xxxhdpi-v4/design_ic_visibility_off.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_25_light.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_25_light.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connected_06_dark.png.flat",
@@ -296,24 +296,24 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/facebook-common-4.29.0.aar/1d8583ac41346cb71d7321d12b1a7cd8/res/layout/com_facebook_login_fragment.xml"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_11_dark.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_11_dark.png"
-    },
-    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connecting_28_light.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connecting_28_light.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_11_dark.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_11_dark.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connected_05_light.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connected_05_light.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connected_02_light.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connected_02_light.png"
-    },
-    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connected_13_dark.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connected_13_dark.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connected_02_light.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connected_02_light.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_contact.png.flat",
@@ -344,20 +344,20 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connected_08_light.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_20_dark.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_20_dark.png"
-    },
-    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connecting_00_dark.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connecting_00_dark.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/layout_support_simple_spinner_dropdown_item.xml.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/layout/support_simple_spinner_dropdown_item.xml"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_20_dark.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_20_dark.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_dark_focused.xml.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/layout_support_simple_spinner_dropdown_item.xml.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connecting_25_light.png.flat",
@@ -384,16 +384,16 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connecting_25_dark.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/color_com_facebook_button_text_color.xml.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/facebook-common-4.29.0.aar/1d8583ac41346cb71d7321d12b1a7cd8/res/color/com_facebook_button_text_color.xml"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/layout_com_facebook_device_auth_dialog_fragment.xml.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/facebook-common-4.29.0.aar/1d8583ac41346cb71d7321d12b1a7cd8/res/layout/com_facebook_device_auth_dialog_fragment.xml"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-v21_abc_action_bar_item_background_material.xml.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/layout_com_facebook_device_auth_dialog_fragment.xml.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/facebook-common-4.29.0.aar/1d8583ac41346cb71d7321d12b1a7cd8/res/layout/com_facebook_device_auth_dialog_fragment.xml"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/color_com_facebook_button_text_color.xml.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/facebook-common-4.29.0.aar/1d8583ac41346cb71d7321d12b1a7cd8/res/color/com_facebook_button_text_color.xml"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_media_pause_light.png.flat",
@@ -416,16 +416,16 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-xxhdpi-v4/abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/layout_abc_list_menu_item_icon.xml.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/layout/abc_list_menu_item_icon.xml"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_abc_cab_background_top_material.xml.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable/abc_cab_background_top_material.xml"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_abc_item_background_holo_dark.xml.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_abc_cab_background_top_material.xml.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable/abc_cab_background_top_material.xml"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/layout_abc_list_menu_item_icon.xml.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/layout/abc_list_menu_item_icon.xml"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi_right_arrow.png.flat",
@@ -476,12 +476,12 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connecting_10_light.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connecting_10_light.png"
-    },
-    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_08_dark.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_08_dark.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connecting_10_light.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connecting_10_light.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
@@ -588,12 +588,12 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi_nav_logout.png.flat",
-        "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable-xhdpi/nav_logout.png"
-    },
-    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher_background.png.flat",
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi_nav_logout.png.flat",
+        "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable-xhdpi/nav_logout.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -652,16 +652,16 @@
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable/ic_launcher.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_ic_group_collapse_14.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxxhdpi-v4/ic_group_collapse_14.png"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_water_activity_button_bg.xml.flat",
+        "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable/water_activity_button_bg.xml"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_mr_button_connecting_07_light.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxhdpi-v4/ic_mr_button_connecting_07_light.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_water_activity_button_bg.xml.flat",
-        "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable/water_activity_button_bg.xml"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_ic_group_collapse_14.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xxxhdpi-v4/ic_group_collapse_14.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_downarrow.png.flat",
@@ -672,16 +672,16 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_text_color.xml.flat",
+        "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable/text_color.xml"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_left_arrow.png.flat",
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable-xxhdpi/left_arrow.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_text_color.xml.flat",
-        "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable/text_color.xml"
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_destination_activity.png.flat",
@@ -740,12 +740,12 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/color/abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-hdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connecting_08_dark.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connecting_08_dark.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-hdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_com_facebook_auth_dialog_background.xml.flat",
@@ -776,12 +776,12 @@
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/drawable-xxhdpi-v4/abc_ic_star_black_16dp.png"
     },
     {
-        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_29_dark.png.flat",
-        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_29_dark.png"
-    },
-    {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connecting_01_dark.png.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connecting_01_dark.png"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_29_dark.png.flat",
+        "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/drawable-xhdpi-v4/ic_mr_button_connected_29_dark.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connected_22_dark.png.flat",
@@ -1938,6 +1938,10 @@
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_corner_bg_with_whitebg_for_reviewdialog.xml.flat",
         "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable/corner_bg_with_whitebg_for_reviewdialog.xml"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/layout_service_provider_rating_dialog.xml.flat",
+        "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/layout/service_provider_rating_dialog.xml"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_connecting_12_light.png.flat",
@@ -4446,6 +4450,10 @@
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/layout_abc_list_menu_item_checkbox.xml.flat",
         "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable_login_panel.png.flat",
+        "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/src/main/res/drawable/login_panel.png"
     },
     {
         "merged": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/res/merged/debug/drawable-mdpi_iv_destinations.png.flat",

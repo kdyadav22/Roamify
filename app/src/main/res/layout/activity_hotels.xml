@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/header"></include>
+        layout="@layout/header" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_recyclerView"

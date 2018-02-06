@@ -1,5 +1,6 @@
 package com.roamify.travel.models;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -17,7 +18,7 @@ public class PackageDetailsModel {
     String features ;
     String specification ;
     String ratings ;
-    String source ;
+    JSONArray source ;
 
     public String getId() {
         return id;
@@ -99,11 +100,11 @@ public class PackageDetailsModel {
         this.ratings = ratings;
     }
 
-    public String getSource() {
+    public JSONArray getSource() {
         return source;
     }
 
-    public void setSource(String source) {
+    public void setSource(JSONArray source) {
         this.source = source;
     }
 

@@ -483,7 +483,11 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 String features = jsonObject.getString("features");
                 String specification = jsonObject.getString("specification");
                 String ratings = jsonObject.getString("ratings");
-                String source = jsonObject.getString("source");
+
+                JSONObject sourceObject = new JSONObject(jsonObject.getString("source"));
+
+                JSONArray sourcejsonArray = sourceObject.getJSONArray("serviceprovider");
+
                 String duration = jsonObject.getString("duration");
                 String galleryImages = jsonObject.getString("galleryImages");
                 String[] spilltedImages = galleryImages.split(",");
@@ -499,7 +503,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 model.setFeatures(features);
                 model.setSpecification(specification);
                 model.setRatings(ratings);
-                model.setSource(source);
+                model.setSource(sourcejsonArray);
                 model.setDuration(duration);
                 model.setGalleryImages(spilltedImages);
             }
@@ -511,7 +515,6 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             else
                 AlertDialogManager.showAlartDialog(ActivityPackageDetails.this, "Alert!", "There is some problem, please try again.");
 
-            //Log.d("Submit Res", "My Res: " + response);
         }
     }
 

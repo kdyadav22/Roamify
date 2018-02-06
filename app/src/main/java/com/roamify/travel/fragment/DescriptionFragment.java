@@ -1,31 +1,58 @@
 package com.roamify.travel.fragment;
 
-
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.activity.ActivityPackageDetails;
-import com.roamify.travel.adapters.SourceRVAdapter;
 import com.roamify.travel.adapters.SourceRVAdapterDetails;
+import com.roamify.travel.dialogs.AlertDialogManager;
+import com.roamify.travel.listeners.RatingBarCallback;
 import com.roamify.travel.models.PackageDetailsModel;
+import com.roamify.travel.models.SourceSiteModel;
+import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.CheckConnection;
+import com.roamify.travel.utils.Constants;
 import com.roamify.travel.utils.Validations;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DescriptionFragment extends Fragment {
+public class DescriptionFragment extends Fragment implements RatingBarCallback {
 
-
+    float ratingNumber = 0.0f;
     protected View rootView;
     protected TextView tvDetailsDuration;
     protected TextView tvDetailsPrice;
@@ -40,11 +67,11 @@ public class DescriptionFragment extends Fragment {
     protected LinearLayout llDetailsSource;
     protected RecyclerView rvRecyclerView;
     protected LinearLayout llDescSpec;
+    ArrayList<SourceSiteModel> sourceSiteModelArrayList = new ArrayList<>();
 
     public DescriptionFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,7 +79,7 @@ public class DescriptionFragment extends Fragment {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_description, container, false);
         initView(rootView);
-
+        Constants.ratingBarCallback = this;
         PackageDetailsModel packageDetailsModel = ActivityPackageDetails.getInstance().packageDetailsModel;
 
         String pacaDuration = packageDetailsModel.getDuration();
@@ -67,8 +94,8 @@ public class DescriptionFragment extends Fragment {
             tvDetailsPrice.setText("Rs. " + packPrice + " per person");
         }
 
-        String packSrc = packageDetailsModel.getSource();
-        if (Validations.isNotNullNotEmptyNotWhiteSpace(packSrc)) {
+        JSONArray packSrc = packageDetailsModel.getSource();
+        if (packSrc.length() > 0) {
             try {
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
                 rvRecyclerView.setLayoutManager(mLayoutManager);
@@ -78,15 +105,24 @@ public class DescriptionFragment extends Fragment {
                 ie.getMessage();
             }
 
-            rvRecyclerView.setVisibility(View.VISIBLE);
-            //holder.tv_packageSources.setText(data.getPackageSource().replace(",", "\n"));
-            String sources[] = packSrc.split(",");
-            if (sources.length > 0) {
-                rvRecyclerView.setAdapter(new SourceRVAdapterDetails(sources, getActivity()));
+            for (int i = 0; i < packSrc.length(); i++) {
+                try {
+                    JSONObject jsonObject = packSrc.getJSONObject(i);
+                    SourceSiteModel sourceSiteModel = new SourceSiteModel();
+                    sourceSiteModel.setSourceId(jsonObject.getString("id"));
+                    sourceSiteModel.setSourceUrl(jsonObject.getString("sourceUrl"));
+                    sourceSiteModel.setRating(jsonObject.getString("ratings"));
+                    sourceSiteModelArrayList.add(sourceSiteModel);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
-            llDetailsSource.setVisibility(View.VISIBLE);
-            //tvDetailsSource.setText(packSrc);
+            if (sourceSiteModelArrayList.size() > 0) {
+                rvRecyclerView.setVisibility(View.VISIBLE);
+                rvRecyclerView.setAdapter(new SourceRVAdapterDetails(sourceSiteModelArrayList, getActivity()));
+                llDetailsSource.setVisibility(View.VISIBLE);
+            }
         }
 
         String packDesc = packageDetailsModel.getDescription();
@@ -124,5 +160,135 @@ public class DescriptionFragment extends Fragment {
         llDetailsSource = (LinearLayout) rootView.findViewById(R.id.ll_details_source);
         rvRecyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recyclerView);
         llDescSpec = (LinearLayout) rootView.findViewById(R.id.ll_desc_spec);
+    }
+
+    @Override
+    public void onClickRatingBar(String service_provider_id) {
+        showRatingDialog(service_provider_id);
+    }
+
+    public void showRatingDialog(final String sp_id) {
+        try {
+
+            final Dialog mdialog = new Dialog(getActivity());
+            mdialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+            mdialog.setContentView(R.layout.service_provider_rating_dialog);
+            mdialog.setCancelable(false);
+            //mdialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            Window window = mdialog.getWindow();
+            WindowManager.LayoutParams wlp = window.getAttributes();
+            wlp.gravity = Gravity.CENTER;
+            window.setAttributes(wlp);
+            TextView okButton = (TextView) mdialog.findViewById(R.id.submitButton);
+            TextView cancelButton = (TextView) mdialog.findViewById(R.id.cancelButton);
+
+            final EditText commentEditText = (EditText) mdialog.findViewById(R.id.et_comment);
+            RatingBar simpleRatingBar = (RatingBar) mdialog.findViewById(R.id.ratingbar); // initiate a rating bar
+
+            simpleRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                @Override
+                public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                    if (fromUser) {
+                        ratingNumber = rating;
+                    }
+                }
+            });
+
+            okButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+
+                    JSONObject jsonObject = new JSONObject();
+                    PackageDetailsModel packageDetailsModel = ActivityPackageDetails.getInstance().packageDetailsModel;
+                    try {
+                        jsonObject.put("id", sp_id);
+                        jsonObject.put("packageid", packageDetailsModel.getId());
+                        jsonObject.put("comment", commentEditText.getText().toString().trim());
+                        jsonObject.put("rating", ratingNumber);
+                    } catch (JSONException je) {
+                        je.printStackTrace();
+                    }
+
+                    try {
+
+                        if (new CheckConnection(getActivity()).isConnectedToInternet()) {
+                            try {
+                                String Url = Constants.BaseUrl + "submitReview.php?packageId=" + packageDetailsModel.getId() + "&comment=" + commentEditText.getText().toString().trim() + "&rating=" + ratingNumber;
+                                getRequestCall(Url, "submit_review", null);
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
+                        } else {
+                            AlertDialogManager.showAlartDialog(getActivity(), getString(R.string.no_network_title), getString(R.string.no_network_msg));
+                        }
+                    } catch (Exception je) {
+                        je.printStackTrace();
+                    }
+
+                    mdialog.dismiss();
+                }
+            });
+            cancelButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+                    mdialog.dismiss();
+                }
+            });
+            mdialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getRequestCall(String url, String tag, JSONObject jsonObject) {
+        // cancel request from pending queue
+        AppController.getInstance().cancelPendingRequests(tag);
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                url, jsonObject,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("TAG", response.toString());
+                        try {
+                            getActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                }
+                            });
+                        } catch (Exception ex) {
+                            ex.getMessage();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("TAG", "Error: " + error.getMessage());
+            }
+        })
+
+        {
+            /**
+             * Passing some request headers
+             * */
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+
+        //Adding policy for socket time out
+        RetryPolicy policy = new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        jsonObjReq.setRetryPolicy(policy);
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
     }
 }

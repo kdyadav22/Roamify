@@ -52,8 +52,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected AppBarLayout appbar;
     protected EditText etUsername;
     protected EditText etPassword;
-    protected Button btSignIn;
-    protected Button btSkip;
     protected TextView btSkipTextView;
     protected TextView registerButton;
     private static final String TAG = LoginActivity.class.getSimpleName();
@@ -159,20 +157,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.bt_signIn) {
-
-        } else if (view.getId() == R.id.registerButton) {
-            try {
-                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        } else if (view.getId() == R.id.bt_skip) {
-            AppController.getInstance().isSkipped(true);
-            goToNext();
-        } else if (view.getId() == R.id.btn_sign_in) {
+         if (view.getId() == R.id.btn_sign_in) {
             try {
                 //signIn();
             } catch (Exception ex) {
@@ -209,14 +194,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         appbar = (AppBarLayout) findViewById(R.id.appbar);
         etUsername = (EditText) findViewById(R.id.et_username);
         etPassword = (EditText) findViewById(R.id.et_password);
-        btSignIn = (Button) findViewById(R.id.bt_signIn);
-        btSignIn.setOnClickListener(LoginActivity.this);
-        btSkip = (Button) findViewById(R.id.bt_skip);
         btSkipTextView = (TextView) findViewById(R.id.tv_skipBtn);
         btSkipTextView.setOnClickListener(LoginActivity.this);
-        btSkip.setOnClickListener(LoginActivity.this);
-        registerButton = (TextView) findViewById(R.id.registerButton);
-        registerButton.setOnClickListener(LoginActivity.this);
 
         btnSignIn = (SignInButton) findViewById(R.id.btn_sign_in);
         btnSignIn.setOnClickListener(this);

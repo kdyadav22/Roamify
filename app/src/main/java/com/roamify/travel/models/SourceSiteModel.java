@@ -7,8 +7,7 @@ package com.roamify.travel.models;
 public class SourceSiteModel {
     private String sourceId;
     private String sourceUrl;
-    private String sourceFullUrl;
-
+    private String rating ;
     public String getSourceId() {
         return sourceId;
     }
@@ -21,11 +20,10 @@ public class SourceSiteModel {
     public void setSourceUrl(String sourceUrl) {
         this.sourceUrl = sourceUrl;
     }
-    public String getSourceFullUrl() {
-        return sourceFullUrl;
+    public String getRating() {
+        return rating;
     }
-    public void setSourceFullUrl(String sourceFullUrl) {
-        this.sourceFullUrl = sourceFullUrl;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
-
 }
