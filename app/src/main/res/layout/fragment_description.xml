@@ -7,7 +7,6 @@
     tools:context="com.roamify.travel.fragment.DescriptionFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
     <LinearLayout
         android:id="@+id/ll_details_duration"
         android:layout_width="match_parent"
@@ -21,14 +20,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Duration:"
-            android:textSize="15sp"
             android:textColor="@color/md_grey_800"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_details_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:text=""
             android:textColor="@color/md_grey_700"
             android:textSize="13sp" />
@@ -40,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -48,16 +49,16 @@
             android:layout_height="1dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
-            android:visibility="gone"
-            android:background="@color/md_grey_200" />
+            android:background="@color/md_grey_200"
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:text="Price:"
-            android:textSize="15sp"
             android:textColor="@color/md_grey_800"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -75,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -83,13 +85,12 @@
             android:layout_height="1dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
-            android:visibility="gone"
-            android:background="@color/md_grey_200" />
+            android:background="@color/md_grey_200"
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="Service Provider"
             android:textColor="@color/md_grey_800"
             android:textSize="15sp"
@@ -106,6 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="2dp"
             android:gravity="center|left"
             android:visibility="gone" />
     </LinearLayout>
@@ -116,6 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -123,22 +126,22 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="5dp"
-            android:visibility="gone"
-            android:background="@color/md_grey_300" />
+            android:background="@color/md_grey_300"
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="Description:"
-            android:textSize="15sp"
             android:textColor="@color/md_grey_800"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <com.roamify.travel.justify_textview.MyJustifiedTextView
             android:id="@+id/tv_details_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:text=""
             android:textColor="@color/md_grey_700"
             android:textSize="13sp" />
@@ -150,7 +153,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -158,14 +161,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Specification:"
-            android:textSize="15sp"
             android:textColor="@color/md_grey_800"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <com.roamify.travel.justify_textview.MyJustifiedTextView
             android:id="@+id/tv_details_spec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:text=""
             android:textColor="@color/md_grey_700"
             android:textSize="13sp" />
@@ -185,14 +189,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Features:"
-            android:textSize="15sp"
             android:textColor="@color/md_grey_800"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <com.roamify.travel.justify_textview.MyJustifiedTextView
             android:id="@+id/tv_details_ftr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:text=""
             android:textColor="@color/md_grey_700"
             android:textSize="13sp" />

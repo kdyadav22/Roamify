@@ -2,6 +2,7 @@ package com.roamify.travel.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -11,7 +12,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -28,6 +31,7 @@ import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -38,6 +42,7 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.roamify.travel.R;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.Validations;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected TextView registerButton;
     private static final String TAG = LoginActivity.class.getSimpleName();
     private static final int RC_SIGN_IN = 007;
-    protected LoginButton loginButton;
+    protected ImageView loginButton;
 
     private GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog;
@@ -66,14 +71,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private static final String EMAIL = "email";
     private static final String USER_POSTS = "user_posts";
     private static final String USER_PROFILE = "user_profile";
-
     private CallbackManager mCallbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_login);
-        mCallbackManager = CallbackManager.Factory.create();
         initView();
 
         /*GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -90,10 +93,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnSignIn.setScopes(gso.getScopeArray());*/
 
         // Set the initial permissions to request from the user while logging in
-        loginButton.setReadPermissions(Arrays.asList(EMAIL, USER_POSTS));
+        //loginButton.setReadPermissions(Arrays.asList(EMAIL, USER_POSTS));
 
         // Register a callback to respond to the user
-        loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+        /*loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.d(TAG, "Got cached sign-in " + loginResult.getAccessToken());
@@ -113,21 +116,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onError(FacebookException e) {
                 // Handle exception
             }
-        });
+        });*/
     }
 
     private void nextActivity(Profile profile) {
         if (profile != null) {
-            if(getIntent().getBooleanExtra("isComingFromDetails", false))
-            {
+            if (getIntent().getBooleanExtra("isComingFromDetails", false)) {
                 onBackPressed();
-            }else
-            {
+            } else {
                 Intent main = new Intent(LoginActivity.this, HomePageWithMenu.class);
                 main.putExtra("name", profile.getFirstName());
                 main.putExtra("surname", profile.getLastName());
                 main.putExtra("imageUrl", profile.getProfilePictureUri(200, 200).toString());
                 startActivity(main);
+                finish();
             }
 
         }
@@ -157,7 +159,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-         if (view.getId() == R.id.btn_sign_in) {
+        if (view.getId() == R.id.btn_sign_in) {
             try {
                 //signIn();
             } catch (Exception ex) {
@@ -167,7 +169,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             AppController.getInstance().isSkipped(true);
             goToNext();
         } else if (view.getId() == R.id.login_button) {
-
+            onFblogin();
         }
     }
 
@@ -196,10 +198,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         etPassword = (EditText) findViewById(R.id.et_password);
         btSkipTextView = (TextView) findViewById(R.id.tv_skipBtn);
         btSkipTextView.setOnClickListener(LoginActivity.this);
-
         btnSignIn = (SignInButton) findViewById(R.id.btn_sign_in);
         btnSignIn.setOnClickListener(this);
-        loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton = (ImageView) findViewById(R.id.login_button);
         loginButton.setOnClickListener(LoginActivity.this);
     }
 
@@ -357,5 +358,57 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }*/
 
 
+    }
+
+    // Private method to handle Facebook login and callback
+    private void onFblogin() {
+        mCallbackManager = CallbackManager.Factory.create();
+        // Set permissions
+        LoginManager.getInstance().logOut();
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "public_profile", "user_photos"));
+        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(final LoginResult loginResult) {
+                Profile profile = Profile.getCurrentProfile();
+                if (profile != null) {
+                   /* facebook_id = profile.getId();
+                    f_name = profile.getFirstName();
+                    m_name = profile.getMiddleName();
+                    l_name = profile.getLastName();
+                    full_name = profile.getName();
+                    profile_image = profile.getProfilePictureUri(400, 400).toString();*/
+                }
+
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id,name,email,gender, birthday");
+                GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) {
+                                try {
+                                    //AccessToken accessToken = loginResult.getAccessToken();
+                                    Profile profile = Profile.getCurrentProfile();
+                                    AppController.getInstance().setUserId(profile.getId());
+                                    nextActivity(profile);
+                                } catch (Exception e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                request.setParameters(parameters);
+                request.executeAsync();
+            }
+
+            @Override
+            public void onCancel() {
+                Toast.makeText(getApplicationContext(), "Login Cancelled", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

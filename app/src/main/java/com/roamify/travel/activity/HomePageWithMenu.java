@@ -1,6 +1,7 @@
 package com.roamify.travel.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -89,6 +90,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
     DrawerLayout drawer;
     NavigationView navigationView;
     ArrayList<HomePageSearchModel> pageSearchModelArrayList = new ArrayList<>();
+    int backButtonCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,8 +177,23 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (backButtonCounter == 0)
+                Toast.makeText(getApplicationContext(), "Press again to close Roamify", Toast.LENGTH_SHORT).show();
+
+            if (backButtonCounter == 1) {
+                /*SharedPreferences prefs = getSharedPreferences("X", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("lastActivity", getClass().getName());
+                editor.commit();*/
+
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                startActivity(intent);
+                backButtonCounter = 0;
+            }
+            backButtonCounter++;
         }
+
     }
 
     /*@Override
@@ -246,7 +263,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
             }
         } else if (id == R.id.nav_logout) {
 
-        }else if (id == R.id.nav_water) {
+        } else if (id == R.id.nav_water) {
             try {
                 intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "WATER ACTIVITIES");
@@ -256,8 +273,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        }
-        else if (id == R.id.nav_land) {
+        } else if (id == R.id.nav_land) {
             try {
                 intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "LAND ACTIVITIES");
@@ -267,8 +283,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        }
-        else if (id == R.id.nav_air) {
+        } else if (id == R.id.nav_air) {
             try {
                 intent = new Intent(getApplicationContext(), ActivitiesList.class);
                 intent.putExtra("title", "AIR ACTIVITIES");
@@ -278,8 +293,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        }
-        else if (id == R.id.nav_destination) {
+        } else if (id == R.id.nav_destination) {
             try {
                 intent = new Intent(getApplicationContext(), DestinationList.class);
                 intent.putExtra("title", "DESTINATIONS");
@@ -310,7 +324,8 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
     }
 
     @Override
-    public void onClicked(String id, String name) {}
+    public void onClicked(String id, String name) {
+    }
 
     private ArrayList<MenuItemModel> setMenuData() {
         ArrayList<MenuItemModel> menuItemModels = new ArrayList<>();
@@ -620,7 +635,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
                 intent.putExtra("isComingFromSearchPageWithState", true);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
-            }else if (pageSearchModelArrayList.get(pos).getType().equals("Zone")) {
+            } else if (pageSearchModelArrayList.get(pos).getType().equals("Zone")) {
                 /*Intent intent = new Intent(getApplicationContext(), DestinationList.class);
                 intent.putExtra("title", pageSearchModelArrayList.get(pos).getName());
                 intent.putExtra("state_id", pageSearchModelArrayList.get(pos).getId());

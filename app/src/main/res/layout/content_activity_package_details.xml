@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/md_white_1000"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.ActivityPackageDetails"
@@ -22,6 +23,7 @@
             <RelativeLayout
                 android:id="@+id/rl_imageLayout"
                 android:layout_width="match_parent"
+                android:background="@color/md_white_1000"
                 android:layout_height="200dp">
 
                 <android.support.v4.view.ViewPager
@@ -53,7 +55,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/brown"
+                android:background="@color/md_white_1000"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -81,8 +83,8 @@
                             android:gravity="center|left"
                             android:maxLines="2"
                             android:text=""
-                            android:textColor="@color/md_grey_800"
-                            android:textSize="16sp" />
+                            android:textColor="@color/md_grey_900"
+                            android:textSize="18sp" />
 
                         <!--<LinearLayout
                             android:layout_width="match_parent"
@@ -132,8 +134,8 @@
                             android:background="@drawable/submit_query_button_pressed_new"
                             android:gravity="center"
                             android:text="Submit Query"
-                            android:textColor="@color/md_grey_800"
-                            android:textSize="13dp" />
+                            android:textColor="@color/md_grey_900"
+                            android:textSize="14dp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -159,9 +161,9 @@
                             android:layout_height="fill_parent"
                             android:layout_gravity="center"
                             android:fillViewport="true"
-                            app:tabIndicatorColor="#616161"
-                            app:tabSelectedTextColor="@color/black"
-                            app:tabTextColor="@color/md_grey_800" />
+                            app:tabIndicatorColor="@color/md_grey_600"
+                            app:tabSelectedTextColor="@color/md_grey_800"
+                            app:tabTextColor="@color/md_grey_700" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -169,6 +171,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:background="@color/md_white_1000"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -182,8 +185,8 @@
                 android:id="@+id/ll_relatedListView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -194,8 +197,8 @@
                     android:text="Related Activities"
                     android:textColor="@color/md_green_700"
                     android:textSize="18sp"
-                    android:visibility="gone"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <!--<fragment
                     android:id="@+id/related_frag"
