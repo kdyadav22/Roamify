@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.roamify.travel.R;
+import com.roamify.travel.utils.Validations;
 
 public class ContactUsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,6 +49,8 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
         rightBarButton = (ImageView) findViewById(R.id.right_bar_button);
         rightBarButton.setOnClickListener(ContactUsActivity.this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        TextView toolbarTitle = (TextView)toolbar.findViewById(R.id.toolbar_title);
+        toolbarTitle.setText("Contact");
         appbar = (AppBarLayout) findViewById(R.id.appbar);
         logoImageview = (ImageView) findViewById(R.id.logo_imageview);
         phoneNumber = (TextView) findViewById(R.id.phone_number);
@@ -55,15 +58,19 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
         websiteUrl = (TextView) findViewById(R.id.website_url);
         tavLayout = (LinearLayout) findViewById(R.id.tavLayout);
 
-        toolbar.setTitle(getIntent().getStringExtra("title"));
+        //toolbar.setTitle(getIntent().getStringExtra("title"));
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
+
         setSupportActionBar(toolbar);
         try {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         } catch (NullPointerException npe) {
             npe.getMessage();
         }
+
+        Validations.centerToolbarTitle(toolbar);
 
         try {
             final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);

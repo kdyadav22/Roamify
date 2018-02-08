@@ -19,10 +19,16 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/FullscreenTheme.PopupOverlay">
-            
+
             <TextView
-                android:layout_width=""
-                android:layout_height="" />
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="19sp"
+                android:text="Text"
+                android:textColor="@color/md_white_1000"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_gravity="center" />
 
             <ImageView
                 android:id="@+id/right_bar_button"

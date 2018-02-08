@@ -215,7 +215,8 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
 
                         if (new CheckConnection(getActivity()).isConnectedToInternet()) {
                             try {
-                                String Url = Constants.BaseUrl + "submitReview.php?packageId=" + packageDetailsModel.getId() + "&comment=" + commentEditText.getText().toString().trim() + "&rating=" + ratingNumber;
+                                //http://mohanpackaging.com/app/submitrating.php
+                                String Url = Constants.BaseUrl + "submitrating.php?packageId=" + packageDetailsModel.getId() + "&comment=" + commentEditText.getText().toString().trim() + "&rating=" + ratingNumber+ "&serviceProviderId=" + sp_id;
                                 getRequestCall(Url, "submit_review", null);
                             } catch (Exception ex) {
                                 ex.printStackTrace();

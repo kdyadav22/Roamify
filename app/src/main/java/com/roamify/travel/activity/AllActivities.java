@@ -173,16 +173,22 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
         rvAirRecyclerView.setHasFixedSize(true);
         rvAirRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        toolbar.setTitle(getIntent().getStringExtra("title"));
+        //toolbar.setTitle(getIntent().getStringExtra("title"));
+
+        TextView toolbarTitle = (TextView)toolbar.findViewById(R.id.toolbar_title);
+        toolbarTitle.setText(getIntent().getStringExtra("title"));
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
 
         try {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         } catch (NullPointerException npe) {
             npe.getMessage();
         }
+
+        Validations.centerToolbarTitle(toolbar);
 
         try {
             final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);

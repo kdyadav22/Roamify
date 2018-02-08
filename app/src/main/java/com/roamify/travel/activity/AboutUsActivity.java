@@ -9,8 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.roamify.travel.R;
+import com.roamify.travel.utils.Validations;
 
 public class AboutUsActivity extends AppCompatActivity implements View.OnClickListener {
     protected ImageView rightBarButton;
@@ -40,6 +42,9 @@ public class AboutUsActivity extends AppCompatActivity implements View.OnClickLi
         rightBarButton = (ImageView) findViewById(R.id.right_bar_button);
         rightBarButton.setOnClickListener(AboutUsActivity.this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        TextView toolbarTitle = (TextView)toolbar.findViewById(R.id.toolbar_title);
+        toolbarTitle.setText("About");
+
         appbar = (AppBarLayout) findViewById(R.id.appbar);
 
         toolbar.setTitle(getIntent().getStringExtra("title"));
@@ -48,9 +53,12 @@ public class AboutUsActivity extends AppCompatActivity implements View.OnClickLi
         setSupportActionBar(toolbar);
         try {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         } catch (NullPointerException npe) {
             npe.getMessage();
         }
+
+        Validations.centerToolbarTitle(toolbar);
 
         try {
             final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);

@@ -55,6 +55,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -183,15 +184,22 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         tabview = (LinearLayout) findViewById(R.id.tabview);
         detailsViewContainer = (LinearLayout) findViewById(R.id.details_view_container);
         pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
-        toolbar.setTitle("Details");
+        //toolbar.setTitle("Details");
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
+        TextView toolbarTitle = (TextView)toolbar.findViewById(R.id.toolbar_title);
+        toolbarTitle.setText("Details");
+
+
         setSupportActionBar(toolbar);
         try {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         } catch (NullPointerException npe) {
             npe.getMessage();
         }
+
+        centerToolbarTitle(toolbar);
 
         try {
             final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
@@ -578,4 +586,20 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         finish();
         overridePendingTransition(R.anim.left_in, R.anim.right_out);
     }
+
+    public static void centerToolbarTitle(final Toolbar toolbar) {
+        final CharSequence title = toolbar.getTitle();
+        final ArrayList<View> outViews = new ArrayList<>(1);
+        toolbar.findViewsWithText(outViews, title, View.FIND_VIEWS_WITH_TEXT);
+        if (!outViews.isEmpty()) {
+            final TextView titleView = (TextView) outViews.get(0);
+            titleView.setGravity(Gravity.CENTER_HORIZONTAL);
+            final Toolbar.LayoutParams layoutParams = (Toolbar.LayoutParams) titleView.getLayoutParams();
+            layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
+            layoutParams.setMargins(0,0,60,0);
+            toolbar.requestLayout();
+        }
+    }
+
+
 }
