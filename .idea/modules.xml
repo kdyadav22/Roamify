@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Roamify.iml" filepath="$PROJECT_DIR$/Roamify.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Roamify_Android.iml" filepath="$PROJECT_DIR$/Roamify_Android.iml" />
       <module fileurl="file://D:\Dummy\Roamify\Roamify_Android.iml" filepath="D:\Dummy\Roamify\Roamify_Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
