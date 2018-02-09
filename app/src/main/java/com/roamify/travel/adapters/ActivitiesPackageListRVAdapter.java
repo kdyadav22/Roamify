@@ -89,7 +89,7 @@ public class ActivitiesPackageListRVAdapter extends RecyclerView.Adapter<Activit
                             //.fitCenter()
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .crossFade(1000)
-                            .override(100, 100)
+                            .override(width, height)
                             .error(R.drawable.default_image)
                             .placeholder(R.drawable.default_image)
                             .into(holder.packageImageView);

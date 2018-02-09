@@ -163,11 +163,11 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
     }
 
     @Override
-    public void onClickRatingBar(String service_provider_id) {
-        showRatingDialog(service_provider_id);
+    public void onClickRatingBar(SourceSiteModel sourceSiteModel, int pos) {
+        showRatingDialog(sourceSiteModel, pos);
     }
 
-    public void showRatingDialog(final String sp_id) {
+    public void showRatingDialog(final SourceSiteModel sourceSiteModel, final int pos) {
         try {
 
             final Dialog mdialog = new Dialog(getActivity());
@@ -203,7 +203,7 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
                     JSONObject jsonObject = new JSONObject();
                     PackageDetailsModel packageDetailsModel = ActivityPackageDetails.getInstance().packageDetailsModel;
                     try {
-                        jsonObject.put("id", sp_id);
+                        jsonObject.put("id", sourceSiteModel.getSourceId());
                         jsonObject.put("packageid", packageDetailsModel.getId());
                         jsonObject.put("comment", commentEditText.getText().toString().trim());
                         jsonObject.put("rating", ratingNumber);
@@ -216,8 +216,8 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
                         if (new CheckConnection(getActivity()).isConnectedToInternet()) {
                             try {
                                 //http://mohanpackaging.com/app/submitrating.php
-                                String Url = Constants.BaseUrl + "submitrating.php?packageId=" + packageDetailsModel.getId() + "&comment=" + commentEditText.getText().toString().trim() + "&rating=" + ratingNumber+ "&serviceProviderId=" + sp_id;
-                                getRequestCall(Url, "submit_review", null);
+                                String Url = Constants.BaseUrl + "submitrating.php?packageId=" + packageDetailsModel.getId() + "&comment=" + commentEditText.getText().toString().trim() + "&rating=" + ratingNumber + "&serviceProviderId=" + sourceSiteModel.getSourceId();
+                                getRequestCall(Url, "submit_review", null, pos, sourceSiteModel);
                             } catch (Exception ex) {
                                 ex.printStackTrace();
                             }
@@ -245,7 +245,7 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
         }
     }
 
-    public void getRequestCall(String url, String tag, JSONObject jsonObject) {
+    public void getRequestCall(String url, String tag, JSONObject jsonObject, final int pos, final SourceSiteModel sourceSiteModel) {
         // cancel request from pending queue
         AppController.getInstance().cancelPendingRequests(tag);
 
@@ -259,7 +259,16 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
                             getActivity().runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-
+                                    SourceSiteModel sourceSiteModelNew = new SourceSiteModel();
+                                    sourceSiteModelNew.setSourceId(sourceSiteModel.getSourceId());
+                                    sourceSiteModelNew.setSourceUrl(sourceSiteModel.getSourceUrl());
+                                    if (Validations.isNotNullNotEmptyNotWhiteSpace(sourceSiteModel.getRating())) {
+                                        float oldRating = Float.parseFloat(sourceSiteModel.getRating()) + ratingNumber;
+                                        sourceSiteModelNew.setRating("" + oldRating);
+                                    } else {
+                                        sourceSiteModelNew.setRating("" + ratingNumber);
+                                    }
+                                    ((SourceRVAdapterDetails) rvRecyclerView.getAdapter()).updateRating(pos, sourceSiteModelNew);
                                 }
                             });
                         } catch (Exception ex) {

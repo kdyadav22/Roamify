@@ -96,7 +96,7 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
                 try {
                     if(Validations.isNotNullNotEmptyNotWhiteSpace(address)) {
                         latLng = getGeoCoordsFromAddress(getActivity(), address);
-                        zoomAndAnimateMap(20.0f, latLng, address);
+                        zoomAndAnimateMap(9.0f, latLng, address);
                     }
                 } catch (Exception Ex) {
                     Ex.printStackTrace();

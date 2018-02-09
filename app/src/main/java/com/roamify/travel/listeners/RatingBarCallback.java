@@ -1,9 +1,11 @@
 package com.roamify.travel.listeners;
 
+import com.roamify.travel.models.SourceSiteModel;
+
 /**
  * Created by Kapil on 06/02/18.
  */
 
 public interface RatingBarCallback {
-    void onClickRatingBar(String service_provider_id);
+    void onClickRatingBar(SourceSiteModel sourceSiteModel, int pos);
 }

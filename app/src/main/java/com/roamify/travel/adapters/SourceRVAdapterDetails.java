@@ -82,7 +82,7 @@ public class SourceRVAdapterDetails extends RecyclerView.Adapter<SourceViewHandl
         holder.ratingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Constants.ratingBarCallback.onClickRatingBar(data.getSourceId());
+                Constants.ratingBarCallback.onClickRatingBar(data, position);
             }
         });
     }
@@ -90,6 +90,14 @@ public class SourceRVAdapterDetails extends RecyclerView.Adapter<SourceViewHandl
     @Override
     public int getItemCount() {
         return activityModels.size();
+    }
+
+    public void updateRating(int pos, SourceSiteModel sourceSiteModel) {
+        activityModels.remove(pos);
+        activityModels.add(pos, sourceSiteModel);
+        notifyItemInserted(pos);
+        notifyItemRangeChanged(pos, activityModels.size());
+        notifyDataSetChanged();
     }
 
 }

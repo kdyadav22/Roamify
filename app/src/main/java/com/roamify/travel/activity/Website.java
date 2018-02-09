@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.roamify.travel.R;
+import com.roamify.travel.utils.Validations;
 
 
 public class Website extends AppCompatActivity {
@@ -52,9 +53,12 @@ public class Website extends AppCompatActivity {
         setSupportActionBar(toolbar);
         try {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         } catch (NullPointerException npe) {
             npe.getMessage();
         }
+
+        Validations.centerToolbarTitle(toolbar);
 
         try {
             final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
