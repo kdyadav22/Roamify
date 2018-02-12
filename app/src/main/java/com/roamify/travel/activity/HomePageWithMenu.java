@@ -1,5 +1,6 @@
 package com.roamify.travel.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -66,6 +67,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
     protected ImageView ivDestinations;
     protected ImageView collapsedImage;
     protected LinearLayout llIconMenu;
+    @SuppressLint("StaticFieldLeak")
     static HomePageWithMenu mInstance;
     protected CustomAutoCompleteView autoCompleteTextView;
     LinearLayout collapsed_toolbar_layout;
@@ -585,7 +587,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
         for (int i = 0; i < pageSearchModelArrayList.size(); i++) {
             HomePageSearchModel model = new HomePageSearchModel();
             final String fId = pageSearchModelArrayList.get(i).getName().toLowerCase();
-            if (fId.startsWith(folderID.toLowerCase())) {
+            if (fId.contains(folderID.toLowerCase())) {
                 model.setId(pageSearchModelArrayList.get(i).getId());
                 model.setName(pageSearchModelArrayList.get(i).getName());
                 model.setType(pageSearchModelArrayList.get(i).getType());
