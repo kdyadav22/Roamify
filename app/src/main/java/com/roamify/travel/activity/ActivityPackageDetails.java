@@ -125,7 +125,10 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
                             break;
                         case "Reviews":
+                            Bundle bundle = new Bundle();
+                            bundle.putString("package_id",getIntent().getStringExtra("package_id"));
                             fragment = new ReviewsFragment();
+                            fragment.setArguments(bundle);
                             transaction = fragmentManager.beginTransaction();
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
                             break;

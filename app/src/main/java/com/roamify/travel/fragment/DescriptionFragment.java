@@ -263,7 +263,7 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
                                     sourceSiteModelNew.setSourceId(sourceSiteModel.getSourceId());
                                     sourceSiteModelNew.setSourceUrl(sourceSiteModel.getSourceUrl());
                                     if (Validations.isNotNullNotEmptyNotWhiteSpace(sourceSiteModel.getRating())) {
-                                        float oldRating = Float.parseFloat(sourceSiteModel.getRating()) + ratingNumber;
+                                        float oldRating = (Float.parseFloat(sourceSiteModel.getRating()) + ratingNumber)/2;
                                         sourceSiteModelNew.setRating("" + oldRating);
                                     } else {
                                         sourceSiteModelNew.setRating("" + ratingNumber);

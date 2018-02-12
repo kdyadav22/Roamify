@@ -64,8 +64,11 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
     boolean rateUs = false;
     ArrayList<ReviewModel> arrayList = new ArrayList<>();
     TextView textView;
+    String packageId ;
+    Bundle bundle = new Bundle();
     public ReviewsFragment() {
         // Required empty public constructor
+        //bundle = getArguments();
     }
 
     @Override
@@ -75,7 +78,7 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
         initView(rootView);
         PackageDetailsModel packageDetailsModel = ActivityPackageDetails.getInstance().packageDetailsModel;
         //http://mohanpackaging.com/app/getReturnReviews.php?packageId=5a2fbdb61f664
-        String URL = Constants.BaseUrl + "getReturnReviews.php?packageId=5a2fbdb61f664";
+        String URL = Constants.BaseUrl + "getReturnReviews.php?packageId="+ActivityPackageDetails.getInstance().packageDetailsModel.getId();
         if (new CheckConnection(getActivity()).isConnectedToInternet()) {
             try {
                 getRequestCall(URL, "get_review", null);
@@ -150,9 +153,9 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
                     JSONObject jsonObject = new JSONObject();
                     PackageDetailsModel packageDetailsModel = ActivityPackageDetails.getInstance().packageDetailsModel;
                     try {
-                        jsonObject.put("id", packageDetailsModel.getId());
-                        jsonObject.put("name", nameEditText.getText().toString().trim());
-                        jsonObject.put("email", emailEditText.getText().toString().trim());
+                        jsonObject.put("packageId", packageDetailsModel.getId());
+                        jsonObject.put("userName", nameEditText.getText().toString().trim());
+                        jsonObject.put("userEmail", emailEditText.getText().toString().trim());
                         jsonObject.put("comment", commentEditText.getText().toString().trim());
                         jsonObject.put("rating", ratingNumber);
                     } catch (JSONException je) {
@@ -165,7 +168,7 @@ public class ReviewsFragment extends Fragment implements View.OnClickListener {
                             try {
                                 String name = nameEditText.getText().toString().trim();
                                 String email = emailEditText.getText().toString().trim();
-                                String comment = commentEditText.getText().toString().trim();
+                                String comment = commentEditText.getText().toString().trim().replaceAll(" ","%20");
 
                                 if (!Validations.emailValidator(email)) {
                                     AlertDialogManager.showAlartDialog(getActivity(), "Alert!", "Please enter valid email address.");
