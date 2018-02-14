@@ -210,6 +210,29 @@ public class AppController extends Application {
                 .build());
 
         Log.w("Strict Mode", "Strict mode enabled");
+
+        // when you create a new application you can set the Thread and VM Policy
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .detectCustomSlowCalls() // API level 11, to use with StrictMode.noteSlowCode
+                .detectDiskReads()
+                .detectDiskWrites()
+                .detectNetwork()
+                .penaltyLog()
+                .penaltyFlashScreen() // API level 11
+                .build());
+
+//If you use StrictMode you might as well define a VM policy too
+
+        try {
+            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                    .detectLeakedSqlLiteObjects()
+                    .detectLeakedClosableObjects() // API level 11
+                    .setClassInstanceLimit(Class.forName("com.roamify.travel.activity.LoginActivity"), 100)
+                    .penaltyLog()
+                    .build());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {

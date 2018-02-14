@@ -1,20 +1,15 @@
 package com.roamify.travel.activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -24,34 +19,26 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
-import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 import com.roamify.travel.R;
+import com.roamify.travel.facebook.FaceBookLogin;
+import com.roamify.travel.googleplus.GooglePlusLogin;
 import com.roamify.travel.utils.AppController;
-import com.roamify.travel.utils.Validations;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, FaceBookLogin.MFacebookCallback, GooglePlusLogin.GooglePlusCallback {
 
     protected Toolbar toolbar;
     protected AppBarLayout appbar;
@@ -60,63 +47,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected TextView btSkipTextView;
     protected TextView registerButton;
     private static final String TAG = LoginActivity.class.getSimpleName();
-    private static final int RC_SIGN_IN = 007;
     protected ImageView loginButton;
-
-    private GoogleApiClient mGoogleApiClient;
-    private ProgressDialog mProgressDialog;
 
     private SignInButton btnSignIn;
 
-    private static final String EMAIL = "email";
-    private static final String USER_POSTS = "user_posts";
-    private static final String USER_PROFILE = "user_profile";
     private CallbackManager mCallbackManager;
+
+    FaceBookLogin faceBookLogin;
+    GooglePlusLogin googlePlusLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_login);
         initView();
+        //Facebook Login initialization
+        mCallbackManager = CallbackManager.Factory.create();
+        faceBookLogin = new FaceBookLogin(LoginActivity.this, mCallbackManager);
+        //End
 
-        /*GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
-
-        // Customizing G+ button
-        btnSignIn.setSize(SignInButton.SIZE_STANDARD);
-        btnSignIn.setScopes(gso.getScopeArray());*/
-
-        // Set the initial permissions to request from the user while logging in
-        //loginButton.setReadPermissions(Arrays.asList(EMAIL, USER_POSTS));
-
-        // Register a callback to respond to the user
-        /*loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Log.d(TAG, "Got cached sign-in " + loginResult.getAccessToken());
-                AccessToken accessToken = loginResult.getAccessToken();
-                Profile profile = Profile.getCurrentProfile();
-                AppController.getInstance().setUserId(profile.getId());
-                nextActivity(profile);
-            }
-
-            @Override
-            public void onCancel() {
-                //setResult(RESULT_CANCELED);
-                //finish();
-            }
-
-            @Override
-            public void onError(FacebookException e) {
-                // Handle exception
-            }
-        });*/
+        //Custom call
+        //Google + initialization
+        googlePlusLogin = new GooglePlusLogin(LoginActivity.this);
+        googlePlusLogin.initializeGooglePlus();
+        //End
     }
 
     private void nextActivity(Profile profile) {
@@ -161,7 +115,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view.getId() == R.id.btn_sign_in) {
             try {
-                //signIn();
+                //Custom call
+                googlePlusLogin.showProgressDialog();
+                googlePlusLogin.signIn();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -169,7 +125,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             AppController.getInstance().isSkipped(true);
             goToNext();
         } else if (view.getId() == R.id.login_button) {
-            onFblogin();
+            faceBookLogin.onFblogin();
         }
     }
 
@@ -251,164 +207,71 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    /*private void signIn() {
-        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }*/
-
-
-    /*private void signOut() {
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        //updateUI(false);
-                    }
-                });
-    }*/
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            //GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            //handleSignInResult(result);
+
+        //Custom call
+        if (requestCode == googlePlusLogin.mResultCode()) {
+            googlePlusLogin.gotSignResult(data);
         } else {
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
-        }
-    }
-
-    /*private void revokeAccess() {
-        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        updateUI(false);
-                    }
-                });
-    }*/
-
-    /*private void handleSignInResult(GoogleSignInResult result) {
-        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
-        if (result.isSuccess()) {
-            // Signed in successfully, show authenticated UI.
-            GoogleSignInAccount acct = result.getSignInAccount();
-
-            Log.e(TAG, "display name: " + acct.getDisplayName());
-
-            String personName = acct.getDisplayName();
-            String personPhotoUrl = acct.getPhotoUrl().toString();
-            String email = acct.getEmail();
-
-            Log.e(TAG, "Name: " + personName + ", email: " + email
-                    + ", Image: " + personPhotoUrl);
-
-            AppController.getInstance().setUserId(acct.getIdToken());
-            goToNext();
-
-        }
-    }*/
-
-    private void showProgressDialog() {
-        if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(this);
-            mProgressDialog.setMessage("");
-            mProgressDialog.setIndeterminate(true);
-        }
-
-        mProgressDialog.show();
-    }
-
-    private void hideProgressDialog() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.hide();
         }
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
-        /*OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
-        if (opr.isDone()) {
-            // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
-            // and the GoogleSignInResult will be available instantly.
-            Log.d(TAG, "Got cached sign-in");
-            GoogleSignInResult result = opr.get();
-            //handleSignInResult(result);
-        } else {
-            // If the user has not previously signed in on this device or the sign-in has expired,
-            // this asynchronous branch will attempt to sign in the user silently.  Cross-device
-            // single sign-on will occur in this branch.
-            showProgressDialog();
-            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
-                @Override
-                public void onResult(GoogleSignInResult googleSignInResult) {
-                    hideProgressDialog();
-                    //handleSignInResult(googleSignInResult);
-                }
-            });
-        }*/
-
-
+        //Custom call
+        googlePlusLogin.gotCachedSignIn();
     }
 
-    // Private method to handle Facebook login and callback
-    private void onFblogin() {
-        mCallbackManager = CallbackManager.Factory.create();
-        // Set permissions
-        LoginManager.getInstance().logOut();
-        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "public_profile", "user_photos"));
-        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(final LoginResult loginResult) {
-                Profile profile = Profile.getCurrentProfile();
-                if (profile != null) {
-                   /* facebook_id = profile.getId();
-                    f_name = profile.getFirstName();
-                    m_name = profile.getMiddleName();
-                    l_name = profile.getLastName();
-                    full_name = profile.getName();
-                    profile_image = profile.getProfilePictureUri(400, 400).toString();*/
-                }
 
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,email,gender, birthday");
-                GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
-                        new GraphRequest.GraphJSONObjectCallback() {
-                            @Override
-                            public void onCompleted(JSONObject object, GraphResponse response) {
-                                try {
-                                    //AccessToken accessToken = loginResult.getAccessToken();
-                                    Profile profile = Profile.getCurrentProfile();
-                                    AppController.getInstance().setUserId(profile.getId());
-                                    nextActivity(profile);
-                                } catch (Exception e) {
-                                    // TODO Auto-generated catch block
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
-                request.setParameters(parameters);
-                request.executeAsync();
-            }
+    private void handleResult(GoogleSignInAccount acct) {
+        Log.e(TAG, "display name: " + acct.getDisplayName());
+        String personPhotoUrl = "";
+        String personName = acct.getDisplayName();
+        if (acct.getPhotoUrl() != null) {
+            personPhotoUrl = acct.getPhotoUrl().toString();
+        }
+        String email = acct.getEmail();
 
-            @Override
-            public void onCancel() {
-                Toast.makeText(getApplicationContext(), "Login Cancelled", Toast.LENGTH_LONG).show();
-            }
+        Log.e(TAG, "Name: " + personName + ", email: " + email
+                + ", Image: " + personPhotoUrl);
 
-            @Override
-            public void onError(FacebookException error) {
-                Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_LONG).show();
-            }
-        });
+        AppController.getInstance().setUserId(acct.getId());
+        if (getIntent().getBooleanExtra("isComingFromDetails", false)) {
+            onBackPressed();
+        } else {
+
+            Intent main = new Intent(LoginActivity.this, HomePageWithMenu.class);
+            main.putExtra("name", personName);
+            main.putExtra("surname", "");
+            main.putExtra("imageUrl", personPhotoUrl);
+            startActivity(main);
+            finish();
+        }
+    }
+
+    @Override
+    public void onFBLoginSuccess(Profile profile) {
+        AppController.getInstance().setUserId(profile.getId());
+        nextActivity(profile);
+    }
+
+    @Override
+    public void mHandleSignInResult(GoogleSignInAccount result) {
+        handleResult(result);
+    }
+
+    @Override
+    public void mConnectionFailed(ConnectionResult connectionResult) {
+        googlePlusLogin.hideProgressDialog();
+    }
+
+    @Override
+    public void onSignInFailed() {
+        googlePlusLogin.hideProgressDialog();
     }
 }
