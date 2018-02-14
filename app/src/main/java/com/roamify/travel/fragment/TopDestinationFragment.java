@@ -137,7 +137,7 @@ public class TopDestinationFragment extends Fragment {
     }
 
     private void runOnMainThread(JSONObject response) throws JSONException {
-        JSONArray jsonArray = response.getJSONArray("details");
+        JSONArray jsonArray = new JSONArray(response.toString());
         for (int i = 0; i < jsonArray.length(); i++) {
             DestinationModel model = new DestinationModel();
             JSONObject jsonObject = jsonArray.getJSONObject(i);
