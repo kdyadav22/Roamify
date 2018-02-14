@@ -9,6 +9,9 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -39,6 +42,8 @@ import com.roamify.travel.R;
 import com.roamify.travel.adapters.AutocompleteHomePageArrayAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
 import com.roamify.travel.dialogs.AlertDialogManager;
+import com.roamify.travel.fragment.RelatedActivitiesFragment;
+import com.roamify.travel.fragment.TopDestinationFragment;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.HomePageSearchModel;
 import com.roamify.travel.models.MenuItemModel;
@@ -80,6 +85,10 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
     CoordinatorLayout rootLayout;
     AppBarLayout appBarLayout;
 
+    Fragment fragment;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+
     public static synchronized HomePageWithMenu getInstance() {
         return mInstance;
     }
@@ -99,7 +108,8 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_with_menu);
         initView();
-
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
         setSupportActionBar(toolbar);
@@ -171,6 +181,8 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
         } else {
             AlertDialogManager.showAlartDialog(HomePageWithMenu.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
+
+        //displayPopularDestinations();
     }
 
     @Override
@@ -197,28 +209,6 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
         }
 
     }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home_page_with_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -720,5 +710,20 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
         } catch (Exception Ex) {
             Ex.printStackTrace();
         }
+    }
+
+    public void displayPopularDestinations()
+    {
+        try {
+            fragment = new TopDestinationFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            Bundle bundle = new Bundle();
+            bundle.putString("package_id", getIntent().getStringExtra("package_id"));
+            fragment.setArguments(bundle);
+            fragmentTransaction.replace(R.id.related_view_container, fragment).addToBackStack(null).commitAllowingStateLoss();
+        } catch (IllegalStateException ise) {
+            ise.printStackTrace();
+        }
+
     }
 }

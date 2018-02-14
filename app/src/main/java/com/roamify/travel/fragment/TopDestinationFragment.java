@@ -22,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.TopDestinationListRVAdapter;
@@ -45,6 +46,7 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class TopDestinationFragment extends Fragment {
     protected TextView tvTopPopularDestinations;
     protected ImageView ivLeft;
@@ -59,8 +61,7 @@ public class TopDestinationFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_top_destination, container, false);
         initView(rootView);
@@ -97,11 +98,11 @@ public class TopDestinationFragment extends Fragment {
         // cancel request from pending queue
         AppController.getInstance().cancelPendingRequests(tag);
 
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                url, jsonObject,
-                new Response.Listener<JSONObject>() {
+        JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
                         Log.d("TAG", response.toString());
                         try {
                             runOnMainThread(response);
@@ -136,11 +137,11 @@ public class TopDestinationFragment extends Fragment {
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
     }
 
-    private void runOnMainThread(JSONObject response) throws JSONException {
-        JSONArray jsonArray = new JSONArray(response.toString());
-        for (int i = 0; i < jsonArray.length(); i++) {
+    private void runOnMainThread(JSONArray response) throws JSONException {
+        //JSONArray jsonArray = new JSONArray(response.toString());
+        for (int i = 0; i < response.length(); i++) {
             DestinationModel model = new DestinationModel();
-            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            JSONObject jsonObject = response.getJSONObject(i);
             String id = jsonObject.getString("id");
             String name = jsonObject.getString("name");
             String thumbImage = jsonObject.getString("thumbImage");

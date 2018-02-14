@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
+            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
             "map": [
                 {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-27.0.1.aar\\b749623044d72c9ece0dc4f5fc862eaf\\res\\values-vi\\values-vi.xml",
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-27.0.1.aar\\b749623044d72c9ece0dc4f5fc862eaf\\res\\values-vi\\values-vi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\d834941c72626e72b0a570faac504438\\res\\values-vi\\values-vi.xml",
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\d834941c72626e72b0a570faac504438\\res\\values-vi\\values-vi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\04efbcc9c6fee7ad8254497f902d75e6\\res\\values-vi\\values-vi.xml",
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\04efbcc9c6fee7ad8254497f902d75e6\\res\\values-vi\\values-vi.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\f6bc8dfb4cd83e253c33e51a157352be\\res\\values-vi\\values.xml",
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\f6bc8dfb4cd83e253c33e51a157352be\\res\\values-vi\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -72,7 +72,7 @@
                     }
                 },
                 {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.0.aar\\0ca04aca05bd6f831ce1b3b2ffae1f53\\res\\values-vi\\values.xml",
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.0.aar\\0ca04aca05bd6f831ce1b3b2ffae1f53\\res\\values-vi\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -89,7 +89,7 @@
                     }
                 },
                 {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-login-4.29.0.aar\\4eed4dfae1d37a96aa4313ecfb082390\\res\\values-vi\\values-vi.xml",
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-login-4.29.0.aar\\4eed4dfae1d37a96aa4313ecfb082390\\res\\values-vi\\values-vi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -108,168 +108,10 @@
             ]
         },
         {
-            "outputFile": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
+            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify_Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
             "map": [
                 {
-                    "source": "D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\04efbcc9c6fee7ad8254497f902d75e6\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "81",
-                        "startColumns": "4",
-                        "startOffsets": "9142",
-                        "endColumns": "100",
-                        "endOffsets": "9238"
-                    }
-                },
-                {
-                    "source": "D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\f6bc8dfb4cd83e253c33e51a157352be\\res\\values-vi\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "285",
-                        "endColumns": "194",
-                        "endOffsets": "479"
-                    },
-                    "to": {
-                        "startLines": "49",
-                        "startColumns": "4",
-                        "startOffsets": "5425",
-                        "endColumns": "194",
-                        "endOffsets": "5615"
-                    }
-                },
-                {
-                    "source": "D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-27.0.1.aar\\b749623044d72c9ece0dc4f5fc862eaf\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,154,260,369,482,579,664,760,868,963,1058,1154,1247,1360,1485,1572,1653,1734,1831,1938,2026",
-                        "endColumns": "98,105,108,112,96,84,95,107,94,94,95,92,112,124,86,80,80,96,106,87,94",
-                        "endOffsets": "149,255,364,477,574,659,755,863,958,1053,1149,1242,1355,1480,1567,1648,1729,1826,1933,2021,2116"
-                    },
-                    "to": {
-                        "startLines": "59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "6992,7091,7197,7306,7419,7516,7601,7697,7805,7900,7995,8091,8184,8297,8422,8509,8590,8671,8768,8875,8963",
-                        "endColumns": "98,105,108,112,96,84,95,107,94,94,95,92,112,124,86,80,80,96,106,87,94",
-                        "endOffsets": "7086,7192,7301,7414,7511,7596,7692,7800,7895,7990,8086,8179,8292,8417,8504,8585,8666,8763,8870,8958,9053"
-                    }
-                },
-                {
-                    "source": "D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-login-4.29.0.aar\\4eed4dfae1d37a96aa4313ecfb082390\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,215,346,486,596,681,767,843,929,1021,1134,1245,1338,1431,1539,1659,1738,1822,2006,2102,2208,2329,2437",
-                        "endColumns": "159,130,139,109,84,85,75,85,91,112,110,92,92,107,119,78,83,183,95,105,120,107,145",
-                        "endOffsets": "210,341,481,591,676,762,838,924,1016,1129,1240,1333,1426,1534,1654,1733,1817,2001,2097,2203,2324,2432,2578"
-                    },
-                    "to": {
-                        "startLines": "19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "1874,2034,2165,2305,2415,2500,2586,2662,2748,2840,2953,3064,3157,3250,3358,3478,3557,3641,3825,3921,4027,4148,4256",
-                        "endColumns": "159,130,139,109,84,85,75,85,91,112,110,92,92,107,119,78,83,183,95,105,120,107,145",
-                        "endOffsets": "2029,2160,2300,2410,2495,2581,2657,2743,2835,2948,3059,3152,3245,3353,3473,3552,3636,3820,3916,4022,4143,4251,4397"
-                    }
-                },
-                {
-                    "source": "D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.0.aar\\0ca04aca05bd6f831ce1b3b2ffae1f53\\res\\values-vi\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "283,383,577,700,805,1029,1157,1286,1526,1631,1823,1951,2169,2344,2438,2528",
-                        "endColumns": "99,193,122,104,223,127,128,239,104,191,127,217,174,93,89,105",
-                        "endOffsets": "382,576,699,804,1028,1156,1285,1525,1630,1822,1950,2168,2343,2437,2527,2633"
-                    },
-                    "to": {
-                        "startLines": "42,43,44,45,46,47,48,50,51,52,53,54,55,56,57,58",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4402,4506,4700,4827,4936,5160,5292,5620,5860,5969,6161,6293,6511,6690,6788,6882",
-                        "endColumns": "103,193,126,108,223,131,132,239,108,191,131,217,178,97,93,109",
-                        "endOffsets": "4501,4695,4822,4931,5155,5287,5420,5855,5964,6156,6288,6506,6685,6783,6877,6987"
-                    }
-                },
-                {
-                    "source": "D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\d834941c72626e72b0a570faac504438\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,219,327,436,520,623,742,819,896,980,1084,1193,1294,1399,1513,1618,1775,1874",
-                        "endColumns": "113,107,108,83,102,118,76,76,83,103,108,100,104,113,104,156,98,83",
-                        "endOffsets": "214,322,431,515,618,737,814,891,975,1079,1188,1289,1394,1508,1613,1770,1869,1953"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,80",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,219,327,436,520,623,742,819,896,980,1084,1193,1294,1399,1513,1618,1775,9058",
-                        "endColumns": "113,107,108,83,102,118,76,76,83,103,108,100,104,113,104,156,98,83",
-                        "endOffsets": "214,322,431,515,618,737,814,891,975,1079,1188,1289,1394,1508,1613,1770,1869,9137"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Dummy\\Roamify\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
-            "map": [
-                {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\5d7f1e0ecdac6a5c75b6b1700031bb06\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "81",
-                        "startColumns": "4",
-                        "startOffsets": "9142",
-                        "endColumns": "100",
-                        "endOffsets": "9238"
-                    }
-                },
-                {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-login-4.29.0.aar\\bf50c95b8eda63d017893914a9737caa\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,215,346,486,596,681,767,843,929,1021,1134,1245,1338,1431,1539,1659,1738,1822,2006,2102,2208,2329,2437",
-                        "endColumns": "159,130,139,109,84,85,75,85,91,112,110,92,92,107,119,78,83,183,95,105,120,107,145",
-                        "endOffsets": "210,341,481,591,676,762,838,924,1016,1129,1240,1333,1426,1534,1654,1733,1817,2001,2097,2203,2324,2432,2578"
-                    },
-                    "to": {
-                        "startLines": "19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "1874,2034,2165,2305,2415,2500,2586,2662,2748,2840,2953,3064,3157,3250,3358,3478,3557,3641,3825,3921,4027,4148,4256",
-                        "endColumns": "159,130,139,109,84,85,75,85,91,112,110,92,92,107,119,78,83,183,95,105,120,107,145",
-                        "endOffsets": "2029,2160,2300,2410,2495,2581,2657,2743,2835,2948,3059,3152,3245,3353,3473,3552,3636,3820,3916,4022,4143,4251,4397"
-                    }
-                },
-                {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-27.0.1.aar\\fa8a0ea465315d48570f7fb921703b69\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,154,260,369,482,579,664,760,868,963,1058,1154,1247,1360,1485,1572,1653,1734,1831,1938,2026",
-                        "endColumns": "98,105,108,112,96,84,95,107,94,94,95,92,112,124,86,80,80,96,106,87,94",
-                        "endOffsets": "149,255,364,477,574,659,755,863,958,1053,1149,1242,1355,1480,1567,1648,1729,1826,1933,2021,2116"
-                    },
-                    "to": {
-                        "startLines": "59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "6992,7091,7197,7306,7419,7516,7601,7697,7805,7900,7995,8091,8184,8297,8422,8509,8590,8671,8768,8875,8963",
-                        "endColumns": "98,105,108,112,96,84,95,107,94,94,95,92,112,124,86,80,80,96,106,87,94",
-                        "endOffsets": "7086,7192,7301,7414,7511,7596,7692,7800,7895,7990,8086,8179,8292,8417,8504,8585,8666,8763,8870,8958,9053"
-                    }
-                },
-                {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\ca79310bcea7fa61723dadb53b27c4a3\\res\\values-vi\\values-vi.xml",
+                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/d834941c72626e72b0a570faac504438/res/values-vi/values-vi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -286,7 +128,7 @@
                     }
                 },
                 {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.0.aar\\f2dcdec0fe6adf4c54343859ecdf865b\\res\\values-vi\\values.xml",
+                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/0ca04aca05bd6f831ce1b3b2ffae1f53/res/values-vi/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -303,7 +145,58 @@
                     }
                 },
                 {
-                    "source": "D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\6fbf65dcff9703c69fd2eb7fdf8883b8\\res\\values-vi\\values.xml",
+                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.1.aar/04efbcc9c6fee7ad8254497f902d75e6/res/values-vi/values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "81",
+                        "startColumns": "4",
+                        "startOffsets": "9142",
+                        "endColumns": "100",
+                        "endOffsets": "9238"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/facebook-login-4.29.0.aar/4eed4dfae1d37a96aa4313ecfb082390/res/values-vi/values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,215,346,486,596,681,767,843,929,1021,1134,1245,1338,1431,1539,1659,1738,1822,2006,2102,2208,2329,2437",
+                        "endColumns": "159,130,139,109,84,85,75,85,91,112,110,92,92,107,119,78,83,183,95,105,120,107,145",
+                        "endOffsets": "210,341,481,591,676,762,838,924,1016,1129,1240,1333,1426,1534,1654,1733,1817,2001,2097,2203,2324,2432,2578"
+                    },
+                    "to": {
+                        "startLines": "19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1874,2034,2165,2305,2415,2500,2586,2662,2748,2840,2953,3064,3157,3250,3358,3478,3557,3641,3825,3921,4027,4148,4256",
+                        "endColumns": "159,130,139,109,84,85,75,85,91,112,110,92,92,107,119,78,83,183,95,105,120,107,145",
+                        "endOffsets": "2029,2160,2300,2410,2495,2581,2657,2743,2835,2948,3059,3152,3245,3353,3473,3552,3636,3820,3916,4022,4143,4251,4397"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-27.0.1.aar/b749623044d72c9ece0dc4f5fc862eaf/res/values-vi/values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,154,260,369,482,579,664,760,868,963,1058,1154,1247,1360,1485,1572,1653,1734,1831,1938,2026",
+                        "endColumns": "98,105,108,112,96,84,95,107,94,94,95,92,112,124,86,80,80,96,106,87,94",
+                        "endOffsets": "149,255,364,477,574,659,755,863,958,1053,1149,1242,1355,1480,1567,1648,1729,1826,1933,2021,2116"
+                    },
+                    "to": {
+                        "startLines": "59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "6992,7091,7197,7306,7419,7516,7601,7697,7805,7900,7995,8091,8184,8297,8422,8509,8590,8671,8768,8875,8963",
+                        "endColumns": "98,105,108,112,96,84,95,107,94,94,95,92,112,124,86,80,80,96,106,87,94",
+                        "endOffsets": "7086,7192,7301,7414,7511,7596,7692,7800,7895,7990,8086,8179,8292,8417,8504,8585,8666,8763,8870,8958,9053"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/f6bc8dfb4cd83e253c33e51a157352be/res/values-vi/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -322,10 +215,27 @@
             ]
         },
         {
-            "outputFile": "D:\\Dummy\\Roamify\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
+            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\6fbf65dcff9703c69fd2eb7fdf8883b8\\res\\values-vi\\values.xml",
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\04efbcc9c6fee7ad8254497f902d75e6\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "81",
+                        "startColumns": "4",
+                        "startOffsets": "9142",
+                        "endColumns": "100",
+                        "endOffsets": "9238"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\f6bc8dfb4cd83e253c33e51a157352be\\res\\values-vi\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -342,7 +252,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-27.0.1.aar\\fa8a0ea465315d48570f7fb921703b69\\res\\values-vi\\values-vi.xml",
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-27.0.1.aar\\b749623044d72c9ece0dc4f5fc862eaf\\res\\values-vi\\values-vi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -359,41 +269,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\ca79310bcea7fa61723dadb53b27c4a3\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,219,327,436,520,623,742,819,896,980,1084,1193,1294,1399,1513,1618,1775,1874",
-                        "endColumns": "113,107,108,83,102,118,76,76,83,103,108,100,104,113,104,156,98,83",
-                        "endOffsets": "214,322,431,515,618,737,814,891,975,1079,1188,1289,1394,1508,1613,1770,1869,1953"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,80",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,219,327,436,520,623,742,819,896,980,1084,1193,1294,1399,1513,1618,1775,9058",
-                        "endColumns": "113,107,108,83,102,118,76,76,83,103,108,100,104,113,104,156,98,83",
-                        "endOffsets": "214,322,431,515,618,737,814,891,975,1079,1188,1289,1394,1508,1613,1770,1869,9137"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.0.aar\\f2dcdec0fe6adf4c54343859ecdf865b\\res\\values-vi\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "283,383,577,700,805,1029,1157,1286,1526,1631,1823,1951,2169,2344,2438,2528",
-                        "endColumns": "99,193,122,104,223,127,128,239,104,191,127,217,174,93,89,105",
-                        "endOffsets": "382,576,699,804,1028,1156,1285,1525,1630,1822,1950,2168,2343,2437,2527,2633"
-                    },
-                    "to": {
-                        "startLines": "42,43,44,45,46,47,48,50,51,52,53,54,55,56,57,58",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4402,4506,4700,4827,4936,5160,5292,5620,5860,5969,6161,6293,6511,6690,6788,6882",
-                        "endColumns": "103,193,126,108,223,131,132,239,108,191,131,217,178,97,93,109",
-                        "endOffsets": "4501,4695,4822,4931,5155,5287,5420,5855,5964,6156,6288,6506,6685,6783,6877,6987"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-login-4.29.0.aar\\bf50c95b8eda63d017893914a9737caa\\res\\values-vi\\values-vi.xml",
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-login-4.29.0.aar\\4eed4dfae1d37a96aa4313ecfb082390\\res\\values-vi\\values-vi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -410,7 +286,238 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\5d7f1e0ecdac6a5c75b6b1700031bb06\\res\\values-vi\\values-vi.xml",
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.0.aar\\0ca04aca05bd6f831ce1b3b2ffae1f53\\res\\values-vi\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "283,383,577,700,805,1029,1157,1286,1526,1631,1823,1951,2169,2344,2438,2528",
+                        "endColumns": "99,193,122,104,223,127,128,239,104,191,127,217,174,93,89,105",
+                        "endOffsets": "382,576,699,804,1028,1156,1285,1525,1630,1822,1950,2168,2343,2437,2527,2633"
+                    },
+                    "to": {
+                        "startLines": "42,43,44,45,46,47,48,50,51,52,53,54,55,56,57,58",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4402,4506,4700,4827,4936,5160,5292,5620,5860,5969,6161,6293,6511,6690,6788,6882",
+                        "endColumns": "103,193,126,108,223,131,132,239,108,191,131,217,178,97,93,109",
+                        "endOffsets": "4501,4695,4822,4931,5155,5287,5420,5855,5964,6156,6288,6506,6685,6783,6877,6987"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\d834941c72626e72b0a570faac504438\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,219,327,436,520,623,742,819,896,980,1084,1193,1294,1399,1513,1618,1775,1874",
+                        "endColumns": "113,107,108,83,102,118,76,76,83,103,108,100,104,113,104,156,98,83",
+                        "endOffsets": "214,322,431,515,618,737,814,891,975,1079,1188,1289,1394,1508,1613,1770,1869,1953"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,80",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,219,327,436,520,623,742,819,896,980,1084,1193,1294,1399,1513,1618,1775,9058",
+                        "endColumns": "113,107,108,83,102,118,76,76,83,103,108,100,104,113,104,156,98,83",
+                        "endOffsets": "214,322,431,515,618,737,814,891,975,1079,1188,1289,1394,1508,1613,1770,1869,9137"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\D:\\Dummy\\Roamify\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
+            "map": [
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\5d7f1e0ecdac6a5c75b6b1700031bb06\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "81",
+                        "startColumns": "4",
+                        "startOffsets": "9142",
+                        "endColumns": "100",
+                        "endOffsets": "9238"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-login-4.29.0.aar\\bf50c95b8eda63d017893914a9737caa\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,215,346,486,596,681,767,843,929,1021,1134,1245,1338,1431,1539,1659,1738,1822,2006,2102,2208,2329,2437",
+                        "endColumns": "159,130,139,109,84,85,75,85,91,112,110,92,92,107,119,78,83,183,95,105,120,107,145",
+                        "endOffsets": "210,341,481,591,676,762,838,924,1016,1129,1240,1333,1426,1534,1654,1733,1817,2001,2097,2203,2324,2432,2578"
+                    },
+                    "to": {
+                        "startLines": "19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1874,2034,2165,2305,2415,2500,2586,2662,2748,2840,2953,3064,3157,3250,3358,3478,3557,3641,3825,3921,4027,4148,4256",
+                        "endColumns": "159,130,139,109,84,85,75,85,91,112,110,92,92,107,119,78,83,183,95,105,120,107,145",
+                        "endOffsets": "2029,2160,2300,2410,2495,2581,2657,2743,2835,2948,3059,3152,3245,3353,3473,3552,3636,3820,3916,4022,4143,4251,4397"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-27.0.1.aar\\fa8a0ea465315d48570f7fb921703b69\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,154,260,369,482,579,664,760,868,963,1058,1154,1247,1360,1485,1572,1653,1734,1831,1938,2026",
+                        "endColumns": "98,105,108,112,96,84,95,107,94,94,95,92,112,124,86,80,80,96,106,87,94",
+                        "endOffsets": "149,255,364,477,574,659,755,863,958,1053,1149,1242,1355,1480,1567,1648,1729,1826,1933,2021,2116"
+                    },
+                    "to": {
+                        "startLines": "59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "6992,7091,7197,7306,7419,7516,7601,7697,7805,7900,7995,8091,8184,8297,8422,8509,8590,8671,8768,8875,8963",
+                        "endColumns": "98,105,108,112,96,84,95,107,94,94,95,92,112,124,86,80,80,96,106,87,94",
+                        "endOffsets": "7086,7192,7301,7414,7511,7596,7692,7800,7895,7990,8086,8179,8292,8417,8504,8585,8666,8763,8870,8958,9053"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\ca79310bcea7fa61723dadb53b27c4a3\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,219,327,436,520,623,742,819,896,980,1084,1193,1294,1399,1513,1618,1775,1874",
+                        "endColumns": "113,107,108,83,102,118,76,76,83,103,108,100,104,113,104,156,98,83",
+                        "endOffsets": "214,322,431,515,618,737,814,891,975,1079,1188,1289,1394,1508,1613,1770,1869,1953"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,80",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,219,327,436,520,623,742,819,896,980,1084,1193,1294,1399,1513,1618,1775,9058",
+                        "endColumns": "113,107,108,83,102,118,76,76,83,103,108,100,104,113,104,156,98,83",
+                        "endOffsets": "214,322,431,515,618,737,814,891,975,1079,1188,1289,1394,1508,1613,1770,1869,9137"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.0.aar\\f2dcdec0fe6adf4c54343859ecdf865b\\res\\values-vi\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "283,383,577,700,805,1029,1157,1286,1526,1631,1823,1951,2169,2344,2438,2528",
+                        "endColumns": "99,193,122,104,223,127,128,239,104,191,127,217,174,93,89,105",
+                        "endOffsets": "382,576,699,804,1028,1156,1285,1525,1630,1822,1950,2168,2343,2437,2527,2633"
+                    },
+                    "to": {
+                        "startLines": "42,43,44,45,46,47,48,50,51,52,53,54,55,56,57,58",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4402,4506,4700,4827,4936,5160,5292,5620,5860,5969,6161,6293,6511,6690,6788,6882",
+                        "endColumns": "103,193,126,108,223,131,132,239,108,191,131,217,178,97,93,109",
+                        "endOffsets": "4501,4695,4822,4931,5155,5287,5420,5855,5964,6156,6288,6506,6685,6783,6877,6987"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Users\\Kapil\\Documents\\MyWorks\\Roamify_Android\\C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\6fbf65dcff9703c69fd2eb7fdf8883b8\\res\\values-vi\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "194",
+                        "endOffsets": "479"
+                    },
+                    "to": {
+                        "startLines": "49",
+                        "startColumns": "4",
+                        "startOffsets": "5425",
+                        "endColumns": "194",
+                        "endOffsets": "5615"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/Kapil/Documents/MyWorks/Roamify_Android/D:\\Dummy\\Roamify\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
+            "map": [
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.6.0.aar\\6fbf65dcff9703c69fd2eb7fdf8883b8\\res\\values-vi\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "194",
+                        "endOffsets": "479"
+                    },
+                    "to": {
+                        "startLines": "49",
+                        "startColumns": "4",
+                        "startOffsets": "5425",
+                        "endColumns": "194",
+                        "endOffsets": "5615"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-27.0.1.aar\\fa8a0ea465315d48570f7fb921703b69\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,154,260,369,482,579,664,760,868,963,1058,1154,1247,1360,1485,1572,1653,1734,1831,1938,2026",
+                        "endColumns": "98,105,108,112,96,84,95,107,94,94,95,92,112,124,86,80,80,96,106,87,94",
+                        "endOffsets": "149,255,364,477,574,659,755,863,958,1053,1149,1242,1355,1480,1567,1648,1729,1826,1933,2021,2116"
+                    },
+                    "to": {
+                        "startLines": "59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "6992,7091,7197,7306,7419,7516,7601,7697,7805,7900,7995,8091,8184,8297,8422,8509,8590,8671,8768,8875,8963",
+                        "endColumns": "98,105,108,112,96,84,95,107,94,94,95,92,112,124,86,80,80,96,106,87,94",
+                        "endOffsets": "7086,7192,7301,7414,7511,7596,7692,7800,7895,7990,8086,8179,8292,8417,8504,8585,8666,8763,8870,8958,9053"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\ca79310bcea7fa61723dadb53b27c4a3\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,219,327,436,520,623,742,819,896,980,1084,1193,1294,1399,1513,1618,1775,1874",
+                        "endColumns": "113,107,108,83,102,118,76,76,83,103,108,100,104,113,104,156,98,83",
+                        "endOffsets": "214,322,431,515,618,737,814,891,975,1079,1188,1289,1394,1508,1613,1770,1869,1953"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,80",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,219,327,436,520,623,742,819,896,980,1084,1193,1294,1399,1513,1618,1775,9058",
+                        "endColumns": "113,107,108,83,102,118,76,76,83,103,108,100,104,113,104,156,98,83",
+                        "endOffsets": "214,322,431,515,618,737,814,891,975,1079,1188,1289,1394,1508,1613,1770,1869,9137"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.6.0.aar\\f2dcdec0fe6adf4c54343859ecdf865b\\res\\values-vi\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "283,383,577,700,805,1029,1157,1286,1526,1631,1823,1951,2169,2344,2438,2528",
+                        "endColumns": "99,193,122,104,223,127,128,239,104,191,127,217,174,93,89,105",
+                        "endOffsets": "382,576,699,804,1028,1156,1285,1525,1630,1822,1950,2168,2343,2437,2527,2633"
+                    },
+                    "to": {
+                        "startLines": "42,43,44,45,46,47,48,50,51,52,53,54,55,56,57,58",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4402,4506,4700,4827,4936,5160,5292,5620,5860,5969,6161,6293,6511,6690,6788,6882",
+                        "endColumns": "103,193,126,108,223,131,132,239,108,191,131,217,178,97,93,109",
+                        "endOffsets": "4501,4695,4822,4931,5155,5287,5420,5855,5964,6156,6288,6506,6685,6783,6877,6987"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\facebook-login-4.29.0.aar\\bf50c95b8eda63d017893914a9737caa\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,215,346,486,596,681,767,843,929,1021,1134,1245,1338,1431,1539,1659,1738,1822,2006,2102,2208,2329,2437",
+                        "endColumns": "159,130,139,109,84,85,75,85,91,112,110,92,92,107,119,78,83,183,95,105,120,107,145",
+                        "endOffsets": "210,341,481,591,676,762,838,924,1016,1129,1240,1333,1426,1534,1654,1733,1817,2001,2097,2203,2324,2432,2578"
+                    },
+                    "to": {
+                        "startLines": "19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1874,2034,2165,2305,2415,2500,2586,2662,2748,2840,2953,3064,3157,3250,3358,3478,3557,3641,3825,3921,4027,4148,4256",
+                        "endColumns": "159,130,139,109,84,85,75,85,91,112,110,92,92,107,119,78,83,183,95,105,120,107,145",
+                        "endOffsets": "2029,2160,2300,2410,2495,2581,2657,2743,2835,2948,3059,3152,3245,3353,3473,3552,3636,3820,3916,4022,4143,4251,4397"
+                    }
+                },
+                {
+                    "source": "/Users/Kapil/Documents/MyWorks/Roamify_Android/C:\\Users\\Panalink-03\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\5d7f1e0ecdac6a5c75b6b1700031bb06\\res\\values-vi\\values-vi.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
