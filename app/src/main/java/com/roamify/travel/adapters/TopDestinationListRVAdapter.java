@@ -47,7 +47,7 @@ public class TopDestinationListRVAdapter extends RecyclerView.Adapter<TopPackage
         final int width = displayMetrics.widthPixels / 2;
         ViewGroup.LayoutParams layoutParams = holder.ll_activity_rowLayout.getLayoutParams();
         layoutParams.width = width - 10;
-        layoutParams.height = width + 100;
+        layoutParams.height = width ;
         holder.ll_activity_rowLayout.setLayoutParams(layoutParams);
         if (data != null) {
             try {
