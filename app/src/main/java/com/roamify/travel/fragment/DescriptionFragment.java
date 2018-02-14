@@ -74,8 +74,7 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_description, container, false);
         initView(rootView);
@@ -205,7 +204,7 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
                     try {
                         jsonObject.put("id", sourceSiteModel.getSourceId());
                         jsonObject.put("packageid", packageDetailsModel.getId());
-                        jsonObject.put("comment", commentEditText.getText().toString().trim());
+                        jsonObject.put("comment", "");
                         jsonObject.put("rating", ratingNumber);
                     } catch (JSONException je) {
                         je.printStackTrace();
@@ -216,7 +215,7 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
                         if (new CheckConnection(getActivity()).isConnectedToInternet()) {
                             try {
                                 //http://mohanpackaging.com/app/submitrating.php
-                                String Url = Constants.BaseUrl + "submitrating.php?packageId=" + packageDetailsModel.getId() + "&comment=" + commentEditText.getText().toString().trim() + "&rating=" + ratingNumber + "&serviceProviderId=" + sourceSiteModel.getSourceId();
+                                String Url = Constants.BaseUrl + "submitrating.php?packageId=" + packageDetailsModel.getId() + "&comment=Thank you!&rating=" + ratingNumber + "&serviceProviderId=" + sourceSiteModel.getSourceId();
                                 getRequestCall(Url, "submit_review", null, pos, sourceSiteModel);
                             } catch (Exception ex) {
                                 ex.printStackTrace();

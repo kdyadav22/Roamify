@@ -26,7 +26,15 @@
             android:gravity="top"
             android:textColor="@color/md_grey_700"
             android:inputType="textMultiLine"
+            android:visibility="gone"
             android:hint="Comment" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Please give your valuable rating"
+            android:layout_height="wrap_content" />
 
         <RatingBar
             android:id="@+id/ratingbar"
