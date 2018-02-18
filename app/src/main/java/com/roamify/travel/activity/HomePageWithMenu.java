@@ -2,7 +2,6 @@ package com.roamify.travel.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -42,7 +41,6 @@ import com.roamify.travel.R;
 import com.roamify.travel.adapters.AutocompleteHomePageArrayAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
 import com.roamify.travel.dialogs.AlertDialogManager;
-import com.roamify.travel.fragment.RelatedActivitiesFragment;
 import com.roamify.travel.fragment.TopDestinationFragment;
 import com.roamify.travel.listeners.ActivityItemClickListener;
 import com.roamify.travel.models.HomePageSearchModel;
@@ -518,9 +516,9 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() > 0) {
-                    myAdapter.notifyDataSetChanged();
                     myAdapter = new AutocompleteHomePageArrayAdapter(HomePageWithMenu.this, R.layout.autocomplete_text_layout, filter(charSequence.toString()));
                     autoCompleteTextView.setAdapter(myAdapter);
+                    myAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -574,16 +572,18 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
 
     private ArrayList<HomePageSearchModel> filter(String folderID) {
         final ArrayList<HomePageSearchModel> filteredModelList = new ArrayList<>();
-        for (int i = 0; i < pageSearchModelArrayList.size(); i++) {
-            HomePageSearchModel model = new HomePageSearchModel();
-            final String fId = pageSearchModelArrayList.get(i).getName().toLowerCase();
-            if (fId.contains(folderID.toLowerCase())) {
-                model.setId(pageSearchModelArrayList.get(i).getId());
-                model.setName(pageSearchModelArrayList.get(i).getName());
-                model.setType(pageSearchModelArrayList.get(i).getType());
-                model.setMainImage(pageSearchModelArrayList.get(i).getMainImage());
-                model.setPosition(pageSearchModelArrayList.get(i).getPosition());
-                filteredModelList.add(model);
+        if (pageSearchModelArrayList.size() > 0) {
+            for (int i = 0; i < pageSearchModelArrayList.size(); i++) {
+                HomePageSearchModel model = new HomePageSearchModel();
+                final String fId = pageSearchModelArrayList.get(i).getName().toLowerCase();
+                if (fId.contains(folderID.toLowerCase())) {
+                    model.setId(pageSearchModelArrayList.get(i).getId());
+                    model.setName(pageSearchModelArrayList.get(i).getName());
+                    model.setType(pageSearchModelArrayList.get(i).getType());
+                    model.setMainImage(pageSearchModelArrayList.get(i).getMainImage());
+                    model.setPosition(pageSearchModelArrayList.get(i).getPosition());
+                    filteredModelList.add(model);
+                }
             }
         }
         return filteredModelList;
@@ -712,8 +712,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
         }
     }
 
-    public void displayPopularDestinations()
-    {
+    public void displayPopularDestinations() {
         try {
             fragment = new TopDestinationFragment();
             fragmentTransaction = fragmentManager.beginTransaction();

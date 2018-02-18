@@ -110,7 +110,10 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 try {
                     switch (tName) {
                         case "Details":
+                            Bundle bundle1 = new Bundle();
+                            bundle1.putString("package_id",getIntent().getStringExtra("package_id"));
                             fragment = new DescriptionFragment();
+                            fragment.setArguments(bundle1);
                             transaction = fragmentManager.beginTransaction();
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
                             break;
@@ -120,15 +123,18 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
                             break;*/
                         case "Location":
+                            Bundle bundle2 = new Bundle();
+                            bundle2.putString("package_id",getIntent().getStringExtra("package_id"));
                             fragment = new LocationFragment();
+                            fragment.setArguments(bundle2);
                             transaction = fragmentManager.beginTransaction();
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
                             break;
                         case "Reviews":
-                            Bundle bundle = new Bundle();
-                            bundle.putString("package_id",getIntent().getStringExtra("package_id"));
+                            Bundle bundle3 = new Bundle();
+                            bundle3.putString("package_id",getIntent().getStringExtra("package_id"));
                             fragment = new ReviewsFragment();
-                            fragment.setArguments(bundle);
+                            fragment.setArguments(bundle3);
                             transaction = fragmentManager.beginTransaction();
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
                             break;
