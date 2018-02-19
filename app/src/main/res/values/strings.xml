@@ -19,8 +19,9 @@
     <string name="google_maps_key">AIzaSyB6UsGqed0995VNE4uvDieRKDrjRMxL6pk</string>
     <string name="title_activity_home_page_with_menu">HomePageWithMenu</string>
 
-    <string name="facebook_app_id">229200674291118</string>
-    <string name="fb_login_protocol_scheme">fb229200674291118</string>
+    <string name="facebook_app_id">212619732617571</string>
+    <string name="fb_login_protocol_scheme">fb212619732617571</string>
+
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

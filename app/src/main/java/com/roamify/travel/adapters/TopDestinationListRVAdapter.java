@@ -80,7 +80,6 @@ public class TopDestinationListRVAdapter extends RecyclerView.Adapter<TopPackage
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(activity, AllActivities.class);
-                    intent.putExtra("title", data.getDestinationName());
                     intent.putExtra("loc_name", data.getDestinationName());
                     intent.putExtra("loc_id", data.getDestinationId());
                     activity.startActivity(intent);

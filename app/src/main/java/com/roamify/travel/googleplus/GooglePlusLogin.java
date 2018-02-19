@@ -90,15 +90,11 @@ public class GooglePlusLogin implements GoogleApiClient.OnConnectionFailedListen
 
     public void gotSignResult(Intent data) {
         GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-
         if (result.isSuccess()) {
-            Log.e("Google plus Success", "Google plus Success ");
             GoogleSignInAccount acct = result.getSignInAccount();
             googlePlusCallback.mHandleSignInResult(acct);
-        } else {
-            Log.e("Google plus UnSuccess", "Google plus UnSuccess ");
+        } else
             googlePlusCallback.onSignInFailed();
-        }
     }
 
     public void signIn() {
