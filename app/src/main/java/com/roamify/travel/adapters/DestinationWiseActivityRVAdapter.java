@@ -71,7 +71,6 @@ public class DestinationWiseActivityRVAdapter extends RecyclerView.Adapter<Desti
                 e.fillInStackTrace();
             }
 
-
             holder.ll_rowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

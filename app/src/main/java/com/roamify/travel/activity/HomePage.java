@@ -181,9 +181,9 @@ public class HomePage extends AppCompatActivity implements ActivityItemClickList
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() > 0) {
-                    myAdapter.notifyDataSetChanged();
                     myAdapter = new AutocompleteHomePageArrayAdapter(HomePage.this, R.layout.autocomplete_text_layout, filter(charSequence.toString()));
                     autoCompleteTextView.setAdapter(myAdapter);
+                    myAdapter.notifyDataSetChanged();
                 }
             }
 

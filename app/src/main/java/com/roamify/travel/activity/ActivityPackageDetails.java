@@ -71,6 +71,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
     protected LinearLayout detailsViewContainer;
     protected LinearLayout llRelatedListView;
     protected LinearLayout relatedViewContainer;
+    protected TextView tvStateName;
     LinearLayout pager_indicator;
     private int dotsCount;
     private ImageView[] dots;
@@ -126,7 +127,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                             break;
                         case "Reviews":
                             Bundle bundle = new Bundle();
-                            bundle.putString("package_id",getIntent().getStringExtra("package_id"));
+                            bundle.putString("package_id", getIntent().getStringExtra("package_id"));
                             fragment = new ReviewsFragment();
                             fragment.setArguments(bundle);
                             transaction = fragmentManager.beginTransaction();
@@ -190,7 +191,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         //toolbar.setTitle("Details");
         toolbar.setTitleTextAppearance(this, R.style.NavBarTitle);
         toolbar.setSubtitleTextAppearance(this, R.style.NavBarSubTitle);
-        TextView toolbarTitle = (TextView)toolbar.findViewById(R.id.toolbar_title);
+        TextView toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
         toolbarTitle.setText("Details");
 
 
@@ -230,6 +231,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
         });
         llRelatedListView = (LinearLayout) findViewById(R.id.ll_relatedListView);
         relatedViewContainer = (LinearLayout) findViewById(R.id.related_view_container);
+        tvStateName = (TextView) findViewById(R.id.tv_stateName);
     }
 
     @Override
@@ -488,6 +490,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 String locationId = jsonObject.getString("locationId");
                 String activityId = jsonObject.getString("activityId");
                 String packageName = jsonObject.getString("packageName");
+                String stateName = jsonObject.getString("stateName");
                 String address = jsonObject.getString("address");
                 String packagePrice = jsonObject.getString("packagePrice");
                 String description = jsonObject.getString("description");
@@ -508,6 +511,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                 model.setLocationId(locationId);
                 model.setActivityId(activityId);
                 model.setPackageName(packageName);
+                model.setStateName(stateName);
                 model.setAddress(address);
                 model.setPackagePrice(packagePrice);
                 model.setDescription(description);
@@ -545,6 +549,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             }
 
             tvPackagename.setText(packageDetailsModel.getPackageName());
+            tvStateName.setText(packageDetailsModel.getStateName());
 
             try {
                 fragment = new DescriptionFragment();
@@ -599,7 +604,7 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
             titleView.setGravity(Gravity.CENTER_HORIZONTAL);
             final Toolbar.LayoutParams layoutParams = (Toolbar.LayoutParams) titleView.getLayoutParams();
             layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
-            layoutParams.setMargins(0,0,60,0);
+            layoutParams.setMargins(0, 0, 60, 0);
             toolbar.requestLayout();
         }
     }

@@ -19,6 +19,7 @@ public class PackageDetailsModel {
     String specification ;
     String ratings ;
     JSONArray source ;
+    String stateName ;
 
     public String getId() {
         return id;
@@ -126,4 +127,12 @@ public class PackageDetailsModel {
 
     String duration ;
     String [] galleryImages;
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
 }

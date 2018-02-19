@@ -92,6 +92,7 @@ public class TopPackageListRVAdapter extends RecyclerView.Adapter<TopPackageList
                     intent.putExtra("title", data.getPackageName());
                     intent.putExtra("package_id", data.getPackageId());
                     intent.putExtra("isComingFromSearchPage", true);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     activity.startActivity(intent);
                     //activity.finish();
                     activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);

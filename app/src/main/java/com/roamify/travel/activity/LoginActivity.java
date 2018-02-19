@@ -1,10 +1,15 @@
 package com.roamify.travel.activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -35,6 +40,8 @@ import com.roamify.travel.utils.AppController;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,11 +55,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected TextView registerButton;
     private static final String TAG = LoginActivity.class.getSimpleName();
     protected ImageView loginButton;
-
     private SignInButton btnSignIn;
-
     private CallbackManager mCallbackManager;
-
     FaceBookLogin faceBookLogin;
     GooglePlusLogin googlePlusLogin;
 
@@ -71,6 +75,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         googlePlusLogin = new GooglePlusLogin(LoginActivity.this);
         googlePlusLogin.initializeGooglePlus();
         //End
+
+        printKeyHash(LoginActivity.this);
     }
 
     private void nextActivity(Profile profile) {
@@ -116,7 +122,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (view.getId() == R.id.btn_sign_in) {
             try {
                 //Custom call
-                googlePlusLogin.showProgressDialog();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try{
+                            googlePlusLogin.showProgressDialog();
+                        }catch (Exception ex)
+                        {
+                            ex.printStackTrace();
+                        }
+                    }
+                });
+
                 googlePlusLogin.signIn();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -227,7 +244,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         googlePlusLogin.gotCachedSignIn();
     }
 
-
     private void handleResult(GoogleSignInAccount acct) {
         Log.e(TAG, "display name: " + acct.getDisplayName());
         String personPhotoUrl = "";
@@ -273,5 +289,33 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onSignInFailed() {
         googlePlusLogin.hideProgressDialog();
+    }
+
+    public static String printKeyHash(Activity context) {
+        PackageInfo packageInfo;
+        String key = null;
+        try {
+            //getting application package name, as defined in manifest
+            String packageName = context.getApplicationContext().getPackageName();
+            //Retriving package info
+            packageInfo = context.getPackageManager().getPackageInfo(packageName,
+                    PackageManager.GET_SIGNATURES);
+            Log.e("Package Name=", context.getApplicationContext().getPackageName());
+            for (Signature signature : packageInfo.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                key = new String(Base64.encode(md.digest(), 0));
+                // String key = new String(Base64.encodeBytes(md.digest()));
+                Log.e("Key Hash=", key);
+            }
+        } catch (PackageManager.NameNotFoundException e1) {
+            Log.e("Name not found", e1.toString());
+        }
+        catch (NoSuchAlgorithmException e) {
+            Log.e("No such an algorithm", e.toString());
+        } catch (Exception e) {
+            Log.e("Exception", e.toString());
+        }
+        return key;
     }
 }
