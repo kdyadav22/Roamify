@@ -72,7 +72,6 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
     public DescriptionFragment() {
         // Required empty public constructor
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -144,7 +143,6 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
 
         return rootView;
     }
-
     private void initView(View rootView) {
         tvDetailsDuration = (TextView) rootView.findViewById(R.id.tv_details_duration);
         tvDetailsPrice = (TextView) rootView.findViewById(R.id.tv_details_price);
@@ -160,12 +158,10 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
         rvRecyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recyclerView);
         llDescSpec = (LinearLayout) rootView.findViewById(R.id.ll_desc_spec);
     }
-
     @Override
     public void onClickRatingBar(SourceSiteModel sourceSiteModel, int pos) {
         showRatingDialog(sourceSiteModel, pos);
     }
-
     public void showRatingDialog(final SourceSiteModel sourceSiteModel, final int pos) {
         try {
 
@@ -243,7 +239,6 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
             e.printStackTrace();
         }
     }
-
     public void getRequestCall(String url, String tag, JSONObject jsonObject, final int pos, final SourceSiteModel sourceSiteModel) {
         // cancel request from pending queue
         AppController.getInstance().cancelPendingRequests(tag);
@@ -300,4 +295,5 @@ public class DescriptionFragment extends Fragment implements RatingBarCallback {
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag);
     }
+
 }

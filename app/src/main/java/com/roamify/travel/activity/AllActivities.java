@@ -90,9 +90,9 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() > 0) {
                     try {
-                        myAdapter.notifyDataSetChanged();
                         myAdapter = new AutocompleteAllActivityAdapter(AllActivities.this, R.layout.autocomplete_allactivity_text_layout, filter(charSequence.toString()));
                         etSearchDestination.setAdapter(myAdapter);
+                        myAdapter.notifyDataSetChanged();
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }

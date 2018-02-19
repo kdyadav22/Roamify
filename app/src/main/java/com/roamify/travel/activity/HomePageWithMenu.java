@@ -518,9 +518,13 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() > 0) {
-                    myAdapter.notifyDataSetChanged();
-                    myAdapter = new AutocompleteHomePageArrayAdapter(HomePageWithMenu.this, R.layout.autocomplete_text_layout, filter(charSequence.toString()));
-                    autoCompleteTextView.setAdapter(myAdapter);
+                    try {
+                        myAdapter = new AutocompleteHomePageArrayAdapter(HomePageWithMenu.this, R.layout.autocomplete_text_layout, filter(charSequence.toString()));
+                        autoCompleteTextView.setAdapter(myAdapter);
+                        myAdapter.notifyDataSetChanged();
+                    } catch (NullPointerException npe) {
+                        npe.getMessage();
+                    }
                 }
             }
 
@@ -712,8 +716,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
         }
     }
 
-    public void displayPopularDestinations()
-    {
+    public void displayPopularDestinations() {
         try {
             fragment = new TopDestinationFragment();
             fragmentTransaction = fragmentManager.beginTransaction();
