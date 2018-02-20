@@ -33,9 +33,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.roamify.travel.R;
+import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.facebook.FaceBookLogin;
 import com.roamify.travel.googleplus.GooglePlusLogin;
 import com.roamify.travel.utils.AppController;
+import com.roamify.travel.utils.CheckConnection;
+import com.roamify.travel.utils.Constants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -76,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         googlePlusLogin.initializeGooglePlus();
         //End
 
-        printKeyHash(LoginActivity.this);
+        //printKeyHash(LoginActivity.this);
     }
 
     private void nextActivity(Profile profile) {
@@ -121,28 +124,38 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view.getId() == R.id.btn_sign_in) {
             try {
-                //Custom call
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try{
-                            googlePlusLogin.showProgressDialog();
-                        }catch (Exception ex)
-                        {
-                            ex.printStackTrace();
+                if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+                    //Custom call
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                googlePlusLogin.showProgressDialog();
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
                         }
-                    }
-                });
+                    });
 
-                googlePlusLogin.signIn();
+                    googlePlusLogin.signIn();
+                } else {
+                    AlertDialogManager.showAlartDialog(LoginActivity.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
+                }
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         } else if (view.getId() == R.id.tv_skipBtn) {
-            AppController.getInstance().isSkipped(true);
-            goToNext();
+            if (new CheckConnection(getApplicationContext()).isConnectedToInternet()) {
+                AppController.getInstance().isSkipped(true);
+                goToNext();
+            } else {
+                AlertDialogManager.showAlartDialog(LoginActivity.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
+            }
         } else if (view.getId() == R.id.login_button) {
-            faceBookLogin.onFblogin();
+            if (new CheckConnection(getApplicationContext()).isConnectedToInternet())
+                faceBookLogin.onFblogin();
+            else
+                AlertDialogManager.showAlartDialog(LoginActivity.this, getString(R.string.no_network_title), getString(R.string.no_network_msg));
         }
     }
 
@@ -310,8 +323,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         } catch (PackageManager.NameNotFoundException e1) {
             Log.e("Name not found", e1.toString());
-        }
-        catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             Log.e("No such an algorithm", e.toString());
         } catch (Exception e) {
             Log.e("Exception", e.toString());
