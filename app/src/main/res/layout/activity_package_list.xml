@@ -9,6 +9,7 @@
     <include
         android:id="@+id/included_header"
         layout="@layout/toolbar_layout" />
+
     <RelativeLayout
         android:id="@+id/rlSearch"
         style="@style/edittext_white_forsearch"
@@ -56,21 +57,26 @@
             android:src="@drawable/ic_action_cancel"
             android:visibility="gone" />
     </RelativeLayout>
-    <ScrollView
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/rlSearch"
         android:background="@color/white"
         android:fillViewport="true">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlSearch"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/main_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:descendantFocusability="blocksDescendants"
                 android:orientation="vertical">
 
                 <android.support.v7.widget.RecyclerView
@@ -102,6 +108,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -128,7 +135,7 @@
 
                 </LinearLayout>
             </LinearLayout>
-        </RelativeLayout>
-    </ScrollView>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
 </RelativeLayout>

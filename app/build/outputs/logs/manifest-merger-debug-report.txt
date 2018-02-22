@@ -372,22 +372,6 @@ data
 ADDED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml:124:17-75
 	android:scheme
 		ADDED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml:124:23-72
-activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
-ADDED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml:127:9-130:73
-MERGED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:20:9-189
-MERGED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:20:9-189
-	android:screenOrientation
-		ADDED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml:129:13-49
-	android:excludeFromRecents
-		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:20:129-162
-	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:20:163-187
-	android:windowSoftInputMode
-		ADDED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml:130:13-70
-	android:theme
-		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:20:69-128
-	android:name
-		ADDED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml:128:13-93
 uses-sdk
 INJECTED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml
@@ -504,6 +488,16 @@ INJECTED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml
 		ADDED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Dummy\Roamify\app\src\main\AndroidManifest.xml
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:20:9-189
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:20:129-162
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:20:163-187
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:20:69-128
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:20:19-68
 service#com.google.android.gms.auth.api.signin.RevocationBoundService
 ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Panalink-03\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.6.0.aar\f7e1a9f084aaec9f57e4690303d708d1\AndroidManifest.xml:24:9-184
 	android:exported

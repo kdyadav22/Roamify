@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/white"
     android:fitsSystemWindows="true"
     tools:context="com.roamify.travel.activity.DestinationList">
@@ -20,15 +20,17 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:theme="@style/ToolbarColoredBackArrow">
+
             <TextView
                 android:id="@+id/toolbar_title"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:layout_gravity="center"
                 android:text="Text"
                 android:textColor="@color/md_white_1000"
-                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                android:layout_gravity="center" />
+                android:textSize="16sp" />
+
             <ImageView
                 android:id="@+id/right_bar_button"
                 android:layout_width="50dp"
@@ -61,12 +63,12 @@
 
     <RelativeLayout
         android:id="@+id/rlSearch"
-        android:visibility="gone"
-        android:layout_marginBottom="10dp"
         style="@style/edittext_white_forsearch"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/appbar"
-        android:layout_height="wrap_content">
+        android:layout_marginBottom="10dp"
+        android:visibility="gone">
 
         <EditText
             android:id="@+id/et_searchNews"
@@ -107,16 +109,20 @@
             android:visibility="gone" />
     </RelativeLayout>
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/rlSearch"
         android:background="@color/white"
         android:fillViewport="true">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlSearch"
+            android:background="@color/white"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/topheader"
@@ -136,13 +142,11 @@
                 android:id="@+id/rv_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/topheader"
                 android:visibility="visible" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rv_recyclerView"
                 android:orientation="vertical">
 
                 <TextView
@@ -154,8 +158,8 @@
                     android:text="Popular Activities"
                     android:textColor="@color/md_green_700"
                     android:textSize="18sp"
-                    android:visibility="gone"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <fragment
                     android:id="@+id/list_frag"
@@ -166,9 +170,10 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone"
-                    android:layout_height="wrap_content">
+                    android:visibility="gone">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
@@ -190,6 +195,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </RelativeLayout>
-    </ScrollView>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>

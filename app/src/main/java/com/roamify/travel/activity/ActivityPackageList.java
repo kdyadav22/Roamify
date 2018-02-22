@@ -73,6 +73,7 @@ public class ActivityPackageList extends AppCompatActivity implements View.OnCli
             recyclerView.setLayoutManager(mLayoutManager);
             recyclerView.setHasFixedSize(true);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setNestedScrollingEnabled(false);
         } catch (InflateException ie) {
             ie.getMessage();
         }

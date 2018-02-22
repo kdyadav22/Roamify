@@ -73,6 +73,7 @@ public class ActivitiesList extends AppCompatActivity implements ActivityItemCli
             rvRecyclerView.setLayoutManager(mLayoutManager);
             rvRecyclerView.setHasFixedSize(true);
             rvRecyclerView.setItemAnimator(new DefaultItemAnimator());
+            rvRecyclerView.setNestedScrollingEnabled(false);
         } catch (InflateException ie) {
             ie.getMessage();
         }

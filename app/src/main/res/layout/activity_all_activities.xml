@@ -106,7 +106,7 @@
     </RelativeLayout>
 
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rlSearch"
@@ -187,9 +187,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />-->
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:descendantFocusability="blocksDescendants"
+                    android:orientation="vertical"
                     android:layout_gravity="center"
                     android:visibility="visible">
 
@@ -223,7 +226,7 @@
                             android:tint="@color/md_black_1000" />
                     </RelativeLayout>
 
-                </RelativeLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -249,9 +252,12 @@
                     android:id="@+id/rv_WaterRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />-->
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:descendantFocusability="blocksDescendants"
+                    android:orientation="vertical"
                     android:layout_gravity="center"
                     android:visibility="visible">
 
@@ -285,7 +291,7 @@
                             android:tint="@color/md_black_1000" />
                     </RelativeLayout>
 
-                </RelativeLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -310,9 +316,12 @@
                     android:id="@+id/rv_AirRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />-->
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:descendantFocusability="blocksDescendants"
+                    android:orientation="vertical"
                     android:layout_gravity="center"
                     android:visibility="visible">
 
@@ -346,7 +355,7 @@
                             android:tint="@color/md_black_1000" />
                     </RelativeLayout>
 
-                </RelativeLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -402,6 +411,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </RelativeLayout>

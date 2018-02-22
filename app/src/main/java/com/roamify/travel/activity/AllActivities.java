@@ -160,18 +160,21 @@ public class AllActivities extends AppCompatActivity implements AllActivityItemC
         rvLandRecyclerView.setLayoutManager(mLayoutManager);
         rvLandRecyclerView.setHasFixedSize(true);
         rvLandRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        rvLandRecyclerView.setNestedScrollingEnabled(false);
 
         rvWaterRecyclerView = (RecyclerView) findViewById(R.id.rv_WaterRecyclerView);
         RecyclerView.LayoutManager mLayoutManager1 = new GridLayoutManager(getApplicationContext(), 4);
         rvWaterRecyclerView.setLayoutManager(mLayoutManager1);
         rvWaterRecyclerView.setHasFixedSize(true);
         rvWaterRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        rvWaterRecyclerView.setNestedScrollingEnabled(false);
 
         rvAirRecyclerView = (RecyclerView) findViewById(R.id.rv_AirRecyclerView);
         RecyclerView.LayoutManager mLayoutManager2 = new GridLayoutManager(getApplicationContext(), 4);
         rvAirRecyclerView.setLayoutManager(mLayoutManager2);
         rvAirRecyclerView.setHasFixedSize(true);
         rvAirRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        rvAirRecyclerView.setNestedScrollingEnabled(false);
 
         //toolbar.setTitle(getIntent().getStringExtra("title"));
 

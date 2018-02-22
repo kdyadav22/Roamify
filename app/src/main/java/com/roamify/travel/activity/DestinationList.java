@@ -184,6 +184,7 @@ public class DestinationList extends AppCompatActivity implements View.OnClickLi
             rvRecyclerView.setLayoutManager(mLayoutManager);
             rvRecyclerView.setHasFixedSize(true);
             rvRecyclerView.setItemAnimator(new DefaultItemAnimator());
+            rvRecyclerView.setNestedScrollingEnabled(false);
         } catch (InflateException ie) {
             ie.getMessage();
         }
