@@ -1,14 +1,12 @@
 package com.roamify.travel.fragment;
 
-
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -32,35 +30,39 @@ import com.roamify.travel.activity.ActivityPackageDetails;
 import com.roamify.travel.map.MapWrapperLayout;
 import com.roamify.travel.map.TouchableWrapper;
 import com.roamify.travel.models.PackageDetailsModel;
-import com.roamify.travel.utils.GeocodingLocation;
 import com.roamify.travel.utils.Validations;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LocationFragment extends Fragment implements OnMapReadyCallback,
-        GoogleMap.OnMapLoadedCallback, TouchableWrapper.UpdateMapAfterUserInterection {
+
+public class LocationFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapLoadedCallback, TouchableWrapper.UpdateMapAfterUserInterection {
     private MapWrapperLayout mRelativeLayoutMapWrapperLayout;
     private SupportMapFragment mapFragment;
     private GoogleMap googleMap;
-    Marker mMarker;
-    String address;
-    LatLng latLng;
+    private Marker mMarker;
+    private String address;
 
     public LocationFragment() {
         // Required empty public constructor
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_location, container, false);
-        mRelativeLayoutMapWrapperLayout = (MapWrapperLayout) view.findViewById(R.id.detail_map_relative_layout);
+        mRelativeLayoutMapWrapperLayout = view.findViewById(R.id.detail_map_relative_layout);
         initializeMap();
         PackageDetailsModel packageDetailsModel = ActivityPackageDetails.getInstance().packageDetailsModel;
         address = packageDetailsModel.getAddress();
@@ -86,17 +88,14 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
 
     @Override
     public void onMapLoaded() {
-        /*GeocodingLocation locationAddress = new GeocodingLocation();
-        locationAddress.getAddressFromLocation(address,
-                getActivity(), new GeocoderHandler());*/
-
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     if(Validations.isNotNullNotEmptyNotWhiteSpace(address)) {
-                        latLng = getGeoCoordsFromAddress(getActivity(), address);
-                        zoomAndAnimateMap(9.0f, latLng, address);
+                        /*latLng = getGeoCoordsFromAddress(getActivity(), address);
+                        zoomAndAnimateMap(latLng, address);*/
+                        getLatLongFromPlace(address);
                     }
                 } catch (Exception Ex) {
                     Ex.printStackTrace();
@@ -116,7 +115,7 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
         }
     }
 
-    public static LatLng getGeoCoordsFromAddress(Context c, String address) {
+    private static LatLng getGeoCoordsFromAddress(Context c, String address) {
         Geocoder geocoder = new Geocoder(c);
         List<Address> addresses;
         try {
@@ -137,7 +136,7 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
 
     }
 
-    void zoomAndAnimateMap(final float mapZooming, final LatLng latLng, final String locationName) {
+    void zoomAndAnimateMap(final LatLng latLng, final String locationName) {
         //LatLng currentPosition = new LatLng(lat, lng);
         final MarkerOptions markerOptions = new MarkerOptions();
         final LatLngBounds.Builder builder = new LatLngBounds.Builder();
@@ -154,7 +153,7 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
 
                         googleMap.setPadding(30, 200, 30, 20);
                         builder.include(markerOptions.getPosition());
-                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, mapZooming);
+                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 9.0f);
                         //googleMap.moveCamera(cameraUpdate);
                         googleMap.animateCamera(cameraUpdate);
                     }else
@@ -173,28 +172,99 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback,
 
     }
 
-    private class GeocoderHandler extends Handler {
+    public void getLatLongFromPlace(final String place) {
+        try {
+            Geocoder selected_place_geocoder = new Geocoder(getActivity(), Locale.getDefault());
+            List<Address> address;
+            address = selected_place_geocoder.getFromLocationName(place, 5);
+            if (address == null) {
+                Toast.makeText(getActivity(), "There is no any address", Toast.LENGTH_SHORT).show();
+            } else {
+                final Address location = address.get(0);
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        zoomAndAnimateMap(new LatLng(location.getLatitude(), location.getLongitude()), place);
+                    }
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            fetchLatLongFromService fetch_latlng_from_service_abc = new fetchLatLongFromService(place.replaceAll("\\s+", ""));
+            fetch_latlng_from_service_abc.execute();
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public class fetchLatLongFromService extends AsyncTask<Void, Void, StringBuilder> {
+        String place;
+        fetchLatLongFromService(String place) {
+            super();
+            this.place = place;
+        }
         @Override
-        public void handleMessage(Message message) {
-            String locationAddress;
-            switch (message.what) {
-                case 1:
-                    Bundle bundle = message.getData();
-                    locationAddress = bundle.getString("address");
-                    break;
-                default:
-                    locationAddress = null;
-            }
-
-            if (Validations.isNotNullNotEmptyNotWhiteSpace(locationAddress)) {
-                try {
-                    String latlng[] = locationAddress.split(",");
-                    //zoomAndAnimateMap(13.0f, latlng[0], address);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
+        protected void onCancelled() {
+            // TODO Auto-generated method stub
+            super.onCancelled();
+            this.cancel(true);
+        }
+        @Override
+        protected StringBuilder doInBackground(Void... params) {
+            // TODO Auto-generated method stub
+            try {
+                HttpURLConnection conn;
+                StringBuilder jsonResults = new StringBuilder();
+                String googleMapUrl = "http://maps.googleapis.com/maps/api/geocode/json?address="+ this.place + "&sensor=false";
+                URL url = new URL(googleMapUrl);
+                conn = (HttpURLConnection) url.openConnection();
+                InputStreamReader in = new InputStreamReader(conn.getInputStream());
+                int read;
+                char[] buff = new char[1024];
+                while ((read = in.read(buff)) != -1) {
+                    jsonResults.append(buff, 0, read);
                 }
+                return jsonResults;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(StringBuilder result) {
+            // TODO Auto-generated method stub
+            super.onPostExecute(result);
+            try {
+                JSONObject jsonObj = new JSONObject(result.toString());
+                JSONArray resultJsonArray = jsonObj.getJSONArray("results");
 
+                // Extract the Place descriptions from the results
+                // resultList = new ArrayList<String>(resultJsonArray.length());
+
+                if(resultJsonArray.length()>0) {
+                    JSONObject before_geometry_jsonObj = resultJsonArray.getJSONObject(0);
+                    JSONObject geometry_jsonObj = before_geometry_jsonObj.getJSONObject("geometry");
+                    JSONObject location_jsonObj = geometry_jsonObj.getJSONObject("location");
+
+                    String lat_helper = location_jsonObj.getString("lat");
+                    double lat = Double.valueOf(lat_helper);
+
+                    String lng_helper = location_jsonObj.getString("lng");
+                    double lng = Double.valueOf(lng_helper);
+
+                    final LatLng point = new LatLng(lat, lng);
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            zoomAndAnimateMap(point, place);
+                        }
+                    });
+                }else {
+                    Toast.makeText(getActivity(), "Address is not correct", Toast.LENGTH_SHORT).show();
+                }
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
     }
 }

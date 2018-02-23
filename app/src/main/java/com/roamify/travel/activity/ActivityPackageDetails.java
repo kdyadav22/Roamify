@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -121,9 +122,12 @@ public class ActivityPackageDetails extends AppCompatActivity implements View.On
                             transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
                             break;*/
                         case "Location":
-                            fragment = new LocationFragment();
-                            transaction = fragmentManager.beginTransaction();
-                            transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
+                            if(packageDetailsModel.getAddress()!=null) {
+                                fragment = new LocationFragment();
+                                transaction = fragmentManager.beginTransaction();
+                                transaction.replace(R.id.details_view_container, fragment).addToBackStack(null).commit();
+                            }else
+                            Toast.makeText(getApplicationContext(), "There is no any address", Toast.LENGTH_SHORT).show();
                             break;
                         case "Reviews":
                             Bundle bundle = new Bundle();
