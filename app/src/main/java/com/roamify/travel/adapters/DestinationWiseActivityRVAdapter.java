@@ -1,6 +1,7 @@
 package com.roamify.travel.adapters;
 
 import android.app.Activity;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -70,6 +71,7 @@ public class DestinationWiseActivityRVAdapter extends RecyclerView.Adapter<Desti
             } catch (Exception e) {
                 e.fillInStackTrace();
             }
+            //holder.imageView.setColorFilter(ContextCompat.getColor(activity, R.color.md_green_700));
 
             holder.ll_rowLayout.setOnClickListener(new View.OnClickListener() {
                 @Override

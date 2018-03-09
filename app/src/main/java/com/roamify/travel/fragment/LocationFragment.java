@@ -76,6 +76,7 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback, Go
                         .findFragmentById(R.id.fr_detail_map);
 
                 FragmentManager fragmentManager = getFragmentManager();
+                assert fragmentManager != null;
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 mapFragment = SupportMapFragment.newInstance();
                 fragmentTransaction.replace(R.id.fr_detail_map, mapFragment).commit();
@@ -252,6 +253,7 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback, Go
                     double lng = Double.valueOf(lng_helper);
 
                     final LatLng point = new LatLng(lat, lng);
+                    //noinspection ConstantConditions
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {

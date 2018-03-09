@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import com.roamify.travel.R;
 import com.roamify.travel.utils.Validations;
@@ -19,6 +20,7 @@ import com.roamify.travel.utils.Validations;
 public class Website extends AppCompatActivity {
     protected Toolbar toolbar;
     protected AppBarLayout appbar;
+    protected ProgressBar progressBar2;
     WebView webView;
 
     @Override
@@ -38,7 +40,7 @@ public class Website extends AppCompatActivity {
         webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         webView.setScrollbarFadingEnabled(false);
         webView.loadUrl(url);
-        //webView.setWebViewClient(new MyWebViewClient());
+        webView.setWebViewClient(new MyWebViewClient());
 
 
     }
@@ -76,6 +78,7 @@ public class Website extends AppCompatActivity {
                 overridePendingTransition(R.anim.left_in, R.anim.right_out);
             }
         });
+        progressBar2 = (ProgressBar) findViewById(R.id.progressBar2);
 
     }
 
@@ -83,7 +86,6 @@ public class Website extends AppCompatActivity {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
             view.loadUrl(url);
             onResume();
             return true;
@@ -103,6 +105,7 @@ public class Website extends AppCompatActivity {
         @Override
         public void onPageFinished(WebView view, String url) {
             // TODO Auto-generated method stub
+            progressBar2.setVisibility(View.GONE);
             super.onPageFinished(view, url);
             onResume();
         }
@@ -114,4 +117,6 @@ public class Website extends AppCompatActivity {
         finish();
         overridePendingTransition(R.anim.left_in, R.anim.right_out);
     }
+
+
 }

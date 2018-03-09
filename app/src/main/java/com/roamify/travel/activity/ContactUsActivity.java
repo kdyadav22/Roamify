@@ -55,7 +55,6 @@ public class ContactUsActivity extends AppCompatActivity implements View.OnClick
         logoImageview = (ImageView) findViewById(R.id.logo_imageview);
         phoneNumber = (TextView) findViewById(R.id.phone_number);
         supportUrl = (TextView) findViewById(R.id.support_url);
-        websiteUrl = (TextView) findViewById(R.id.website_url);
         tavLayout = (LinearLayout) findViewById(R.id.tavLayout);
 
         //toolbar.setTitle(getIntent().getStringExtra("title"));

@@ -119,8 +119,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
             npe.getMessage();
         }
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -229,6 +228,7 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
         } else if (id == R.id.nav_aboutus) {
             try {
                 intent = new Intent(getApplicationContext(), AboutUsActivity.class);
+                intent.putExtra("WEB_URL","http://www.roamify.in");
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } catch (Exception ex) {

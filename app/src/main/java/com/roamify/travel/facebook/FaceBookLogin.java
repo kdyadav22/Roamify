@@ -2,6 +2,7 @@ package com.roamify.travel.facebook;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.facebook.*;
@@ -50,36 +51,39 @@ public class FaceBookLogin {
         LoginManager.getInstance().logOut();
         LoginManager.getInstance().logInWithReadPermissions(activity, Arrays.asList("email", "public_profile", "user_photos"));
         LoginManager.getInstance().registerCallback(mCallbackManager, new com.facebook.FacebookCallback<LoginResult>() {
+            private ProfileTracker mProfileTracker;
             @Override
             public void onSuccess(final LoginResult loginResult) {
                 Profile profile = Profile.getCurrentProfile();
                 if (profile != null) {
-                   /* facebook_id = profile.getId();
-                    f_name = profile.getFirstName();
-                    m_name = profile.getMiddleName();
-                    l_name = profile.getLastName();
-                    full_name = profile.getName();
-                    profile_image = profile.getProfilePictureUri(400, 400).toString();*/
-                }
-
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,email,gender, birthday");
-                GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
-                        new GraphRequest.GraphJSONObjectCallback() {
-                            @Override
-                            public void onCompleted(JSONObject object, GraphResponse response) {
-                                try {
-                                    //AccessToken accessToken = loginResult.getAccessToken();
-                                    Profile profile = Profile.getCurrentProfile();
-                                    mFacebookCallback.onFBLoginSuccess(profile);
-                                } catch (Exception e) {
-                                    // TODO Auto-generated catch block
-                                    e.printStackTrace();
+                    mProfileTracker = new ProfileTracker() {
+                        @Override
+                        protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+                            Log.v("facebook - profile", currentProfile.getFirstName());
+                            mProfileTracker.stopTracking();
+                            mFacebookCallback.onFBLoginSuccess(currentProfile);
+                        }
+                    };
+                }else {
+                    Bundle parameters = new Bundle();
+                    parameters.putString("fields", "id,name,email,gender, birthday");
+                    GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
+                            new GraphRequest.GraphJSONObjectCallback() {
+                                @Override
+                                public void onCompleted(JSONObject object, GraphResponse response) {
+                                    try {
+                                        //AccessToken accessToken = loginResult.getAccessToken();
+                                        Profile profile = Profile.getCurrentProfile();
+                                        mFacebookCallback.onFBLoginSuccess(profile);
+                                    } catch (Exception e) {
+                                        // TODO Auto-generated catch block
+                                        e.printStackTrace();
+                                    }
                                 }
-                            }
-                        });
-                request.setParameters(parameters);
-                request.executeAsync();
+                            });
+                    request.setParameters(parameters);
+                    request.executeAsync();
+                }
             }
 
             @Override

@@ -21,7 +21,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:tint="@color/md_green_700"
+                android:tint="@color/md_grey_800"
                 app:srcCompat="@drawable/ic_hotel_white_24dp" />
 
             <TextView
