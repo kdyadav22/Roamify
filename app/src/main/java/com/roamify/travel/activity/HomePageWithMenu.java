@@ -1,8 +1,12 @@
 package com.roamify.travel.activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -18,6 +22,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
@@ -41,6 +46,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.roamify.travel.R;
 import com.roamify.travel.adapters.AutocompleteHomePageArrayAdapter;
 import com.roamify.travel.adapters.CustomAutoCompleteView;
+import com.roamify.travel.adapters.ShareIntentListAdapter;
 import com.roamify.travel.dialogs.AlertDialogManager;
 import com.roamify.travel.fragment.RelatedActivitiesFragment;
 import com.roamify.travel.fragment.TopDestinationFragment;
@@ -58,6 +64,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class HomePageWithMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ActivityItemClickListener, View.OnClickListener {
@@ -228,13 +235,13 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
         } else if (id == R.id.nav_aboutus) {
             try {
                 intent = new Intent(getApplicationContext(), AboutUsActivity.class);
-                intent.putExtra("WEB_URL","http://www.roamify.in");
+                intent.putExtra("WEB_URL", "http://www.roamify.in");
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_in, R.anim.left_out);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        } else if (id == R.id.nav_contactus) {
+        } /*else if (id == R.id.nav_contactus) {
             try {
                 intent = new Intent(getApplicationContext(), ContactUsActivity.class);
                 startActivity(intent);
@@ -242,8 +249,8 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        } else if (id == R.id.nav_share) {
-
+        }*/ else if (id == R.id.nav_share) {
+            shareTextUrl();
         } else if (id == R.id.nav_signIn) {
             try {
                 intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -728,5 +735,84 @@ public class HomePageWithMenu extends AppCompatActivity implements NavigationVie
             ise.printStackTrace();
         }
 
+    }
+
+    public void onShareClick(final String shareRoamifyUrl) {
+
+        Intent sendIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sendIntent.setType("text/plain");
+
+        List<ResolveInfo> resInfo = getPackageManager().queryIntentActivities(sendIntent, 0);
+        List<ResolveInfo> intentList = new ArrayList<ResolveInfo>();
+        for (int i = 0; i < resInfo.size(); i++) {
+            // Extract the label, append it, and repackage it in a LabeledIntent
+            ResolveInfo ri = resInfo.get(i);
+            String packageName = ri.activityInfo.packageName;
+            if (packageName.contains("com.twitter.android") || packageName.contains("com.facebook.katana") || packageName.contains("sms") || packageName.contains("com.instagram.android") || packageName.contains("com.whatsapp")) {
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName(packageName, ri.activityInfo.name));
+                intent.setAction(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intentList.add(ri);
+            }
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Share Roamify");
+        final ShareIntentListAdapter adapter = new ShareIntentListAdapter(this, R.layout.share_list, intentList.toArray());
+        builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ResolveInfo info = (ResolveInfo) adapter.getItem(which);
+                if (info.activityInfo.packageName.contains("com.facebook.katana")) {
+                    Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                    intent.setClassName(info.activityInfo.packageName, info.activityInfo.name);
+                    //intent.setComponent(new ComponentName(info.activityInfo.packageName, info.activityInfo.name));
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_TEXT, shareRoamifyUrl);
+                    startActivityForResult(intent, 101);
+                } else if (info.activityInfo.packageName.contains("com.whatsapp")) {
+                    Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                    intent.setClassName(info.activityInfo.packageName, info.activityInfo.name);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_TEXT, shareRoamifyUrl);
+                    startActivity(intent);
+                } else if (info.activityInfo.packageName.contains("com.twitter.android")) {
+                    Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                    intent.setClassName(info.activityInfo.packageName, info.activityInfo.name);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_TEXT, shareRoamifyUrl);
+                    startActivityForResult(intent, 102);
+                } else if (info.activityInfo.packageName.contains("sms")) {
+                    Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                    intent.setClassName(info.activityInfo.packageName, info.activityInfo.name);
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.putExtra("sms_body", shareRoamifyUrl);
+                    intent.setType("vnd.android-dir/mms-sms");
+                    startActivity(intent);
+                } else if (info.activityInfo.packageName.contains("com.instagram.android")) {
+                    Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                    intent.setClassName(info.activityInfo.packageName, info.activityInfo.name);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_TEXT, shareRoamifyUrl);
+                    startActivity(intent);
+                }
+            }
+        });
+        builder.create().show();
+    }
+
+    // Method to share either text or URL.
+    private void shareTextUrl() {
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+        // Add data to the intent, the receiving app will decide
+        // what to do with it.
+        share.putExtra(Intent.EXTRA_SUBJECT, "Roamify - seek your perfect adventure");
+        share.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.roamify.travel");
+
+        startActivity(Intent.createChooser(share, "Share Roamify"));
     }
 }

@@ -37,14 +37,14 @@
                 android:id="@+id/nav_aboutus"
                 android:icon="@drawable/ic_menu_gallery"
                 android:title="About Us" />
-            <item
+            <!--<item
                 android:id="@+id/nav_contactus"
                 android:icon="@drawable/nav_contact"
-                android:title="Contact Us" />
+                android:title="Contact Us" />-->
 
             <item
                 android:id="@+id/nav_share"
-                android:visible="false"
+                android:visible="true"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
